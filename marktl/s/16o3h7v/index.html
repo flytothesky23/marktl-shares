@@ -954,9 +954,9 @@
             </div>
 
             <details open>
-              <summary>Mermaid Gantt 원문</summary>
+              <summary>Mermaid Gantt 차트</summary>
               <div class="content-inner">
-                <pre style="white-space:pre-wrap;overflow:auto;background:rgba(2,6,23,.28);padding:12px;border-radius:14px;border:1px solid rgba(148,163,184,.14);color:#eaf2ff;margin-top:12px">gantt
+                <pre class="mermaid" style="white-space:pre-wrap;overflow:auto;background:rgba(2,6,23,.28);padding:12px;border-radius:14px;border:1px solid rgba(148,163,184,.14);color:#eaf2ff;margin-top:12px">gantt
     title 지수통합선별공장 프로젝트 통합 일정
     dateFormat  YYYY-MM-DD
     axisFormat  %m/%d
@@ -1703,6 +1703,28 @@
     document.getElementById("clear-notes").addEventListener("click", () => {
       document.getElementById("reader-notes").value = "";
     });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    (function(){
+      function renderMermaid(){
+        if(!window.mermaid) return;
+        window.mermaid.initialize({
+          startOnLoad: false,
+          securityLevel: "loose",
+          theme: "dark",
+          gantt: { useMaxWidth: true }
+        });
+        window.mermaid.run({ querySelector: ".mermaid" }).catch((error) => {
+          console.error("Mermaid render failed", error);
+        });
+      }
+      if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", renderMermaid);
+      } else {
+        renderMermaid();
+      }
+    })();
   </script>
 </body>
 </html>
