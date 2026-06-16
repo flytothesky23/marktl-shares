@@ -5,7 +5,7 @@
 <meta charset="utf-8">
   
   
-  <title>착공 첫날의 기록: 지수통합선별공장 2026년 6월 11일 공사일보</title>
+  <title>2026-06-11 지수통합선별공장 공사일보 1일차</title>
   
   
   
@@ -609,15 +609,61 @@
         box-shadow: none;
       }
     }
-  </style>
+  
+    /* Construction daily refinements */
+    .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: clamp(22px, 4vw, 44px); min-height: clamp(520px, 56vw, 680px); }
+    .hero-grid > div:first-child { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+    .hero-card { display: flex; align-items: center; justify-content: center; min-height: clamp(420px, 44vw, 620px); padding: clamp(14px, 2vw, 24px); }
+    .hero-card img { width: 100%; height: 100%; max-height: 590px; object-fit: contain; }
+    .hero h1 { font-size: clamp(2.6rem, 5vw, 5.5rem); }
+    .hero .dek { max-width: 780px; font-size: clamp(1.04rem, 1.75vw, 1.28rem); }
+    .flow-subtitle { margin-top: 38px; }
+    .flow-panel { border: 1px solid #d6deea; border-radius: var(--radius); background: rgba(255,255,255,.86); padding: clamp(16px, 2.2vw, 24px); box-shadow: var(--shadow); overflow: hidden; }
+    .field-map { display: grid; grid-template-columns: minmax(190px, 1fr) minmax(130px, .68fr) minmax(190px, 1fr); grid-template-areas: "left core right" "bottom bottom bottom"; gap: 16px; align-items: center; }
+    .field-map .core { grid-area: core; min-height: 120px; border-radius: 999px; background: #dcfce7; border: 2px solid #22c55e; color: #0f3f2a; display: grid; place-items: center; text-align: center; font-weight: 950; box-shadow: 0 14px 28px rgba(34,197,94,.16); }
+    .map-column { display: grid; gap: 12px; }
+    .map-column.left { grid-area: left; }
+    .map-column.right { grid-area: right; }
+    .map-column.bottom { grid-area: bottom; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .map-group { border: 1px solid #dbe3ee; border-radius: 12px; background: #fff; padding: 12px; }
+    .map-group h3 { margin: 0 0 10px; color: #64748b; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+    .map-node { display: grid; grid-template-columns: minmax(64px, .55fr) minmax(0, 1fr); gap: 10px; align-items: center; border: 1px solid #93c5fd; background: #eff6ff; border-radius: 8px; padding: 10px 12px; margin-top: 8px; }
+    .map-node:first-of-type { margin-top: 0; }
+    .map-node b { color: #1d4ed8; font-size: 1.02rem; }
+    .map-node span { color: #4b5563; font-size: .9rem; line-height: 1.45; }
+    .map-node.risk { border-color: #fca5a5; background: #fff1f2; }
+    .map-node.risk b { color: #dc2626; }
+    .map-node.check { border-color: #fdba74; background: #fff7ed; }
+    .map-node.check b { color: #c2410c; }
+    .flow-notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+    .flow-notes p { margin: 0; border: 1px solid #e2e8f0; border-radius: 8px; background: #f8fafc; padding: 11px 12px; color: #475569; font-size: .92rem; line-height: 1.55; }
+    .gantt-card { border: 1px solid #d6deea; border-radius: var(--radius); background: rgba(255,255,255,.9); box-shadow: var(--shadow); overflow-x: auto; padding: 18px; }
+    .gantt-visual { min-width: 820px; }
+    .gantt-axis { display: grid; grid-template-columns: 180px repeat(8, 1fr); gap: 8px; align-items: end; margin-bottom: 10px; color: #64748b; font-size: .82rem; font-weight: 900; }
+    .gantt-axis span:not(:first-child) { text-align: center; }
+    .gantt-row { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 12px; align-items: center; padding: 8px 0; border-top: 1px solid #edf2f7; }
+    .gantt-label b { display: block; color: #182230; font-size: .98rem; }
+    .gantt-label span { display: block; color: #64748b; font-size: .78rem; line-height: 1.35; margin-top: 2px; }
+    .gantt-track { position: relative; height: 40px; border-radius: 999px; background: #e5e7eb; overflow: visible; }
+    .gantt-bar { position: absolute; left: var(--x); width: var(--w); top: 5px; height: 30px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0 12px; color: #fff; font-weight: 950; font-size: .9rem; line-height: 1; white-space: nowrap; box-shadow: 0 10px 18px rgba(15,23,42,.12); }
+    .gantt-bar.blue { background: linear-gradient(90deg,#0ea5e9,#2563eb); }
+    .gantt-bar.green { background: linear-gradient(90deg,#059669,#22c55e); }
+    .gantt-bar.red { background: linear-gradient(90deg,#ef4444,#f97316); }
+    .gantt-bar.orange { background: linear-gradient(90deg,#f59e0b,#fb923c); }
+    .gantt-bar.teal { background: linear-gradient(90deg,#0f766e,#0891b2); }
+    .gantt-summary { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
+    .gantt-summary p { margin: 0; border: 1px solid #e2e8f0; background: #f8fafc; border-radius: 8px; padding: 11px 12px; color: #475569; font-size: .92rem; line-height: 1.55; }
+    @media (max-width: 920px) { .hero-grid { min-height: auto; } .hero-card { min-height: auto; } .hero-card img { max-height: none; } .field-map { grid-template-columns: 1fr; grid-template-areas: "core" "left" "right" "bottom"; } .map-column.bottom, .flow-notes, .gantt-summary { grid-template-columns: 1fr; } }
+
+</style>
 <meta property="og:type" content="article">
 <meta property="og:title" content="2026-06-11 지수통합선별공장 공사일보 1일차">
-<meta property="og:description" content="[!abstract]+ 한 줄 요약 금일은 공장바닥 콘크리트 철거 및 옹벽 기초공사 착공이 현장에서 확인된 날이다. 동시에 무허가 창고 철거, 물홈통 막힘에 따른 옥상 침수 방지/방수공사, 정문게이트·펜스 정리, 계근대 설치 후보지 검토까지 후속 공사 리스크를 정리했다. 1. 라이브 대시보드 dataviewjs const">
+<meta property="og:description" content="바닥 콘크리트 철거와 옹벽 기초 착공, 준공 리스크와 실행 게이트를 현장 사진 기준으로 정리.">
 <meta property="og:url" content="https://flytothesky23.github.io/marktl-shares/marktl/s/puyw9j/">
 <meta property="og:image" content="https://flytothesky23.github.io/marktl-shares/marktl/s/puyw9j/assets/2026-06-11-지수통합선별공장-공사일보-1일차-ui-1781222020531.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="2026-06-11 지수통합선별공장 공사일보 1일차">
-<meta name="twitter:description" content="[!abstract]+ 한 줄 요약 금일은 공장바닥 콘크리트 철거 및 옹벽 기초공사 착공이 현장에서 확인된 날이다. 동시에 무허가 창고 철거, 물홈통 막힘에 따른 옥상 침수 방지/방수공사, 정문게이트·펜스 정리, 계근대 설치 후보지 검토까지 후속 공사 리스크를 정리했다. 1. 라이브 대시보드 dataviewjs const">
+<meta name="twitter:description" content="바닥 콘크리트 철거와 옹벽 기초 착공, 준공 리스크와 실행 게이트를 현장 사진 기준으로 정리.">
 <meta name="twitter:image" content="https://flytothesky23.github.io/marktl-shares/marktl/s/puyw9j/assets/2026-06-11-지수통합선별공장-공사일보-1일차-ui-1781222020531.png">
 <link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/marktl/s/puyw9j/">
 </head>
@@ -752,98 +798,58 @@
       </section>
 
       <section id="map">
-        <span class="section-label">Diagram</span>
-        <h2>6월 11일 현장 의사결정 지도</h2>
-        <div class="diagram" role="img" aria-label="6월 11일 현장 작업과 리스크 관계도">
-          <div class="diagram-row">
-            <div class="node done">
-              <small>Center</small>
-              <strong>6/11 현장 확인</strong>
-              <p>바닥 철거, 옹벽 기초공사 착공, 외곽 리스크를 같은 방문에서 확인했다.</p>
+        <span class="section-label">Mermaid Flow</span>
+        <h2>전체 구조 Mermaid 맵</h2>
+        <div class="flow-panel" role="img" aria-label="6월 11일 현장 중심 전체 구조 맵">
+          <div class="field-map">
+            <div class="map-column left">
+              <div class="map-group"><h3>착공·선행</h3><div class="map-node"><b>철거</b><span>콘크리트 파쇄·적치</span></div><div class="map-node"><b>옹벽</b><span>기준선 확인 · 6/30</span></div></div>
             </div>
-            <div class="node">
-              <small>Work</small>
-              <strong>철거·기초</strong>
-              <p>콘크리트 파쇄와 파쇄물 집적은 옹벽 기초공사의 선행 단계다.</p>
+            <div class="core">6/11<br>현장</div>
+            <div class="map-column right">
+              <div class="map-group"><h3>리스크·장마</h3><div class="map-node risk"><b>리스크</b><span>무허가 창고 철거·증빙</span></div><div class="map-node risk"><b>배수</b><span>물홈통·방수 선행</span></div></div>
             </div>
-            <div class="node risk">
-              <small>Risk</small>
-              <strong>준공검사 리스크</strong>
-              <p>무허가 창고는 철거와 증빙 보관을 통해 리스크를 제거해야 한다.</p>
+            <div class="map-column bottom">
+              <div class="map-group"><h3>외곽</h3><div class="map-node check"><b>게이트</b><span>수목 정리 · 6/17~7/15</span></div></div>
+              <div class="map-group"><h3>물류</h3><div class="map-node check"><b>계근</b><span>회차·인입 동선 검토</span></div></div>
             </div>
           </div>
-          <div class="arrow-line"></div>
-          <div class="diagram-row">
-            <div class="node risk">
-              <small>Rainy Season</small>
-              <strong>방수·배수</strong>
-              <p>물홈통 막힘과 옥상 침수 가능성은 장마 전 조치가 필요한 선행 리스크다.</p>
+          <div class="flow-notes"><p>중심은 6/11 현장확인이다. 공종명과 마감일만 노드에 남겨 한눈에 보이게 했다.</p><p>상세 판단은 사진 기록과 체크리스트에서 관리하고, 맵은 연결구조 확인에 집중한다.</p><p>옹벽·판넬 기준은 6/30 완료 목표로 보며, 게이트·펜스는 6/17~7/15 흐름이다.</p></div>
+        </div>
+        <h2 class="flow-subtitle">직원/시공사 처리 흐름 Mermaid</h2>
+        <div class="flow-panel" role="img" aria-label="직원과 시공사 처리 흐름 맵">
+          <div class="field-map">
+            <div class="map-column left">
+              <div class="map-group"><h3>시공사</h3><div class="map-node"><b>공종확인</b><span>철거·옹벽 범위 확정</span></div><div class="map-node"><b>방수범위</b><span>물홈통·옥상 방수</span></div></div>
             </div>
-            <div class="node check">
-              <small>Access</small>
-              <strong>게이트·펜스</strong>
-              <p>수목 정리와 시공 일정 확인은 외곽 공사의 착수 조건이다.</p>
+            <div class="core">접수<br>기록</div>
+            <div class="map-column right">
+              <div class="map-group"><h3>PM</h3><div class="map-node check"><b>일정관리</b><span>건축허가승인 후 착공계</span></div><div class="map-node check"><b>업체조율</b><span>계근·게이트 협의</span></div></div>
             </div>
-            <div class="node check">
-              <small>Logistics</small>
-              <strong>계근대 후보지</strong>
-              <p>위치 선정은 대형차 동선, 대기공간, 전기·통신 인입과 함께 판단해야 한다.</p>
+            <div class="map-column bottom">
+              <div class="map-group"><h3>준공</h3><div class="map-node risk"><b>인허가</b><span>창고철거 사진·준공자료</span></div></div>
+              <div class="map-group"><h3>증빙</h3><div class="map-node risk"><b>보관</b><span>폐기물·처리기록</span></div></div>
             </div>
           </div>
+          <div class="flow-notes"><p>시공사는 공종과 방수 범위를 확정하고, PM은 일정과 업체 조율을 묶어 관리한다.</p><p>착공계는 단독 선행이 아니라 건축허가승인 후 신청하는 절차로 관리한다.</p><p>준공 리스크는 현장 처리보다 증빙 보관 품질이 핵심이다.</p></div>
         </div>
       </section>
 
       <section id="timeline">
         <span class="section-label">Schedule</span>
-        <h2>계획 대비 실행 흐름</h2>
-        <table class="timeline-table">
-          <thead>
-            <tr>
-              <th>영역</th>
-              <th>일정 기준</th>
-              <th>2026-06-11 판단</th>
-              <th>다음 확인점</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>인허가</td>
-              <td>2026-06-05 진주시청 제출</td>
-              <td>착공계는 건축허가승인 후 신청 흐름으로 관리</td>
-              <td>보완요청 여부, 허가 승인 예상일</td>
-            </tr>
-            <tr>
-              <td>부대공사</td>
-              <td>2026-06-08 이후 선행 착수</td>
-              <td>6/11 현장 철거 작업으로 실행 증거 확보</td>
-              <td>6/30까지 주요 부대공사 완료 가능성</td>
-            </tr>
-            <tr>
-              <td>옹벽·기초</td>
-              <td>6월 중 기초공사 연계</td>
-              <td>기존 포장 철거 단계 확인</td>
-              <td>기준선, 레벨, 배수 간섭</td>
-            </tr>
-            <tr>
-              <td>방수 보완</td>
-              <td>장마 전 선행 필요</td>
-              <td>물홈통 막힘과 옥상 침수 가능성 확인</td>
-              <td>청소, 방수 범위, 견적</td>
-            </tr>
-            <tr>
-              <td>게이트·펜스</td>
-              <td>6/17 착수, 7/15 완료 흐름</td>
-              <td>정문·펜스 예정구간 사전 정리 필요</td>
-              <td>수목 제거 일정, 차량 통제 계획</td>
-            </tr>
-            <tr>
-              <td>증축구간</td>
-              <td>8월 중순~하순 완료 목표</td>
-              <td>부대공사와 후속 설비 반입 일정의 접점 관리 필요</td>
-              <td>후속업체 일정, 자재 반입 동선</td>
-            </tr>
-          </tbody>
-        </table>
+        <h2>간트 요약 · 실행 게이트</h2>
+        <div class="gantt-card" role="img" aria-label="2026년 6월부터 8월까지 실행 게이트 간트 요약">
+          <div class="gantt-visual">
+            <div class="gantt-axis"><span></span><span>6/5</span><span>6/8</span><span>6/10</span><span>6/11</span><span>6/17</span><span>6/30</span><span>7/15</span><span>8/30</span></div>
+            <div class="gantt-row"><div class="gantt-label"><b>인허가</b><span>진주시청 제출 완료</span></div><div class="gantt-track"><span class="gantt-bar teal" style="--x:0.00%;--w:3.50%">제출 완료</span></div></div>
+            <div class="gantt-row"><div class="gantt-label"><b>부대공사</b><span>선행 착수 후 1차 완료관리</span></div><div class="gantt-track"><span class="gantt-bar green" style="--x:3.49%;--w:25.58%">6/8 착수 → 6/30 1차 완료</span></div></div>
+            <div class="gantt-row"><div class="gantt-label"><b>자금/보증</b><span>보증서 전 10%, 접수 후 잔여금</span></div><div class="gantt-track"><span class="gantt-bar orange" style="--x:5.81%;--w:3.50%">10% 지급</span></div></div>
+            <div class="gantt-row"><div class="gantt-label"><b>착공계/옹벽</b><span>건축허가승인 후 착공계 신청</span></div><div class="gantt-track"><span class="gantt-bar red" style="--x:6.98%;--w:22.09%">6/11 → 6/30</span></div></div>
+            <div class="gantt-row"><div class="gantt-label"><b>게이트/펜스</b><span>외곽 정리와 정문게이트</span></div><div class="gantt-track"><span class="gantt-bar orange" style="--x:13.95%;--w:32.56%">6/17 → 7/15</span></div></div>
+            <div class="gantt-row"><div class="gantt-label"><b>증축구간</b><span>예측 착공 흐름</span></div><div class="gantt-track"><span class="gantt-bar teal" style="--x:20.93%;--w:79.07%">6/23 → 8/30</span></div></div>
+          </div>
+        </div>
+        <div class="gantt-summary"><p><strong>절차:</strong> 착공계는 건축허가승인 후 신청 기준으로 관리한다.</p><p><strong>자금:</strong> 보증서 접수 전 10% 지급완료, 접수 후 잔여금 지급예정.</p><p><strong>일정:</strong> 옹벽·판넬 6/30, 증축구간은 8/30 이내 흐름으로 본다.</p></div>
       </section>
 
       <section id="photos">
