@@ -45,6 +45,21 @@
   .hero-panel .filters button{height:22px!important;padding:0 7px!important;font-size:10px!important}
 }
 
+/* Final polish: calendar labels sit below the date, and card tags never clip */
+.cal-day.has-doc{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:1px!important;min-height:30px!important;padding:3px 4px 2px!important;line-height:1!important}
+.cal-day.has-doc::after{position:static!important;display:block!important;transform:none!important;max-width:38px!important;font-size:6.5px!important;line-height:1!important;font-weight:900!important;letter-spacing:0!important;text-align:center!important;opacity:.9!important}
+.tile-body{padding-bottom:16px!important}
+.tile .tags{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:5px!important;min-height:26px!important;max-height:26px!important;overflow-x:auto!important;overflow-y:hidden!important;margin-top:auto!important;padding:4px 38px 0 0!important;scrollbar-width:none!important}
+.tile .tags::-webkit-scrollbar{display:none!important}
+.tile .tags button{flex:0 0 auto!important;height:21px!important;line-height:1!important;padding:0 7px!important;font-size:10px!important;max-width:132px!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+.tile .play{z-index:4!important}
+@media(max-width:980px){
+  .cal-day.has-doc{min-height:24px!important;padding:2px 3px!important}
+  .cal-day.has-doc::after{display:none!important}
+  .tile .tags{display:none!important}
+  .tile-body{padding-bottom:7px!important}
+}
+
 </style>
 </head>
 <body>
