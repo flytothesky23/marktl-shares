@@ -1,5 +1,668 @@
 <!doctype html>
-<html lang=\"ko\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>2026-06-11 지수통합선별공장 공사일보 1일차</title>\n  <style>\n    :root {\n      --bg: #f6f7f4;\n      --paper: #ffffff;\n      --ink: #172033;\n      --muted: #667085;\n      --line: #d9ded6;\n      --soft: #eef2ea;\n      --blue: #2563eb;\n      --green: #15803d;\n      --orange: #c35a14;\n      --red: #b42318;\n      --teal: #0f766e;\n      --shadow: 0 18px 50px rgba(23, 32, 51, .10);\n      --radius: 8px;\n    }\n\n    * { box-sizing: border-box; }\n    html { scroll-behavior: smooth; }\n    body {\n      margin: 0;\n      background:\n        linear-gradient(180deg, rgba(238,242,234,.9), rgba(246,247,244,0) 360px),\n        var(--bg);\n      color: var(--ink);\n      font-family: \"Pretendard\", \"Apple SD Gothic Neo\", \"Noto Sans KR\", \"Malgun Gothic\", system-ui, sans-serif;\n      line-height: 1.65;\n      letter-spacing: 0;\n    }\n\n    button, textarea, input {\n      font: inherit;\n    }\n\n    a {\n      color: inherit;\n      text-decoration: none;\n    }\n\n    .page {\n      display: grid;\n      grid-template-columns: 280px minmax(0, 1fr);\n      gap: 28px;\n      width: min(1440px, calc(100% - 32px));\n      margin: 0 auto;\n      padding: 28px 0 64px;\n    }\n\n    .side {\n      position: sticky;\n      top: 18px;\n      align-self: start;\n      max-height: calc(100vh - 36px);\n      overflow: auto;\n      background: rgba(255,255,255,.86);\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n      box-shadow: 0 10px 30px rgba(23,32,51,.08);\n      backdrop-filter: blur(12px);\n    }\n\n    .side-head {\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      gap: 10px;\n      padding: 14px 14px 10px;\n      border-bottom: 1px solid var(--line);\n    }\n\n    .side-title {\n      font-weight: 850;\n      font-size: 14px;\n    }\n\n    .toc-toggle,\n    .copy-btn,\n    .collapse-btn,\n    .local-btn {\n      border: 1px solid var(--line);\n      background: #fff;\n      color: var(--ink);\n      border-radius: 7px;\n      min-height: 34px;\n      padding: 6px 10px;\n      cursor: pointer;\n      font-weight: 750;\n      font-size: 13px;\n    }\n\n    .toc-toggle:hover,\n    .copy-btn:hover,\n    .collapse-btn:hover,\n    .local-btn:hover {\n      border-color: #a9b4a5;\n      background: #f8faf6;\n    }\n\n    #toc {\n      padding: 8px;\n    }\n\n    #toc a {\n      display: block;\n      padding: 8px 10px;\n      border-radius: 7px;\n      color: #344054;\n      font-size: 14px;\n    }\n\n    #toc a:hover {\n      background: var(--soft);\n      color: var(--ink);\n    }\n\n    #toc .depth-3 {\n      padding-left: 22px;\n      font-size: 13px;\n      color: #697586;\n    }\n\n    .main {\n      min-width: 0;\n    }\n\n    .hero {\n      position: relative;\n      overflow: hidden;\n      border-radius: var(--radius);\n      background: #111827;\n      min-height: 520px;\n      box-shadow: var(--shadow);\n      display: grid;\n      align-items: end;\n    }\n\n    .hero img {\n      position: absolute;\n      inset: 0;\n      width: 100%;\n      height: 100%;\n      object-fit: cover;\n      opacity: .68;\n    }\n\n    .hero::after {\n      content: \"\";\n      position: absolute;\n      inset: 0;\n      background:\n        linear-gradient(180deg, rgba(17,24,39,.05), rgba(17,24,39,.82)),\n        linear-gradient(90deg, rgba(17,24,39,.82), rgba(17,24,39,.12));\n    }\n\n    .hero-content {\n      position: relative;\n      z-index: 1;\n      padding: clamp(28px, 5vw, 58px);\n      color: #fff;\n      max-width: 920px;\n    }\n\n    .eyebrow {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 8px;\n      margin-bottom: 18px;\n    }\n\n    .pill {\n      display: inline-flex;\n      align-items: center;\n      gap: 6px;\n      border: 1px solid rgba(255,255,255,.28);\n      background: rgba(255,255,255,.12);\n      color: #fff;\n      border-radius: 999px;\n      padding: 5px 10px;\n      font-size: 13px;\n      font-weight: 800;\n      backdrop-filter: blur(10px);\n    }\n\n    h1, h2, h3 {\n      line-height: 1.2;\n      letter-spacing: 0;\n      margin: 0;\n    }\n\n    h1 {\n      font-size: clamp(34px, 6vw, 68px);\n      max-width: 880px;\n      margin-bottom: 18px;\n      word-break: keep-all;\n    }\n\n    .hero-summary {\n      font-size: clamp(17px, 2.2vw, 22px);\n      max-width: 840px;\n      color: rgba(255,255,255,.88);\n      margin: 0;\n      word-break: keep-all;\n    }\n\n    .meta-strip {\n      display: grid;\n      grid-template-columns: repeat(4, minmax(0, 1fr));\n      gap: 12px;\n      margin-top: 22px;\n      max-width: 860px;\n    }\n\n    .meta-item {\n      border: 1px solid rgba(255,255,255,.25);\n      background: rgba(255,255,255,.12);\n      border-radius: var(--radius);\n      padding: 12px;\n      backdrop-filter: blur(10px);\n    }\n\n    .meta-k {\n      display: block;\n      font-size: 11px;\n      font-weight: 900;\n      color: rgba(255,255,255,.68);\n      letter-spacing: .08em;\n    }\n\n    .meta-v {\n      display: block;\n      margin-top: 4px;\n      font-weight: 900;\n      color: #fff;\n      word-break: keep-all;\n    }\n\n    .section {\n      margin-top: 22px;\n      background: var(--paper);\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n      box-shadow: 0 12px 32px rgba(23,32,51,.06);\n      overflow: hidden;\n    }\n\n    .section-head {\n      display: flex;\n      justify-content: space-between;\n      align-items: start;\n      gap: 16px;\n      padding: 24px 26px 18px;\n      border-bottom: 1px solid var(--line);\n      background: linear-gradient(180deg, #fff, #fbfcfa);\n    }\n\n    .section-title {\n      min-width: 0;\n    }\n\n    .section-title h2 {\n      font-size: clamp(22px, 3vw, 32px);\n      word-break: keep-all;\n    }\n\n    .section-title p {\n      margin: 8px 0 0;\n      color: var(--muted);\n      word-break: keep-all;\n    }\n\n    .section-body {\n      padding: 24px 26px 28px;\n    }\n\n    .section.collapsed .section-body {\n      display: none;\n    }\n\n    .grid-4 {\n      display: grid;\n      grid-template-columns: repeat(4, minmax(0, 1fr));\n      gap: 12px;\n    }\n\n    .grid-2 {\n      display: grid;\n      grid-template-columns: repeat(2, minmax(0, 1fr));\n      gap: 16px;\n    }\n\n    .stat-card,\n    .note-card,\n    .prompt-card {\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n      background: #fff;\n      padding: 16px;\n    }\n\n    .stat-card {\n      border-top: 5px solid var(--blue);\n    }\n\n    .stat-card.green { border-top-color: var(--green); }\n    .stat-card.orange { border-top-color: var(--orange); }\n    .stat-card.red { border-top-color: var(--red); }\n\n    .stat-k {\n      font-size: 12px;\n      font-weight: 900;\n      color: var(--muted);\n      letter-spacing: .08em;\n    }\n\n    .stat-v {\n      margin-top: 4px;\n      font-size: 25px;\n      line-height: 1.15;\n      font-weight: 950;\n    }\n\n    .stat-d {\n      margin-top: 6px;\n      color: #475467;\n      font-size: 14px;\n    }\n\n    .table-wrap {\n      overflow: auto;\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n    }\n\n    table {\n      width: 100%;\n      border-collapse: collapse;\n      min-width: 760px;\n      background: #fff;\n    }\n\n    th, td {\n      padding: 13px 14px;\n      border-bottom: 1px solid var(--line);\n      text-align: left;\n      vertical-align: top;\n    }\n\n    th {\n      background: #f3f6f0;\n      font-size: 13px;\n      color: #344054;\n      font-weight: 900;\n    }\n\n    tr:last-child td {\n      border-bottom: 0;\n    }\n\n    .tag {\n      display: inline-flex;\n      align-items: center;\n      border-radius: 999px;\n      padding: 3px 8px;\n      background: #eef2ff;\n      color: #3730a3;\n      font-size: 12px;\n      font-weight: 850;\n      white-space: nowrap;\n    }\n\n    .tag.red { background: #fee4e2; color: var(--red); }\n    .tag.green { background: #dcfce7; color: var(--green); }\n    .tag.orange { background: #ffedd5; color: var(--orange); }\n    .tag.gray { background: #eef2ea; color: #344054; }\n\n    .flow {\n      display: grid;\n      grid-template-columns: 1fr auto 1fr;\n      gap: 18px;\n      align-items: center;\n      margin: 6px 0 16px;\n    }\n\n    .flow-col {\n      display: grid;\n      gap: 12px;\n    }\n\n    .flow-node {\n      border: 2px solid #bfdbfe;\n      background: #eff6ff;\n      border-radius: var(--radius);\n      padding: 13px 14px;\n      font-weight: 850;\n    }\n\n    .flow-node small {\n      display: block;\n      color: #475467;\n      font-weight: 650;\n      margin-top: 2px;\n    }\n\n    .flow-node.risk {\n      border-color: #fecaca;\n      background: #fff1f0;\n    }\n\n    .flow-node.check {\n      border-color: #fed7aa;\n      background: #fff7ed;\n    }\n\n    .flow-core {\n      width: 150px;\n      height: 150px;\n      border-radius: 50%;\n      display: grid;\n      place-items: center;\n      text-align: center;\n      background: #dcfce7;\n      border: 3px solid #22c55e;\n      font-weight: 950;\n      box-shadow: 0 14px 28px rgba(21,128,61,.16);\n    }\n\n    .timeline {\n      display: grid;\n      gap: 14px;\n    }\n\n    .lane {\n      display: grid;\n      grid-template-columns: 160px 1fr;\n      gap: 14px;\n      align-items: center;\n    }\n\n    .lane-label {\n      font-weight: 900;\n      color: #344054;\n    }\n\n    .bar-area {\n      position: relative;\n      height: 38px;\n      background: #f2f4f0;\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n      overflow: hidden;\n    }\n\n    .bar {\n      position: absolute;\n      top: 6px;\n      height: 24px;\n      border-radius: 6px;\n      background: var(--blue);\n      color: #fff;\n      font-size: 12px;\n      font-weight: 850;\n      display: flex;\n      align-items: center;\n      padding: 0 8px;\n      white-space: nowrap;\n      min-width: 8px;\n    }\n\n    .bar.done { background: var(--green); }\n    .bar.active { background: var(--orange); }\n    .bar.crit { background: var(--red); }\n\n    .legend {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 10px;\n      color: #475467;\n      font-size: 13px;\n      margin-top: 14px;\n    }\n\n    .legend span::before {\n      content: \"\";\n      display: inline-block;\n      width: 10px;\n      height: 10px;\n      border-radius: 3px;\n      margin-right: 6px;\n      background: var(--blue);\n    }\n\n    .legend .done::before { background: var(--green); }\n    .legend .active::before { background: var(--orange); }\n    .legend .crit::before { background: var(--red); }\n\n    .photo-grid {\n      display: grid;\n      grid-template-columns: repeat(2, minmax(0, 1fr));\n      gap: 18px;\n    }\n\n    .photo-card {\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n      overflow: hidden;\n      background: #fff;\n    }\n\n    .photo-card img {\n      width: 100%;\n      aspect-ratio: 4 / 3;\n      object-fit: cover;\n      display: block;\n      background: #e5e7eb;\n    }\n\n    .photo-info {\n      padding: 16px;\n    }\n\n    .photo-info h3 {\n      font-size: 18px;\n      margin-bottom: 10px;\n    }\n\n    .photo-info ul {\n      margin: 0;\n      padding-left: 18px;\n    }\n\n    .photo-info li {\n      margin: 6px 0;\n    }\n\n    .prompt-card {\n      background: #fbfcfa;\n      border-left: 5px solid var(--teal);\n      margin-top: 18px;\n    }\n\n    .prompt-card h3 {\n      font-size: 17px;\n      margin-bottom: 8px;\n    }\n\n    .prompt-card ul {\n      margin: 0;\n      padding-left: 18px;\n    }\n\n    .checklist {\n      display: grid;\n      grid-template-columns: repeat(2, minmax(0, 1fr));\n      gap: 16px;\n    }\n\n    .check-group {\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n      padding: 16px;\n      background: #fff;\n    }\n\n    .check-group h3 {\n      font-size: 18px;\n      margin-bottom: 10px;\n    }\n\n    .check-item {\n      display: flex;\n      gap: 10px;\n      align-items: flex-start;\n      padding: 8px 0;\n      border-top: 1px solid #eef0eb;\n    }\n\n    .check-item:first-of-type {\n      border-top: 0;\n    }\n\n    .check-item input {\n      width: 18px;\n      height: 18px;\n      margin-top: 3px;\n      accent-color: var(--teal);\n    }\n\n    .check-item span {\n      flex: 1;\n    }\n\n    .source-box {\n      position: relative;\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n      background: #111827;\n      color: #e5e7eb;\n      overflow: hidden;\n    }\n\n    pre {\n      margin: 0;\n      padding: 18px;\n      white-space: pre-wrap;\n      word-break: keep-all;\n      font-family: \"SFMono-Regular\", Consolas, \"Liberation Mono\", monospace;\n      font-size: 14px;\n      line-height: 1.7;\n    }\n\n    .source-actions {\n      display: flex;\n      gap: 8px;\n      justify-content: flex-end;\n      padding: 10px;\n      background: rgba(255,255,255,.06);\n      border-bottom: 1px solid rgba(255,255,255,.12);\n    }\n\n    textarea {\n      width: 100%;\n      min-height: 170px;\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n      padding: 14px;\n      resize: vertical;\n      background: #fff;\n      color: var(--ink);\n    }\n\n    .feedback-tools {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 8px;\n      margin-top: 10px;\n    }\n\n    .review-note {\n      margin-top: 14px;\n      padding: 14px 16px;\n      border-radius: var(--radius);\n      background: #fff7ed;\n      border: 1px solid #fed7aa;\n      color: #7c2d12;\n      font-weight: 700;\n    }\n\n    .hidden {\n      display: none !important;\n    }\n\n    @media (max-width: 1040px) {\n      .page {\n        grid-template-columns: 1fr;\n      }\n\n      .side {\n        position: relative;\n        top: auto;\n        max-height: none;\n      }\n\n      .meta-strip,\n      .grid-4 {\n        grid-template-columns: repeat(2, minmax(0, 1fr));\n      }\n\n      .flow {\n        grid-template-columns: 1fr;\n      }\n\n      .flow-core {\n        width: 128px;\n        height: 128px;\n        margin: 0 auto;\n      }\n    }\n\n    @media (max-width: 720px) {\n      .page {\n        width: min(100% - 20px, 1440px);\n        padding-top: 10px;\n      }\n\n      .hero {\n        min-height: 560px;\n      }\n\n      .hero-content,\n      .section-head,\n      .section-body {\n        padding-left: 16px;\n        padding-right: 16px;\n      }\n\n      .meta-strip,\n      .grid-4,\n      .grid-2,\n      .photo-grid,\n      .checklist {\n        grid-template-columns: 1fr;\n      }\n\n      .lane {\n        grid-template-columns: 1fr;\n        gap: 6px;\n      }\n\n      .section-head {\n        flex-direction: column;\n      }\n\n      table {\n        min-width: 680px;\n      }\n    }\n\n    @media print {\n      .side, .collapse-btn, .copy-btn, .local-btn, .toc-toggle, .feedback-tools {\n        display: none !important;\n      }\n\n      body { background: #fff; }\n      .page { display: block; width: 100%; padding: 0; }\n      .section { break-inside: avoid; box-shadow: none; }\n      .hero { box-shadow: none; }\n    }\n  </style>\n<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-11 지수통합선별공장 공사일보 1일차</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d9dee8;
+      --soft: #eef2f7;
+      --blue: #1264a3;
+      --green: #168a4a;
+      --orange: #e46f23;
+      --red: #c73737;
+      --teal: #087f8c;
+      --shadow: 0 18px 48px rgba(20, 31, 51, .10);
+      --radius: 8px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, #e9edf3 0, rgba(233,237,243,0) 340px),
+        var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; }
+    button, textarea, input {
+      font: inherit;
+    }
+
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 10px;
+      background: var(--ink);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      z-index: 20;
+    }
+    .skip:focus { left: 10px; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(217,222,232,.9);
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .doc-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 850;
+      color: #26354d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--red);
+      box-shadow: 0 0 0 4px rgba(199,55,55,.12);
+      flex: 0 0 auto;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #223048;
+      padding: 7px 10px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: 750;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover { border-color: #b8c2d3; background: #f9fafc; }
+    .btn.primary {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 34px 20px 20px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      padding: 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.12;
+      letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    .summary {
+      margin: 18px 0 0;
+      font-size: 18px;
+      color: #34425a;
+      word-break: keep-all;
+    }
+
+    .hero-image {
+      margin: 0;
+      min-height: 360px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #dce2ea;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-image figcaption {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      max-width: calc(100% - 24px);
+      color: #fff;
+      background: rgba(23,32,51,.76);
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .meta-strip {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px 22px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+    .metric:nth-child(2) { border-top-color: var(--green); }
+    .metric:nth-child(3) { border-top-color: var(--orange); }
+    .metric:nth-child(4) { border-top-color: var(--red); }
+
+    .metric small {
+      display: block;
+      color: var(--muted);
+      font-weight: 900;
+      letter-spacing: .08em;
+      font-size: 11px;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .layout {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px 48px;
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 62px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: 0 12px 28px rgba(20,31,51,.06);
+    }
+
+    .toc.hidden { display: none; }
+
+    .toc h2 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: #25344d;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .toc a {
+      display: inline-block;
+      padding: 4px 0;
+      text-decoration: none;
+    }
+
+    .toc a:hover { color: var(--blue); }
+
+    main {
+      min-width: 0;
+    }
+
+    .section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      margin-bottom: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(20,31,51,.05);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 19px 20px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff, #fbfcfe);
+    }
+
+    .section-title {
+      min-width: 0;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.25;
+      word-break: keep-all;
+    }
+
+    .section-title p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-body {
+      padding: 20px;
+    }
+
+    .section.collapsed .section-body { display: none; }
+    .section.collapsed .section-header { border-bottom: 0; }
+
+    .review-prompt {
+      margin-top: 18px;
+      border: 1px solid #bfd8ea;
+      border-left: 5px solid var(--blue);
+      background: #f3f8fc;
+      border-radius: var(--radius);
+      padding: 13px 14px;
+      color: #24425d;
+    }
+
+    .review-prompt strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #12385c;
+    }
+
+    .callout {
+      border: 1px solid #cbd7e5;
+      background: #f8fafc;
+      border-radius: var(--radius);
+      padding: 14px;
+      margin: 0 0 16px;
+    }
+
+    .callout strong {
+      color: #1d334f;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      background: #fff;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f4f8;
+      font-size: 13px;
+      color: #34425a;
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 12px;
+      font-weight: 850;
+      background: #eef2f7;
+      color: #34425a;
+      white-space: nowrap;
+    }
+
+    .tag.red { background: #fdecec; color: #a52e2e; }
+    .tag.green { background: #e9f7ef; color: #15723f; }
+    .tag.orange { background: #fff0e5; color: #a95017; }
+    .tag.blue { background: #e8f3fb; color: #145c8f; }
+
+    .flow {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .flow-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 15px;
+      background: #fbfcfe;
+    }
+
+    .flow-card h3 {
+      margin: 0 0 9px;
+      font-size: 18px;
+    }
+
+    .flow-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #44536a;
+    }
+
+    .flow-center {
+      grid-column: 1 / -1;
+      border: 2px solid #9ec4df;
+      background: #f0f7fc;
+      text-align: center;
+      padding: 16px;
+      border-radius: var(--radius);
+      font-weight: 950;
+      font-size: 20px;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: #cbd7e5;
+    }
+
+    .time-item {
+      position: relative;
+      padding-left: 38px;
+    }
+
+    .time-item::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: #fff;
+      border: 3px solid var(--blue);
+      z-index: 1;
+    }
+
+    .time-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      background: #fff;
+    }
+
+    .time-card strong { display: block; }
+    .time-card span { color: var(--muted); font-size: 14px; }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .photo-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .photo-card figure {
+      margin: 0;
+      background: #eef2f7;
+    }
+
+    .photo-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-content {
+      padding: 14px;
+    }
+
+    .photo-content h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .photo-content ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #42516a;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .check-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 15px;
+      background: #fbfcfe;
+    }
+
+    .check-card h3 {
+      margin: 0 0 9px;
+      font-size: 18px;
+    }
+
+    .check-row {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      padding: 7px 0;
+      color: #34425a;
+    }
+
+    .check-row input {
+      margin-top: 6px;
+      accent-color: var(--blue);
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+    }
+
+    .check-row span {
+      min-width: 0;
+    }
+
+    .source-block {
+      position: relative;
+      background: #101827;
+      color: #e7edf7;
+      border-radius: var(--radius);
+      padding: 16px;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .feedback-area {
+      display: grid;
+      gap: 12px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 180px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .feedback-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .copy-ok {
+      color: var(--green);
+      font-weight: 850;
+      font-size: 13px;
+      min-height: 20px;
+    }
+
+    .print-note {
+      display: none;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: static;
+      }
+      .meta-strip,
+      .flow,
+      .photo-grid,
+      .checklist {
+        grid-template-columns: 1fr;
+      }
+      .flow-center { grid-column: auto; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .hero {
+        padding-top: 22px;
+      }
+      .hero-copy {
+        padding: 20px;
+      }
+      .meta-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .section-header {
+        flex-direction: column;
+      }
+      .btn {
+        width: auto;
+      }
+      .hero-image,
+      .hero-image img {
+        min-height: 260px;
+      }
+    }
+
+    @media print {
+      .topbar, .toc, .btn, .feedback-area textarea, .feedback-toolbar { display: none !important; }
+      body { background: #fff; }
+      .hero, .meta-strip, .layout { max-width: none; padding-left: 0; padding-right: 0; }
+      .layout { display: block; }
+      .section, .hero-copy, .hero-image, .metric { box-shadow: none; break-inside: avoid; }
+      .section-body { display: block !important; }
+      .print-note { display: block; color: #555; }
+    }
+  </style>
 <meta property="og:type" content="article">
 <meta property="og:title" content="2026-06-11 지수통합선별공장 공사일보 1일차">
 <meta property="og:description" content="[!abstract]+ 한 줄 요약 금일은 공장바닥 콘크리트 철거 및 옹벽 기초공사 착공 이 현장에서 확인된 날이다. 동시에 무허가 창고 철거, 물홈통 막힘에 따른 옥상 침수 방지/방수공사, 정문게이트·펜스 정리, 계근대 설치 후보지 검토까지 후속 공사 리스크를 정리했다. 1. 라이브 대시보드 [!info] Datavie">
@@ -10,7 +673,497 @@
 <meta name="twitter:description" content="[!abstract]+ 한 줄 요약 금일은 공장바닥 콘크리트 철거 및 옹벽 기초공사 착공 이 현장에서 확인된 날이다. 동시에 무허가 창고 철거, 물홈통 막힘에 따른 옥상 침수 방지/방수공사, 정문게이트·펜스 정리, 계근대 설치 후보지 검토까지 후속 공사 리스크를 정리했다. 1. 라이브 대시보드 [!info] Datavie">
 <meta name="twitter:image" content="https://flytothesky23.github.io/marktl-shares/hermes-marktl/s/apqic6/assets/01-2026-06-11-1-ui-1781222020531.png">
 <link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/hermes-marktl/s/apqic6/">
-</head>\n<body>\n  <div class=\"page\">\n    <aside class=\"side\" aria-label=\"문서 목차\">\n      <div class=\"side-head\">\n        <div class=\"side-title\">목차</div>\n        <button class=\"toc-toggle\" type=\"button\" data-toggle-toc>접기</button>\n      </div>\n      <nav id=\"toc\"></nav>\n    </aside>\n\n    <main class=\"main\">\n      <header class=\"hero\">\n        <img src=\"assets/01-2026-06-11-1-ui-1781222020531.png\" alt=\"2026-06-11 지수통합선별공장 공사일보 대표 이미지\">\n        <div class=\"hero-content\">\n          <div class=\"eyebrow\">\n            <span class=\"pill\">공사일보</span>\n            <span class=\"pill\">검토 우선순위 High</span>\n            <span class=\"pill\">착공기록</span>\n            <span class=\"pill\">2026-06-11</span>\n          </div>\n          <h1>2026-06-11 지수통합선별공장 공사일보 1일차</h1>\n          <p class=\"hero-summary\">\n            금일은 공장바닥 콘크리트 철거 및 옹벽 기초공사 착공이 현장에서 확인된 날이다.\n            동시에 무허가 창고 철거, 옥상 침수 방지, 정문게이트·펜스 정리, 계근대 후보지 검토까지 후속 공사 리스크를 정리했다.\n          </p>\n          <div class=\"meta-strip\" aria-label=\"문서 핵심 메타데이터\">\n            <div class=\"meta-item\"><span class=\"meta-k\">PROJECT</span><span class=\"meta-v\">지수통합선별공장</span></div>\n            <div class=\"meta-item\"><span class=\"meta-k\">STATUS</span><span class=\"meta-v\">정리완료</span></div>\n            <div class=\"meta-item\"><span class=\"meta-k\">SOURCE</span><span class=\"meta-v\">사진 10장 + 현장 지시</span></div>\n            <div class=\"meta-item\"><span class=\"meta-k\">REG ID</span><span class=\"meta-v\">JISOO-DAILY-2026-06-11-001</span></div>\n          </div>\n        </div>\n      </header>\n\n      <section class=\"section\" id=\"summary\">\n        <div class=\"section-head\">\n          <div class=\"section-title\">\n            <h2>1. 검토용 라이브 대시보드</h2>\n            <p>Obsidian Dataview 블록을 독립 실행 가능한 HTML 요약 카드로 변환했다.</p>\n          </div>\n          <button class=\"collapse-btn\" type=\"button\">섹션 접기</button>\n        </div>\n        <div class=\"section-body\">\n          <div class=\"grid-4\">\n            <div class=\"stat-card\">\n              <div class=\"stat-k\">TODAY</div>\n              <div class=\"stat-v\">2026-06-11</div>\n              <div class=\"stat-d\">금일 공사일보 기준일</div>\n            </div>\n            <div class=\"stat-card green\">\n              <div class=\"stat-k\">STATUS</div>\n              <div class=\"stat-v\">정리완료</div>\n              <div class=\"stat-d\">노트 처리 상태</div>\n            </div>\n            <div class=\"stat-card orange\">\n              <div class=\"stat-k\">PHOTO</div>\n              <div class=\"stat-v\">10</div>\n              <div class=\"stat-d\">첨부 사진 수</div>\n            </div>\n            <div class=\"stat-card red\">\n              <div class=\"stat-k\">PRIORITY</div>\n              <div class=\"stat-v\">High</div>\n              <div class=\"stat-d\">검토 우선순위</div>\n            </div>\n          </div>\n\n          <div class=\"review-note\">\n            검토 포인트: 사진 기반 판독의 수량·치수·정확 위치는 추후 현장도면 및 시공사 확인이 필요하다.\n          </div>\n\n          <div class=\"prompt-card\">\n            <h3>섹션 검토 질문</h3>\n            <ul>\n              <li>현재 상태값과 우선순위가 프로젝트 관리표의 기준과 일치하는가?</li>\n              <li>사진 10장이 착공일 기준 증빙으로 충분한가?</li>\n              <li>추가로 편철해야 할 관련 문서나 현장 지시 원문이 있는가?</li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <section class=\"section\" id=\"core-cards\">\n        <div class=\"section-head\">\n          <div class=\"section-title\">\n            <h2>2. 금일 공사일보 핵심 카드</h2>\n            <p>오늘 확인된 공종, 리스크, 후속관리 항목을 검토 테이블로 정리했다.</p>\n          </div>\n          <button class=\"collapse-btn\" type=\"button\">섹션 접기</button>\n        </div>\n        <div class=\"section-body\">\n          <div class=\"table-wrap\">\n            <table>\n              <thead>\n                <tr>\n                  <th>구분</th>\n                  <th>내용</th>\n                  <th>상태</th>\n                  <th>후속관리</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>착공/철거</td>\n                  <td>브레이커로 기존 바닥 콘크리트 파쇄</td>\n                  <td><span class=\"tag orange\">진행</span></td>\n                  <td>철거 범위·잔재 반출량 기록</td>\n                </tr>\n                <tr>\n                  <td>옹벽 기초</td>\n                  <td>옹벽 기초공사 착공 전 바닥 철거</td>\n                  <td><span class=\"tag green\">착수</span></td>\n                  <td>기준선·레벨·배수 간섭 확인</td>\n                </tr>\n                <tr>\n                  <td>준공 리스크</td>\n                  <td>건축물대장에 없는 외곽 무허가 창고 철거 지시</td>\n                  <td><span class=\"tag red\">중요</span></td>\n                  <td>철거 전후 사진·폐기물 처리기록 보관</td>\n                </tr>\n                <tr>\n                  <td>방수/배수</td>\n                  <td>기숙사·사무동 물홈통 막힘 및 옥상 침수 방지</td>\n                  <td><span class=\"tag red\">지시</span></td>\n                  <td>장마 전 물홈통 청소·방수 범위 확정</td>\n                </tr>\n                <tr>\n                  <td>게이트/펜스</td>\n                  <td>기존 펜스 주변 풀·덩굴·나무 제거</td>\n                  <td><span class=\"tag gray\">검토</span></td>\n                  <td>게이트·펜스 시공 일정 확인</td>\n                </tr>\n                <tr>\n                  <td>계근대</td>\n                  <td>설치 후보지 및 대형차 동선 검토</td>\n                  <td><span class=\"tag gray\">검토</span></td>\n                  <td>설치업체 현장 미팅 의뢰</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n\n          <div class=\"prompt-card\">\n            <h3>섹션 검토 질문</h3>\n            <ul>\n              <li>상태값이 실제 현장 진행률과 다르면 어느 항목을 수정해야 하는가?</li>\n              <li>준공 리스크와 방수/배수 항목의 담당자·기한이 지정되어 있는가?</li>\n              <li>후속관리 문구가 실행 가능한 작업 단위로 충분히 구체적인가?</li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <section class=\"section\" id=\"structure-map\">\n        <div class=\"section-head\">\n          <div class=\"section-title\">\n            <h2>3. 전체 구조 맵</h2>\n            <p>Mermaid 구조도를 자체 CSS 시각화로 재구성했다.</p>\n          </div>\n          <button class=\"collapse-btn\" type=\"button\">섹션 접기</button>\n        </div>\n        <div class=\"section-body\">\n          <div class=\"flow\" aria-label=\"6월 11일 현장 구조 맵\">\n            <div class=\"flow-col\">\n              <div class=\"flow-node\">철거<small>파쇄·적치</small></div>\n              <div class=\"flow-node\">옹벽<small>기준선·6/30</small></div>\n            </div>\n            <div class=\"flow-core\">6/11<br>현장</div>\n            <div class=\"flow-col\">\n              <div class=\"flow-node risk\">리스크<small>창고철거·기록</small></div>\n              <div class=\"flow-node risk\">배수<small>물홈통·방수</small></div>\n            </div>\n          </div>\n          <div class=\"grid-2\">\n            <div class=\"flow-node check\">게이트<small>6/17 착수 · 7/15 완료 흐름</small></div>\n            <div class=\"flow-node check\">계근<small>회차·전기/통신 인입 검토</small></div>\n          </div>\n\n          <div class=\"note-card\" style=\"margin-top:16px\">\n            <strong>흐름 메모</strong>\n            <p>6/11 현장을 중심에 두고 착공·선행은 좌측, 리스크·장마는 우측, 외곽·물류는 하단으로 묶었다. 옹벽/판넬 관리 기준은 6/30 완료목표로 본다.</p>\n          </div>\n\n          <div class=\"prompt-card\">\n            <h3>섹션 검토 질문</h3>\n            <ul>\n              <li>현장 흐름에서 빠진 주요 공종이나 이해관계자가 있는가?</li>\n              <li>6/30 완료목표가 실제 계약·일정표와 일치하는가?</li>\n              <li>외곽·물류 항목을 별도 리스크 트래커로 분리해야 하는가?</li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <section class=\"section\" id=\"workflow\">\n        <div class=\"section-head\">\n          <div class=\"section-title\">\n            <h2>4. 직원/시공사 처리 흐름</h2>\n            <p>접수·기록을 중심으로 시공사, PM, 준공 증빙 업무를 구분했다.</p>\n          </div>\n          <button class=\"collapse-btn\" type=\"button\">섹션 접기</button>\n        </div>\n        <div class=\"section-body\">\n          <div class=\"flow\" aria-label=\"직원 및 시공사 처리 흐름\">\n            <div class=\"flow-col\">\n              <div class=\"flow-node\">시공사 · 공종확인<small>철거·옹벽</small></div>\n              <div class=\"flow-node\">시공사 · 방수범위<small>물홈통·방수</small></div>\n            </div>\n            <div class=\"flow-core\">접수<br>기록</div>\n            <div class=\"flow-col\">\n              <div class=\"flow-node check\">PM · 일정관리<small>착공계·6/30</small></div>\n              <div class=\"flow-node check\">PM · 업체조율<small>계근·게이트</small></div>\n            </div>\n          </div>\n          <div class=\"grid-2\">\n            <div class=\"flow-node risk\">인허가<small>창고사진·준공자료</small></div>\n            <div class=\"flow-node risk\">증빙<small>폐기물·처리기록</small></div>\n          </div>\n\n          <div class=\"note-card\" style=\"margin-top:16px\">\n            <strong>처리 메모</strong>\n            <p>착공계는 단독 선행절차가 아니라 건축허가승인 후 착공계 신청으로 관리한다. 게이트/펜스는 6/17 착수, 7/15 완료 흐름으로 본다.</p>\n          </div>\n\n          <div class=\"prompt-card\">\n            <h3>섹션 검토 질문</h3>\n            <ul>\n              <li>시공사와 PM의 책임 구분이 현장 운영 방식과 맞는가?</li>\n              <li>준공·증빙 항목에 폐기물 처리업체 자료가 포함되어야 하는가?</li>\n              <li>착공계 신청 조건을 더 명확히 적어야 하는가?</li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <section class=\"section\" id=\"gantt\">\n        <div class=\"section-head\">\n          <div class=\"section-title\">\n            <h2>5. 계획 대비 실행</h2>\n            <p>Mermaid Gantt를 독립 HTML 타임라인으로 변환했다. 기준일은 2026-06-11이다.</p>\n          </div>\n          <button class=\"collapse-btn\" type=\"button\">섹션 접기</button>\n        </div>\n        <div class=\"section-body\">\n          <div class=\"timeline\" aria-label=\"계획 대비 실행 간트 차트\">\n            <div class=\"lane\">\n              <div class=\"lane-label\">인허가 제출</div>\n              <div class=\"bar-area\"><div class=\"bar done\" style=\"left:0%;width:4%\">6/5 완료</div></div>\n            </div>\n            <div class=\"lane\">\n              <div class=\"lane-label\">보증서·자금</div>\n              <div class=\"bar-area\"><div class=\"bar crit\" style=\"left:10%;width:5%\">6/10</div></div>\n            </div>\n            <div class=\"lane\">\n              <div class=\"lane-label\">착공계 신청</div>\n              <div class=\"bar-area\"><div class=\"bar crit\" style=\"left:12%;width:28%\">6/11-6/30</div></div>\n            </div>\n            <div class=\"lane\">\n              <div class=\"lane-label\">부대공사 선행</div>\n              <div class=\"bar-area\"><div class=\"bar active\" style=\"left:7%;width:33%\">6/8-6/30</div></div>\n            </div>\n            <div class=\"lane\">\n              <div class=\"lane-label\">바닥 철거</div>\n              <div class=\"bar-area\"><div class=\"bar done\" style=\"left:12%;width:5%\">6/11 확인</div></div>\n            </div>\n            <div class=\"lane\">\n              <div class=\"lane-label\">옹벽 기초</div>\n              <div class=\"bar-area\"><div class=\"bar active\" style=\"left:12%;width:28%\">6/11-6/30</div></div>\n            </div>\n            <div class=\"lane\">\n              <div class=\"lane-label\">방수 보완</div>\n              <div class=\"bar-area\"><div class=\"bar active\" style=\"left:12%;width:28%\">6/11-6/30</div></div>\n            </div>\n            <div class=\"lane\">\n              <div class=\"lane-label\">펜스·게이트</div>\n              <div class=\"bar-area\"><div class=\"bar\" style=\"left:21%;width:43%\">6/17-7/15</div></div>\n            </div>\n            <div class=\"lane\">\n              <div class=\"lane-label\">증축구간 공사</div>\n              <div class=\"bar-area\"><div class=\"bar\" style=\"left:30%;width:70%\">6/23-8/30</div></div>\n            </div>\n            <div class=\"lane\">\n              <div class=\"lane-label\">무허가 창고</div>\n              <div class=\"bar-area\"><div class=\"bar crit\" style=\"left:12%;width:14%\">6/11-6/20</div></div>\n            </div>\n            <div class=\"lane\">\n              <div class=\"lane-label\">계근대 검토</div>\n              <div class=\"bar-area\"><div class=\"bar\" style=\"left:12%;width:21%\">6/11-6/25</div></div>\n            </div>\n          </div>\n          <div class=\"legend\">\n            <span class=\"done\">완료</span>\n            <span class=\"active\">진행</span>\n            <span class=\"crit\">중요</span>\n            <span>예정/검토</span>\n          </div>\n\n          <div class=\"prompt-card\">\n            <h3>섹션 검토 질문</h3>\n            <ul>\n              <li>6/11 기준 진행 상태가 실제 주간보고 일정과 일치하는가?</li>\n              <li>장마 전 완료가 필요한 항목에 더 높은 우선순위를 부여해야 하는가?</li>\n              <li>게이트·계근대 일정이 차량 동선 확보 일정과 충돌하지 않는가?</li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <section class=\"section\" id=\"photo-log\">\n        <div class=\"section-head\">\n          <div class=\"section-title\">\n            <h2>6. 사진별 공사일보 기록</h2>\n            <p>현장 사진 10장을 공종, 확인 내용, 관리포인트 중심으로 검토 가능하게 정리했다.</p>\n          </div>\n          <button class=\"collapse-btn\" type=\"button\">섹션 접기</button>\n        </div>\n        <div class=\"section-body\">\n          <div class=\"photo-grid\">\n            <article class=\"photo-card\" id=\"p01\">\n              <img src=\"assets/02-2026-06-11-p01-img-2cea261b2292.jpg\" alt=\"P01 바닥 콘크리트 철거 착수\">\n              <div class=\"photo-info\">\n                <h3>P01. 바닥 콘크리트 철거 착수</h3>\n                <ul>\n                  <li><strong>위치/공종:</strong> 공장 전면 야드 / 옹벽 기초 예정선</li>\n                  <li><strong>작업/확인:</strong> 휠굴삭기 브레이커로 기존 콘크리트 포장 파쇄. 철거 라인을 따라 파쇄물 집적.</li>\n                  <li><strong>관리포인트:</strong> 파쇄물 비산·분진, 장비 작업반경 출입통제, 철거폐기물 반출동선 확보 필요</li>\n                  <li><span class=\"tag\">철거·기초</span></li>\n                </ul>\n              </div>\n            </article>\n\n            <article class=\"photo-card\" id=\"p02\">\n              <img src=\"assets/03-2026-06-11-p02-img-01fd15941091.jpg\" alt=\"P02 작업구간 현장협의\">\n              <div class=\"photo-info\">\n                <h3>P02. 작업구간 현장협의</h3>\n                <ul>\n                  <li><strong>위치/공종:</strong> 공장 측면 야드 / 기존 설비 보관구간</li>\n                  <li><strong>작업/확인:</strong> 기존 철구조물·선별설비 주변에서 작업자 현장 확인. 파쇄 구간과 설비 간섭 여부 검토.</li>\n                  <li><strong>관리포인트:</strong> 기존 설비와 작업장비 간 간섭, 파쇄잔재 방치 시 보행·차량 위험</li>\n                  <li><span class=\"tag gray\">현장협의</span></li>\n                </ul>\n              </div>\n            </article>\n\n            <article class=\"photo-card\" id=\"p03\">\n              <img src=\"assets/04-2026-06-11-p03-img-041c5c0f7655.jpg\" alt=\"P03 공장 출입구 전면 상태\">\n              <div class=\"photo-info\">\n                <h3>P03. 공장 출입구 전면 상태</h3>\n                <ul>\n                  <li><strong>위치/공종:</strong> 대형 출입문 전면 야드</li>\n                  <li><strong>작업/확인:</strong> 자재 반입·장비 진입 동선 확인. 기존 바닥 절단/파쇄 흔적과 잡초 구간 확인.</li>\n                  <li><strong>관리포인트:</strong> 차량 동선과 작업구간 분리 필요, 출입문 전면 파쇄물 정리 필요</li>\n                  <li><span class=\"tag orange\">동선확인</span></li>\n                </ul>\n              </div>\n            </article>\n\n            <article class=\"photo-card\" id=\"p04\">\n              <img src=\"assets/05-2026-06-11-p04-img-f7391f730652.jpg\" alt=\"P04 전면 야드 전체 기준사진\">\n              <div class=\"photo-info\">\n                <h3>P04. 전면 야드 전체 기준사진</h3>\n                <ul>\n                  <li><strong>위치/공종:</strong> 공장 전면 전체</li>\n                  <li><strong>작업/확인:</strong> 공장동 전면과 야드 전체 현황 기록. 옹벽·기초공사 전 기준사진으로 보관.</li>\n                  <li><strong>관리포인트:</strong> 외벽 하부 우수흔적/오염부 관찰, 공사 중 외벽 보호·출입문 주변 정리 필요</li>\n                  <li><span class=\"tag green\">기준사진</span></li>\n                </ul>\n              </div>\n            </article>\n\n            <article class=\"photo-card\" id=\"p05\">\n              <img src=\"assets/06-2026-06-11-p05-img-cab90bfbbefa.jpg\" alt=\"P05 정문 게이트 펜스 예정구간\">\n              <div class=\"photo-info\">\n                <h3>P05. 정문·게이트·펜스 예정구간</h3>\n                <ul>\n                  <li><strong>위치/공종:</strong> 사무동 전면 / 정문 진입부</li>\n                  <li><strong>작업/확인:</strong> 정문 게이트 및 펜스공사 전 진입부, 주차공간, 외곽 수목 상태 확인.</li>\n                  <li><strong>관리포인트:</strong> 기존 펜스 주변 풀·덩굴·나무 제거 필요, 게이트 시공 전 차량통제 계획 필요</li>\n                  <li><span class=\"tag orange\">게이트·펜스</span></li>\n                </ul>\n              </div>\n            </article>\n\n            <article class=\"photo-card\" id=\"p06\">\n              <img src=\"assets/07-2026-06-11-p06-img-207985787488.jpg\" alt=\"P06 공장동 사이 작업동선\">\n              <div class=\"photo-info\">\n                <h3>P06. 공장동 사이 작업동선</h3>\n                <ul>\n                  <li><strong>위치/공종:</strong> 공장동 사이 넓은 야드</li>\n                  <li><strong>작업/확인:</strong> 굴삭기 작업 위치와 양측 공장동 사이 통행공간 확인. 파쇄물 적치 위치 검토.</li>\n                  <li><strong>관리포인트:</strong> 장비 이동반경과 차량 통행로 분리, 철거폐기물 임시적치 위치 지정 필요</li>\n                  <li><span class=\"tag orange\">장비동선</span></li>\n                </ul>\n              </div>\n            </article>\n\n            <article class=\"photo-card\" id=\"p07\">\n              <img src=\"assets/08-2026-06-11-p07-img-153cffa0625f.jpg\" alt=\"P07 기숙사 사무동 외곽 배수 방수\">\n              <div class=\"photo-info\">\n                <h3>P07. 기숙사·사무동 외곽 배수/방수</h3>\n                <ul>\n                  <li><strong>위치/공종:</strong> 건물 외곽 물홈통·수목 인접부</li>\n                  <li><strong>작업/확인:</strong> 외벽 배수관, 물홈통, 수목·낙엽 밀집 구간 확인. 옥상 침수 방지 및 방수공사 지시.</li>\n                  <li><strong>관리포인트:</strong> 물홈통 막힘 시 옥상 침수·누수·곰팡이 리스크. 장마 전 청소·방수 선행 필요</li>\n                  <li><span class=\"tag red\">방수·배수</span></li>\n                </ul>\n              </div>\n            </article>\n\n            <article class=\"photo-card\" id=\"p08\">\n              <img src=\"assets/09-2026-06-11-p08-img-935f1ee1ffdc.jpg\" alt=\"P08 무허가 창고 철거 대상\">\n              <div class=\"photo-info\">\n                <h3>P08. 무허가 창고 철거 대상</h3>\n                <ul>\n                  <li><strong>위치/공종:</strong> 부지 외곽 / 공장 측면 후면부</li>\n                  <li><strong>작업/확인:</strong> 건축물대장에 없는 외곽 창고 확인. 추후 준공검사 리스크 제거 목적으로 철거 지시.</li>\n                  <li><strong>관리포인트:</strong> 준공검사·인허가 리스크. 철거 전 내부 잔존물 확인 및 폐기물 처리기록 필요</li>\n                  <li><span class=\"tag red\">인허가리스크</span></li>\n                </ul>\n              </div>\n            </article>\n\n            <article class=\"photo-card\" id=\"p09\">\n              <img src=\"assets/10-2026-06-11-p09-img-b659e26d34a5.jpg\" alt=\"P09 계근대 후보지 1차 검토\">\n              <div class=\"photo-info\">\n                <h3>P09. 계근대 후보지 1차 검토</h3>\n                <ul>\n                  <li><strong>위치/공종:</strong> 정문~사무동 전면 넓은 포장 야드</li>\n                  <li><strong>작업/확인:</strong> 대형차 진입·정차·회차 가능한 공간 확인. 계근대 설치업체 현장 미팅 필요.</li>\n                  <li><strong>관리포인트:</strong> 주차차량과 계근차량 동선 충돌, 기초보강·전기/통신 인입 검토 필요</li>\n                  <li><span class=\"tag gray\">계근대</span></li>\n                </ul>\n              </div>\n            </article>\n\n            <article class=\"photo-card\" id=\"p10\">\n              <img src=\"assets/11-2026-06-11-p10-img-4fad9b242b1c.jpg\" alt=\"P10 정문 방향 계근 게이트 동선\">\n              <div class=\"photo-info\">\n                <h3>P10. 정문 방향 계근·게이트 동선</h3>\n                <ul>\n                  <li><strong>위치/공종:</strong> 정문 입구 및 외곽 전기설비 인접부</li>\n                  <li><strong>작업/확인:</strong> 정문 방향 시야와 차량 진입공간 확인. 계근대 위치·게이트 거리·대기공간 검토.</li>\n                  <li><strong>관리포인트:</strong> 전주·전기설비 간섭, 차량 대기공간 부족 가능성, 바닥 보강 범위 산정 필요</li>\n                  <li><span class=\"tag gray\">계근·진입</span></li>\n                </ul>\n              </div>\n            </article>\n          </div>\n\n          <div class=\"prompt-card\">\n            <h3>사진 검토 질문</h3>\n            <ul>\n              <li>각 사진의 위치명과 공종명이 현장 명칭과 일치하는가?</li>\n              <li>사진별 관리포인트 중 현장 안전관리 항목으로 즉시 전환할 항목은 무엇인가?</li>\n              <li>준공 증빙용 사진은 전후 비교가 가능하도록 추가 촬영이 필요한가?</li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <section class=\"section\" id=\"checklist\">\n        <div class=\"section-head\">\n          <div class=\"section-title\">\n            <h2>7. 후속 액션 체크리스트</h2>\n            <p>검토자가 바로 확인할 수 있도록 로컬 체크박스로 구성했다. 저장은 브라우저 내부에서만 처리된다.</p>\n          </div>\n          <button class=\"collapse-btn\" type=\"button\">섹션 접기</button>\n        </div>\n        <div class=\"section-body\">\n          <div class=\"checklist\" data-checklist>\n            <div class=\"check-group\">\n              <h3>공정관리</h3>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>철거 범위와 잔재 반출량 기록</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>옹벽 기초 기준선·레벨 확인</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>작업반경 출입통제 표지 설치</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>파쇄물 임시적치 및 반출동선 지정</span></label>\n            </div>\n\n            <div class=\"check-group\">\n              <h3>준공/인허가 리스크</h3>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>무허가 창고 내부 잔존물 확인</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>무허가 창고 철거 전 사진 보관</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>철거 후 사진 및 폐기물 처리기록 보관</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>준공검사 대응자료로 별도 편철</span></label>\n            </div>\n\n            <div class=\"check-group\">\n              <h3>방수/배수</h3>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>기숙사·사무동 물홈통 막힘 확인</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>낙엽·수목·이물질 제거</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>옥상 침수 가능 구간 점검</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>방수공사 범위와 견적 확인</span></label>\n            </div>\n\n            <div class=\"check-group\">\n              <h3>계근대/게이트</h3>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>계근대 설치업체 현장 미팅 일정 확정</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>대형차 진입·정차·회차 동선 검토</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>전기·통신 인입 가능 여부 확인</span></label>\n              <label class=\"check-item\"><input type=\"checkbox\"><span>정문게이트·펜스 주변 수목 제거 일정 확인</span></label>\n            </div>\n          </div>\n\n          <div class=\"feedback-tools\">\n            <button class=\"local-btn\" type=\"button\" data-copy-checks>체크리스트 결과 복사</button>\n            <button class=\"local-btn\" type=\"button\" data-reset-checks>체크 초기화</button>\n          </div>\n        </div>\n      </section>\n\n      <section class=\"section\" id=\"feedback\">\n        <div class=\"section-head\">\n          <div class=\"section-title\">\n            <h2>8. 리뷰 피드백 작성</h2>\n            <p>검토 의견을 한곳에 모아 AI나 담당자에게 전달하기 쉽게 구성했다.</p>\n          </div>\n          <button class=\"collapse-btn\" type=\"button\">섹션 접기</button>\n        </div>\n        <div class=\"section-body\">\n          <textarea id=\"feedbackText\">검토 의견:\n- 사실관계 수정:\n- 누락된 사진/증빙:\n- 우선 처리할 리스크:\n- 담당자/기한 보완:\n- 다음 액션:</textarea>\n          <div class=\"feedback-tools\">\n            <button class=\"local-btn\" type=\"button\" data-copy-feedback>피드백 복사</button>\n            <button class=\"local-btn\" type=\"button\" data-insert-template>검토 템플릿 다시 넣기</button>\n          </div>\n          <div class=\"prompt-card\">\n            <h3>AI에게 이어서 요청할 때</h3>\n            <ul>\n              <li>위 피드백을 반영해 공사일보 문구를 수정해줘.</li>\n              <li>체크리스트 미완료 항목만 담당자/기한 표로 바꿔줘.</li>\n              <li>준공검사 리스크 중심으로 별도 보고서 초안을 만들어줘.</li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <section class=\"section\" id=\"source\">\n        <div class=\"section-head\">\n          <div class=\"section-title\">\n            <h2>9. 원문 기록 블록</h2>\n            <p>현장 설명과 지시사항 원문 요약을 보존했다.</p>\n          </div>\n          <button class=\"collapse-btn\" type=\"button\">섹션 접기</button>\n        </div>\n        <div class=\"section-body\">\n          <div class=\"source-box\">\n            <div class=\"source-actions\">\n              <button class=\"copy-btn\" type=\"button\" data-copy-source>원문 복사</button>\n            </div>\n            <pre id=\"sourceText\">사용자 현장 설명 및 지시사항 원문 요약:\n\n- 이번주 일정에 공사착공이 있고, 오늘 현장을 방문함.\n- 오늘 공장바닥 콘크리트 철거 및 옹벽 기초공사 착공 모습.\n- 브레이커로 바닥 콘크리트를 제거 중.\n- 건축물대장에 없는 부지 외곽 무허가 창고 철거 지시.\n- 목적: 추후 준공검사 시 리스크 제거.\n- 기숙사 및 사무동 외곽 물홈통 막힘에 따른 건물옥상 침수 방지 및 방수공사 지시.\n- 정문게이트 및 펜스공사 전 기존 펜스구간 풀·나무·덩굴 제거와 시공일정 확인 필요.\n- 계근대 설치 후보 위치 확인 및 설치업체 미팅 의뢰 필요.</pre>\n          </div>\n\n          <div class=\"prompt-card\">\n            <h3>최종 검토 질문</h3>\n            <ul>\n              <li>원문 지시사항 중 문서 본문에 반영되지 않은 항목이 있는가?</li>\n              <li>공사일보, 준공검사 대응자료, 주간보고 중 어느 문서로 후속 편철할 것인가?</li>\n              <li>다음 현장 방문 시 반드시 재촬영할 위치는 어디인가?</li>\n            </ul>\n          </div>\n        </div>\n      </section>\n    <section class="marktl-reader-feedback" aria-label="Reader feedback">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 이동</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="doc-label"><span class="dot"></span><span>JISOO-DAILY-2026-06-11-001 · 검토용 인터랙티브 공사일보</span></div>
+      <div class="top-actions">
+        <button class="btn" type="button" id="toggleToc">목차 숨기기</button>
+        <button class="btn" type="button" id="expandAll">전체 펼치기</button>
+        <button class="btn" type="button" id="collapseAll">전체 접기</button>
+        <button class="btn primary" type="button" data-copy-target="feedbackText">검토 요청 복사</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Construction Daily · High Priority Review</p>
+        <h1 id="page-title">2026-06-11 지수통합선별공장 공사일보 1일차</h1>
+        <p class="summary">
+          금일은 <strong>공장바닥 콘크리트 철거 및 옹벽 기초공사 착공</strong>이 현장에서 확인된 날입니다.
+          동시에 무허가 창고 철거, 옥상 침수 방지와 방수공사, 정문게이트·펜스 정리, 계근대 설치 후보지 검토까지 후속 공사 리스크를 정리했습니다.
+        </p>
+      </div>
+      <figure class="hero-image">
+        <img src="assets/01-2026-06-11-1-ui-1781222020531.png" alt="2026-06-11 지수통합선별공장 공사일보 대표 이미지">
+        <figcaption>공사일보 1일차 리뷰 화면</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="meta-strip" aria-label="문서 핵심 정보">
+    <div class="metric"><small>TODAY</small><strong>2026-06-11</strong><span>공사일보 기준일</span></div>
+    <div class="metric"><small>STATUS</small><strong>정리완료</strong><span>노트 처리 상태</span></div>
+    <div class="metric"><small>PHOTO</small><strong>10장</strong><span>첨부 사진 수</span></div>
+    <div class="metric"><small>PRIORITY</small><strong>High</strong><span>검토 우선순위</span></div>
+  </section>
+
+  <div class="layout">
+    <aside class="toc" id="toc" aria-label="문서 목차">
+      <h2>목차</h2>
+      <ol id="tocList"></ol>
+    </aside>
+
+    <main id="main">
+      <section class="section" id="overview" data-title="검토 개요">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>1. 검토 개요</h2>
+            <p>원문 메타데이터와 Dataview 내용을 독립 실행 HTML용 요약 대시보드로 재구성했습니다.</p>
+          </div>
+          <button class="btn section-toggle" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="callout">
+            <strong>한 줄 요약</strong><br>
+            공장바닥 콘크리트 철거 및 옹벽 기초공사 착공이 확인되었고, 준공검사·방수·외곽정비·계근대 설치 리스크가 함께 도출되었습니다.
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>항목</th>
+                  <th>값</th>
+                  <th>검토 의미</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>프로젝트</td><td>지수통합선별공장</td><td>증축 및 부대공사 흐름의 착공 기록</td></tr>
+                <tr><td>문서 분류</td><td>공사일보/착공기록</td><td>착공 증빙 및 후속 일정 관리 기준</td></tr>
+                <tr><td>추출 방식</td><td>vision + user commentary</td><td>사진 판독과 현장 지시사항을 결합</td></tr>
+                <tr><td>신뢰도</td><td>medium-high</td><td>수량·치수·정확 위치는 도면 및 시공사 확인 필요</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="review-prompt">
+            <strong>검토 질문</strong>
+            사진 기반 판독과 실제 현장 위치·수량·공정명이 일치하는지 먼저 확인해 주세요.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="key-cards" data-title="핵심 카드">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>2. 금일 공사일보 핵심 카드</h2>
+            <p>검토자가 바로 판단할 수 있도록 공종, 상태, 후속관리 항목으로 압축했습니다.</p>
+          </div>
+          <button class="btn section-toggle" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th>내용</th>
+                  <th>상태</th>
+                  <th>후속관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>착공/철거</td><td>브레이커로 기존 바닥 콘크리트 파쇄</td><td><span class="tag blue">진행</span></td><td>철거 범위·잔재 반출량 기록</td></tr>
+                <tr><td>옹벽 기초</td><td>옹벽 기초공사 착공 전 바닥 철거</td><td><span class="tag green">착수</span></td><td>기준선·레벨·배수 간섭 확인</td></tr>
+                <tr><td>준공 리스크</td><td>건축물대장에 없는 외곽 무허가 창고 철거 지시</td><td><span class="tag red">중요</span></td><td>철거 전후 사진·폐기물 처리기록 보관</td></tr>
+                <tr><td>방수/배수</td><td>기숙사·사무동 물홈통 막힘 및 옥상 침수 방지</td><td><span class="tag orange">지시</span></td><td>장마 전 물홈통 청소·방수 범위 확정</td></tr>
+                <tr><td>게이트/펜스</td><td>기존 펜스 주변 풀·덩굴·나무 제거</td><td><span class="tag">검토</span></td><td>게이트·펜스 시공 일정 확인</td></tr>
+                <tr><td>계근대</td><td>설치 후보지 및 대형차 동선 검토</td><td><span class="tag">검토</span></td><td>설치업체 현장 미팅 의뢰</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="review-prompt">
+            <strong>검토 질문</strong>
+            High Priority로 둘 항목은 무허가 창고, 방수/배수, 계근대 동선 중 무엇인지 우선순위를 확정해 주세요.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="structure-map" data-title="전체 구조">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>3. 전체 구조 맵</h2>
+            <p>Mermaid 다이어그램을 외부 라이브러리 없이 읽을 수 있는 흐름 카드로 변환했습니다.</p>
+          </div>
+          <button class="btn section-toggle" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="flow-center">6/11 현장 기록</div>
+          <div class="flow" aria-label="전체 구조 흐름">
+            <article class="flow-card">
+              <h3>착공·선행</h3>
+              <ul>
+                <li>철거: 파쇄·적치</li>
+                <li>옹벽: 기준선·6/30 목표</li>
+              </ul>
+            </article>
+            <article class="flow-card">
+              <h3>리스크·장마</h3>
+              <ul>
+                <li>창고철거·준공자료</li>
+                <li>물홈통·방수 선행</li>
+              </ul>
+            </article>
+            <article class="flow-card">
+              <h3>외곽·물류</h3>
+              <ul>
+                <li>게이트: 6/17~7/15</li>
+                <li>계근: 회차·전기/통신 인입</li>
+              </ul>
+            </article>
+          </div>
+          <div class="review-prompt">
+            <strong>검토 질문</strong>
+            옹벽·판넬 관리 기준을 6/30 완료 목표로 보는 일정 가정이 맞는지 확인해 주세요.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="workflow" data-title="처리 흐름">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>4. 직원/시공사 처리 흐름</h2>
+            <p>역할별 책임과 증빙 보관 포인트를 분리했습니다.</p>
+          </div>
+          <button class="btn section-toggle" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="flow-center">접수·기록</div>
+          <div class="flow">
+            <article class="flow-card">
+              <h3>시공사</h3>
+              <ul>
+                <li>철거·옹벽 공종 확인</li>
+                <li>물홈통·방수 범위 확정</li>
+              </ul>
+            </article>
+            <article class="flow-card">
+              <h3>PM</h3>
+              <ul>
+                <li>착공계·6/30 일정 관리</li>
+                <li>계근·게이트 업체 조율</li>
+              </ul>
+            </article>
+            <article class="flow-card">
+              <h3>준공·증빙</h3>
+              <ul>
+                <li>창고 철거 전후 사진</li>
+                <li>폐기물 처리기록 보관</li>
+              </ul>
+            </article>
+          </div>
+          <div class="callout" style="margin-top:16px">
+            착공계는 단독 선행절차가 아니라 <strong>건축허가승인 후 착공계 신청</strong>으로 관리합니다. 게이트/펜스는 6/17 착수, 7/15 완료 흐름으로 봅니다.
+          </div>
+          <div class="review-prompt">
+            <strong>검토 질문</strong>
+            PM, 시공사, 인허가 담당 사이에서 각 항목의 담당자 이름을 추가해야 하는지 확인해 주세요.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="schedule" data-title="계획 대비 실행">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>5. 계획 대비 실행</h2>
+            <p>Gantt 내용을 검토용 타임라인으로 단순화했습니다.</p>
+          </div>
+          <button class="btn section-toggle" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="timeline">
+            <div class="time-item"><div class="time-card"><strong>2026-06-05 · 인허가 진주시청 제출 완료</strong><span>인허가·자금 / 완료</span></div></div>
+            <div class="time-item"><div class="time-card"><strong>2026-06-10 · 보증서 전 10% 지급·접수 후 잔여금</strong><span>인허가·자금 / 중요</span></div></div>
+            <div class="time-item"><div class="time-card"><strong>2026-06-11 ~ 2026-06-30 · 건축허가승인 후 착공계 신청</strong><span>인허가·자금 / 중요 진행구간</span></div></div>
+            <div class="time-item"><div class="time-card"><strong>2026-06-08 ~ 2026-06-30 · 부대공사 선행 착수</strong><span>현장·부대공사 / 진행</span></div></div>
+            <div class="time-item"><div class="time-card"><strong>2026-06-11 · 바닥 콘크리트 철거 확인</strong><span>현장·부대공사 / 완료 기록</span></div></div>
+            <div class="time-item"><div class="time-card"><strong>2026-06-11 ~ 2026-06-30 · 옹벽 기초공사 연계</strong><span>현장·부대공사 / 진행</span></div></div>
+            <div class="time-item"><div class="time-card"><strong>2026-06-11 ~ 2026-06-30 · 기숙사·사무동 방수 보완</strong><span>장마 전 선행 점검 필요</span></div></div>
+            <div class="time-item"><div class="time-card"><strong>2026-06-17 ~ 2026-07-15 · 펜스 및 입구게이트</strong><span>외곽 정비 및 차량통제 계획 필요</span></div></div>
+            <div class="time-item"><div class="time-card"><strong>2026-06-23 ~ 2026-08-30 · 증축구간 공사 예측</strong><span>본 공사 일정 추적 대상</span></div></div>
+            <div class="time-item"><div class="time-card"><strong>2026-06-11 ~ 2026-06-20 · 무허가 창고 철거 지시</strong><span>준공검사 리스크 제거 / 중요</span></div></div>
+            <div class="time-item"><div class="time-card"><strong>2026-06-11 ~ 2026-06-25 · 계근대 위치·동선 검토</strong><span>설치업체 미팅 및 인입 검토</span></div></div>
+          </div>
+          <div class="review-prompt">
+            <strong>검토 질문</strong>
+            6/20 창고 철거 목표와 6/25 계근대 검토 목표가 실제 현장 의사결정 속도에 맞는지 확인해 주세요.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="photos" data-title="사진 기록">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>6. 사진별 공사일보 기록</h2>
+            <p>각 사진의 위치, 작업 확인, 관리포인트, 분류를 검토 단위로 정리했습니다.</p>
+          </div>
+          <button class="btn section-toggle" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="photo-grid">
+            <article class="photo-card">
+              <figure><img src="assets/02-2026-06-11-p01-img-2cea261b2292.jpg" alt="P01 바닥 콘크리트 철거 착수"></figure>
+              <div class="photo-content">
+                <h3>P01. 바닥 콘크리트 철거 착수</h3>
+                <span class="tag blue">철거·기초</span>
+                <ul>
+                  <li>위치/공종: 공장 전면 야드 / 옹벽 기초 예정선</li>
+                  <li>작업/확인: 휠굴삭기 브레이커로 기존 콘크리트 포장 파쇄. 철거 라인을 따라 파쇄물 집적.</li>
+                  <li>관리포인트: 파쇄물 비산·분진, 장비 작업반경 출입통제, 철거폐기물 반출동선 확보 필요</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="photo-card">
+              <figure><img src="assets/03-2026-06-11-p02-img-01fd15941091.jpg" alt="P02 작업구간 현장협의"></figure>
+              <div class="photo-content">
+                <h3>P02. 작업구간 현장협의</h3>
+                <span class="tag">현장협의</span>
+                <ul>
+                  <li>위치/공종: 공장 측면 야드 / 기존 설비 보관구간</li>
+                  <li>작업/확인: 기존 철구조물·선별설비 주변에서 작업자 현장 확인. 파쇄 구간과 설비 간섭 여부 검토.</li>
+                  <li>관리포인트: 기존 설비와 작업장비 간 간섭, 파쇄잔재 방치 시 보행·차량 위험</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="photo-card">
+              <figure><img src="assets/04-2026-06-11-p03-img-041c5c0f7655.jpg" alt="P03 공장 출입구 전면 상태"></figure>
+              <div class="photo-content">
+                <h3>P03. 공장 출입구 전면 상태</h3>
+                <span class="tag">동선확인</span>
+                <ul>
+                  <li>위치/공종: 대형 출입문 전면 야드</li>
+                  <li>작업/확인: 자재 반입·장비 진입 동선 확인. 기존 바닥 절단/파쇄 흔적과 잡초 구간 확인.</li>
+                  <li>관리포인트: 차량 동선과 작업구간 분리 필요, 출입문 전면 파쇄물 정리 필요</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="photo-card">
+              <figure><img src="assets/05-2026-06-11-p04-img-f7391f730652.jpg" alt="P04 전면 야드 전체 기준사진"></figure>
+              <div class="photo-content">
+                <h3>P04. 전면 야드 전체 기준사진</h3>
+                <span class="tag green">기준사진</span>
+                <ul>
+                  <li>위치/공종: 공장 전면 전체</li>
+                  <li>작업/확인: 공장동 전면과 야드 전체 현황 기록. 옹벽·기초공사 전 기준사진으로 보관.</li>
+                  <li>관리포인트: 외벽 하부 우수흔적/오염부 관찰, 공사 중 외벽 보호·출입문 주변 정리 필요</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="photo-card">
+              <figure><img src="assets/06-2026-06-11-p05-img-cab90bfbbefa.jpg" alt="P05 정문 게이트 펜스 예정구간"></figure>
+              <div class="photo-content">
+                <h3>P05. 정문·게이트·펜스 예정구간</h3>
+                <span class="tag orange">게이트·펜스</span>
+                <ul>
+                  <li>위치/공종: 사무동 전면 / 정문 진입부</li>
+                  <li>작업/확인: 정문 게이트 및 펜스공사 전 진입부, 주차공간, 외곽 수목 상태 확인.</li>
+                  <li>관리포인트: 기존 펜스 주변 풀·덩굴·나무 제거 필요, 게이트 시공 전 차량통제 계획 필요</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="photo-card">
+              <figure><img src="assets/07-2026-06-11-p06-img-207985787488.jpg" alt="P06 공장동 사이 작업동선"></figure>
+              <div class="photo-content">
+                <h3>P06. 공장동 사이 작업동선</h3>
+                <span class="tag">장비동선</span>
+                <ul>
+                  <li>위치/공종: 공장동 사이 넓은 야드</li>
+                  <li>작업/확인: 굴삭기 작업 위치와 양측 공장동 사이 통행공간 확인. 파쇄물 적치 위치 검토.</li>
+                  <li>관리포인트: 장비 이동반경과 차량 통행로 분리, 철거폐기물 임시적치 위치 지정 필요</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="photo-card">
+              <figure><img src="assets/08-2026-06-11-p07-img-153cffa0625f.jpg" alt="P07 기숙사 사무동 외곽 배수 방수"></figure>
+              <div class="photo-content">
+                <h3>P07. 기숙사·사무동 외곽 배수/방수</h3>
+                <span class="tag red">방수·배수</span>
+                <ul>
+                  <li>위치/공종: 건물 외곽 물홈통·수목 인접부</li>
+                  <li>작업/확인: 외벽 배수관, 물홈통, 수목·낙엽 밀집 구간 확인. 옥상 침수 방지 및 방수공사 지시.</li>
+                  <li>관리포인트: 물홈통 막힘 시 옥상 침수·누수·곰팡이 리스크. 장마 전 청소·방수 선행 필요</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="photo-card">
+              <figure><img src="assets/09-2026-06-11-p08-img-935f1ee1ffdc.jpg" alt="P08 무허가 창고 철거 대상"></figure>
+              <div class="photo-content">
+                <h3>P08. 무허가 창고 철거 대상</h3>
+                <span class="tag red">인허가리스크</span>
+                <ul>
+                  <li>위치/공종: 부지 외곽 / 공장 측면 후면부</li>
+                  <li>작업/확인: 건축물대장에 없는 외곽 창고 확인. 추후 준공검사 리스크 제거 목적으로 철거 지시.</li>
+                  <li>관리포인트: 준공검사·인허가 리스크. 철거 전 내부 잔존물 확인 및 폐기물 처리기록 필요</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="photo-card">
+              <figure><img src="assets/10-2026-06-11-p09-img-b659e26d34a5.jpg" alt="P09 계근대 후보지 1차 검토"></figure>
+              <div class="photo-content">
+                <h3>P09. 계근대 후보지 1차 검토</h3>
+                <span class="tag orange">계근대</span>
+                <ul>
+                  <li>위치/공종: 정문~사무동 전면 넓은 포장 야드</li>
+                  <li>작업/확인: 대형차 진입·정차·회차 가능한 공간 확인. 계근대 설치업체 현장 미팅 필요.</li>
+                  <li>관리포인트: 주차차량과 계근차량 동선 충돌, 기초보강·전기/통신 인입 검토 필요</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="photo-card">
+              <figure><img src="assets/11-2026-06-11-p10-img-4fad9b242b1c.jpg" alt="P10 정문 방향 계근 게이트 동선"></figure>
+              <div class="photo-content">
+                <h3>P10. 정문 방향 계근·게이트 동선</h3>
+                <span class="tag orange">계근·진입</span>
+                <ul>
+                  <li>위치/공종: 정문 입구 및 외곽 전기설비 인접부</li>
+                  <li>작업/확인: 정문 방향 시야와 차량 진입공간 확인. 계근대 위치·게이트 거리·대기공간 검토.</li>
+                  <li>관리포인트: 전주·전기설비 간섭, 차량 대기공간 부족 가능성, 바닥 보강 범위 산정 필요</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="review-prompt">
+            <strong>검토 질문</strong>
+            각 사진의 위치명과 분류가 현장 내부에서 쓰는 명칭과 맞는지 확인해 주세요. 특히 P08, P09, P10은 준공·물류 의사결정에 직접 연결됩니다.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="checklist" data-title="후속 액션 체크리스트">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>7. 후속 액션 체크리스트</h2>
+            <p>브라우저 안에서만 체크 상태가 유지되는 로컬 검토용 체크리스트입니다.</p>
+          </div>
+          <button class="btn section-toggle" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="checklist" id="reviewChecklist">
+            <article class="check-card">
+              <h3>공정관리</h3>
+              <label class="check-row"><input type="checkbox"><span>철거 범위와 잔재 반출량 기록</span></label>
+              <label class="check-row"><input type="checkbox"><span>옹벽 기초 기준선·레벨 확인</span></label>
+              <label class="check-row"><input type="checkbox"><span>작업반경 출입통제 표지 설치</span></label>
+              <label class="check-row"><input type="checkbox"><span>파쇄물 임시적치 및 반출동선 지정</span></label>
+            </article>
+            <article class="check-card">
+              <h3>준공/인허가 리스크</h3>
+              <label class="check-row"><input type="checkbox"><span>무허가 창고 내부 잔존물 확인</span></label>
+              <label class="check-row"><input type="checkbox"><span>무허가 창고 철거 전 사진 보관</span></label>
+              <label class="check-row"><input type="checkbox"><span>철거 후 사진 및 폐기물 처리기록 보관</span></label>
+              <label class="check-row"><input type="checkbox"><span>준공검사 대응자료로 별도 편철</span></label>
+            </article>
+            <article class="check-card">
+              <h3>방수/배수</h3>
+              <label class="check-row"><input type="checkbox"><span>기숙사·사무동 물홈통 막힘 확인</span></label>
+              <label class="check-row"><input type="checkbox"><span>낙엽·수목·이물질 제거</span></label>
+              <label class="check-row"><input type="checkbox"><span>옥상 침수 가능 구간 점검</span></label>
+              <label class="check-row"><input type="checkbox"><span>방수공사 범위와 견적 확인</span></label>
+            </article>
+            <article class="check-card">
+              <h3>계근대/게이트</h3>
+              <label class="check-row"><input type="checkbox"><span>계근대 설치업체 현장 미팅 일정 확정</span></label>
+              <label class="check-row"><input type="checkbox"><span>대형차 진입·정차·회차 동선 검토</span></label>
+              <label class="check-row"><input type="checkbox"><span>전기·통신 인입 가능 여부 확인</span></label>
+              <label class="check-row"><input type="checkbox"><span>정문게이트·펜스 주변 수목 제거 일정 확인</span></label>
+            </article>
+          </div>
+          <div class="feedback-toolbar" style="margin-top:14px">
+            <button class="btn" type="button" id="copyChecked">체크된 항목 복사</button>
+            <button class="btn" type="button" id="clearChecks">체크 초기화</button>
+            <span class="copy-ok" id="checkCopyStatus"></span>
+          </div>
+          <div class="review-prompt">
+            <strong>검토 질문</strong>
+            체크리스트 중 오늘 바로 지시해야 할 항목과 다음 현장 방문 때 확인할 항목을 구분해 주세요.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="feedback" data-title="AI 피드백 복사 영역">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>8. copy-feedback-to-AI</h2>
+            <p>검토 의견을 빠르게 다시 전달할 수 있도록 복사용 프롬프트를 제공합니다.</p>
+          </div>
+          <button class="btn section-toggle" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="feedback-area">
+            <textarea id="feedbackText">다음 공사일보 HTML을 검토해 주세요.
+
+문서: 2026-06-11 지수통합선별공장 공사일보 1일차
+검토 우선순위: High
+
+확인 요청:
+1. 사진별 위치/공종/관리포인트가 실제 현장 명칭과 일치하는지 확인
+2. 무허가 창고 철거, 방수/배수, 계근대 설치 후보지의 리스크 우선순위 재정렬
+3. 6/20 창고 철거 목표, 6/25 계근대 검토 목표, 6/30 옹벽/판넬 관리 목표 일정 검토
+4. 누락된 증빙자료, 담당자, 후속 지시사항 추가
+5. 준공검사 대응자료로 별도 편철해야 할 항목 표시
+
+수정 의견:
+- 
+</textarea>
+            <div class="feedback-toolbar">
+              <button class="btn primary" type="button" data-copy-target="feedbackText">검토 요청 복사</button>
+              <span class="hint">복사는 현재 브라우저에서만 실행되며 외부로 전송되지 않습니다.</span>
+              <span class="copy-ok" id="copyStatus"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="source" data-title="원문 기록 블록">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>9. 원문 기록 블록</h2>
+            <p>사용자 현장 설명 및 지시사항 원문 요약입니다.</p>
+          </div>
+          <button class="btn section-toggle" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <pre class="source-block" id="sourceText">사용자 현장 설명 및 지시사항 원문 요약:
+
+- 이번주 일정에 공사착공이 있고, 오늘 현장을 방문함.
+- 오늘 공장바닥 콘크리트 철거 및 옹벽 기초공사 착공 모습.
+- 브레이커로 바닥 콘크리트를 제거 중.
+- 건축물대장에 없는 부지 외곽 무허가 창고 철거 지시.
+- 목적: 추후 준공검사 시 리스크 제거.
+- 기숙사 및 사무동 외곽 물홈통 막힘에 따른 건물옥상 침수 방지 및 방수공사 지시.
+- 정문게이트 및 펜스공사 전 기존 펜스구간 풀·나무·덩굴 제거와 시공일정 확인 필요.
+- 계근대 설치 후보 위치 확인 및 설치업체 미팅 의뢰 필요.</pre>
+          <div class="feedback-toolbar" style="margin-top:12px">
+            <button class="btn" type="button" data-copy-text-id="sourceText">원문 요약 복사</button>
+            <span class="copy-ok" id="sourceCopyStatus"></span>
+          </div>
+          <p class="print-note">인쇄본에서는 인터랙션 버튼이 제외됩니다.</p>
+        </div>
+      </section>
+    <section class="marktl-reader-feedback" aria-label="Reader feedback">
 <h2>댓글과 피드백</h2>
 <script src="https://giscus.app/client.js"
         data-repo="flytothesky23/marktl-shares"
@@ -28,4 +1181,106 @@
         async>
 </script>
 </section>
-</main>\n  </div>\n\n  <script>\n    (function () {\n      const toc = document.getElementById(\"toc\");\n      const headings = Array.from(document.querySelectorAll(\"main h2, main .photo-info h3\"));\n      const usedIds = new Set(Array.from(document.querySelectorAll(\"[id]\")).map(el => el.id));\n\n      function slugify(text) {\n        return text\n          .toLowerCase()\n          .replace(/[^\\w가-힣]+/g, \"-\")\n          .replace(/^-+|-+$/g, \"\")\n          .slice(0, 60) || \"section\";\n      }\n\n      headings.forEach((heading) => {\n        if (!heading.id) {\n          let base = slugify(heading.textContent);\n          let id = base;\n          let index = 2;\n          while (usedIds.has(id)) id = base + \"-\" + index++;\n          heading.id = id;\n          usedIds.add(id);\n        }\n\n        const link = document.createElement(\"a\");\n        link.href = \"#\" + heading.id;\n        link.textContent = heading.textContent;\n        link.className = heading.tagName.toLowerCase() === \"h3\" ? \"depth-3\" : \"depth-2\";\n        toc.appendChild(link);\n      });\n\n      const tocToggle = document.querySelector(\"[data-toggle-toc]\");\n      tocToggle.addEventListener(\"click\", () => {\n        toc.classList.toggle(\"hidden\");\n        tocToggle.textContent = toc.classList.contains(\"hidden\") ? \"펼치기\" : \"접기\";\n      });\n\n      document.querySelectorAll(\".collapse-btn\").forEach((button) => {\n        button.addEventListener(\"click\", () => {\n          const section = button.closest(\".section\");\n          section.classList.toggle(\"collapsed\");\n          button.textContent = section.classList.contains(\"collapsed\") ? \"섹션 펼치기\" : \"섹션 접기\";\n        });\n      });\n\n      async function copyText(text, button) {\n        try {\n          await navigator.clipboard.writeText(text);\n          const original = button.textContent;\n          button.textContent = \"복사됨\";\n          setTimeout(() => button.textContent = original, 1200);\n        } catch (error) {\n          const original = button.textContent;\n          button.textContent = \"복사 실패\";\n          setTimeout(() => button.textContent = original, 1200);\n        }\n      }\n\n      document.querySelector(\"[data-copy-source]\").addEventListener(\"click\", (event) => {\n        copyText(document.getElementById(\"sourceText\").innerText, event.currentTarget);\n      });\n\n      const checklist = document.querySelector(\"[data-checklist]\");\n      const boxes = Array.from(checklist.querySelectorAll(\"input[type='checkbox']\"));\n      const storageKey = \"jisoo-daily-2026-06-11-checks\";\n\n      try {\n        const saved = JSON.parse(localStorage.getItem(storageKey) || \"[]\");\n        boxes.forEach((box, index) => box.checked = Boolean(saved[index]));\n      } catch (error) {}\n\n      boxes.forEach((box) => {\n        box.addEventListener(\"change\", () => {\n          localStorage.setItem(storageKey, JSON.stringify(boxes.map(item => item.checked)));\n        });\n      });\n\n      document.querySelector(\"[data-reset-checks]\").addEventListener(\"click\", () => {\n        boxes.forEach(box => box.checked = false);\n        localStorage.removeItem(storageKey);\n      });\n\n      document.querySelector(\"[data-copy-checks]\").addEventListener(\"click\", (event) => {\n        const groups = Array.from(document.querySelectorAll(\".check-group\")).map(group => {\n          const title = group.querySelector(\"h3\").textContent;\n          const items = Array.from(group.querySelectorAll(\".check-item\")).map(item => {\n            const checked = item.querySelector(\"input\").checked ? \"[x]\" : \"[ ]\";\n            const text = item.querySelector(\"span\").textContent;\n            return \"- \" + checked + \" \" + text;\n          }).join(\"\\n\");\n          return title + \"\\n\" + items;\n        }).join(\"\\n\\n\");\n        copyText(groups, event.currentTarget);\n      });\n\n      const feedback = document.getElementById(\"feedbackText\");\n      const template = feedback.value;\n\n      document.querySelector(\"[data-copy-feedback]\").addEventListener(\"click\", (event) => {\n        copyText(feedback.value, event.currentTarget);\n      });\n\n      document.querySelector(\"[data-insert-template]\").addEventListener(\"click\", () => {\n        feedback.value = template;\n        feedback.focus();\n      });\n    })();\n  </script>\n</body>\n</html>
+</main>
+  </div>
+
+  <script>
+    (function () {
+      const toc = document.getElementById('toc');
+      const tocList = document.getElementById('tocList');
+      const sections = Array.from(document.querySelectorAll('.section'));
+      const toggleToc = document.getElementById('toggleToc');
+      const copyStatus = document.getElementById('copyStatus');
+      const sourceCopyStatus = document.getElementById('sourceCopyStatus');
+      const checkCopyStatus = document.getElementById('checkCopyStatus');
+
+      sections.forEach((section, index) => {
+        const title = section.dataset.title || section.querySelector('h2')?.textContent || ('Section ' + (index + 1));
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + section.id;
+        a.textContent = title;
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+
+      document.querySelectorAll('.section-toggle').forEach((button) => {
+        button.addEventListener('click', () => {
+          const section = button.closest('.section');
+          section.classList.toggle('collapsed');
+          button.textContent = section.classList.contains('collapsed') ? '펼치기' : '접기';
+        });
+      });
+
+      document.getElementById('expandAll').addEventListener('click', () => {
+        sections.forEach(section => {
+          section.classList.remove('collapsed');
+          const btn = section.querySelector('.section-toggle');
+          if (btn) btn.textContent = '접기';
+        });
+      });
+
+      document.getElementById('collapseAll').addEventListener('click', () => {
+        sections.forEach(section => {
+          section.classList.add('collapsed');
+          const btn = section.querySelector('.section-toggle');
+          if (btn) btn.textContent = '펼치기';
+        });
+      });
+
+      toggleToc.addEventListener('click', () => {
+        toc.classList.toggle('hidden');
+        toggleToc.textContent = toc.classList.contains('hidden') ? '목차 보이기' : '목차 숨기기';
+      });
+
+      async function copyText(text, statusEl) {
+        try {
+          await navigator.clipboard.writeText(text);
+          if (statusEl) {
+            statusEl.textContent = '복사됨';
+            window.setTimeout(() => { statusEl.textContent = ''; }, 1600);
+          }
+        } catch (err) {
+          const temp = document.createElement('textarea');
+          temp.value = text;
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          document.body.removeChild(temp);
+          if (statusEl) {
+            statusEl.textContent = '복사됨';
+            window.setTimeout(() => { statusEl.textContent = ''; }, 1600);
+          }
+        }
+      }
+
+      document.querySelectorAll('[data-copy-target]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = document.getElementById(button.dataset.copyTarget);
+          copyText(target.value || target.textContent || '', copyStatus);
+        });
+      });
+
+      document.querySelectorAll('[data-copy-text-id]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = document.getElementById(button.dataset.copyTextId);
+          copyText(target.textContent || '', sourceCopyStatus);
+        });
+      });
+
+      document.getElementById('copyChecked').addEventListener('click', () => {
+        const checked = Array.from(document.querySelectorAll('#reviewChecklist input:checked'))
+          .map(input => '- ' + input.closest('label').innerText.trim());
+        const text = checked.length ? checked.join('\n') : '체크된 항목이 없습니다.';
+        copyText(text, checkCopyStatus);
+      });
+
+      document.getElementById('clearChecks').addEventListener('click', () => {
+        document.querySelectorAll('#reviewChecklist input:checked').forEach(input => { input.checked = false; });
+        checkCopyStatus.textContent = '초기화됨';
+        window.setTimeout(() => { checkCopyStatus.textContent = ''; }, 1600);
+      });
+    })();
+  </script>
+</body>
+</html>
