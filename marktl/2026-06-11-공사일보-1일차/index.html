@@ -655,6 +655,18 @@
     .gantt-summary p { margin: 0; border: 1px solid #e2e8f0; background: #f8fafc; border-radius: 8px; padding: 11px 12px; color: #475569; font-size: .92rem; line-height: 1.55; }
     @media (max-width: 920px) { .hero-grid { min-height: auto; } .hero-card { min-height: auto; } .hero-card img { max-height: none; } .field-map { grid-template-columns: 1fr; grid-template-areas: "core" "left" "right" "bottom"; } .map-column.bottom, .flow-notes, .gantt-summary { grid-template-columns: 1fr; } }
 
+
+    /* Mobile hero order: kicker -> lead image -> title -> summary */
+    @media (max-width: 920px) {
+      .hero-grid { display: flex; flex-direction: column; gap: 18px; }
+      .hero-grid > div:first-child { display: contents; }
+      .hero .kicker { order: 1; margin-bottom: 2px; }
+      .hero-card { order: 2; width: 100%; min-height: 0; padding: 10px; }
+      .hero-card img { width: 100%; height: auto; max-height: none; object-fit: contain; }
+      .hero h1 { order: 3; font-size: clamp(2.15rem, 11vw, 4.2rem); line-height: 1.02; }
+      .hero .dek { order: 4; margin-top: 0; font-size: 1.02rem; line-height: 1.58; }
+    }
+
 </style>
 <meta property="og:type" content="article">
 <meta property="og:title" content="2026-06-11 지수통합선별공장 공사일보 1일차">
