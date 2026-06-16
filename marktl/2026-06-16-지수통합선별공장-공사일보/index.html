@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2026-06-16 지수통합선별공장 공사일보</title>
+  <style>
+    :root{
+      --bg:#f4f1ea;
+      --bg2:#eef3f1;
+      --panel:#ffffff;
+      --panel2:#fbfaf7;
+      --ink:#152028;
+      --muted:#61707b;
+      --line:rgba(21,32,40,.12);
+      --accent:#0f766e;
+      --accent2:#8a5b2b;
+      --accent3:#355c7d;
+      --warn:#b45309;
+      --ok:#166534;
+      --shadow:0 18px 50px rgba(21,32,40,.08);
+      --shadow2:0 10px 30px rgba(21,32,40,.06);
+      --radius:24px;
+      --radius2:18px;
+      --max:1220px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(15,118,110,.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(138,91,43,.10), transparent 24%),
+        linear-gradient(180deg, var(--bg), var(--bg2) 48%, #f8f7f3);
+      font-family: "Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+      line-height:1.6;
+      letter-spacing:-0.01em;
+    }
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 20px 56px;
+    }
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.65);
+      border-radius:999px;
+      box-shadow:0 8px 20px rgba(21,32,40,.04);
+      backdrop-filter: blur(10px);
+      white-space:nowrap;
+    }
+    .grid-hero{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:22px;
+      align-items:stretch;
+      margin-bottom:22px;
+    }
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(21,32,40,.10);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.74)),
+        radial-gradient(circle at top right, rgba(15,118,110,.10), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(138,91,43,.10), transparent 28%);
+      border-radius:32px;
+      box-shadow:var(--shadow);
+      min-height:420px;
+    }
+    .hero-text{
+      padding:30px 30px 26px;
+      display:flex;
+      flex-direction:column;
+      height:100%;
+    }
+    .kicker{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:16px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .kicker .tag{
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(15,118,110,.08);
+      color:var(--accent);
+      border:1px solid rgba(15,118,110,.12);
+      font-weight:700;
+    }
+    h1{
+      margin:0;
+      font-size:clamp(30px, 4vw, 52px);
+      line-height:1.06;
+      letter-spacing:-0.04em;
+    }
+    .subtitle{
+      margin:14px 0 0;
+      font-size:16px;
+      color:var(--muted);
+      max-width:42ch;
+    }
+    .summary-card{
+      margin-top:auto;
+      padding:18px 18px 16px;
+      border-radius:22px;
+      background:rgba(255,255,255,.66);
+      border:1px solid rgba(21,32,40,.08);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.9);
+    }
+    .summary-label{
+      font-size:12px;
+      letter-spacing:.08em;
+      color:var(--accent2);
+      font-weight:800;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .summary{
+      margin:0;
+      font-size:19px;
+      line-height:1.5;
+      font-weight:700;
+      color:#22313a;
+    }
+    .hero-visual{
+      position:relative;
+      overflow:hidden;
+      border-radius:32px;
+      border:1px solid rgba(21,32,40,.10);
+      background:
+        linear-gradient(180deg, rgba(10,16,22,.03), rgba(10,16,22,.10)),
+        linear-gradient(135deg, rgba(53,92,125,.12), rgba(15,118,110,.10));
+      box-shadow:var(--shadow);
+      min-height:420px;
+    }
+    .hero-visual .lead-img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:saturate(1.02) contrast(1.02);
+      transform:scale(1.01);
+    }
+    .hero-visual .overlay{
+      position:absolute;
+      inset:auto 0 0 0;
+      padding:18px;
+      background:linear-gradient(180deg, transparent, rgba(11,18,25,.78) 72%);
+      color:#fff;
+    }
+    .overlay .meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
+      font-size:12px;
+      color:rgba(255,255,255,.82);
+    }
+    .overlay .meta span{
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(8px);
+    }
+
+    .section{
+      margin-top:20px;
+      border:1px solid rgba(21,32,40,.10);
+      background:rgba(255,255,255,.76);
+      backdrop-filter: blur(10px);
+      border-radius:28px;
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+    }
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      align-items:flex-end;
+      padding:22px 24px 0;
+      flex-wrap:wrap;
+    }
+    .section h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-0.03em;
+    }
+    .section .desc{
+      color:var(--muted);
+      margin:8px 0 0;
+      font-size:14px;
+      max-width:70ch;
+    }
+    .section-body{padding:20px 24px 24px;}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{
+      padding:7px 10px;
+      border-radius:999px;
+      background:#f4f7f7;
+      border:1px solid rgba(21,32,40,.08);
+      color:#30414d;
+      font-size:12px;
+      font-weight:700;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 6;
+      border:1px solid rgba(21,32,40,.10);
+      border-radius:22px;
+      background:linear-gradient(180deg, #fff, #fcfbf7);
+      padding:18px;
+      box-shadow:0 12px 28px rgba(21,32,40,.05);
+    }
+    .card.full{grid-column:1 / -1}
+    .card.third{grid-column: span 4}
+    .card h3{
+      margin:0 0 10px;
+      font-size:17px;
+      letter-spacing:-0.02em;
+    }
+    .card p{margin:0;color:#31424d}
+    .small{font-size:13px;color:var(--muted)}
+    .kv{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+      margin-top:10px;
+    }
+    .kv .item{
+      border-radius:18px;
+      border:1px solid rgba(21,32,40,.08);
+      background:rgba(244,247,247,.85);
+      padding:12px 12px 11px;
+    }
+    .kv .label{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-bottom:4px;
+    }
+    .kv .value{
+      font-size:14px;
+      font-weight:700;
+      line-height:1.35;
+    }
+    .figure{
+      border-radius:22px;
+      border:1px solid rgba(21,32,40,.08);
+      overflow:hidden;
+      background:#f7f7f3;
+    }
+    .figure img{
+      width:100%;
+      display:block;
+      height:auto;
+    }
+    .figure figcaption{
+      padding:12px 14px;
+      color:var(--muted);
+      font-size:13px;
+      background:rgba(255,255,255,.8);
+      border-top:1px solid rgba(21,32,40,.08);
+    }
+    .photo-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .photo-card{
+      border-radius:22px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid rgba(21,32,40,.10);
+      box-shadow:0 12px 30px rgba(21,32,40,.05);
+    }
+    .photo-card img{
+      width:100%;
+      aspect-ratio: 4 / 3;
+      object-fit:cover;
+      display:block;
+    }
+    .photo-card .pc-body{
+      padding:14px;
+    }
+    .photo-card .pc-title{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-start;
+      margin-bottom:8px;
+    }
+    .photo-card .pc-title strong{font-size:15px}
+    .photo-card ul{
+      margin:0;
+      padding-left:18px;
+      color:#354550;
+      font-size:13px;
+    }
+    .callout{
+      border-radius:22px;
+      padding:16px 16px 15px;
+      border:1px solid rgba(21,32,40,.10);
+      background:linear-gradient(180deg, rgba(15,118,110,.06), rgba(255,255,255,.92));
+    }
+    .callout.warn{
+      background:linear-gradient(180deg, rgba(180,83,9,.08), rgba(255,255,255,.94));
+    }
+    .callout.ok{
+      background:linear-gradient(180deg, rgba(22,101,52,.08), rgba(255,255,255,.94));
+    }
+    .callout h4{
+      margin:0 0 8px;
+      font-size:15px;
+    }
+    .callout ul{
+      margin:0;
+      padding-left:18px;
+      color:#374955;
+      font-size:13px;
+    }
+    .columns{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+    }
+    .diagram{
+      border-radius:22px;
+      border:1px solid rgba(21,32,40,.10);
+      background:#fbfbf8;
+      padding:16px;
+      overflow:auto;
+    }
+    .diagram pre{
+      margin:0;
+      font-family: "SFMono-Regular","Consolas","Liberation Mono",monospace;
+      font-size:13px;
+      line-height:1.65;
+      color:#20303b;
+      white-space:pre-wrap;
+    }
+    .diagram .label{
+      font-size:12px;
+      color:var(--accent2);
+      font-weight:800;
+      letter-spacing:.08em;
+      margin-bottom:10px;
+      text-transform:uppercase;
+    }
+    .timeline{
+      display:grid;
+      grid-template-columns: 190px 1fr;
+      gap:12px 14px;
+      align-items:center;
+    }
+    .timeline .step{
+      font-size:13px;
+      color:#2a3944;
+      font-weight:700;
+    }
+    .bar{
+      position:relative;
+      height:16px;
+      border-radius:999px;
+      background:#e8ecea;
+      overflow:hidden;
+      border:1px solid rgba(21,32,40,.06);
+    }
+    .bar .fill{
+      position:absolute;
+      inset:0 auto 0 0;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--accent), #35a39b);
+      width:var(--w,50%);
+    }
+    .bar .fill.alt{background:linear-gradient(90deg, var(--accent2), #c98a4b)}
+    .bar .fill.gray{background:linear-gradient(90deg, #4b6475, #86a0b1)}
+    .bar .fill.ok{background:linear-gradient(90deg, var(--ok), #49a56c)}
+    .timeline .note{
+      grid-column:2;
+      margin-top:-6px;
+      margin-bottom:4px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:20px;
+      border:1px solid rgba(21,32,40,.10);
+      background:#fff;
+    }
+    .table th,.table td{
+      padding:12px 12px;
+      border-bottom:1px solid rgba(21,32,40,.08);
+      text-align:left;
+      vertical-align:top;
+      font-size:13px;
+    }
+    .table th{
+      background:#f5f7f5;
+      color:#33424e;
+      font-size:12px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+    }
+    .table tr:last-child td{border-bottom:none}
+    .table td strong{display:block;margin-bottom:4px}
+    .review-row{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .review-box{
+      border:1px solid rgba(21,32,40,.10);
+      background:linear-gradient(180deg, #fff, #faf8f4);
+      border-radius:22px;
+      padding:16px;
+    }
+    .review-box h3{
+      margin:0 0 8px;
+      font-size:16px;
+    }
+    .review-box ul{
+      margin:0;
+      padding-left:18px;
+      color:#344450;
+      font-size:13px;
+    }
+    .review-box li{margin:6px 0}
+    .feedback{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+    }
+    .feedback .box{
+      border-radius:22px;
+      border:1px solid rgba(21,32,40,.10);
+      background:#fff;
+      padding:16px;
+    }
+    .feedback textarea{
+      width:100%;
+      min-height:180px;
+      resize:vertical;
+      border-radius:16px;
+      border:1px solid rgba(21,32,40,.12);
+      padding:14px;
+      font:inherit;
+      color:var(--ink);
+      background:#fcfcfa;
+      outline:none;
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+    button{
+      appearance:none;
+      border:none;
+      border-radius:999px;
+      padding:11px 14px;
+      font:inherit;
+      font-weight:700;
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    button:hover{transform:translateY(-1px)}
+    .btn-primary{
+      color:#fff;
+      background:linear-gradient(135deg, var(--accent), #137f77);
+      box-shadow:0 12px 26px rgba(15,118,110,.22);
+    }
+    .btn-secondary{
+      color:#20303b;
+      background:#eef3f1;
+      border:1px solid rgba(21,32,40,.08);
+    }
+    .btn-ghost{
+      color:#31424d;
+      background:#fff;
+      border:1px solid rgba(21,32,40,.10);
+    }
+    .footer-note{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .toc{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .toc a{
+      text-decoration:none;
+      color:#2d404b;
+      border:1px solid rgba(21,32,40,.10);
+      background:rgba(255,255,255,.75);
+      padding:8px 11px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+    }
+    .tagline{
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+    .muted{color:var(--muted)}
+    .sep{height:1px;background:rgba(21,32,40,.08);margin:18px 0}
+    @media (max-width: 960px){
+      .grid-hero{grid-template-columns:1fr}
+      .hero-visual{min-height:320px}
+      .card,.card.third{grid-column:1 / -1}
+      .photo-grid{grid-template-columns:1fr}
+      .columns,.feedback,.review-row,.timeline{grid-template-columns:1fr}
+      .timeline .note{grid-column:auto}
+      .section-head{align-items:flex-start}
+    }
+    @media (max-width: 720px){
+      .wrap{padding:16px 14px 42px}
+      .topbar{flex-direction:column;align-items:flex-start}
+      .hero{min-height:auto}
+      .hero-text{padding:18px}
+      .hero-visual{order:-1; min-height:270px}
+      .summary{font-size:17px}
+      .section{border-radius:22px}
+      .section-body,.section-head{padding-left:16px;padding-right:16px}
+      h1{font-size:30px}
+      .kv{grid-template-columns:1fr 1fr}
+      .table th,.table td{padding:10px}
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026-06-16 지수통합선별공장 공사일보">
+<meta property="og:description" content="작성 상태: 사진/캡션 접수 중 초안 오라버니의 전송완료 신호 후 최종본으로 정리. 1. 금일 작업 요약 주요 공종: 외부 옹벽 벽체 거푸집 및 철근배근 작업 구분: 실제 작업면은 A면/B면 2면 기준 사진 구분: P01 AB면 전체 조망, P02 A면, P03 B면 진행 상태: 벽체 타설 전 거푸집·철근배근 형상 확인 ">
+<meta property="og:url" content="https://flytothesky23.github.io/marktl-shares/marktl/s/18e806n/">
+<meta property="og:image" content="https://flytothesky23.github.io/marktl-shares/marktl/s/18e806n/assets/2026-06-16-p01-img-41e42bd280c0.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026-06-16 지수통합선별공장 공사일보">
+<meta name="twitter:description" content="작성 상태: 사진/캡션 접수 중 초안 오라버니의 전송완료 신호 후 최종본으로 정리. 1. 금일 작업 요약 주요 공종: 외부 옹벽 벽체 거푸집 및 철근배근 작업 구분: 실제 작업면은 A면/B면 2면 기준 사진 구분: P01 AB면 전체 조망, P02 A면, P03 B면 진행 상태: 벽체 타설 전 거푸집·철근배근 형상 확인 ">
+<meta name="twitter:image" content="https://flytothesky23.github.io/marktl-shares/marktl/s/18e806n/assets/2026-06-16-p01-img-41e42bd280c0.jpg">
+<link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/marktl/s/18e806n/">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="pill">지수통합선별공장 · 공사일보 · 2026-06-16</div>
+      <div class="toc" aria-label="목차">
+        <a href="#abstract">요약</a>
+        <a href="#findings">핵심</a>
+        <a href="#evidence">증빙</a>
+        <a href="#gate">실행게이트</a>
+        <a href="#review">리뷰</a>
+      </div>
+    </div>
+
+    <section class="grid-hero" aria-label="첫 화면">
+      <div class="hero">
+        <div class="hero-text">
+          <div class="kicker">
+            <span class="tag">공사일보</span>
+            <span class="tag">옹벽공사</span>
+            <span class="tag">거푸집·철근배근</span>
+          </div>
+          <h1>2026-06-16<br>지수통합선별공장 공사일보</h1>
+          <p class="subtitle">외부 옹벽 벽체의 A면·B면 작업면을 기준으로 거푸집 및 철근배근 상태를 확인한 현장 리뷰 문서입니다.</p>
+          <div class="summary-card" id="abstract">
+            <div class="summary-label">카드 요약</div>
+            <p class="summary">옹벽 거푸집·철근배근 점검, 타설 전 검측 준비 단계</p>
+          </div>
+        </div>
+      </div>
+
+      <figure class="hero-visual">
+        <img class="lead-img" src="assets/2026-06-16-p01-img-41e42bd280c0.jpg" alt="A-B면 전체 조망 사진" />
+        <div class="overlay">
+          <div style="font-size:13px;font-weight:700;letter-spacing:.06em;opacity:.9">P01 · A-B면 전체 조망</div>
+          <div class="meta">
+            <span>외부 옹벽 벽체</span>
+            <span>거푸집 설치</span>
+            <span>철근배근 확인</span>
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <section class="section" id="findings">
+      <div class="section-head">
+        <div>
+          <h2>핵심 발견</h2>
+          <p class="desc">공사일보를 리뷰 문맥으로 바꿔, 현장 상태를 빠르게 판단할 수 있도록 핵심만 먼저 제시합니다.</p>
+        </div>
+        <div class="chips" aria-label="리더 태그">
+          <span class="chip">현장확인</span>
+          <span class="chip">타설전</span>
+          <span class="chip">검측대기</span>
+          <span class="chip">리뷰룸</span>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="cards">
+          <article class="card third">
+            <h3>작업 범위</h3>
+            <p>외부 옹벽 벽체 구간을 A면과 B면 2개 작업면으로 구분해 진행했습니다.</p>
+          </article>
+          <article class="card third">
+            <h3>진행 단계</h3>
+            <p>벽체 타설 전 단계로, 거푸집 설치와 철근배근 형상을 확인하는 시점입니다.</p>
+          </article>
+          <article class="card third">
+            <h3>증빙 상태</h3>
+            <p>2026-06-16 촬영 사진 3장을 연결해 면별 확인 근거를 확보했습니다.</p>
+          </article>
+          <article class="card full">
+            <div class="callout ok">
+              <h4>리뷰 포인트</h4>
+              <ul>
+                <li>A면·B면 분리 관리가 되어 있어 사진과 현장 설명의 대응 관계가 명확합니다.</li>
+                <li>타설 전 검측 항목을 사전에 정리해 품질 리스크를 줄이는 구성이 적절합니다.</li>
+                <li>후속 의사결정은 철근 피복, 수직도, 결속상태, 청소 상태 확인에 달려 있습니다.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="evidence">
+      <div class="section-head">
+        <div>
+          <h2>증빙 섹션</h2>
+          <p class="desc">사진별 역할, 현장 확인 사항, 리더가 바로 읽을 수 있는 짧은 판단 문장을 함께 배치했습니다.</p>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="photo-grid">
+          <article class="photo-card">
+            <img src="assets/2026-06-16-p01-img-41e42bd280c0.jpg" alt="P01 A-B면 전체 조망" />
+            <div class="pc-body">
+              <div class="pc-title">
+                <strong>P01 · A-B면 전체 조망</strong>
+                <span class="chip">전체</span>
+              </div>
+              <ul>
+                <li>외부 옹벽 벽체 거푸집 및 철근배근</li>
+                <li>A면과 B면이 함께 보이는 전체 조망</li>
+                <li>장변 구간과 배면 옹벽 구간 범위 확인</li>
+              </ul>
+            </div>
+          </article>
+          <article class="photo-card">
+            <img src="assets/2026-06-16-p02-img-039b178ce476.jpg" alt="P02 A면 세부" />
+            <div class="pc-body">
+              <div class="pc-title">
+                <strong>P02 · A면</strong>
+                <span class="chip">A면</span>
+              </div>
+              <ul>
+                <li>철근망 설치 상태 확인</li>
+                <li>벽체 하부 거푸집과 기초 접합부 점검</li>
+                <li>배면 사면 인접부 간섭 여부 확인</li>
+              </ul>
+            </div>
+          </article>
+          <article class="photo-card">
+            <img src="assets/2026-06-16-p03-img-ca3b9150b0d9.jpg" alt="P03 B면 세부" />
+            <div class="pc-body">
+              <div class="pc-title">
+                <strong>P03 · B면</strong>
+                <span class="chip">B면</span>
+              </div>
+              <ul>
+                <li>외벽을 따라 연속된 철근망 확인</li>
+                <li>단부 거푸집 및 자재 적치 상태 확인</li>
+                <li>작업 동선 간섭 가능성 점검</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="columns">
+          <div class="diagram">
+            <div class="label">전체 구조 흐름</div>
+            <pre class="mermaid-like">발주/검토 → 현장조망 → A면 확인 → B면 확인 → 타설전 검측
+          ↘ 사진증빙 ↗
+                 리뷰정리</pre>
+          </div>
+          <div class="diagram">
+            <div class="label">협력사/작업자 흐름</div>
+            <pre class="mermaid-like">현장관리 → 작업지시 → 거푸집팀
+        ↘ 검측 ↗          ↘ 철근팀
+           품질확인 → 타설준비</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="findings2">
+      <div class="section-head">
+        <div>
+          <h2>상세 판독</h2>
+          <p class="desc">원문 메모를 보고서형 문장으로 재구성해, 리딩 시점에서 바로 판단할 수 있게 정리했습니다.</p>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="cards">
+          <article class="card">
+            <h3>공정 진행 현황</h3>
+            <p>외부 옹벽 벽체 구간은 A면과 B면으로 나뉘어 거푸집 설치와 철근 배근이 진행되었습니다.</p>
+            <div class="kv">
+              <div class="item"><span class="label">면 구성</span><span class="value">A면 / B면</span></div>
+              <div class="item"><span class="label">현재 단계</span><span class="value">타설 전</span></div>
+              <div class="item"><span class="label">핵심 확인</span><span class="value">형상 검토</span></div>
+              <div class="item"><span class="label">사진 수량</span><span class="value">3장</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <h3>리스크 및 조치</h3>
+            <div class="callout warn">
+              <ul>
+                <li>철근 피복두께 확보 여부 확인</li>
+                <li>철근 간격 및 결속상태 최종 점검</li>
+                <li>거푸집 수직도와 벽체 두께, 버팀 상태 확인</li>
+                <li>내부 청소 및 이물질 제거</li>
+                <li>관통부, 매립물, 이어치기 위치 누락 여부 확인</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card full">
+            <h3>사진별 현장 확인 표</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>사진</th>
+                  <th>구분</th>
+                  <th>현장 확인 초점</th>
+                  <th>판단 메모</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>P01</strong> 전체 조망</td>
+                  <td>A-B면</td>
+                  <td>전체 범위, 벽체 구간, 철근망·거푸집 설치 범위</td>
+                  <td>면별 비교를 위한 기준 사진으로 적합</td>
+                </tr>
+                <tr>
+                  <td><strong>P02</strong> 세부</td>
+                  <td>A면</td>
+                  <td>하부 접합부, 배면 사면 인접부, 철근망 상태</td>
+                  <td>타설 전 밀도 점검에 유리</td>
+                </tr>
+                <tr>
+                  <td><strong>P03</strong> 세부</td>
+                  <td>B면</td>
+                  <td>연속 철근망, 단부 거푸집, 자재 적치 및 동선</td>
+                  <td>작업 간섭과 정리 상태 확인에 유효</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gate">
+      <div class="section-head">
+        <div>
+          <h2>실행 게이트</h2>
+          <p class="desc">허가, 자금/보증, 착수, 옹벽, 게이트/펜스, 확장 공정의 순서를 한 눈에 보는 HTML/CSS 간트입니다.</p>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="timeline" aria-label="실행 게이트 간트">
+          <div class="step">허가</div>
+          <div class="bar"><span class="fill ok" style="--w:100%"></span></div>
+          <div class="note">기초 착수 전 선행 조건</div>
+
+          <div class="step">자금/보증</div>
+          <div class="bar"><span class="fill alt" style="--w:88%"></span></div>
+          <div class="note">집행 안정성 확보 단계</div>
+
+          <div class="step">착수</div>
+          <div class="bar"><span class="fill" style="--w:72%"></span></div>
+          <div class="note">현장 진입 및 작업 체계화</div>
+
+          <div class="step">옹벽</div>
+          <div class="bar"><span class="fill" style="--w:64%"></span></div>
+          <div class="note">현재 공정의 중심 구간</div>
+
+          <div class="step">게이트/펜스</div>
+          <div class="bar"><span class="fill gray" style="--w:26%"></span></div>
+          <div class="note">후속 외부 경계 정리</div>
+
+          <div class="step">확장</div>
+          <div class="bar"><span class="fill gray" style="--w:18%"></span></div>
+          <div class="note">연계 공정과 향후 확장 대응</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="implications">
+      <div class="section-head">
+        <div>
+          <h2>의미와 시사점</h2>
+          <p class="desc">이번 일지는 단순 사진 첨부가 아니라, 타설 직전 품질 점검의 기준점을 만드는 문서로 해석됩니다.</p>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="cards">
+          <article class="card third">
+            <h3>품질</h3>
+            <p>타설 전 핵심 리스크를 미리 명시해, 검측과 보강의 판단 기준을 분명히 합니다.</p>
+          </article>
+          <article class="card third">
+            <h3>협업</h3>
+            <p>면별 사진과 메모가 연결돼 있어 현장팀, 검측자, 보고 대상 간 설명 비용이 줄어듭니다.</p>
+          </article>
+          <article class="card third">
+            <h3>기록성</h3>
+            <p>날짜와 사진 연결이 명확해 추후 품질 검토나 분쟁 대응에도 활용도가 높습니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="review">
+      <div class="section-head">
+        <div>
+          <h2>리뷰 룸</h2>
+          <p class="desc">섹션별 검토 질문, 열린 이슈, 읽는 사람 메모, 그리고 AI 전달용 피드백 복사까지 마지막 단계로 이어집니다.</p>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="review-row">
+          <div class="review-box">
+            <h3>섹션별 리뷰 프롬프트</h3>
+            <ul>
+              <li>작업 범위가 A면·B면으로 나뉜 기준이 충분히 명확한가?</li>
+              <li>사진별 확인 포인트가 타설 전 검측 항목과 직접 연결되는가?</li>
+              <li>리스크 항목이 실제 현장 조치로 번역될 수 있는가?</li>
+            </ul>
+          </div>
+          <div class="review-box">
+            <h3>열린 질문</h3>
+            <ul>
+              <li>피복두께와 결속상태 검측 결과를 언제 확정할 것인가?</li>
+              <li>내부 청소 및 이물질 제거는 어느 공정 책임으로 관리할 것인가?</li>
+              <li>자재 적치 구간과 타설 동선은 별도 통제할 필요가 있는가?</li>
+            </ul>
+          </div>
+          <div class="review-box">
+            <h3>독자 메모</h3>
+            <ul>
+              <li>현장 판단 기준을 숫자나 체크리스트로 추가해도 좋다.</li>
+              <li>사진 캡션을 더 짧게 줄이면 보고 속도가 올라간다.</li>
+              <li>다음 판본에서는 검측 결과를 한 줄 결론으로 넣는 구성이 유효하다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="feedback">
+          <div class="box">
+            <h3 style="margin:0 0 10px;font-size:18px">피드백을 AI로 전달</h3>
+            <p class="small" style="margin:0 0 12px">아래 메모를 적고 복사하면 다음 수정 요청을 바로 이어갈 수 있습니다.</p>
+            <textarea id="feedbackText" placeholder="예: P02와 P03의 판독 차이를 더 분명하게 해줘. 타설 전 체크 항목을 체크박스 형태로 재구성해줘."></textarea>
+            <div class="actions">
+              <button class="btn-primary" id="copyBtn">피드백 복사</button>
+              <button class="btn-secondary" id="fillBtn">검토 메모 예시</button>
+              <button class="btn-ghost" id="clearBtn">초기화</button>
+            </div>
+            <div class="footer-note">로컬 전용 동작이며 외부 전송은 발생하지 않습니다.</div>
+          </div>
+
+          <div class="box">
+            <h3 style="margin:0 0 10px;font-size:18px">후속 정리 체크리스트</h3>
+            <div class="callout">
+              <ul>
+                <li>면별 검측 결과를 최종본에 반영</li>
+                <li>타설 전 청소·살수·동선 확인</li>
+                <li>거푸집 변형/누수 감시 계획 보강</li>
+                <li>양생 및 탈형 일정 관리</li>
+              </ul>
+            </div>
+            <div style="margin-top:14px" class="tagline">
+              작성 상태: 사진/캡션 접수 중 초안<br>
+              최종본 기준: 전송완료 신호 이후 정리
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="source-notes">
+      <div class="section-head">
+        <div>
+          <h2>원문 기반 메모</h2>
+          <p class="desc">원문의 핵심 표현은 보존하되, 노출형 마크다운과 오브시디언 전용 표시는 모두 독자 친화적인 문장으로 전환했습니다.</p>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="cards">
+          <article class="card full">
+            <h3>보고용 30초 브리핑</h3>
+            <p>2026년 6월 16일 지수통합선별공장 현장은 외부 옹벽 벽체 구간의 거푸집 설치 및 철근 배근 작업을 진행하였다. 실제 작업면은 A면과 B면 2개 면으로 구분하며, P01은 A-B면 전체 조망, P02는 A면, P03은 B면 세부 확인 사진으로 정리한다. 후속 공정 전 철근 피복, 거푸집 수직도, 결속상태, 타설 전 청소 상태를 최종 점검할 필요가 있다.</p>
+          </article>
+          <article class="card">
+            <h3>상태</h3>
+            <p>draft-collecting 단계의 초안이며, 사진 연결과 현장 설명은 완료되었습니다.</p>
+          </article>
+          <article class="card">
+            <h3>작성 이력</h3>
+            <p>작성 09:59, 수정 10:36, 사진 업데이트 10:50 기준으로 정리했습니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (function(){
+      const textarea = document.getElementById('feedbackText');
+      const copyBtn = document.getElementById('copyBtn');
+      const fillBtn = document.getElementById('fillBtn');
+      const clearBtn = document.getElementById('clearBtn');
+
+      const sample = [
+        '검토 요청:',
+        '1. A면/B면 차이를 더 선명하게 보여줘.',
+        '2. 타설 전 체크리스트를 체크박스형으로 바꿔줘.',
+        '3. 사진별 요약을 더 짧고 보고서답게 다듬어줘.',
+        '4. 리스크 항목에 우선순위를 넣어줘.'
+      ].join('\n');
+
+      fillBtn.addEventListener('click', () => {
+        textarea.value = sample;
+        textarea.focus();
+      });
+
+      clearBtn.addEventListener('click', () => {
+        textarea.value = '';
+        textarea.focus();
+      });
+
+      copyBtn.addEventListener('click', async () => {
+        const text = textarea.value.trim();
+        if(!text) {
+          textarea.focus();
+          return;
+        }
+        try{
+          await navigator.clipboard.writeText(text);
+          const old = copyBtn.textContent;
+          copyBtn.textContent = '복사 완료';
+          setTimeout(() => copyBtn.textContent = old, 1200);
+        }catch(e){
+          textarea.select();
+          document.execCommand('copy');
+          const old = copyBtn.textContent;
+          copyBtn.textContent = '복사 완료';
+          setTimeout(() => copyBtn.textContent = old, 1200);
+        }
+      });
+    })();
+  </script>
+<section class="marktl-reader-feedback" aria-label="Reader feedback">
+<style>
+.marktl-reader-feedback { margin: 40px auto 0; padding: 0; }
+.marktl-reader-feedback h2 { margin: 0 0 8px; font: 800 22px/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback p { margin: 0 0 14px; color: #526173; font: 500 14px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback .giscus, .marktl-reader-feedback .giscus-frame { width: 100%; }
+</style>
+<h2>Reader feedback</h2>
+<p>Leave a public GitHub comment or reaction below.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="flytothesky23/marktl-shares"
+        data-repo-id="R_kgDOSbdK8Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOSbdK8c4C84EC"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ko"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+</body>
+</html>
