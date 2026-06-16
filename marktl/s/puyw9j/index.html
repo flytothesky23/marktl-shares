@@ -667,6 +667,14 @@
       .hero .dek { order: 4; margin-top: 0; font-size: 1.02rem; line-height: 1.58; }
     }
 
+
+/* Lead infographic panel keeps a stable 16:9 ratio */
+@media (min-width: 921px) {
+  .hero-grid { align-items: center; min-height: auto; }
+  .hero-card { aspect-ratio: 16 / 9; min-height: 0; align-self: center; width: 100%; }
+  .hero-card img { height: 100%; object-fit: contain; }
+}
+
 </style>
 <meta property="og:type" content="article">
 <meta property="og:title" content="2026-06-11 지수통합선별공장 공사일보 1일차">
