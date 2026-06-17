@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "updatedAt": "2026-06-17T10:31:45.568Z",
+  "items": [
+    {
+      "slug": "mcp와-api-입문",
+      "shortId": "k1djja",
+      "url": "https://flytothesky23.github.io/marktl-shares/develop/s/k1djja/",
+      "canonicalUrl": "https://flytothesky23.github.io/marktl-shares/develop/mcp%EC%99%80-api-%EC%9E%85%EB%AC%B8/",
+      "sourcePath": "21_업무노트/정보기술/01-2_기술개념/MCP와_API_입문.md",
+      "sourcePathKey": "21_업무노트/정보기술/01-2_기술개념/mcp와_api_입문.md",
+      "artifactType": "slide-deck",
+      "thumbnailUrl": "",
+      "schemaVersion": 2,
+      "publishedByHost": "",
+      "title": "MCP와 API — AI 에이전트가 외부 시스템을 쓰는 방식",
+      "excerpt": "[!summary] 한 줄 결론 API는 소프트웨어 기능으로 들어가는 문이고, MCP는 AI에게 여러 문과 도구를 정리해서 쥐여주는 도구함이다. 왜 이 노트가 중요한가 TikTok 포토게시물 API vs MCP는 짧은 입문 자료지만, 앞으로 AI 업무 자동화가 어떤 방식으로 작동하는지 이해하는 데 중요한 개념을 담고 있다",
+      "tags": [
+        "AI에이전트",
+        "업무자동화"
+      ],
+      "updatedAt": "2026-06-17T10:31:45.568Z"
+    }
+  ]
+}
