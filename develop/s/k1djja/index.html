@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MCP와 API — AI 에이전트가 외부 시스템을 쓰는 방식</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #657084;
+      --line: #dce2ea;
+      --accent: #246bfe;
+      --accent-2: #12a88a;
+      --warn: #d98418;
+      --danger: #c84646;
+      --soft-blue: #eaf1ff;
+      --soft-green: #e9f8f3;
+      --soft-amber: #fff4df;
+      --soft-red: #fff0f0;
+      --code: #101828;
+      --shadow: 0 18px 45px rgba(23, 32, 51, .10);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(36, 107, 254, .12), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 320px);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 32px;
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      padding: 28px 28px 64px;
+    }
+
+    aside {
+      position: sticky;
+      top: 20px;
+      align-self: start;
+      height: calc(100vh - 40px);
+      overflow: auto;
+      padding: 18px;
+      background: rgba(255, 255, 255, .82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(23, 32, 51, .06);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-title {
+      margin: 0 0 12px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .toc {
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #39445a;
+    }
+
+    .toc a:hover,
+    .toc a.active {
+      background: var(--soft-blue);
+      color: #124bc4;
+      font-weight: 800;
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      align-content: center;
+      padding: 52px 0 44px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      width: fit-content;
+      gap: 8px;
+      align-items: center;
+      padding: 6px 10px;
+      border: 1px solid #bfd0ff;
+      border-radius: 999px;
+      color: #1749b6;
+      background: var(--soft-blue);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    h1 {
+      max-width: 980px;
+      margin: 22px 0 18px;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 860px;
+      margin: 0;
+      color: #3c465a;
+      font-size: clamp(19px, 2vw, 25px);
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      margin-top: 38px;
+      max-width: 1040px;
+    }
+
+    .statement {
+      padding: 26px;
+      background: var(--ink);
+      color: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .statement strong {
+      color: #9ec1ff;
+    }
+
+    .meta-card {
+      padding: 22px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .meta-card p {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 6px;
+      padding: 9px 12px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover {
+      border-color: #9ab5ff;
+      background: var(--soft-blue);
+    }
+
+    .section {
+      min-height: 80vh;
+      display: grid;
+      align-content: center;
+      padding: 46px 0;
+      scroll-margin-top: 24px;
+    }
+
+    .slide {
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(24px, 4vw, 46px);
+      box-shadow: var(--shadow);
+    }
+
+    .slide.compact {
+      min-height: auto;
+    }
+
+    .section-label {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 26px 0 10px;
+      font-size: 23px;
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .big {
+      font-size: clamp(20px, 2vw, 27px);
+      line-height: 1.5;
+      font-weight: 700;
+      color: #2d374c;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .card.blue { background: var(--soft-blue); border-color: #c8d8ff; }
+    .card.green { background: var(--soft-green); border-color: #bfe8da; }
+    .card.amber { background: var(--soft-amber); border-color: #f2d49a; }
+    .card.red { background: var(--soft-red); border-color: #f1c7c7; }
+
+    .card h3,
+    .card h4 {
+      margin-top: 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #425066;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    ul, ol {
+      margin: 12px 0 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 7px;
+    }
+
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    pre {
+      overflow: auto;
+      margin: 14px 0 0;
+      padding: 16px;
+      border-radius: 8px;
+      background: var(--code);
+      color: #eef4ff;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .quote {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border-left: 5px solid var(--accent);
+      background: var(--soft-blue);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .warning {
+      border-left-color: var(--warn);
+      background: var(--soft-amber);
+    }
+
+    .tip {
+      border-left-color: var(--accent-2);
+      background: var(--soft-green);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f0f4fa;
+      font-size: 14px;
+      color: #3d485c;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 22px;
+    }
+
+    .node {
+      padding: 12px 14px;
+      border: 1px solid #cdd7e5;
+      border-radius: 8px;
+      background: #fff;
+      font-weight: 800;
+      color: #253149;
+    }
+
+    .node.primary {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .arrow {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .stack {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .num {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      color: #164fc7;
+      font-weight: 900;
+    }
+
+    .columns {
+      columns: 2;
+      column-gap: 36px;
+    }
+
+    .columns li {
+      break-inside: avoid;
+    }
+
+    details {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 14px 16px;
+      font-weight: 900;
+      color: #26324a;
+      background: #f7f9fc;
+    }
+
+    details > div {
+      padding: 16px;
+    }
+
+    .footer {
+      padding: 28px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .layout {
+        display: block;
+        padding: 18px 16px 48px;
+      }
+
+      aside {
+        position: relative;
+        top: auto;
+        height: auto;
+        margin-bottom: 18px;
+      }
+
+      .toc {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 24px;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        min-height: auto;
+        padding: 20px 0;
+      }
+
+      .columns {
+        columns: 1;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .layout {
+        display: block;
+        padding: 0;
+      }
+
+      aside,
+      .controls,
+      button {
+        display: none;
+      }
+
+      .section,
+      .hero {
+        min-height: auto;
+        break-after: page;
+        padding: 0;
+      }
+
+      .slide,
+      .statement,
+      .meta-card {
+        box-shadow: none;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="MCP와 API — AI 에이전트가 외부 시스템을 쓰는 방식">
+<meta property="og:description" content=" 한 줄 결론 API는 소프트웨어 기능으로 들어가는 문이고, MCP는 AI에게 여러 문과 도구를 정리해서 쥐여주는 도구함이다. 왜 이 노트가 중요한가 TikTok 포토게시물 API vs MCP는 짧은 입문 자료지만, 앞으로 AI 업무 자동화가 어떤 방식으로 작동하는지 이해하는 데 중요한 개념을 담고 있다">
+<meta property="og:url" content="https://flytothesky23.github.io/marktl-shares/develop/s/k1djja/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MCP와 API — AI 에이전트가 외부 시스템을 쓰는 방식">
+<meta name="twitter:description" content=" 한 줄 결론 API는 소프트웨어 기능으로 들어가는 문이고, MCP는 AI에게 여러 문과 도구를 정리해서 쥐여주는 도구함이다. 왜 이 노트가 중요한가 TikTok 포토게시물 API vs MCP는 짧은 입문 자료지만, 앞으로 AI 업무 자동화가 어떤 방식으로 작동하는지 이해하는 데 중요한 개념을 담고 있다">
+<link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/develop/s/k1djja/">
+</head>
+<body>
+  <div class="layout">
+    <aside aria-label="목차">
+      <p class="nav-title">Presentation Navigation</p>
+      <ol class="toc" id="toc">
+        <li><a href="#opening">핵심 결론</a></li>
+        <li><a href="#why">왜 중요한가</a></li>
+        <li><a href="#api">API</a></li>
+        <li><a href="#mcp">MCP</a></li>
+        <li><a href="#relationship">관계</a></li>
+        <li><a href="#without-api">API 없이 연결</a></li>
+        <li><a href="#examples">예시</a></li>
+        <li><a href="#misunderstandings">오해</a></li>
+        <li><a href="#toolcalling">Tool Calling</a></li>
+        <li><a href="#workflow">업무 환경 적용</a></li>
+        <li><a href="#control">통제된 연결</a></li>
+        <li><a href="#stability">안정성 기준</a></li>
+        <li><a href="#closing">기억할 문장</a></li>
+      </ol>
+    </aside>
+
+    <main>
+      <header class="hero" id="opening">
+        <span class="kicker">AI 에이전트 · MCP · API · 업무 자동화</span>
+        <h1>MCP와 API — AI 에이전트가 외부 시스템을 쓰는 방식</h1>
+        <p class="lead">API는 소프트웨어 기능으로 들어가는 문이고, MCP는 AI에게 여러 문과 도구를 정리해서 쥐여주는 도구함이다.</p>
+
+        <div class="hero-grid">
+          <div class="statement">
+            <p class="big">핵심 관점</p>
+            <p>MCP는 API를 대체하지 않는다. <strong>API, DB, 파일, CLI, 앱 자동화 같은 실행 수단을 AI가 도구처럼 사용할 수 있게 하는 연결 계층</strong>이다.</p>
+          </div>
+          <div class="meta-card">
+            <p><strong>문서 성격</strong> 발표용 개념 정리</p>
+            <p><strong>주제</strong> AI 에이전트가 외부 시스템을 호출하는 구조</p>
+            <p><strong>작성 시각</strong> 2026-06-15 16:17 KST</p>
+            <div class="controls">
+              <button type="button" data-copy="summary">핵심 요약 복사</button>
+              <button type="button" data-copy="outline">발표 흐름 복사</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="section reveal" id="why">
+        <div class="slide">
+          <p class="section-label">01 · 왜 중요한가</p>
+          <h2>AI 업무 자동화의 기본 구조를 이해하는 문제</h2>
+          <p class="big">기존 앱은 사람이 버튼을 누르고 앱이 API를 호출한다. AI 에이전트 구조에서는 사람이 자연어로 의도를 말하고, AI가 필요한 도구를 고른 뒤 실행 계층을 통해 외부 시스템을 호출한다.</p>
+          <div class="grid-2">
+            <div class="card">
+              <span class="pill">기존 앱 구조</span>
+              <div class="flow">
+                <span class="node">사용자</span><span class="arrow">→</span>
+                <span class="node">앱</span><span class="arrow">→</span>
+                <span class="node">API</span><span class="arrow">→</span>
+                <span class="node">결과 화면</span>
+              </div>
+            </div>
+            <div class="card blue">
+              <span class="pill">AI 에이전트 구조</span>
+              <div class="flow">
+                <span class="node">사용자 의도</span><span class="arrow">→</span>
+                <span class="node primary">AI Agent</span><span class="arrow">→</span>
+                <span class="node">MCP / Tool Layer</span><span class="arrow">→</span>
+                <span class="node">API · DB · 파일 · 앱</span>
+              </div>
+            </div>
+          </div>
+          <div class="quote">이 주제는 개발 용어가 아니라, AI가 실제 업무 시스템을 어떻게 사용할 수 있게 되는가에 대한 기본 구조다.</div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="api">
+        <div class="slide">
+          <p class="section-label">02 · API</p>
+          <h2>API는 시스템 간 요청과 응답의 공식 통로</h2>
+          <p class="big">API는 한 시스템이 다른 시스템에게 데이터나 작업을 요청하는 계약이다.</p>
+          <div class="grid-2">
+            <div class="card">
+              <h3>예시 요청</h3>
+              <pre><code>GET /weather?city=Miami</code></pre>
+            </div>
+            <div class="card">
+              <h3>예시 응답</h3>
+              <pre><code>{
+  "temp": 84,
+  "condition": "sunny"
+}</code></pre>
+            </div>
+          </div>
+          <h3>API가 정의하는 것</h3>
+          <ul class="columns">
+            <li>어디로 요청을 보낼지: endpoint</li>
+            <li>어떤 데이터를 보낼지: request body 또는 query</li>
+            <li>어떤 인증이 필요한지: token, OAuth, key</li>
+            <li>어떤 작업이 수행되는지: action</li>
+            <li>어떤 결과가 돌아오는지: response, JSON 등</li>
+          </ul>
+          <div class="quote">API는 “이 기능을 쓰려면 이런 형식으로 요청하라”는 서비스의 문이다.</div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="mcp">
+        <div class="slide">
+          <p class="section-label">03 · MCP</p>
+          <h2>MCP는 AI에게 도구와 맥락을 노출하는 연결 계층</h2>
+          <p class="big">MCP, Model Context Protocol은 AI 클라이언트와 에이전트가 외부 도구, 파일, 데이터베이스, 앱, 서비스에 표준 방식으로 연결되도록 해준다.</p>
+          <div class="grid-2">
+            <div class="card green">
+              <h3>MCP가 AI에게 알려주는 것</h3>
+              <ul>
+                <li>어떤 도구가 있는지</li>
+                <li>그 도구가 무슨 일을 하는지</li>
+                <li>입력값은 무엇이 필요한지</li>
+                <li>결과는 어떤 형식으로 오는지</li>
+                <li>어떤 resource/context를 읽을 수 있는지</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>도구 목록 예시</h3>
+              <pre><code>search_customer
+create_contact
+read_file
+query_database
+send_email
+create_calendar_event</code></pre>
+            </div>
+          </div>
+          <div class="quote tip">“MCP gives AI hands.” AI가 말만 하는 챗봇에서 벗어나 파일을 읽고, DB를 조회하고, 앱 기능을 호출하는 실행자로 바뀔 수 있기 때문이다.</div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="relationship">
+        <div class="slide">
+          <p class="section-label">04 · API와 MCP의 관계</p>
+          <h2>MCP는 API 위에 올라갈 수 있지만, API 그 자체는 아니다</h2>
+          <div class="quote">MCP는 API를 대체하지 않는다. MCP는 API를 포함한 여러 실행 수단을 AI가 도구처럼 쓰게 해주는 더 넓은 연결 계층이다.</div>
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>API</th>
+                <th>MCP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>주 사용자</td>
+                <td>앱, 서비스, 백엔드 시스템</td>
+                <td>AI client, AI agent</td>
+              </tr>
+              <tr>
+                <td>목적</td>
+                <td>요청을 보내고 응답을 받기</td>
+                <td>AI에게 도구와 context를 노출하기</td>
+              </tr>
+              <tr>
+                <td>형태</td>
+                <td>endpoint 중심</td>
+                <td>tool, resource, server 중심</td>
+              </tr>
+              <tr>
+                <td>예시</td>
+                <td><code>POST /crm/contacts</code></td>
+                <td><code>create_contact</code> tool</td>
+              </tr>
+              <tr>
+                <td>성격</td>
+                <td>소프트웨어 간 통신 계약</td>
+                <td>AI용 도구 연결 계층</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="flow" aria-label="MCP와 API 관계 흐름">
+            <span class="node">사용자</span><span class="arrow">→</span>
+            <span class="node primary">AI Agent</span><span class="arrow">→</span>
+            <span class="node">MCP Client</span><span class="arrow">→</span>
+            <span class="node">MCP Server</span><span class="arrow">→</span>
+            <span class="node">REST / GraphQL API</span>
+            <span class="node">Database</span>
+            <span class="node">Files</span>
+            <span class="node">CLI / Script</span>
+            <span class="node">App Automation</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="without-api">
+        <div class="slide">
+          <p class="section-label">05 · API가 없어도 가능한가</p>
+          <h2>가능한 경우도 있지만, 실제 실행 수단은 반드시 필요하다</h2>
+          <p class="big">MCP 자체가 마법처럼 데이터를 만들거나 시스템을 제어하는 것은 아니다. MCP 서버 뒤에는 실제 실행 수단이 있어야 한다.</p>
+          <div class="grid-3">
+            <div class="card">REST API</div>
+            <div class="card">GraphQL API</div>
+            <div class="card">DB 직접 연결</div>
+            <div class="card">로컬 파일 읽기/쓰기</div>
+            <div class="card">CLI 명령 실행</div>
+            <div class="card">브라우저 자동화</div>
+            <div class="card">데스크톱 앱 자동화</div>
+            <div class="card">사내 SDK</div>
+            <div class="card">직접 작성한 코드</div>
+          </div>
+          <pre><code>AI Agent
+  ↓
+MCP
+  ↓
+실제 실행 수단
+  ↓
+API / DB / File / CLI / App / Browser / SDK</code></pre>
+          <div class="quote warning">“API가 없어도 MCP만 있으면 된다”는 말은 부정확하다. 정확히는 공식 API가 없어도 MCP 서버가 다른 통로를 통해 연결할 수 있다는 뜻이다.</div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="examples">
+        <div class="slide">
+          <p class="section-label">06 · 예시</p>
+          <h2>차이는 “누가 도구를 고르고 호출하는가”에 있다</h2>
+
+          <details open>
+            <summary>예시 1 — 날씨 앱</summary>
+            <div>
+              <div class="grid-2">
+                <div class="card">
+                  <h3>전통적 API 흐름</h3>
+                  <pre><code>사용자 → 날씨 앱 → Weather API → 날씨 데이터 → 앱 화면 표시</code></pre>
+                  <p>앱이 데이터를 직접 가져온다.</p>
+                </div>
+                <div class="card blue">
+                  <h3>MCP 흐름</h3>
+                  <pre><code>사용자 → AI Assistant → MCP weather tool → Weather API → AI 답변</code></pre>
+                  <p>AI가 데이터 소스를 도구로 사용한다.</p>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>예시 2 — CRM 연락처 생성</summary>
+            <div>
+              <div class="grid-2">
+                <div class="card">
+                  <h3>API 흐름</h3>
+                  <pre><code>POST /crm/contacts
+
+{
+  "name": "Sofia Martinez",
+  "email": "sofia@acme.com"
+}</code></pre>
+                </div>
+                <div class="card green">
+                  <h3>MCP 흐름</h3>
+                  <pre><code>사용자: Add Sofia to CRM.
+
+AI Agent
+  → MCP CRM Server
+  → create_contact tool
+  → CRM API
+  → contact created</code></pre>
+                </div>
+              </div>
+              <div class="quote">API는 CRM의 기능을 노출하고, MCP는 그 기능을 AI가 안전하게 호출할 수 있는 도구로 포장한다.</div>
+            </div>
+          </details>
+
+          <details>
+            <summary>예시 3 — 기업용 AI 에이전트 워크플로우</summary>
+            <div>
+              <p>사용자 요청: “고객을 찾고, 열린 티켓을 확인하고, follow-up task를 만들고, account owner에게 이메일을 보내줘.”</p>
+              <div class="stack">
+                <div class="step"><span class="num">1</span><div>CRM MCP Server로 고객 검색</div></div>
+                <div class="step"><span class="num">2</span><div>Support MCP Server로 열린 티켓 조회</div></div>
+                <div class="step"><span class="num">3</span><div>Calendar 또는 Task MCP Server로 follow-up task 생성</div></div>
+                <div class="step"><span class="num">4</span><div>Email MCP Server로 담당자에게 이메일 발송</div></div>
+                <div class="step"><span class="num">5</span><div>AI가 실행 결과 요약 반환</div></div>
+              </div>
+              <div class="quote">각 MCP tool은 내부적으로 하나 이상의 API를 호출할 수 있다.</div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="section reveal" id="misunderstandings">
+        <div class="slide">
+          <p class="section-label">07 · 초보자가 자주 하는 오해</p>
+          <h2>세 가지 오해만 피하면 구조가 선명해진다</h2>
+          <div class="grid-3">
+            <div class="card red">
+              <span class="pill">오해 1</span>
+              <h3>MCP가 API를 대체한다</h3>
+              <p>틀렸다. MCP는 종종 API 위에 올라가서 AI가 API 기능을 도구처럼 사용할 수 있게 한다.</p>
+            </div>
+            <div class="card red">
+              <span class="pill">오해 2</span>
+              <h3>API와 MCP는 같다</h3>
+              <p>틀렸다. API는 일반 소프트웨어 통신 방식이고, MCP는 AI-specific tool/context connection이다.</p>
+            </div>
+            <div class="card red">
+              <span class="pill">오해 3</span>
+              <h3>AI가 마법처럼 일한다</h3>
+              <p>틀렸다. 에이전트는 도구를 선택하고, 도구는 실제로 API, DB, 파일, CLI 등을 호출한다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="toolcalling">
+        <div class="slide">
+          <p class="section-label">08 · Tool Calling과 MCP</p>
+          <h2>Tool Calling은 호출 표현, MCP는 도구 제공 구조</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Tool Calling</h3>
+              <p>모델이나 에이전트가 “이 함수를 호출해야겠다”고 결정하고 구조화된 인자를 만들어내는 방식이다.</p>
+            </div>
+            <div class="card blue">
+              <h3>MCP</h3>
+              <p>그 도구들을 외부 서버 형태로 표준 제공하고, AI 클라이언트가 발견·설명·실행할 수 있게 해주는 연결 규격이다.</p>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>한 줄 정리</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tool calling</td>
+                <td>모델이 도구 호출을 표현하는 방식</td>
+              </tr>
+              <tr>
+                <td>MCP</td>
+                <td>도구를 제공하고 연결하는 표준 프로토콜/서버 구조</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section reveal" id="workflow">
+        <div class="slide">
+          <p class="section-label">09 · 업무 환경에 대입하기</p>
+          <h2>API는 실제 업무 기능, MCP는 AI가 그 기능을 쓰게 하는 계층</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>API는 실제 업무 기능</h3>
+              <ul>
+                <li>생산관리앱 데이터 조회/등록 API</li>
+                <li>거래명세서 OCR 저장 API</li>
+                <li>Google Drive, Docs, Sheets API</li>
+                <li>Telegram gateway API</li>
+                <li>UNECO backend endpoint</li>
+                <li>보고서 생성/전송 endpoint</li>
+              </ul>
+            </div>
+            <div class="card green">
+              <h3>MCP는 AI용 도구 계층</h3>
+              <ul>
+                <li><code>search_obsidian_notes</code></li>
+                <li><code>read_drive_file</code></li>
+                <li><code>generate_daily_report_html</code></li>
+                <li><code>verify_report_in_browser</code></li>
+                <li><code>send_telegram_message</code></li>
+                <li><code>query_production_data</code></li>
+                <li><code>create_uneco_record</code></li>
+              </ul>
+            </div>
+          </div>
+          <pre><code>요청
+  ↓
+AI Agent
+  ↓
+MCP / tool layer
+  ↓
+Drive · Obsidian · Telegram · UNECO · 생산관리앱 · worker
+  ↓
+검수된 결과 보고</code></pre>
+          <div class="quote">이 구조에서는 AI가 여러 시스템을 한 번에 엮어 업무 단위로 처리할 수 있다.</div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="control">
+        <div class="slide">
+          <p class="section-label">10 · 운영상 가장 중요한 점</p>
+          <h2>강력한 연결일수록 통제된 연결이어야 한다</h2>
+          <p class="big">MCP가 강력하다는 것은 동시에 위험하다는 뜻이다. AI에게 메일 전송, 고객정보 조회, 파일 삭제, DB 수정, 외부 API 호출 같은 권한이 생길 수 있다.</p>
+          <div class="grid-2">
+            <div class="card red">
+              <h3>생길 수 있는 권한</h3>
+              <ul>
+                <li>메일 보내기</li>
+                <li>고객정보 읽기</li>
+                <li>파일 삭제하기</li>
+                <li>DB 수정하기</li>
+                <li>거래처 등록하기</li>
+                <li>외부 API 호출하기</li>
+                <li>보고서 자동 전송하기</li>
+              </ul>
+            </div>
+            <div class="card green">
+              <h3>필수 설계</h3>
+              <ul>
+                <li>읽기 전용 도구와 쓰기 도구 분리</li>
+                <li>삭제, 전송, 수정은 사용자 승인</li>
+                <li>권한 범위 최소화</li>
+                <li>OAuth/token 관리</li>
+                <li>감사 로그 기록</li>
+                <li>실패 시 롤백 또는 중단</li>
+                <li>prompt injection 방어</li>
+                <li>외부 문서 지시 무시 원칙</li>
+                <li>tool schema 검증</li>
+                <li>dry-run/preview 제공</li>
+                <li>최종 결과 검수</li>
+              </ul>
+            </div>
+          </div>
+          <div class="quote tip">bounded worker는 제한하고, 중앙 에이전트가 API·OAuth·권한·라우팅·검수·최종 판단을 담당하는 구조가 안전하다.</div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="stability">
+        <div class="slide">
+          <p class="section-label">11 · 안정성 기준</p>
+          <h2>공식 API가 가장 안정적이고, 브라우저 자동화는 최후 수단</h2>
+          <div class="stack">
+            <div class="step"><span class="num">1</span><div><strong>공식 API</strong><br><span class="muted">가장 안정적이다.</span></div></div>
+            <div class="step"><span class="num">2</span><div><strong>DB 직접 연결</strong><br><span class="muted">강력하지만 권한과 무결성에 주의해야 한다.</span></div></div>
+            <div class="step"><span class="num">3</span><div><strong>파일 기반</strong><br><span class="muted">간단하지만 동시성과 형식 변경에 주의해야 한다.</span></div></div>
+            <div class="step"><span class="num">4</span><div><strong>CLI / SDK</strong><br><span class="muted">좋지만 명령 안정성이 필요하다.</span></div></div>
+            <div class="step"><span class="num">5</span><div><strong>브라우저 자동화</strong><br><span class="muted">화면 변경과 로그인 문제 때문에 최후 수단이다.</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="closing">
+        <div class="slide">
+          <p class="section-label">12 · 기억할 문장</p>
+          <h2>발표를 닫는 세 문장</h2>
+          <div class="grid-3">
+            <div class="card blue">
+              <h3>1</h3>
+              <p>API는 기능으로 가는 문이고, MCP는 AI에게 여러 문과 도구를 정리해서 쥐여주는 도구함이다.</p>
+            </div>
+            <div class="card green">
+              <h3>2</h3>
+              <p>MCP는 API를 대체하지 않는다. API를 포함한 여러 실행 수단을 AI가 도구처럼 쓰게 해주는 더 넓은 연결 계층이다.</p>
+            </div>
+            <div class="card amber">
+              <h3>3</h3>
+              <p>에이전트가 도구를 고르고, 도구가 실제 API 호출을 한다.</p>
+            </div>
+          </div>
+
+          <h3>후속 노트로 발전시키기</h3>
+          <ul class="columns">
+            <li>API 입문 — endpoint, request, response, auth, JSON</li>
+            <li>Tool Calling과 MCP의 차이</li>
+            <li>AI 에이전트 권한 설계</li>
+            <li>MCP 서버 설계 체크리스트</li>
+            <li>Hermes Agent 도구 운영 원칙</li>
+            <li>Prompt Injection과 도구 호출 보안</li>
+          </ul>
+
+          <div class="footer">
+            <p>출처와 맥락: TikTok photo post “API vs MCP”, AXIAL STUDIO @axial.studio. 핵심 문장: “APIs let apps talk to services.”, “MCP lets AI agents use services as tools.”, “MCP often uses APIs, but MCP is not just another API.”, “MCP gives AI hands.”</p>
+          </div>
+        </div>
+      </section>
+    <section class="marktl-reader-feedback" aria-label="Reader feedback">
+<style>
+.marktl-reader-feedback { margin: 40px auto 0; padding: 0; }
+.marktl-reader-feedback h2 { margin: 0 0 8px; font: 800 22px/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback p { margin: 0 0 14px; color: #526173; font: 500 14px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback .giscus, .marktl-reader-feedback .giscus-frame { width: 100%; }
+</style>
+<h2>Reader feedback</h2>
+<p>Leave a public GitHub comment or reaction below.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="flytothesky23/marktl-shares"
+        data-repo-id="R_kgDOSbdK8Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOSbdK8c4C84EC"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ko"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+</main>
+  </div>
+
+  <script>
+    const links = Array.from(document.querySelectorAll(".toc a"));
+    const sections = links
+      .map(link => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll(".reveal").forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight * 0.88) {
+              el.classList.add("visible");
+            }
+          });
+
+          const id = entry.target.id;
+          links.forEach(link => {
+            link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+          });
+        }
+      });
+    }, { rootMargin: "-35% 0px -50% 0px", threshold: 0.01 });
+
+    sections.forEach(section => observer.observe(section));
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+    const copyText = {
+      summary:
+`MCP와 API 핵심 요약
+
+API는 소프트웨어 기능으로 들어가는 공식 통로다.
+MCP는 AI에게 여러 도구와 실행 수단을 표준 방식으로 노출하는 연결 계층이다.
+MCP는 API를 대체하지 않는다. API, DB, 파일, CLI, 앱 자동화 등을 AI가 도구처럼 쓰게 만든다.
+에이전트는 도구를 고르고, 도구가 실제 API나 실행 수단을 호출한다.
+실무에서는 연결보다 통제된 연결이 중요하다.`,
+      outline:
+`발표 흐름
+
+1. 왜 중요한가: AI 업무 자동화의 기본 구조
+2. API: 시스템 간 요청과 응답의 공식 통로
+3. MCP: AI에게 도구와 맥락을 노출하는 연결 계층
+4. API와 MCP의 관계: 대체가 아니라 포장과 확장
+5. API가 없는 경우: 다른 실행 수단이 필요함
+6. 예시: 날씨, CRM, 기업용 워크플로우
+7. 오해: 대체, 동일시, 마법적 실행
+8. Tool Calling과 MCP의 차이
+9. 업무 환경 적용
+10. 통제된 연결과 보안
+11. 안정성 기준
+12. 기억할 세 문장`
+    };
+
+    document.querySelectorAll("[data-copy]").forEach(button => {
+      button.addEventListener("click", async () => {
+        const key = button.getAttribute("data-copy");
+        try {
+          await navigator.clipboard.writeText(copyText[key]);
+          const original = button.textContent;
+          button.textContent = "복사됨";
+          setTimeout(() => { button.textContent = original; }, 1200);
+        } catch {
+          button.textContent = "복사 실패";
+          setTimeout(() => { button.textContent = key === "summary" ? "핵심 요약 복사" : "발표 흐름 복사"; }, 1200);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
