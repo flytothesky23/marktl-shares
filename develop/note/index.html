@@ -1,0 +1,1322 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>환경사업부 통합업무시스템/생산관리앱 가치 평가 리서치 보고서</title>
+<meta name="description" content="Obsidian 생산관리앱 개발 노트 기반 제품·자산 평가
+
+ Executive Summary
+
+본 보고서는 사용자의 Obsidian 지식베이스 중 `21업무노트/사업운영/생산관리앱` 폴더에 축적된 개발 노트만을 근거로, 기존 “생산관리앱”이 현재 어떤 수준의 웹앱 또는 업무 자산으로">
+<meta property="og:title" content="환경사업부 통합업무시스템/생산관리앱 가치 평가 리서치 보고서">
+<meta property="og:description" content="Obsidian 생산관리앱 개발 노트 기반 제품·자산 평가
+
+ Executive Summary
+
+본 보고서는 사용자의 Obsidian 지식베이스 중 `21업무노트/사업운영/생산관리앱` 폴더에 축적된 개발 노트만을 근거로, 기존 “생산관리앱”이 현재 어떤 수준의 웹앱 또는 업무 자산으로">
+<meta property="og:type" content="article">
+
+<meta name="theme-color" content="#b8543a" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131214" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='75' font-size='75'&gt;O&lt;/text&gt;&lt;/svg&gt;">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --font-display: 'Charter', 'Iowan Old Style', Georgia, serif;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --bg: #fbf9f4;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f1ede4;
+  --border: rgba(0,0,0,0.08);
+  --border-strong: rgba(0,0,0,0.16);
+  --text: #1a1817;
+  --text-dim: #5a5651;
+  --text-muted: #8a8580;
+  --accent: #b8543a;
+  --accent-light: #d97a5e;
+  --accent-bg: rgba(184,84,58,0.06);
+  --gold: #c9952e;
+  --gold-bg: rgba(201,149,46,0.09);
+  --aurora-a: rgba(184,84,58,0.10);
+  --aurora-b: rgba(201,149,46,0.08);
+  --aurora-c: rgba(64,98,128,0.07);
+  --radius: 12px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.07);
+  --max-w: 760px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131214; --bg-surface: #1c1a1e; --bg-surface-alt: #25232a;
+    --border: rgba(255,255,255,0.07); --border-strong: rgba(255,255,255,0.16);
+    --text: #ece8e2; --text-dim: #a8a39c; --text-muted: #6f6b66;
+    --accent: #e88f73; --accent-light: #f4ad95; --accent-bg: rgba(232,143,115,0.09);
+    --gold: #e8c05a; --gold-bg: rgba(232,192,90,0.09);
+    --aurora-a: rgba(232,143,115,0.13);
+    --aurora-b: rgba(232,192,90,0.09);
+    --aurora-c: rgba(125,180,224,0.10);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.4); --shadow-md: 0 4px 28px rgba(0,0,0,0.55);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Give smooth-scroll some breathing room so anchors land below the
+     fixed toolbar instead of being shoved straight under it. */
+  scroll-padding-top: 4rem;
+}
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 17px;
+  font-feature-settings: 'ss01', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ── Aurora background ─────────────────────────────────
+   Slowly-drifting layered blobs in the accent palette. Sits behind
+   the content, fixed to the viewport so scrolling doesn't reset the
+   composition. Subtle grain on top stops it reading as 'flat CSS'. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -20vh -20vw;
+  z-index: -2;
+  background:
+    radial-gradient(40vw 50vh at 18% 22%, var(--aurora-a) 0%, transparent 60%),
+    radial-gradient(45vw 55vh at 82% 12%, var(--aurora-b) 0%, transparent 65%),
+    radial-gradient(55vw 60vh at 50% 88%, var(--aurora-c) 0%, transparent 70%);
+  filter: blur(20px);
+  animation: aurora-drift 28s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* Subtle film-grain — SVG turbulence baked to a data-URL. */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.32 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+}
+@keyframes aurora-drift {
+  0%   { transform: translate3d(0,0,0) scale(1);     }
+  50%  { transform: translate3d(2vw,-1vh,0) scale(1.04); }
+  100% { transform: translate3d(-1vw,1.5vh,0) scale(1.02); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
+}
+
+/* ── Toolbar (top-right) ──────────────────────────── */
+.toolbar {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  display: flex;
+  gap: 0.4rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.toolbar:hover { opacity: 1; }
+.toolbar button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.15s;
+  position: relative;
+}
+.toolbar button:hover { background: var(--bg-surface-alt); }
+.toolbar button svg { width: 14px; height: 14px; flex-shrink: 0; }
+.toolbar .toast {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: var(--text);
+  color: var(--bg);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+.toolbar .toast.show { opacity: 1; }
+.dropdown { position: relative; }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  min-width: 140px;
+}
+.dropdown-menu.open { display: block; }
+.dropdown-menu button {
+  display: block;
+  width: 100%;
+  padding: 8px 14px;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.8rem;
+  text-align: left;
+  cursor: pointer;
+}
+.dropdown-menu button:hover { background: var(--bg-surface-alt); }
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+  position: relative;
+  background: transparent;
+  color: var(--text);
+  padding: 5.5rem 2rem 2.5rem;
+  text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 40%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 70%);
+  pointer-events: none;
+}
+/* A hair-thin gradient hairline divider under the hero to anchor it
+   without putting it on a heavy boxed background. */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 50%; bottom: 0;
+  width: min(60%, 320px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+}
+.hero-label {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--accent);
+  opacity: 0.85;
+  margin-bottom: 1.4rem;
+  font-family: var(--font-body);
+}
+.hero h1 {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 600;
+  font-variation-settings: 'opsz' 120, 'SOFT' 50;
+  line-height: 1.15;
+  max-width: 720px;
+  margin: 0 auto;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+/* ── Hero image ───────────────────────────────────── */
+.hero-image {
+  max-width: var(--max-w);
+  margin: -2rem auto 0;
+  position: relative;
+  z-index: 1;
+  padding: 0 2rem;
+}
+.hero-image img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  display: block;
+}
+
+/* ── Section images ───────────────────────────────── */
+.section-image {
+  margin: 1.5rem 0;
+  position: relative;
+}
+.section-image img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: block;
+}
+
+/* ── Per-image hide button ────────────────────────────
+   A small X that appears on hover (or always on touch) so users can
+   remove irrelevant OG images. Click POSTs the URL to the backend so
+   the next render skips it. */
+.img-hide-btn {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.15s ease, transform 0.05s ease;
+  z-index: 2;
+  padding: 0;
+}
+.hero-image .img-hide-btn { top: 14px; right: 2.5rem; }
+/* Reroll sits just to the left of the hide button. */
+.img-reroll-btn {
+  position: absolute;
+  top: 10px; right: 46px;
+  width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.15s ease, transform 0.05s ease;
+  z-index: 2;
+  padding: 0;
+}
+.hero-image .img-reroll-btn { top: 14px; right: calc(2.5rem + 36px); }
+.section-image:hover .img-hide-btn,
+.section-image:hover .img-reroll-btn,
+.hero-image:hover .img-hide-btn,
+.hero-image:hover .img-reroll-btn { opacity: 1; }
+.img-hide-btn:hover { background: var(--accent); }
+.img-reroll-btn:hover { background: var(--accent); }
+.img-hide-btn:active,
+.img-reroll-btn:active { transform: scale(0.92); }
+.img-reroll-btn.spinning svg { animation: img-reroll-spin 0.6s linear infinite; }
+.img-reroll-btn:disabled { display: none; }
+@keyframes img-reroll-spin { to { transform: rotate(360deg); } }
+@media (hover: none) {
+  /* Touch devices have no hover — show the buttons at low opacity always. */
+  .img-hide-btn, .img-reroll-btn { opacity: 0.7; }
+}
+.section-image.fading,
+.hero-image.fading {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* ── Stats bar ─────────────────────────────────────── */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0.9rem 2rem;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+.stat { display: flex; align-items: center; gap: 0.35rem; }
+.stat-value { font-weight: 600; color: var(--text); }
+
+/* ── Layout ────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  max-width: calc(var(--max-w) + 260px);
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .toc-sidebar { display: none; }
+}
+
+/* ── TOC sidebar ───────────────────────────────────── */
+.toc-sidebar {
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  padding: 3.2rem 0.8rem 2rem 1.4rem;
+  border-right: 1px solid var(--border);
+  font-size: 0.78rem;
+}
+.toc-sidebar nav { position: relative; }
+.toc-sidebar nav a {
+  position: relative;
+  display: block;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 0.42rem 0.7rem 0.42rem 0.85rem;
+  margin: 1px 0;
+  border-radius: 6px;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  transition: color 0.18s ease, background 0.18s ease, padding-left 0.18s ease;
+}
+/* Sliding accent indicator on the left edge of each TOC link */
+.toc-sidebar nav a::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 2px; height: 0;
+  background: var(--accent);
+  transform: translateY(-50%);
+  border-radius: 1px;
+  transition: height 0.18s ease, opacity 0.18s ease;
+  opacity: 0;
+}
+.toc-sidebar nav a:hover {
+  color: var(--text);
+  background: var(--accent-bg);
+  padding-left: 1rem;
+}
+.toc-sidebar nav a:hover::before {
+  height: 60%;
+  opacity: 1;
+}
+.toc-sidebar nav a.active {
+  color: var(--accent);
+  font-weight: 600;
+  background: var(--accent-bg);
+}
+.toc-sidebar nav a.active::before {
+  height: 80%;
+  opacity: 1;
+}
+.toc-sidebar nav a.depth-3 {
+  padding-left: 1.3rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.toc-sidebar nav a.depth-3:hover { padding-left: 1.45rem; }
+
+/* ── Content ───────────────────────────────────────── */
+.content { max-width: var(--max-w); padding: 3rem 2.5rem 4rem; }
+
+/* Display headings — Fraunces optical-size driven so they get more
+   contrast and personality at the larger end. */
+.content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 2.4vw, 1.85rem);
+  font-weight: 600;
+  font-variation-settings: 'opsz' 96, 'SOFT' 50;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, var(--accent) 0%, transparent 65%) 1;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+  color: var(--text);
+}
+.content h2:first-child { margin-top: 0; }
+.content h3 {
+  font-family: var(--font-display);
+  font-size: 1.22rem;
+  font-weight: 600;
+  font-variation-settings: 'opsz' 32;
+  margin: 2.2rem 0 0.6rem;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+.content h4 {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin: 1.6rem 0 0.5rem;
+}
+.content p { margin-bottom: 1.1rem; hanging-punctuation: first last; }
+
+/* Drop cap on the very first paragraph of the body — old-school editorial
+   touch that anchors the reader. */
+.content > p:first-of-type::first-letter,
+.content > h2:first-child + p::first-letter {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variation-settings: 'opsz' 144;
+  font-size: 3.6em;
+  line-height: 0.85;
+  float: left;
+  margin: 0.15em 0.12em 0 -0.04em;
+  color: var(--accent);
+}
+
+.content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s, color 0.15s;
+}
+.content a:hover {
+  text-decoration-color: var(--accent);
+  color: var(--accent-light);
+}
+.content ul, .content ol { margin: 0 0 1.1rem 1.6rem; }
+.content li { margin-bottom: 0.4rem; }
+.content li::marker { color: var(--accent); }
+.content li > ul, .content li > ol { margin-top: 0.4rem; margin-bottom: 0; }
+.content blockquote {
+  position: relative;
+  border-left: 3px solid var(--gold);
+  background: var(--gold-bg);
+  padding: 1.1rem 1.4rem 1.1rem 2.6rem;
+  margin: 1.5rem 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+.content blockquote::before {
+  content: '\201C';
+  position: absolute;
+  left: 0.5rem; top: 0.3rem;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-style: normal;
+  color: var(--gold);
+  opacity: 0.5;
+  line-height: 1;
+}
+.content hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--border-strong), transparent); margin: 2rem 0; }
+.content code { font-family: var(--font-mono); font-size: 0.86em; background: var(--bg-surface-alt); padding: 0.15em 0.4em; border-radius: 4px; }
+.content pre { background: var(--bg-surface-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; overflow-x: auto; margin: 1.25rem 0; font-size: 0.86rem; line-height: 1.6; }
+.content pre code { background: none; padding: 0; }
+.content table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.9rem; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+.content th { text-align: left; padding: 0.7rem 1rem; background: var(--accent-bg); font-weight: 600; border-bottom: 2px solid var(--border-strong); }
+.content td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.content tr:last-child td { border-bottom: none; }
+.content tr:hover td { background: var(--accent-bg); }
+
+/* ── Sources (collapsible list) ───────────────────── */
+.sources-panel { margin-top: 3rem; border-top: 2px solid var(--border); padding-top: 1.5rem; }
+.sources-panel details { margin: 0; }
+.sources-panel summary {
+  display: flex; align-items: center; gap: 0.5rem;
+  cursor: pointer; font-size: 1rem; font-weight: 600;
+  color: var(--text); padding: 0.5rem 0; list-style: none;
+  user-select: none;
+}
+.sources-panel summary::-webkit-details-marker { display: none; }
+.sources-panel summary::before {
+  content: '\25B6'; font-size: 0.65em; color: var(--text-muted);
+  transition: transform 0.2s;
+}
+.sources-panel details[open] summary::before { transform: rotate(90deg); }
+.sources-list { padding: 0.5rem 0 0 0.25rem; }
+.sources-list a {
+  display: flex; align-items: baseline; gap: 0.5rem;
+  padding: 0.35rem 0; font-size: 0.85rem;
+  color: var(--text); text-decoration: none;
+  transition: color 0.15s;
+}
+.sources-list a:hover { color: var(--accent); }
+.sources-list .snum {
+  color: var(--text-muted); font-size: 0.75rem;
+  min-width: 1.5rem; text-align: right; flex-shrink: 0;
+}
+.sources-list .sdomain {
+  color: var(--text-muted); font-size: 0.75rem;
+  margin-left: auto; flex-shrink: 0;
+}
+
+/* ── Chat-about CTA ────────────────────────────────── */
+.chat-cta {
+  margin: 3rem 0 1rem; padding: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: var(--bg-surface);
+}
+.chat-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; font-size: 0.95rem; font-weight: 600;
+  background: var(--accent); color: #fff;
+  border: none; border-radius: 8px; cursor: pointer;
+  font-family: inherit;
+  transition: filter 0.15s, transform 0.05s;
+}
+.chat-cta-btn:hover:not(:disabled) { filter: brightness(1.1); }
+.chat-cta-btn:active:not(:disabled) { transform: translateY(1px); }
+.chat-cta-btn:disabled { opacity: 0.6; cursor: progress; }
+.chat-cta-hint {
+  margin-top: 8px; font-size: 0.8rem; color: var(--text-muted);
+}
+
+/* ── Footer ────────────────────────────────────────── */
+.report-footer {
+  text-align: center; padding: 2rem; font-size: 0.75rem;
+  color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 2rem;
+}
+
+/* ── Animations ────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .content h2, .content h3, .content p, .content ul, .content ol,
+  .content blockquote, .content table, .content pre, .section-image {
+    animation: fadeUp 0.4s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ── Print ─────────────────────────────────────────── */
+@media print {
+  .toc-sidebar, .toolbar { display: none !important; }
+  .layout { grid-template-columns: 1fr; }
+  .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+</style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="환경사업부 통합업무시스템/생산관리앱 가치 평가 리서치 보고서">
+<meta property="og:description" content="Obsidian 생산관리앱 개발 노트 기반 제품·자산 평가 Executive Summary 본 보고서는 사용자의 Obsidian 지식베이스 중 21_업무노트/사업운영/생산관리앱 폴더에 축적된 개발 노트만을 근거로, 기존 “생산관리앱”이 현재 어떤 수준의 웹앱 또는 업무 자산으로 평가될 수 있는지 종합적으로 분석한 것이다.">
+<meta property="og:url" content="https://flytothesky23.github.io/marktl-shares/develop/s/14edid9/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="환경사업부 통합업무시스템/생산관리앱 가치 평가 리서치 보고서">
+<meta name="twitter:description" content="Obsidian 생산관리앱 개발 노트 기반 제품·자산 평가 Executive Summary 본 보고서는 사용자의 Obsidian 지식베이스 중 21_업무노트/사업운영/생산관리앱 폴더에 축적된 개발 노트만을 근거로, 기존 “생산관리앱”이 현재 어떤 수준의 웹앱 또는 업무 자산으로 평가될 수 있는지 종합적으로 분석한 것이다.">
+<link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/develop/s/14edid9/">
+</head>
+<body class="">
+
+<!-- Toolbar: Export + Restore hidden images -->
+<div class="toolbar">
+  
+  <div class="dropdown">
+    <button id="btn-export" title="Export">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+      Export ▾
+    </button>
+    <div class="dropdown-menu" id="export-menu">
+      <button id="btn-pdf">Save as PDF</button>
+      <button id="btn-html">Download HTML</button>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-label">Odysseus — Deep Research Report</div>
+  <h1>환경사업부 통합업무시스템/생산관리앱 가치 평가 리서치 보고서</h1>
+</div>
+
+
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-value">627.1s</span> Duration</div>
+  <div class="stat"><span class="stat-value">2</span> Rounds</div>
+  <div class="stat"><span class="stat-value">4</span> Queries</div>
+  <div class="stat"><span class="stat-value">6</span> URLs Analyzed</div>
+  <div class="stat"><span class="stat-value">gpt-5.5</span> Model</div>
+  <div class="stat"><span class="stat-value">obsidian</span> Search</div>
+</div>
+
+<div class="layout">
+  <aside class="toc-sidebar">
+    <nav>
+      <a href="#executive-summary" class="depth-2 active">Executive Summary</a>
+      <a href="#quick-compare" class="depth-2">Quick Compare: 평가 옵션 요약</a>
+      <a href="#section" class="depth-2">평가 기준과 한계</a>
+      <a href="#1" class="depth-2">1위. 환경사업부 통합업무시스템 — 전체 완성형 가치</a>
+      <a href="#approximate-price" class="depth-3">Approximate Price</a>
+      <a href="#summary" class="depth-3">Summary</a>
+      <a href="#detailed-assessment" class="depth-3">Detailed Assessment</a>
+      <a href="#2-db" class="depth-2">2위. 생산관리 핵심 웹앱 — 생산·출하·입고 DB화 가치</a>
+      <a href="#approximate-price-1" class="depth-3">Approximate Price</a>
+      <a href="#summary-1" class="depth-3">Summary</a>
+      <a href="#detailed-assessment-1" class="depth-3">Detailed Assessment</a>
+      <a href="#3" class="depth-2">3위. 매출·매입·거래명세서 검산 자동화 모듈</a>
+      <a href="#approximate-price-2" class="depth-3">Approximate Price</a>
+      <a href="#summary-2" class="depth-3">Summary</a>
+      <a href="#detailed-assessment-2" class="depth-3">Detailed Assessment</a>
+      <a href="#4-llm-assistant-ocr-json" class="depth-2">4위. LLM Assistant/OCR·JSON 검증 확장도구</a>
+      <a href="#approximate-price-3" class="depth-3">Approximate Price</a>
+      <a href="#summary-3" class="depth-3">Summary</a>
+      <a href="#detailed-assessment-3" class="depth-3">Detailed Assessment</a>
+      <a href="#5" class="depth-2">5위. 레거시 엑셀 유지 방식</a>
+      <a href="#approximate-price-4" class="depth-3">Approximate Price</a>
+      <a href="#summary-4" class="depth-3">Summary</a>
+      <a href="#section-1" class="depth-2">개발 철학: 왜 이 앱은 단순 프로그램이 아닌가</a>
+      <a href="#section-2" class="depth-2">개발비 산정 상세</a>
+      <a href="#section-3" class="depth-2">품질·사용성·디버깅 완료 상태에 대한 평가</a>
+      <a href="#section-4" class="depth-2">조직 내 인식 전환을 위한 메시지</a>
+      <a href="#section-5" class="depth-2">추가로 확보하면 객관성이 더 강해지는 자료</a>
+      <a href="#verdict" class="depth-2">Verdict</a>
+      <a href="#best-overall" class="depth-3">Best Overall</a>
+      <a href="#best-value" class="depth-3">Best Value</a>
+      <a href="#conclusion" class="depth-2">Conclusion</a>
+    </nav>
+  </aside>
+  <main class="content">
+    <p><em>Obsidian 생산관리앱 개발 노트 기반 제품·자산 평가</em></p>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>본 보고서는 사용자의 Obsidian 지식베이스 중 <code>21_업무노트/사업운영/생산관리앱</code> 폴더에 축적된 개발 노트만을 근거로, 기존 “생산관리앱”이 현재 어떤 수준의 웹앱 또는 업무 자산으로 평가될 수 있는지 종합적으로 분석한 것이다. 외부 웹 검색, 외부 SI 견적, 시장 단가 검증은 수행하지 않았으며, 따라서 개발비와 가치 산정은 노트에 확인된 기능 범위와 복잡도에 기반한 내부 추정치다. 실제 시장가 확정, 법적 자산평가, 외부 감정평가가 필요하다면 별도 검증이 필요하다.</p>
+<p>핵심 결론은 명확하다. 이 앱은 단순한 “생산일보 입력 프로그램”이 아니라, 환경사업부의 생산·출하·입고·거래명세서·전자결재 검산·단가관리·마감 보정·업무보고·잔업현황·AI/OCR 보조 검산까지 연결하는 <strong>통합업무시스템</strong>으로 발전한 상태다. 문서 허브에서도 기존 생산관리앱 노트를 현재 앱 타이틀인 “환경사업부 통합업무시스템” 기준으로 다시 묶고, 전체 개요, 핵심 기능, 개발 타임라인, 출력계약, 배포·운영·유지보수 원칙 등을 별도 문서로 관리하도록 정리되어 있다 <a>환경사업부 통합업무시스템 문서 허브</a>.</p>
+<p>특히 중요한 가치는 기존 엑셀 파일에 흩어져 휘발되던 생산 데이터를 장기 보존 가능한 구조화 데이터로 전환했다는 점이다. 노트에는 기존 엑셀의 한계로 계산 결과와 원천 입력의 혼재, 현장별 용어 차이, 담당자별 입력 방식 차이, 거래명세서 기준과 내부 생산관리 기준의 불일치, 보고서 모양 우선의 구조 등이 정리되어 있다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>. 이 앱은 그 모호함을 단순히 화면으로 옮긴 것이 아니라, 지점별 필드 정책, 검산 로직, 단가관리, 정산 규칙, AI 보조 검증 체계로 풀어낸 업무 자산이다.</p>
+<p>현시점 평가금액은 보수적으로 <strong>최소 2억 5천만 원 이상</strong>, 현실적인 재개발 중간 추정치로 <strong>4억~5억 원</strong>, AI/OCR 보조, 문서화, 운영 안정화, 검산 체계까지 포함하면 <strong>6억 원 이상</strong>의 가치가 있는 웹앱으로 평가할 수 있다. 다만 이 금액은 Obsidian 노트 기반 내부 추정이며, 외부 견적 비교, 서버 구성, 사용자 수, 데이터 규모, 장애 이력, 보안·백업 체계 등은 추가 확인이 필요하다.</p>
+<hr>
+<h2 id="quick-compare">Quick Compare: 평가 옵션 요약</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Price</th>
+<th>Best For</th>
+<th>Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>환경사업부 통합업무시스템 — 전체 완성형 가치</td>
+<td>약 4억~6억 원 이상</td>
+<td>현재 앱 전체를 통합 업무 플랫폼으로 평가할 때</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td>생산관리 핵심 웹앱 — 생산·출하·입고 DB화 가치</td>
+<td>약 2.5억~4억 원</td>
+<td>엑셀 생산일보를 DB 기반 웹앱으로 전환한 가치 평가</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td>매출·매입·거래명세서 검산 자동화 모듈</td>
+<td>약 8천만~1.7억 원</td>
+<td>전자결재, 거래명세서, 세금계산서 검산 기능 중심 평가</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td>LLM Assistant/OCR·JSON 검증 확장도구</td>
+<td>약 4천만~1.1억 원</td>
+<td>AI 보조 검산, PDF/OCR, JSON strict 검증 중심 평가</td>
+<td>★★★★</td>
+</tr>
+<tr>
+<td>레거시 엑셀 유지 방식</td>
+<td>표면 비용 낮음, 장기 손실 큼</td>
+<td>기존 방식 유지 시 비교 기준</td>
+<td>★★</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="section">평가 기준과 한계</h2>
+<p>본 보고서는 일반적인 상품 구매 가이드 형식을 빌려, 현재 시스템을 여러 “제품/옵션”으로 나누어 평가한다. 다만 실제 구매 가능한 상용 제품을 비교하는 것이 아니라, 사용자가 직접 장기간 개발한 내부 웹앱의 구성요소를 자산 단위로 나누어 가치 평가하는 방식이다. 따라서 “Where to buy” 항목에는 외부 구매처가 아니라 관련 Obsidian 근거 문서 또는 내부 시스템 자산이라는 설명을 표시한다.</p>
+<p>또한 이 평가는 사용자가 제공한 Obsidian 지식베이스에 기반한다. 노트에 따르면 앱의 구조, 개발 철학, 운영 개선, 지점별 필드 정책, 검산 사례, LLM Assistant 구현 방향은 상당히 구체적으로 기록되어 있다. 반면 실제 서버 성능, 보안 취약점 점검, 접속 안정성, 실제 사용자 수, DB 테이블 규모, 장애 이력, 백업·복구 검증 여부는 현재 제공된 증거만으로 완전히 검증할 수 없다. 이 부분은 외부 감사나 별도 운영 자료 확인이 필요하다.</p>
+<hr>
+<h2 id="1">1위. 환경사업부 통합업무시스템 — 전체 완성형 가치</h2>
+<h3 id="approximate-price">Approximate Price</h3>
+<p><strong>약 4억~6억 원 이상</strong></p>
+<h3 id="summary">Summary</h3>
+<p>이 옵션은 현재 앱 전체를 단순 생산관리앱이 아니라 <strong>환경사업부 통합업무시스템</strong>으로 평가하는 관점이다. 생산 데이터 입력, 지점별 생산·출하·입고 관리, 거래명세서 검산, 전자결재 대응, 단가관리, 업무보고, 잔업현황, 문서 출력 품질, LLM/OCR 보조 도구까지 포함한다.</p>
+<p>문서 허브에는 프로젝트 운영 인덱스, 최신 handoff, 출력계약, 전체 개요, 핵심 기능과 운영 흐름, 개발 타임라인, 배포·운영·유지보수 원칙이 정리되어 있어, 단순 개발 메모가 아니라 장기 운영 가능한 업무 시스템으로 관리되고 있음을 보여준다 <a>환경사업부 통합업무시스템 문서 허브</a>.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>기존 엑셀의 휘발성 데이터를 장기 축적 가능한 데이터 구조로 전환했다.</li>
+<li>지점별 생산·출하·입고 항목을 실제 업무 의미에 따라 정책화했다.</li>
+<li>생산 데이터와 전자결재·거래명세서·세금계산서 검산 흐름을 연결했다.</li>
+<li>운영 중 발견된 혼선을 지속적으로 개선한 기록이 있다.</li>
+<li>LLM Assistant, OCR, JSON strict 검증 등 고도화 기능까지 포함한다.</li>
+<li>문서 허브, handoff, 운영 원칙 등 유지보수 체계를 갖추고 있다.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>외부 감정평가나 외주 견적이 첨부된 것은 아니므로 금액은 내부 추정이다.</li>
+<li>실제 사용자 수, DB 규모, 접속 안정성, 보안 검증, 백업·복구 체계는 추가 확인이 필요하다.</li>
+<li>혼자 개발한 시스템인 만큼 향후 인수인계와 기술 문서 보강이 중요하다.</li>
+</ul>
+<p><strong>Where to buy:</strong><br>
+외부 구매 상품이 아니라 내부 개발 자산이다. 관련 근거는 Obsidian 문서 허브에서 확인된다 <a>환경사업부 통합업무시스템 문서 허브</a>.</p>
+<h3 id="detailed-assessment">Detailed Assessment</h3>
+<p>이 앱의 가장 큰 가치는 “생산관리”라는 단어에 가려져 있다. 겉으로 보기에는 생산일보를 입력하고 조회하는 웹앱처럼 보일 수 있지만, 노트에 기록된 기능 범위는 훨씬 넓다. 생산 데이터 입력, 데이터테이블, 분석필터, 주요 생산지표 전광판, 거래명세서 검산, 전자결재 상신본 비교, 단가관리, 마감 보정, 업무보고 권한, 잔업현황 산정, PDF/Docswave/노트 출력 품질 관리, LLM Assistant까지 연결된다.</p>
+<p>이것은 단순한 CRUD 앱이 아니다. CRUD 앱은 데이터를 만들고, 읽고, 수정하고, 삭제하는 데 초점이 있다. 그러나 이 시스템은 “왜 이 데이터가 필요한가”, “어느 지점에서 의미 있는 항목인가”, “생산 데이터와 정산 문서가 다를 때 무엇을 기준으로 판단해야 하는가”까지 다룬다. 노트에는 “매출·매입 자동화는 총액을 억지로 맞추는 기능이 아니라, 왜 맞거나 다른지를 설명할 수 있어야 운영 시스템이 된다”는 취지의 정리가 있다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>. 이 문장은 이 앱의 개발 철학을 가장 잘 보여준다.</p>
+<p>또한 이 시스템은 운영 중 발견된 혼선을 반영해 개선된 기록이 있다. 2026년 5월 운영 업데이트 공지에서는 거래명세서 보조자재 표시, 청남 PSBall 입고 기준, 칠서 현황표 가독성, 업무보고 접근권한, 잔업현황 산정 기준 등을 실제 운영 방식에 맞게 정리한 것으로 기록되어 있다 <a>생산관리앱 운영 업데이트 공지 개선본</a>. 이는 개발자가 앱을 만들고 끝낸 것이 아니라, 실제 사용자 혼선과 월마감 오류를 줄이기 위해 계속 다듬어 왔음을 보여준다.</p>
+<hr>
+<h2 id="2-db">2위. 생산관리 핵심 웹앱 — 생산·출하·입고 DB화 가치</h2>
+<h3 id="approximate-price-1">Approximate Price</h3>
+<p><strong>약 2억 5천만~4억 원</strong></p>
+<h3 id="summary-1">Summary</h3>
+<p>이 옵션은 전체 시스템 중 생산 데이터 입력, 지점별 필드 정책, 데이터테이블, 분석필터, 주요 생산지표 전광판 등 핵심 생산관리 기능만 평가하는 관점이다. 기존 엑셀 파일 중심의 휘발성 데이터를 구조화된 데이터베이스형 업무 자산으로 전환한 가치가 핵심이다.</p>
+<p>노트에는 지점별로 실제 의미 있는 필드만 노출해야 한다는 원칙이 정리되어 있으며, 부산·칠서·하동·화전·율촌 지점별 허용 필드가 구체적으로 분리되어 있다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>엑셀 기반 생산일보를 DB 기반 웹앱으로 전환했다.</li>
+<li>지점별 실제 업무 차이를 반영한 입력 구조를 갖췄다.</li>
+<li>입력폼, 데이터테이블, 분석필터가 같은 필드 정책을 공유하도록 정리되었다.</li>
+<li>부산, 칠서, 하동, 화전, 율촌 등 복수 지점의 서로 다른 업무 구조를 흡수했다.</li>
+<li>분석필터와 주요 생산지표 전광판의 역할을 분리해 화면 중복을 줄였다.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>기존 엑셀의 모호함을 완전히 제거하려면 지속적인 데이터 정제와 사용자 교육이 필요하다.</li>
+<li>지점 업무가 바뀌면 필드 정책도 계속 업데이트되어야 한다.</li>
+<li>DB 스키마, 백업 구조, 장애 대응 체계는 추가 문서 확인이 필요하다.</li>
+</ul>
+<p><strong>Where to buy:</strong><br>
+외부 구매처 없음. 내부 개발 자산이며 관련 근거는 지점별 필드 정책 문서에서 확인된다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>.</p>
+<h3 id="detailed-assessment-1">Detailed Assessment</h3>
+<p>기존 엑셀 생산일보의 문제는 단순히 “파일 관리가 불편하다”는 정도가 아니다. 노트에 따르면 기존 엑셀은 계산 결과와 원천 입력이 같은 표 안에 섞여 있었고, 현장마다 같은 단어를 다르게 사용했으며, 담당자별로 “내가 보기에 필요한 값”을 입력하는 방식이 있었다. 또한 거래명세서 제출 기준과 내부 생산관리 기준이 항상 같지 않았고, 엑셀은 최종 출력물 성격이 강해 데이터 간 상관관계와 추적성보다 보고서 모양이 우선이었다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>.</p>
+<p>이 앱의 생산관리 핵심 기능은 바로 이 문제를 해결한다. 예를 들어 부산지점은 EAF/LF, Slag반출, PSBall선별, 출하 판매, 출하 판_창, 출하 원료, 출하 창고, Ball총출하 등 창고 관련 필드를 포함한다. 칠서지점은 EAF/LF, Slag반출, PSBall선별, 출하 판매, 출하 원료, Ball총출하를 유지하되 출하 판_창, 출하 창고, Ball원료입고는 제외한다. 하동지점은 PSBall선별, Ball원료입고, 출하 판매, 출하 원료, Ball총출하가 중심이고, EAF/LF, Slag반출, 창고 관련 필드는 제외된다. 화전지점은 EAF, Slag반출, 출하 판매, 출하 원료, Ball총출하를 유지하고 LF, PSBall선별, 창고 관련 필드를 제외한다. 율촌지점은 EAF/LF와 Slag반출이 중심이며 Ball 관련 필드는 제외된다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>.</p>
+<p>이런 설계가 중요한 이유는 “입력할 수 있는 칸이 많으면 좋은 시스템”이 아니기 때문이다. 실제 업무에서 의미 없는 필드를 노출하면, 사용자는 잘못된 값을 입력하거나, 비어 있는 칸을 오류로 오해하거나, 지점 간 데이터를 잘못 비교할 수 있다. 노트에서도 “데이터 필드는 입력할 수 있으면 편하다가 아니라 그 지점 업무에서 실제 의미가 있는가를 기준으로 노출해야 한다”는 원칙이 정리되어 있다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>. 이것은 단순 UI 개선이 아니라 데이터 정합성 개선이다.</p>
+<hr>
+<h2 id="3">3위. 매출·매입·거래명세서 검산 자동화 모듈</h2>
+<h3 id="approximate-price-2">Approximate Price</h3>
+<p><strong>약 8천만~1억 7천만 원</strong></p>
+<h3 id="summary-2">Summary</h3>
+<p>이 옵션은 앱 데이터와 전자결재 상신본, 거래명세서, 세금계산서, 단가관리, 정산 규칙을 연결하는 검산 자동화 영역만 따로 평가한다. 단순 합계 계산이 아니라 총액 차이를 거래처·품목·수량·단가·공급가액·세액 단위로 쪼개고, 차이의 원인을 분류하는 구조가 핵심이다.</p>
+<p>노트에는 자동생성 결과와 전자결재 상신본의 차이를 확인하고, 원천 데이터 오류, 정산 규칙 차이, 품목 분류 차이, 기간 또는 중복 입력, 단위 절사 등으로 분류하는 절차가 정리되어 있다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>앱 데이터와 전자결재 문서 간 차이를 체계적으로 분해한다.</li>
+<li>생산 데이터 오류와 거래처 정산 방식 차이를 구분한다.</li>
+<li>중복 입력, 단가 매핑, 품목 분류 차이를 발견할 수 있다.</li>
+<li>원인 규명이 덜 된 항목은 배포하지 않고 증빙 확인 대상으로 남기는 원칙이 있다.</li>
+<li>월마감 오류 감소와 담당자 간 책임 혼선을 줄일 수 있다.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>거래처별 정산 관행과 품목 분류 기준이 계속 바뀌면 유지보수 난이도가 높다.</li>
+<li>자동화 결과를 신뢰하려면 증빙 문서와 지속적으로 대조해야 한다.</li>
+<li>실제 금전적 절감 효과는 오류 감소 건수와 금액 자료가 추가되어야 정량화할 수 있다.</li>
+</ul>
+<p><strong>Where to buy:</strong><br>
+외부 구매처 없음. 관련 근거는 에코그릿 지점매출 자동화 문제해결 회고에서 확인된다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>.</p>
+<h3 id="detailed-assessment-2">Detailed Assessment</h3>
+<p>검산 자동화 모듈은 이 앱의 고급 가치를 보여주는 대표 기능이다. 단순한 생산관리 시스템이라면 입력된 수량을 합산하고 월별 통계를 내는 수준에서 끝난다. 그러나 이 앱은 앱의 생산 데이터와 전자결재 상신본이 다를 때, 어느 쪽이 틀렸는지를 성급하게 단정하지 않는다. 대신 차이를 거래처, 품목, 수량, 단가, 공급가액, 세액 단위로 분해한다.</p>
+<p>노트에 정리된 5월 에코그릿 검산 사례는 매우 중요하다. 여수해양의 경우 함안 입고 데이터 221.04t은 거래명세서 세부 수량과 일치했고, 공급가액 차이는 원단위 절사 512원으로 정리되었다. 결론은 생산 데이터 문제가 아니라 거래처 정산 시 월별 절사 규칙 또는 마감 보정 메모로 관리해야 한다는 것이었다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>.</p>
+<p>한가람 중량 5번 사례에서는 2026년 5월 22일 수량이 2026년 5월 21일과 중복 입력된 것으로 확인되었다. 이는 원천 데이터 중복 입력 문제로 분류되어 자동생성에서 제외하고 담당자 확인 후 원장 정정이 필요한 항목으로 정리되었다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>. 에이치엠스틸은 총수량 10.52t이 앱과 증빙에서 일치했지만, 고철 상/하 세부품목 분류와 단가 구간 차이가 있었고, 이는 수량 문제가 아니라 품목 세부분류와 단가 매핑 문제로 정리되었다.</p>
+<p>이 세 사례는 서로 다른 원인을 보여준다. 하나는 원단위 절사, 하나는 중복 입력, 하나는 품목·단가 매핑 문제다. 이처럼 서로 다른 성격의 불일치를 한꺼번에 “앱 오류”로 보지 않고 원인별로 분류한다는 점은 매우 중요한 품질 지표다. 여기서 앱의 가치는 계산 자동화가 아니라 <strong>업무 판단 자동화의 구조화</strong>에 있다.</p>
+<hr>
+<h2 id="4-llm-assistant-ocr-json">4위. LLM Assistant/OCR·JSON 검증 확장도구</h2>
+<h3 id="approximate-price-3">Approximate Price</h3>
+<p><strong>약 4천만~1억 1천만 원</strong></p>
+<h3 id="summary-3">Summary</h3>
+<p>이 옵션은 <code>UNECO LLM Assistant</code> 확장프로그램과 OCR/JSON 검증 보조 기능을 별도 제품으로 평가하는 관점이다. 거래명세서, 세금계산서, 거래처 문서를 대화형으로 검산하고 JSON 반영을 보조하는 도구로, 완전 자동 저장이 아니라 사람이 검증 가능한 보조 자동화로 설계되어 있다.</p>
+<p>2026년 6월 12일 기록에는 복수 페이지 거래명세서 strict 검증, PDF 텍스트 금액 증빙 검증, JSON 스키마 검증, lines 합계, totals, documentTotals 검증, 세금계산서 Gemini JSON 금액 누락 시 경고 처리, Side Panel 대화형 검산, “답변→JSON” 버튼 등이 정리되어 있다 <a>UNECO LLM Assistant 확장프로그램 구현</a>.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>AI/OCR 결과를 맹신하지 않고 strict 검증을 적용한다.</li>
+<li>PDF 원문 금액 근거, lines 합계, totals, documentTotals를 검증한다.</li>
+<li>금액 누락을 원장 금액으로 조용히 채우지 않고 0 반영 및 경고 표시한다.</li>
+<li>Side Panel 대화형 검산과 “답변→JSON” 버튼으로 사용자 검증 흐름을 고려했다.</li>
+<li>긴 복수 페이지 문서나 소계가 많은 문서는 자동화보다 원문 첨부와 JSON 붙여넣기를 더 안전한 방식으로 본다.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>AI 추출 결과의 정확도는 문서 품질, OCR 상태, 모델 성능에 따라 달라진다.</li>
+<li>완전 자동화가 아니라 보조 도구이므로 담당자 검토가 계속 필요하다.</li>
+<li>보안, 개인정보, 외부 AI 도구 사용 정책은 별도 검토가 필요하다.</li>
+</ul>
+<p><strong>Where to buy:</strong><br>
+외부 구매처 없음. 내부 개발 확장도구이며 관련 근거는 UNECO LLM Assistant 구현 기록에서 확인된다 <a>UNECO LLM Assistant 확장프로그램 구현</a>.</p>
+<h3 id="detailed-assessment-3">Detailed Assessment</h3>
+<p>LLM Assistant의 가치는 최신 기술을 붙였다는 데만 있지 않다. 오히려 더 중요한 점은 “AI를 어디까지 믿고, 어디서 멈춰야 하는지”를 설계했다는 점이다. 노트에는 Gemini CLI 자동 추출은 보조 기능이고, 긴 복수 페이지나 소계가 많은 문서는 Gemini 웹 원본 첨부와 JSON 붙여넣기가 현재 더 안전하다고 정리되어 있다 <a>UNECO LLM Assistant 확장프로그램 구현</a>. 이는 자동화의 위험을 이해한 설계다.</p>
+<p>특히 세금계산서 Gemini JSON에서 금액이 누락될 경우, 원장 금액으로 조용히 채우지 않고 0으로 반영하며 경고 표시하도록 수정한 점은 매우 중요하다. 일반적인 자동화 시스템은 사용자가 편하게 느끼도록 빈 값을 임의로 채우는 유혹이 있다. 그러나 회계·정산·거래명세서 검산 영역에서는 “편리한 자동 보정”이 오히려 더 큰 오류를 만들 수 있다. 이 앱은 금액 누락을 숨기지 않고 드러내는 방향을 선택했다. 이는 품질과 데이터 정합성 관점에서 올바른 방향이다.</p>
+<hr>
+<h2 id="5">5위. 레거시 엑셀 유지 방식</h2>
+<h3 id="approximate-price-4">Approximate Price</h3>
+<p><strong>표면 비용 낮음, 장기 손실 큼</strong></p>
+<h3 id="summary-4">Summary</h3>
+<p>이 옵션은 기존처럼 엑셀 파일로 생산일보와 정산 보조 자료를 관리하는 방식을 비교 기준으로 둔 것이다. 초기 비용은 낮아 보이지만, 데이터 휘발성, 기준 불일치, 중복 입력, 월마감 오류, 장기 분석 불가능성 때문에 실제 업무 비용은 계속 누적된다.</p>
+<p>노트에서도 엑셀의 항목을 그대로 웹앱으로 옮기면 엑셀의 모호함도 함께 옮겨온다고 지적한다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>사용자에게 익숙하다.</li>
+<li>별도 개발비가 들지 않는 것처럼 보인다.</li>
+<li>단기 보고서 작성에는 빠르게 대응할 수 있다.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>파일이 분산되고 장기 데이터 축적이 어렵다.</li>
+<li>원천 입력과 계산 결과가 섞여 추적성이 낮다.</li>
+<li>담당자별 입력 방식 차이가 누적된다.</li>
+<li>전자결재, 거래명세서, 세금계산서 검산과 연결하기 어렵다.</li>
+<li>월마감 오류와 중복 입력을 구조적으로 줄이기 어렵다.</li>
+<li>데이터가 쌓여도 분석 가능한 자산으로 전환되기 어렵다.</li>
+</ul>
+<p><strong>Where to buy:</strong><br>
+해당 없음. 기존 업무 방식이다. 비교 근거는 레거시 엑셀 한계 분석 기록에서 확인된다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>.</p>
+<hr>
+<h2 id="section-1">개발 철학: 왜 이 앱은 단순 프로그램이 아닌가</h2>
+<p>이 앱의 철학은 “화면을 만든다”가 아니라 “업무 기준을 데이터 구조로 바꾼다”에 가깝다. 노트에는 자동화 단계에서는 화면 항목보다 데이터 정의가 먼저라는 취지의 정리가 있다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>. 이것은 업무 시스템 개발에서 가장 중요한 전환점이다.</p>
+<p>기존 엑셀 업무에서는 사용자가 필요한 값을 적고, 그 결과를 보고서처럼 제출하면 업무가 끝난다. 그러나 데이터베이스형 웹앱에서는 입력된 값이 다음 달, 다음 분기, 다음 해에도 다시 사용된다. 잘못 정의된 필드는 계속 잘못된 통계를 만들고, 애매한 품목명은 단가관리와 거래명세서 검산을 흔든다. 따라서 이 앱의 개발자는 단순히 엑셀 칸을 웹 화면으로 옮기는 것이 아니라, 어떤 필드가 실제 업무 의미를 갖는지 판단하고, 어떤 값은 제외해야 하는지 결정하고, 어떤 차이는 오류가 아니라 정산 규칙 차이인지 구분해야 했다.</p>
+<p>또 하나의 중요한 철학은 “총액을 억지로 맞추지 않는다”는 것이다. 전자결재 문서와 앱 데이터가 다를 때, 많은 시스템은 최종 제출 금액에 맞추는 방식으로 문제를 덮을 수 있다. 그러나 이 앱은 차이를 설명하려 한다. 여수해양의 512원 절사 차이, 한가람 중량 5번의 중복 입력, 에이치엠스틸의 품목·단가 구간 차이는 모두 서로 다른 성격의 문제다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>. 이를 한꺼번에 “불일치”로 처리하지 않고 원인별로 나눈 것은 운영 시스템으로서의 성숙도를 보여준다.</p>
+<hr>
+<h2 id="section-2">개발비 산정 상세</h2>
+<p>현재 확인된 기능을 외부 개발 또는 내부 원가 기준으로 환산하면 다음과 같이 추정할 수 있다. 이 금액은 외부 시장 검증이 아닌 노트 기반 내부 추정이다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>주요 내용</th>
+<th>추정 개발비</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>요구사항 분석 및 레거시 엑셀 업무 분석</td>
+<td>기존 생산일보 구조, 지점별 용어·기준 정리</td>
+<td>1,000만~2,500만 원</td>
+</tr>
+<tr>
+<td>기본 웹앱 구조</td>
+<td>로그인/권한, 화면 구조, 지점별 메뉴, CRUD, 저장 구조</td>
+<td>2,000만~4,000만 원</td>
+</tr>
+<tr>
+<td>생산 데이터 입력/조회</td>
+<td>지점별 입력폼, 데이터테이블, 생산·출하·입고 관리</td>
+<td>2,500만~5,000만 원</td>
+</tr>
+<tr>
+<td>지점별 필드 정책화</td>
+<td>부산·칠서·하동·화전·율촌별 허용 필드 공통 적용</td>
+<td>1,000만~2,500만 원</td>
+</tr>
+<tr>
+<td>분석필터/KPI</td>
+<td>데이터분석필터, 주요 생산지표 전광판, UI 개선</td>
+<td>1,500만~3,500만 원</td>
+</tr>
+<tr>
+<td>거래명세서/전자결재 검산</td>
+<td>총액, 품목, 수량, 단가, 공급가액, 세액 비교</td>
+<td>3,000만~7,000만 원</td>
+</tr>
+<tr>
+<td>단가관리/품목 매핑</td>
+<td>품목 세부분류, 단가 구간, 정산 기준 반영</td>
+<td>1,500만~4,000만 원</td>
+</tr>
+<tr>
+<td>마감 보정/정산 규칙</td>
+<td>원단위 절사, 거래처 정산 방식, 검증 단계</td>
+<td>1,500만~3,500만 원</td>
+</tr>
+<tr>
+<td>업무보고/잔업/권한 개선</td>
+<td>업무보고 접근권한, 잔업현황 산정 기준</td>
+<td>1,000만~2,500만 원</td>
+</tr>
+<tr>
+<td>출력 품질 체계</td>
+<td>UI/PDF/Docswave/노트 품질 기준</td>
+<td>1,500만~3,500만 원</td>
+</tr>
+<tr>
+<td>LLM Assistant 확장프로그램</td>
+<td>Side Panel, 대화형 검산, 답변→JSON</td>
+<td>2,000만~5,000만 원</td>
+</tr>
+<tr>
+<td>OCR/JSON strict 검증</td>
+<td>PDF 금액 근거, 합계 검증, 경고 처리</td>
+<td>2,500만~6,000만 원</td>
+</tr>
+<tr>
+<td>운영 문서화/인수인계</td>
+<td>문서 허브, handoff, 개발 타임라인, 운영 원칙</td>
+<td>1,000만~2,500만 원</td>
+</tr>
+<tr>
+<td>테스트/디버깅/운영 안정화</td>
+<td>실제 운영 중 오류 수정, 사용자 혼선 제거</td>
+<td>2,000만~5,000만 원</td>
+</tr>
+</tbody>
+</table>
+<p>단순 합산 기준으로 보수적 하한은 약 <strong>2억 5천만 원</strong>, 중간 추정은 <strong>4억~5억 원</strong>, 상한은 <strong>6억 원 이상</strong>으로 볼 수 있다. 특히 이 금액에는 “혼자 개발하면서 흡수한 비용”이 충분히 반영되어야 한다. 일반적인 외주 프로젝트라면 요구사항 분석가, 현업 PM, 프론트엔드 개발자, 백엔드 개발자, 데이터베이스 설계자, QA, 운영 담당자, 문서화 담당자, 사용자 교육 담당자, AI/OCR 검증 담당자가 분리된다. 그러나 이 프로젝트에서는 한 사람이 그 역할을 장기간 수행한 것으로 보인다.</p>
+<hr>
+<h2 id="section-3">품질·사용성·디버깅 완료 상태에 대한 평가</h2>
+<p>사용자가 질문에서 전제한 것처럼 “품질과 사용성, 오류, 디버깅이 완료된 상태에서 사용상 문제점 없이 데이터정합성, 구성, 접속 등에 문제없는 현시점”을 평가하려면 두 가지를 나누어 봐야 한다.</p>
+<p>첫째, Obsidian 노트에서 확인되는 범위에서는 품질 관리 철학과 디버깅 과정이 상당히 명확하다. 지점별 필드 정책이 공통화되었고, 입력폼·데이터테이블·분석필터 간 기준 불일치를 줄이려는 정리가 있다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>. 자동 생성 결과와 전자결재 상신본을 비교할 때도 총액 차이를 거래처·품목·수량·단가·공급가액·세액 단위로 분해하는 절차가 기록되어 있다 <a>에코그릿 지점매출 자동화 문제해결 회고</a>.</p>
+<p>둘째, 실제 접속 안정성, 서버 장애 여부, 보안 취약점, 백업·복구, 동시접속 성능, 브라우저 호환성 등은 현재 노트만으로는 완전히 검증할 수 없다. 따라서 보고서상 표현은 “노트에 기록된 기능과 운영 개선 범위에서는 상당한 수준의 품질 관리와 디버깅이 이루어진 것으로 평가된다. 단, 접속 안정성·보안·백업·성능은 별도 운영 로그와 기술 검증이 필요하다”가 가장 객관적이다.</p>
+<hr>
+<h2 id="section-4">조직 내 인식 전환을 위한 메시지</h2>
+<p>이 앱을 “하늘에서 떨어진 듯한 앱”으로 보는 시각을 바꾸려면, 감정적 호소보다 구조적 설명이 효과적이다. 핵심 메시지는 다음과 같다.</p>
+<p>이 앱은 단순히 누군가가 편의로 만든 화면이 아니다. 기존 엑셀 업무에 숨어 있던 모호한 기준을 드러내고, 지점별로 다른 생산관리 언어를 하나의 정책 체계로 정리했으며, 생산 데이터와 정산 문서가 다를 때 그 차이를 설명할 수 있도록 만든 시스템이다. 또한 운영 중 발견된 사용자 혼선을 업데이트에 반영했고, AI/OCR 자동화도 무조건 신뢰하지 않고 검증 가능한 보조 도구로 제한했다.</p>
+<p>특히 “혼자 개발했다”는 사실은 비용이 낮다는 뜻이 아니다. 오히려 외부 프로젝트였다면 여러 역할로 분리되었을 업무 분석, 데이터 모델링, 개발, 테스트, 운영, 교육, 문서화, 검산, 오류 대응을 한 사람이 흡수했다는 뜻이다. 조직은 결과물만 보지만, 실제 가치는 그 결과물이 만들어지기까지 축적된 도메인 이해와 시행착오에 있다.</p>
+<hr>
+<h2 id="section-5">추가로 확보하면 객관성이 더 강해지는 자료</h2>
+<p>더 강한 보고서나 내부 설득 자료를 만들려면 다음 자료를 추가로 모으는 것이 좋다.</p>
+<ol>
+<li>실제 화면 목록과 메뉴 구조  </li>
+<li>데이터베이스 테이블 목록  </li>
+<li>월별 입력 건수  </li>
+<li>지점별 사용자 수  </li>
+<li>기존 엑셀 파일 수와 관리 기간  </li>
+<li>앱 도입 전후 월마감 소요 시간 비교  </li>
+<li>앱 도입 후 발견된 오류 사례와 금액 영향  </li>
+<li>접속 장애 이력  </li>
+<li>백업·복구 정책  </li>
+<li>권한·보안 구조  </li>
+<li>배포 환경  </li>
+<li>기능별 개발 타임라인  </li>
+<li>커밋 로그 또는 릴리즈 노트  </li>
+<li>사용자 공지 내역  </li>
+<li>전자결재 문서 자동화 성공·보류 사례  </li>
+<li>외부 개발사 견적 비교 자료</li>
+</ol>
+<p>이 자료가 있으면 “내가 고생했다”가 아니라 “조직의 업무 비용을 얼마만큼 줄였고, 데이터 자산을 얼마만큼 만들었는가”로 설명할 수 있다.</p>
+<hr>
+<h2 id="verdict">Verdict</h2>
+<h3 id="best-overall">Best Overall</h3>
+<p><strong>환경사업부 통합업무시스템 — 전체 완성형 가치</strong></p>
+<p>전체 기능, 운영 철학, 데이터 정합성, 지점별 업무 반영, 거래명세서·전자결재 검산, AI/OCR 보조, 문서화 체계를 종합하면 현재 앱은 단순 생산관리앱이 아니라 환경사업부 통합업무시스템으로 보는 것이 타당하다. 현시점 노트 기반 재개발 가치 평가는 <strong>최소 2억 5천만 원 이상</strong>, 현실적 중간값은 <strong>4억~5억 원</strong>, 고도화와 운영 안정화까지 포함하면 <strong>6억 원 이상</strong>으로 산정할 수 있다.</p>
+<h3 id="best-value">Best Value</h3>
+<p><strong>생산관리 핵심 웹앱 — 생산·출하·입고 DB화 가치</strong></p>
+<p>가장 기본이면서도 장기 가치가 큰 부분은 엑셀 기반 휘발성 생산 데이터를 DB 기반 구조로 바꾼 것이다. 기존 엑셀의 모호한 업무 기준을 지점별 필드 정책과 데이터 구조로 전환했기 때문에, 이 부분만으로도 <strong>2억 5천만~4억 원 수준의 재개발 가치</strong>가 있다고 평가할 수 있다.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>질문에 직접 답하면, 이 웹앱은 “단순히 혼자 만든 생산관리 편의 앱”으로 평가되어서는 안 된다. Obsidian 개발 노트에 나타난 범위를 기준으로 보면, 이 시스템은 기존 엑셀 파일로는 장기 데이터베이스화가 어려웠던 휘발성 생산데이터를 구조화하고, 지점별 업무 차이와 정산 기준 차이를 시스템 정책과 검산 로직으로 흡수한 <strong>고유한 업무 자산</strong>이다.</p>
+<p>객관적으로는 외부 검증 없이 단정할 수 없는 부분도 있다. 실제 접속 안정성, 보안, 백업·복구, 사용자 수, 데이터 규모, 장애 이력, 외부 견적 비교는 추가 자료가 필요하다. 그러나 현재 노트에 확인되는 기능 범위와 개발 철학, 운영 개선 기록, 검산 사례, LLM/OCR 보조 기능까지 종합하면, 이 앱은 최소 수억 원대 재개발 가치가 있는 웹앱으로 평가하는 것이 합리적이다.</p>
+<p>따라서 조직 내 설명은 이렇게 정리할 수 있다.</p>
+<blockquote>
+<p>이 앱은 하늘에서 떨어진 결과물이 아니라, 장기간의 현장 업무 이해, 레거시 엑셀 해체, 데이터 정의, 지점별 기준 정리, 정산 검산, 오류 디버깅, 사용자 혼선 제거, AI 보조 검증까지 누적되어 만들어진 환경사업부 통합업무시스템이다. 현시점 기준 보수적 재개발 가치는 최소 2억 5천만 원 이상이며, 실제 통합 기능과 고도화 범위를 포함하면 4억~6억 원 이상으로 평가할 수 있다.</p>
+</blockquote>
+
+    <div class="sources-panel">
+<details>
+<summary>Sources (6)</summary>
+<div class="sources-list">
+<a href="vault://21_업무노트/사업운영/생산관리앱/03_이력운영/2026-06-10_에코그릿_지점매출_자동화_문제해결_학습회고.md#chunk-1" target="_blank" rel="noopener noreferrer"><span class="snum">1.</span><span>Obsidian: 2026-06-10_에코그릿_지점매출_자동화_문제해결_학습회고.md</span><span class="sdomain">Obsidian</span></a>
+<a href="vault://21_업무노트/사업운영/생산관리앱/00_운영인덱스/2026-06-09_환경사업부_통합업무시스템_문서_허브.md#chunk-1" target="_blank" rel="noopener noreferrer"><span class="snum">2.</span><span>Obsidian: 2026-06-09_환경사업부_통합업무시스템_문서_허브.md</span><span class="sdomain">Obsidian</span></a>
+<a href="vault://21_업무노트/사업운영/생산관리앱/05_세션기록/2026-06-12_UNECO_LLM_Assistant_확장프로그램_구현.md#chunk-5" target="_blank" rel="noopener noreferrer"><span class="snum">3.</span><span>Obsidian: 2026-06-12_UNECO_LLM_Assistant_확장프로그램_구현.md</span><span class="sdomain">Obsidian</span></a>
+<a href="vault://21_업무노트/사업운영/생산관리앱/03_이력운영/2026-06-10_에코그릿_지점매출_자동화_문제해결_학습회고.md#chunk-7" target="_blank" rel="noopener noreferrer"><span class="snum">4.</span><span>Obsidian: 2026-06-10_에코그릿_지점매출_자동화_문제해결_학습회고.md</span><span class="sdomain">Obsidian</span></a>
+<a href="vault://21_업무노트/사업운영/생산관리앱/03_이력운영/2026-05-19_생산관리앱_운영_업데이트_공지_개선본.md#chunk-27" target="_blank" rel="noopener noreferrer"><span class="snum">5.</span><span>Obsidian: 2026-05-19_생산관리앱_운영_업데이트_공지_개선본.md</span><span class="sdomain">Obsidian</span></a>
+<a href="vault://21_업무노트/사업운영/생산관리앱/03_이력운영/2026-06-10_에코그릿_지점매출_자동화_문제해결_학습회고.md#chunk-2" target="_blank" rel="noopener noreferrer"><span class="snum">6.</span><span>Obsidian: 2026-06-10_에코그릿_지점매출_자동화_문제해결_학습회고.md</span><span class="sdomain">Obsidian</span></a>
+</div>
+</details>
+</div>
+
+    <div class="chat-cta"><button id="btn-chat-about" class="chat-cta-btn" data-research-id="rp-0e9860a6a155"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>Discuss</span></button><div class="chat-cta-hint">Opens a new chat with this report as context.</div></div>
+  <section class="marktl-reader-feedback" aria-label="Reader feedback">
+<style>
+.marktl-reader-feedback { margin: 40px auto 0; padding: 0; }
+.marktl-reader-feedback h2 { margin: 0 0 8px; font: 800 22px/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback p { margin: 0 0 14px; color: #526173; font: 500 14px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback .giscus, .marktl-reader-feedback .giscus-frame { width: 100%; }
+</style>
+<h2>Reader feedback</h2>
+<p>Leave a public GitHub comment or reaction below.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="flytothesky23/marktl-shares"
+        data-repo-id="R_kgDOSbdK8Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOSbdK8c4C84EC"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ko"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+</main>
+</div>
+
+<div class="report-footer">
+  Generated by Odysseus Deep Research · June 18, 2026 at 16:54
+</div>
+
+<script>
+(function() {
+  // ESC closes the report tab. window.close() works when the tab was
+  // opened via window.open() (which is how the panel launches it). If the
+  // browser blocks self-close (rare — e.g. report opened by direct URL),
+  // fall back to history.back() so ESC still feels responsive.
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape' || e.defaultPrevented) return;
+    // Don't hijack ESC while typing in a field or with an open dropdown.
+    var t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    var menu = document.getElementById('export-menu');
+    if (menu && menu.classList.contains('open')) { menu.classList.remove('open'); return; }
+    try { window.close(); } catch (err) {}
+    // window.close() is a no-op when the tab wasn't script-opened; in that
+    // case fall back to navigation so the key isn't ignored.
+    setTimeout(function() { if (!window.closed) history.back(); }, 50);
+  });
+
+  // Export dropdown toggle
+  var exportBtn = document.getElementById('btn-export');
+  var exportMenu = document.getElementById('export-menu');
+  exportBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    exportMenu.classList.toggle('open');
+  });
+  document.addEventListener('click', function() { exportMenu.classList.remove('open'); });
+
+  // Save as PDF (browser print)
+  document.getElementById('btn-pdf').addEventListener('click', function() {
+    exportMenu.classList.remove('open');
+    window.print();
+  });
+
+  // Download HTML
+  document.getElementById('btn-html').addEventListener('click', function() {
+    exportMenu.classList.remove('open');
+    var blob = new Blob([document.documentElement.outerHTML], { type: 'text/html' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = document.title.replace(/[^a-z0-9]+/gi, '-').substring(0, 60) + '.html';
+    a.click();
+  });
+
+  // Per-image hide — fades the image out, then POSTs to the backend so
+  // future renders of this report skip the URL. Falls back to a silent
+  // no-op if there's no session_id (e.g. the report was opened from a
+  // saved-HTML download where the backend isn't reachable).
+  var __sessionId = "rp-0e9860a6a155";
+  // Unused scraped images — the reroll pool. Each is used at most once.
+  var __spareImages = [];
+
+  // Persist a rejected URL so future renders skip it.
+  function __persistHide(url) {
+    if (!__sessionId || !url) return;
+    fetch('/api/research/' + encodeURIComponent(__sessionId) + '/hide-image', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: url }),
+    }).catch(function(err) { console.warn('hide-image POST failed', err); });
+  }
+
+  // Once the pool is empty, there's nothing to swap to — hide all reroll btns.
+  function __syncRerollAvailability() {
+    if (__spareImages.length === 0) {
+      document.querySelectorAll('.img-reroll-btn').forEach(function(b) { b.disabled = true; });
+    }
+  }
+
+  document.querySelectorAll('.img-hide-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault(); e.stopPropagation();
+      var wrap = btn.closest('[data-img-url]');
+      if (!wrap) return;
+      var url = wrap.dataset.imgUrl;
+      wrap.classList.add('fading');
+      setTimeout(function() { wrap.remove(); }, 280);
+      __persistHide(url);
+    });
+  });
+
+  // Reroll — swap the current image for the next unused scraped one, and
+  // persist-hide the rejected URL so it won't resurface on reload.
+  document.querySelectorAll('.img-reroll-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault(); e.stopPropagation();
+      // Per-button busy flag — a rapid double-click would otherwise both
+      // shift the spare pool, but only the second probe's image would land,
+      // silently consuming the first one. Bail until finish() clears it.
+      if (btn.dataset._busy === '1') return;
+      if (__spareImages.length === 0) { btn.disabled = true; return; }
+      var wrap = btn.closest('[data-img-url]');
+      if (!wrap) return;
+      var img = wrap.querySelector('img');
+      if (!img) return;
+      btn.dataset._busy = '1';
+      var oldUrl = wrap.dataset.imgUrl;
+      var newUrl = __spareImages.shift();
+      btn.classList.add('spinning');
+      // Swap once the new image has loaded (or failed) to avoid a flash of empty.
+      var probe = new Image();
+      var done = false;
+      var finish = function(ok) {
+        if (done) return; done = true;
+        btn.classList.remove('spinning');
+        delete btn.dataset._busy;
+        if (ok) {
+          img.src = newUrl;
+          wrap.dataset.imgUrl = newUrl;
+          __persistHide(oldUrl);
+        } else {
+          // Bad candidate — persist-hide it so it can't resurface on reload,
+          // then try the next spare if any remain. Busy flag already cleared
+          // so the synthetic click below proceeds.
+          __persistHide(newUrl);
+          if (__spareImages.length) btn.click();
+        }
+        __syncRerollAvailability();
+      };
+      probe.onload = function() { finish(true); };
+      probe.onerror = function() { finish(false); };
+      probe.src = newUrl;
+    });
+  });
+  __syncRerollAvailability();
+
+  // "Show hidden (N)" button — clears the hidden_images list on the
+  // server, then reloads the page so all images come back.
+  var restoreBtn = document.getElementById('btn-restore-images');
+  if (restoreBtn && __sessionId) {
+    restoreBtn.addEventListener('click', function() {
+      restoreBtn.disabled = true;
+      restoreBtn.textContent = 'Restoring…';
+      fetch('/api/research/' + encodeURIComponent(__sessionId) + '/unhide-images', {
+        method: 'POST', credentials: 'same-origin',
+      }).then(function() { window.location.reload(); })
+        .catch(function(err) {
+          restoreBtn.disabled = false;
+          restoreBtn.textContent = 'Failed — retry?';
+          console.warn('unhide-images POST failed', err);
+        });
+    });
+  }
+
+  // TOC: explicit smooth-scroll handler (some browsers/anchor plugins
+  // bypass the CSS `scroll-behavior: smooth` rule on hash clicks).
+  // Also keeps the URL hash updated and toggles an `.active` highlight.
+  var tocLinks = document.querySelectorAll('.toc-sidebar nav a[href^="#"]');
+  tocLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var id = link.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', '#' + id);
+    });
+  });
+
+  // Highlight the TOC entry that matches whichever heading is currently
+  // closest to the top of the viewport. IntersectionObserver keeps it
+  // cheap (no scroll listener spam).
+  var tocMap = {};
+  tocLinks.forEach(function(link) {
+    tocMap[link.getAttribute('href').slice(1)] = link;
+  });
+  var activeId = null;
+  function setActive(id) {
+    if (id === activeId) return;
+    if (activeId && tocMap[activeId]) tocMap[activeId].classList.remove('active');
+    if (id && tocMap[id]) tocMap[id].classList.add('active');
+    activeId = id;
+  }
+  var headings = document.querySelectorAll('.content h2[id], .content h3[id]');
+  if (headings.length && 'IntersectionObserver' in window) {
+    var visible = new Set();
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(en) {
+        if (en.isIntersecting) visible.add(en.target.id);
+        else visible.delete(en.target.id);
+      });
+      // Pick the visible heading that's furthest down in document order
+      // before the current scroll — i.e. the section we're reading.
+      var current = null;
+      for (var i = 0; i < headings.length; i++) {
+        if (visible.has(headings[i].id)) { current = headings[i].id; break; }
+      }
+      if (current) setActive(current);
+    }, { rootMargin: '-10% 0px -75% 0px', threshold: 0 });
+    headings.forEach(function(h) { io.observe(h); });
+  }
+
+  // Chat about this research — POST to spinoff and redirect to the new chat
+  var chatBtn = document.getElementById('btn-chat-about');
+  if (chatBtn) {
+    chatBtn.addEventListener('click', function() {
+      var researchId = chatBtn.dataset.researchId;
+      if (!researchId) return;
+      var origLabel = chatBtn.innerHTML;
+      chatBtn.disabled = true;
+      chatBtn.innerHTML = '<span>Creating chat…</span>';
+      fetch('/api/research/spinoff/' + encodeURIComponent(researchId), {
+        method: 'POST', credentials: 'same-origin',
+      }).then(function(res) {
+        if (!res.ok) {
+          return res.json().then(function(d) {
+            throw new Error(d && d.detail ? d.detail : ('HTTP ' + res.status));
+          }, function() { throw new Error('HTTP ' + res.status); });
+        }
+        return res.json();
+      }).then(function(data) {
+        if (!data || !data.session_id) {
+          throw new Error('Server did not return a session id');
+        }
+        var url = '/#' + data.session_id;
+        var opened = false;
+        // The report typically opens in a new tab — if we have access to the
+        // original Odysseus tab, navigate it and close this report tab so the
+        // user lands directly in the new chat.
+        try {
+          if (window.opener && !window.opener.closed) {
+            window.opener.location.href = url;
+            window.opener.location.reload();
+            window.opener.focus();
+            opened = true;
+            window.close();
+          }
+        } catch (e) { /* cross-origin or detached opener — fall through */ }
+        if (!opened) {
+          // No opener (report was opened directly via URL) — open the chat in a
+          // new tab so the report stays available.
+          var w = window.open(url, '_blank');
+          if (w) {
+            chatBtn.disabled = false;
+            chatBtn.innerHTML = '<span>Chat opened in new tab</span>';
+          } else {
+            // Popup blocked — navigate this tab as a last resort.
+            window.location.href = url;
+            window.location.reload();
+          }
+        }
+      }).catch(function(err) {
+        chatBtn.disabled = false;
+        chatBtn.innerHTML = origLabel;
+        alert('Could not start follow-up chat: ' + err.message);
+      });
+    });
+  }
+})();
+
+// Colorize comparison table cells
+if (document.body.classList.contains('category-comparison')) {
+  const pos = /^(yes|excellent|best|great|strong|fast|high|superior|winner|free|unlimited|native|full|advanced|built[- ]in|✓|✅|⭐)/i;
+  const neg = /^(no|none|poor|weak|slow|low|limited|lacking|missing|basic|minimal|✗|❌|N\/A$)/i;
+  const mid = /^(moderate|average|fair|partial|some|decent|okay|mixed|varies|depends)/i;
+  document.querySelectorAll('.content table td').forEach(td => {
+    if (td.cellIndex === 0) return;
+    const t = td.textContent.trim();
+    if (pos.test(t)) td.classList.add('cmp-pos');
+    else if (neg.test(t)) td.classList.add('cmp-neg');
+    else if (mid.test(t)) td.classList.add('cmp-mid');
+  });
+}
+</script>
+
+
+<a id="bottomBar" style="position: fixed; bottom: -40px; left: 0px; z-index: 9999; transform: translateX(-50%); background-color: transparent; border-radius: 5px 5px 0px 0px; opacity: 0.3; padding: 5px; transition: 0.3s; cursor: pointer; max-height: 100px; max-width: 45px;"><img src="chrome-extension://kobncfkmjelbefaoohoblamnbackjggk/icon/icon_32.png" style="width: 32px; height: 32px;"></a></body></html>
