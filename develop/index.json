@@ -1,14 +1,30 @@
 {
   "version": 2,
-  "updatedAt": "2026-06-17T10:31:45.568Z",
+  "updatedAt": "2026-06-19T00:05:57.185Z",
   "items": [
     {
-      "slug": "mcp와-api-입문",
+      "slug": "note",
+      "shortId": "14edid9",
+      "url": "https://flytothesky23.github.io/marktl-shares/develop/s/14edid9/",
+      "canonicalUrl": "https://flytothesky23.github.io/marktl-shares/develop/note/",
+      "sourcePath": "External HTML file: -.html",
+      "sourcePathKey": "external html file: -.html",
+      "artifactType": "research-report",
+      "thumbnailUrl": "",
+      "schemaVersion": 2,
+      "publishedByHost": "",
+      "title": "생산관리앱 가치 평가 리서치 보고서",
+      "excerpt": "Obsidian 생산관리앱 개발 노트 기반 제품·자산 평가 Executive Summary 본 보고서는 사용자의 Obsidian 지식베이스 중 21_업무노트/사업운영/생산관리앱 폴더에 축적된 개발 노트만을 근거로, 기존 “생산관리앱”이 현재 어떤 수준의 웹앱 또는 업무 자산으로 평가될 수 있는지 종합적으로 분석한 것이다.",
+      "tags": [],
+      "updatedAt": "2026-06-19T00:05:57.185Z"
+    },
+    {
+      "slug": "mcpì-api-ìë¬¸",
       "shortId": "k1djja",
       "url": "https://flytothesky23.github.io/marktl-shares/develop/s/k1djja/",
       "canonicalUrl": "https://flytothesky23.github.io/marktl-shares/develop/mcp%EC%99%80-api-%EC%9E%85%EB%AC%B8/",
-      "sourcePath": "21_업무노트/정보기술/01-2_기술개념/MCP와_API_입문.md",
-      "sourcePathKey": "21_업무노트/정보기술/01-2_기술개념/mcp와_api_입문.md",
+      "sourcePath": "21_ìë¬´ë¸í¸/ì ë³´ê¸°ì /01-2_ê¸°ì ê°ë/MCPì_API_ìë¬¸.md",
+      "sourcePathKey": "21_ìë¬´ë¸í¸/ì ë³´ê¸°ì /01-2_ê¸°ì ê°ë/mcpì_api_ìë¬¸.md",
       "artifactType": "slide-deck",
       "thumbnailUrl": "",
       "schemaVersion": 2,
