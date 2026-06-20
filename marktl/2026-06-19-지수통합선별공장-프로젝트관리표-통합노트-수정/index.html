@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>지수통합선별공장 공사일보</title>
+<title>지수통합선별공장 프로젝트관리표 통합노트</title>
 <style>
       :root {
         color-scheme: dark light;
@@ -324,11 +324,11 @@
 <article>
 <header class="project-hero">
   <p class="dashboard-eyebrow">Integrated Project Dashboard</p>
-  <h1>지수통합선별공장 공사일보</h1>
+  <h1>지수통합선별공장 프로젝트관리표 통합노트</h1>
   <p class="dashboard-lead">프로젝트 상태, 일정, 공정 흐름, 리스크, 마일스톤을 하나의 운영 화면에서 검토합니다.</p>
   <div class="dashboard-meta-row">
     <span>표준: 2026-05-19 통합노트 대시보드</span>
-    <span>기간/일자: 2026-06-15 ~ 2026-09-25</span>
+    <span>기간/일자: 2026-06-15 ~ 2026-06-22</span>
   </div>
 </header>
 <section class="dashboard-layout">
@@ -354,763 +354,589 @@
 <section class="dashboard-section" id="document-map">
   <h2>문서 지도</h2>
   <div class="dashboard-section-body">
-    <section class="dashboard-source-block"><h3>문서 지도</h3><p>이 노트는 상태판입니다. 판단은 의사결정 로그에서, 근거는 원천 자료 인덱스에서 봅니다. 오늘 보고서는 현장 검토용으로 사실, 증빙, 리스크, 다음 행동을 한 화면에 모았습니다.</p>
-        </div>
-      </div>
+    <section class="dashboard-source-block"><h3>문서 지도</h3><p class="section-sub">이 문서는 현장 검토용 통합 대시보드이며, 세부 판단 근거는 개별 노트와 원천 자료 인덱스로 연결됩니다.</p>
 
-      <div class="grid-4">
-        <div class="metric">
-          <div class="k">오늘 작업</div>
-          <p class="v">옹벽 저판 타설</p>
-          <p class="d">2026-06-15에 옹벽 기초 및 저판 철근 배근 후 콘크리트 타설을 수행했습니다.</p>
-        </div>
-        <div class="metric" style="--accent:var(--info)">
-          <div class="k">연결 공정</div>
-          <p class="v">벽체 배근 준비</p>
-          <p class="d">2차 철근 반입 완료 후 후속 벽체 배근 작업을 이어갈 기반이 마련되었습니다.</p>
-        </div>
-        <div class="metric" style="--accent:var(--warn)">
-          <div class="k">일정 Gate</div>
-          <p class="v">건축허가 6/25 전후</p>
-          <p class="d">당초 6/22에서 보정되었고, 허가 즉시 착공계 접수 준비가 필요합니다.</p>
-        </div>
-        <div class="metric" style="--accent:var(--danger)">
-          <div class="k">핵심 리스크</div>
-          <p class="v">설비 접점</p>
-          <p class="d">건축·전기·집진·현장 조건이 맞지 않으면 9/11 설치와 9/30 디버깅이 압박받습니다.</p>
-        </div>
-      </div>
-
-      <div class="cards-2" style="margin-top:14px">
-        <div class="callout">
-          <strong>기준 컨텍스트</strong>
-          <p>
-            2026-05-06 현재상태에서는 증축안과 비증축안 2종을 금주 내 보고 수준으로 압축하는 것이 기준이었고, 2026-06-19 현재 노트에서는 그 실행축이
-            6/25 허가 Gate, 착공계 즉시 접수, 설비 Master Plan(6/15~9/30), 그리고 차주 부대공사 병행으로 구체화되어 있습니다.
-          </p>
-        </div>
-        <div class="callout">
-          <strong>독해 규칙</strong>
-          <p>
-            확정되지 않은 항목은 확인 필요로 남겼습니다. 수량, 비용, 완료율, 인력, 정확한 공정 진척은 원문에 없는 경우 기입하지 않았습니다.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" id="status">
-      <div class="section-head">
-        <div></section>
+        <div class="grid-2">
+          <div class="panel"></section>
   </div>
 </section>
 <section class="dashboard-section" id="status">
   <h2>빠른 현황</h2>
   <div class="dashboard-section-body">
-    <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand" aria-label="문서 제목">
-        <div class="mark" aria-hidden="true"></div>
+    <div class="app">
+    <aside class="sidebar sticky-mini" aria-label="문서 지도">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
         <div>
-<span class="sub">통합 운영 대시보드 · 현장 검토용 · 2026-06-15 ~ 2026-06-19</span>
-        </div>
-      </div>
-      <div class="toolbar">
-        <button class="btn" id="themeToggle" type="button" aria-label="다크/라이트 테마 전환">◐ 테마</button>
-        <button class="btn" id="copySummary" type="button">요약 복사</button>
-        <button class="btn" id="copyFeedback" type="button">리뷰 메모 복사</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <header class="hero" id="top">
-      <div class="hero-grid">
-        <div>
-          <span class="eyebrow"><span class="pulse"></span> 문서 성격: 공사일보 · 종합·마일스톤 · 현장 검토</span>
-<section class="dashboard-source-block"><h3>빠른 현황</h3><p>금일 사실과 지속 기준을 분리해 봅니다. 오늘은 구조체, 허가, 설비, 현장정리의 4축이 동시에 움직이고 있습니다.</p>
+<p>운영허브 / 통합관리표</p>
         </div>
       </div>
 
-      <div class="grid-4">
-        <div class="metric" style="--accent:var(--success)">
-          <div class="k">공정</div>
-          <p class="v">구조체 시공 진입</p>
-          <p class="d">옹벽 기초 및 저판 타설이 완료되었고, 벽체 배근·거푸집 작업이 이어지고 있습니다.</p>
-        </div>
-        <div class="metric" style="--accent:var(--info)">
-          <div class="k">허가</div>
-          <p class="v">6/25 예상</p>
-          <p class="d">시청 내부 업무 진행상 6/22에서 6/25 전후로 보정되었습니다.</p>
-        </div>
-        <div class="metric" style="--accent:var(--warn)">
-          <div class="k">차주 실행</div>
-          <p class="v">방수·펜스·제초</p>
-          <p class="d">허가 대기기간을 현장조건 개선과 부대공사 실행기간으로 활용합니다.</p>
-        </div>
-        <div class="metric" style="--accent:var(--danger)">
-          <div class="k">설비</div>
-          <p class="v">9/30 디버깅 목표</p>
-          <p class="d">설계/BOM 7/3, 제조 7/1~9/1, 설치 9/11~9/25, 디버깅 9/25~9/30 흐름입니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" id="flow">
-      <div class="section-head">
-        <div></section>
-<section class="dashboard-source-block"><h3>마일스톤 요약</h3><p>이 구간은 오늘까지의 기준선과 앞으로의 게이트를 한 번에 보이도록 구성했습니다. 확인된 사실과 예정된 흐름을 구분했습니다.</p>
-        </div>
+      <div class="toggle-row">
+        <button class="toggle" id="themeToggle" type="button" aria-label="테마 전환">
+          테마: <strong id="themeLabel">자동</strong>
+        </button>
+        <button class="toggle" id="copySummary" type="button" aria-label="요약 복사">
+          요약 복사
+        </button>
       </div>
 
-      <div class="grid-3">
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>AI 전달용 요약</h3><div class="small" id="aiSummary">
-            지수통합선별공장 2026-06-15 ~ 2026-06-19 공사일보. 금일 옹벽 기초 및 저판 철근 배근 후 콘크리트 타설을 진행했고 2차 철근 반입을 완료했다. 2026-06-16~18에는 외부 옹벽 벽체 거푸집·철근배근이 진행되었다. 건축허가 예상은 6/25 전후로 보정되었고 허가 즉시 착공계 접수가 필요하다. 차주에는 방수, 펜스·게이트, 제초·벌목, 철골 사전준비를 병행한다. 설비 Master Plan은 6/15~9/30이며 7/3 설계/BOM Gate, 9/30 디버깅 완료가 핵심이다.
+      <nav class="nav" aria-label="문서 내비게이션">
+        <a href="#doc-map"><span>문서 지도</span><span>01</span></a>
+        <a href="#quick-status"><span>빠른 현황</span><span>02</span></a>
+        <a href="#control-flow"><span>핵심 관리 흐름</span><span>03</span></a>
+        <a href="#schedule"><span>일정/간트 또는 실행 게이트</span><span>04</span></a>
+        <a href="#evidence"><span>자금/자원 또는 공정 증빙</span><span>05</span></a>
+        <a href="#risk-decision"><span>리스크·의사결정</span><span>06</span></a>
+        <a href="#milestones"><span>마일스톤 요약</span><span>07</span></a>
+        <a href="#update-log"><span>업데이트 로그</span><span>08</span></a>
+        <a href="#review-room"><span>리뷰 룸</span><span>09</span></a>
+      </nav>
+
+      <div class="sidebar-card">
+<section class="dashboard-source-block"><h3>빠른 현황</h3><p class="section-sub">보고서의 첫 판단면입니다. 확인 가능한 사실만 적고, 불명확한 부분은 확인 필요로 둡니다.</p>
+
+        <div class="grid-3">
+          <div class="panel"></section>
+<section class="dashboard-source-block"><h3>실행 게이트 요약</h3><table>
+              <thead>
+                <tr>
+                  <th>게이트</th>
+                  <th>상태</th>
+                  <th>판단</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>건축허가</td>
+                  <td><span class="status warn">2026-06-25 예상</span></td>
+                  <td>당초 6/22에서 보정됨</td>
+                </tr>
+                <tr>
+                  <td>착공계</td>
+                  <td><span class="status neutral">허가 후 즉시</span></td>
+                  <td>사전 패키지화 필요</td>
+                </tr>
+                <tr>
+                  <td>설비 설계/BOM</td>
+                  <td><span class="status info">2026-07-03 기준</span></td>
+                  <td>장납기품 우선발주 확인 필요</td>
+                </tr>
+                <tr>
+                  <td>설비 설치</td>
+                  <td><span class="status warn">2026-09-11 시작 예정</span></td>
+                  <td>건축·전기·집진 선행조건 필요</td>
+                </tr>
+                <tr>
+                  <td>디버깅</td>
+                  <td><span class="status ok">2026-09-30 목표</span></td>
+                  <td>10월 정상조업 전 최종 Gate</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="feedback-actions" style="margin-top:10px">
-            <button class="btn" id="copyAISummary" type="button">AI 요약 복사</button>
-          </div>
-        </div>
-      </div>
-    </section>
+          <div class="panel"></section>
+<section class="dashboard-source-block"><h3>마일스톤 요약</h3><p class="section-sub">현재 노트 기준으로 확인 가능한 마일스톤만 요약합니다. 일부 단계는 예정이므로 상태를 과장하지 않습니다.</p>
 
-    <div class="footer">
-      <p><strong>출처 범위:</strong> 활성 노트의 공사일보 및 통합관리표 내용만 사용했습니다. frontmatter, Obsidian 전용 문법, 외부 자산, 원문 밖 사실은 노출하지 않았습니다.</p>
-      <p><strong>표기 원칙:</strong> 확인되지 않은 항목은 확인 필요로 유지했습니다. 이 문서는 현장 검토용 대시보드이며, 판단 근거는 의사결정 로그와 원천 자료 인덱스에 연결됩니다.</p>
-    </div>
-  </div></section>
+        <div class="grid-2">
+          <div class="panel"></section>
   </div>
 </section>
 <section class="dashboard-section" id="flow">
   <h2>핵심 관리 흐름</h2>
   <div class="dashboard-section-body">
-    <section class="dashboard-source-block"><h3>보고 상태</h3><span class="badge green">진행중</span>
-            </div>
-            <ul class="status-list">
-              <li><span class="label">보고 기간</span><span class="value">2026-06-15 ~ 2026-06-19</span></li>
-              <li><span class="label">작성 기준</span><span class="value">2026-06-19</span></li>
-              <li><span class="label">프로젝트</span><span class="value">지수통합선별공장</span></li>
-              <li><span class="label">노트 역할</span><span class="value">운영허브 / 통합관리표</span></li>
+    <section class="dashboard-source-block"><h3>문서 해석</h3><ul>
+          <li>이 문서는 상태판입니다.</li>
+          <li>확정되지 않은 내용은 <strong>확인 필요</strong>로 둡니다.</li>
+          <li>원문 판단 근거는 의사결정 로그와 원천 자료 인덱스에 둡니다.</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card"></section>
+<section class="dashboard-source-block"><h3>기본 정보</h3><ul>
+          <li>보고 기간: 2026-06-15 ~ 2026-06-19</li>
+          <li>업데이트: 2026-06-19</li>
+          <li>상태: 진행중</li>
+          <li>작성자: Kisoo Kil</li>
+        </ul>
+      </div>
+    </aside>
+
+     
+      <section class="hero">
+        <div class="kicker">
+          <span class="pill">통합노트</span>
+          <span class="pill">현장 검토</span>
+          <span class="pill">Executive / Presentation</span>
+          <span class="pill">Reporting period: 2026-06-15 ~ 2026-06-19</span>
+        </div></section>
+<section class="dashboard-source-block"><h3>지수통합선별공장 프로젝트관리표 통합노트</h3><p>
+          본 문서는 지수 통합선별공장의 현장 검토용 운영 대시보드입니다. 상태, 컨텍스트, 의사결정, 리스크, 일정, 공정 증빙, 업데이트 로그, 다음 실행 게이트를 한 화면에서 점검할 수 있도록 구성했습니다.
+          확인되지 않은 수치·일정·완료 상태는 임의로 채우지 않고 <strong>확인 필요</strong>로 표시합니다.
+        </p>
+
+        <div class="hero-grid">
+          <div class="hero-box"></section>
+<section class="dashboard-source-block"><h3>TL;DR</h3><ul>
+              <li>현장 공사는 옹벽 저판 타설과 2차 철근 반입까지 진행된 상태입니다.</li>
+              <li>건축허가 예상은 2026-06-25 전후로 보정되어 있습니다.</li>
+              <li>설비 Master Plan은 2026-06-15 ~ 2026-09-30의 106일 일정으로 관리됩니다.</li>
+              <li>차주 핵심은 허가, 착공계, 철골 사전준비, 설비 상세설계의 동시관리입니다.</li>
             </ul>
           </div>
-          <div class="status-card">
-            <div class="status-row"></section>
-<section class="dashboard-source-block"><h3>현재 Gate</h3><span class="badge orange">확인 필요</span>
-            </div>
-            <ul class="status-list">
-              <li><span class="label">건축허가</span><span class="value">6/25 전후 예상</span></li>
-              <li><span class="label">착공계</span><span class="value">허가 즉시 접수 준비</span></li>
-              <li><span class="label">설비 Master Plan</span><span class="value">6/15 ~ 9/30</span></li>
-              <li><span class="label">정상조업 목표</span><span class="value">10월 준비 유지</span></li>
+          <div class="hero-box"></section>
+<section class="dashboard-source-block"><h3>현재 기준 노트</h3><ul>
+              <li>지수 통합선별공장 프로젝트</li>
+              <li>지수 통합선별공장 진행 타임라인</li>
+              <li>의사결정 로그</li>
+              <li>원천 자료 인덱스</li>
             </ul>
           </div>
-        </aside>
+          <div class="panel"></section>
+<section class="dashboard-source-block"><h3>운영 원칙</h3><ul>
+              <li>지금 들어가서 바로 눌러야 하는 것만 둡니다.</li>
+              <li>세부 산출물은 개별 노트로, 원문 자료는 인덱스로 보냅니다.</li>
+              <li>정리 전 조각 노트와 전역 캔버스/마인드맵 잔재는 남기지 않습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="quick-status"></section>
+<section class="dashboard-source-block"><h3>보고 상태</h3><p><strong>진행중</strong></p>
+            <p>프로젝트관리표 통합노트. 프리미엄 Executive 포맷 유지, A4 가로 PDF 출력용 가독성 강화.</p>
+          </div>
+          <div class="panel"></section>
+<section class="dashboard-source-block"><h3>기준 기간</h3><p><strong>2026-06-15 ~ 2026-06-19</strong></p>
+            <p>주간 업데이트 브리핑 및 공사일보 통합 판단을 기준으로 구성.</p>
+          </div>
+          <div class="panel"></section>
+<section class="dashboard-source-block"><h3>핵심 관리 흐름</h3><p class="section-sub">현장, 허가, 설비, 부대공사, 품질, 동선이 서로 연결되는 실행 순서를 나타냅니다.</p>
+
+        <div class="flow">
+          <div class="step"><div class="num">Step 1</div><b>현장 구조체 시공</b><span>옹벽 저판 타설 및 벽체 거푸집·철근배근</span></div>
+          <div class="step"><div class="num">Step 2</div><b>허가 Gate 보정</b><span>건축허가 2026-06-25 전후 예상</span></div>
+          <div class="step"><div class="num">Step 3</div><b>착공계 즉시 접수</b><span>허가 확보 즉시 다음 Gate 연결</span></div>
+          <div class="step"><div class="num">Step 4</div><b>철골 사전준비</b><span>자재·제작·검수·반입동선 선행</span></div>
+          <div class="step"><div class="num">Step 5</div><b>설비 제조 병행</b><span>Master Plan 일정축을 건축과 통합</span></div>
+          <div class="step"><div class="num">Step 6</div><b>설치·디버깅</b><span>2026-09-30 디버깅 완료 목표</span></div>
+          <div class="step"><div class="num">Step 7</div><b>정상조업 준비</b><span>통합 시운전 및 운영 기준 점검</span></div>
+        </div>
+
+        <div class="grid-2" style="margin-top:14px">
+          <div class="panel"></section>
+<section class="dashboard-source-block"><h3>핵심 메시지</h3><ul>
+              <li>허가 대기기간은 공백이 아니라 부대공사 실행기간입니다.</li>
+              <li>현장 공정은 구조체 시공 단계로 진입했습니다.</li>
+              <li>설비 일정은 건축 일정과 분리하지 않고 같이 봐야 합니다.</li>
+            </ul>
+          </div>
+          <div class="panel"></section>
+<section class="dashboard-source-block"><h3>열람 메모</h3><p>
+                이 문서는 전략 브리프보다 운영 대시보드에 가깝게 설계되었습니다. 결론은 요약하지만, 판단은 일정·증빙·리스크·의사결정 표에서 바로 검토할 수 있어야 합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="foot">
+        보고 기간: 2026-06-15 ~ 2026-06-19 · 업데이트: 2026-06-19 · 상태: 진행중 · 확인되지 않은 사항은 확인 필요로 표기
       </div>
-    </header>
-
-    <div class="nav-shell">
-      <nav class="nav" aria-label="문서 지도">
-        <a class="nav-link" href="#map">문서 지도</a>
-        <a class="nav-link" href="#status">빠른 현황</a>
-        <a class="nav-link" href="#flow">핵심 관리 흐름</a>
-        <a class="nav-link" href="#schedule">일정/간트 또는 실행 게이트</a>
-        <a class="nav-link" href="#evidence">자금/자원 또는 공정 증빙</a>
-        <a class="nav-link" href="#risk">리스크·의사결정</a>
-        <a class="nav-link" href="#milestone">마일스톤 요약</a>
-        <a class="nav-link" href="#log">업데이트 로그</a>
-        <a class="nav-link" href="#review">리뷰 룸</a>
-      </nav>
-    </div>
-
-    <section class="card" id="map">
-      <div class="section-head">
-        <div></section>
-<section class="dashboard-source-block"><h3>핵심 관리 흐름</h3><p>금일 공정은 옹벽 기초 타설에서 시작해 벽체 배근으로 이어지고, 관리 흐름은 허가와 설비 준비로 확장됩니다.</p>
-        </div>
-      </div>
-
-      <div class="grid-3">
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>1. 금일 실행</h3><span class="meta">2026-06-15 확인</span>
-          </div>
-          <p>옹벽 기초 및 저판 철근 배근 후 콘크리트 타설을 진행했고, 후속 벽체 배근 작업을 위한 2차 철근 반입을 완료했습니다.</p>
-        </div>
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>2. 계속 기준</h3><span class="meta">지속 관리</span>
-          </div>
-          <p>벽체 철근 위치, 피복, 정착, 겹침이음, 타설면 레벨, 초기 양생과 자재 야적 상태가 계속 관리 대상입니다.</p>
-        </div>
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>완료 구간</h3><span class="meta">확인됨</span>
-          </div>
-          <p>증축 의사결정 및 인허가 제출, Kick-off 및 초기 부대공사 선행착수는 완료로 정리됩니다.</p>
-        </div>
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>진행/보정 구간</h3><span class="meta">현재 위치</span>
-          </div>
-          <p>내부정리·방수·펜스·대문 1차, 옹벽 저판 타설 및 벽체 거푸집 진행, 건축허가 및 착공계 Gate가 현재 위치입니다.</p>
-        </div>
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>2026-06-15</h3><span class="meta">공정 실적</span>
-          </div>
-          <p>옹벽 기초 및 저판 철근 배근 후 콘크리트 타설을 진행하고, 2차 철근 반입을 완료했습니다.</p>
-        </div>
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>2026-06-16 ~ 2026-06-18</h3><span class="meta">연속 작업</span>
-          </div>
-          <p>A/B 구간 외부 옹벽 벽체 거푸집 및 철근배근이 진행되었습니다. 타설 전 검측과 벽체 수직도, 체결상태 확인이 필요합니다.</p>
-        </div>
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>2026-06-19</h3><span class="meta">기준 보정</span>
-          </div>
-          <p>건축허가 예상일은 6/25 전후로 보정되었고, 설비 Master Plan은 6/15~9/30 106일 일정축으로 통합되었습니다.</p>
-        </div>
-      </div>
-
-      <div style="margin-top:14px" class="grid-2">
-        <div class="callout">
-          <strong>금주 업데이트 핵심</strong>
-          <p>허가 지연은 일정 붕괴가 아니라 Gate 보정으로 보아야 합니다. 허가 대기기간을 부대공사와 현장정리의 실행기간으로 전환하는 것이 핵심입니다.</p>
-        </div>
-        <div class="callout">
-          <strong>다음 주 읽기 포인트</strong>
-          <p>차주에는 방수, 펜스·게이트, 제초·벌목, 철골 사전준비, 설비 설계/BOM, 장납기품 우선발주 여부가 핵심 확인 항목입니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" id="review">
-      <div class="section-head">
-        <div></section>
+     
+  </div></section>
   </div>
 </section>
 <section class="dashboard-section" id="schedule">
   <h2>① 통합간트차트</h2>
   <div class="dashboard-section-body">
-    <section class="dashboard-source-block"><h3>3. 다음 게이트</h3><span class="meta">확인 필요</span>
+    <section class="dashboard-source-block"><h3>일정/간트 또는 실행 게이트</h3><p class="section-sub">주어진 노트에 포함된 일정만 반영합니다. 확정되지 않은 날짜는 확인 필요로 표기합니다.</p>
+
+        <div class="gantt" aria-label="실행 게이트 개요">
+          <div class="gantt-row">
+            <div class="gantt-label">인허가·보증·계약</div>
+            <div class="bar-wrap">
+              <div class="bar warn" style="left:0%; width:34%;"></div>
+              <div class="bar-label">허가서/접수증, 보증서, 계약금 흐름 확인</div>
+            </div>
           </div>
-          <p>건축허가 6/25 전후, 착공계 즉시 접수, 철골 사전준비, 그리고 설비 Master Plan의 설계/BOM Gate가 다음 기준선입니다.</p>
-        </div>
-      </div>
-
-      <div style="margin-top:14px" class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>구분</th>
-              <th>현재 상태</th>
-              <th>핵심 관리 포인트</th>
-              <th>다음 액션</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>옹벽 기초/저판</strong></td>
-              <td>타설 완료</td>
-              <td>피복, 정착길이, 겹침이음, 레벨, 초기 양생</td>
-              <td>타설면 및 철근 위치 변형 확인</td>
-            </tr>
-            <tr>
-              <td><strong>벽체 배근/거푸집</strong></td>
-              <td>진행 중</td>
-              <td>수직도, 체결상태, 하부 틈새, 작업발판 안전</td>
-              <td>타설 전 검측</td>
-            </tr>
-            <tr>
-              <td><strong>자재 반입</strong></td>
-              <td>2차 철근 반입 완료</td>
-              <td>규격, 수량, 오염, 변형 방지</td>
-              <td>야적 관리와 후속 반입 동선 확인</td>
-            </tr>
-            <tr>
-              <td><strong>허가/착공계</strong></td>
-              <td>6/25 전후 예상</td>
-              <td>보완 발생 여부, 서류 사전 패키지화</td>
-              <td>허가 즉시 착공계 접수</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="card" id="schedule">
-      <div class="section-head">
-        <div></section>
-<section class="dashboard-source-block"><h3>일정/간트 또는 실행 게이트</h3><p>이 구간은 확정 일정이 아니라, 노트에 적힌 예상·연결 Gate를 정리한 실행 맵입니다. 오늘 기준으로는 허가와 설비 일정이 서로 연결됩니다.</p>
-        </div>
-      </div>
-
-      <div class="timeline">
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>실행 게이트 1: 현장 구조체 시공</h3><span class="meta">완료/진행</span>
+          <div class="gantt-row">
+            <div class="gantt-label">초기 부대공사</div>
+            <div class="bar-wrap">
+              <div class="bar info" style="left:18%; width:31%;"></div>
+              <div class="bar-label">방수, 펜스·대문, 제초·벌목, 청소정비</div>
+            </div>
           </div>
-          <p>2026-06-15 기준 옹벽 기초 및 저판 철근 배근 후 콘크리트 타설을 수행했습니다. 2026-06-16~06-18에는 외부 옹벽 벽체 거푸집·철근배근이 진행 중입니다.</p>
-        </div>
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>실행 게이트 2: 건축허가 및 착공계</h3><span class="meta">6/25 전후 예상</span>
+          <div class="gantt-row">
+            <div class="gantt-label">증축구간 본공정</div>
+            <div class="bar-wrap">
+              <div class="bar" style="left:22%; width:39%;"></div>
+              <div class="bar-label">철콘·기초·배근, 판넬·연결부, 바닥·옹벽·마감</div>
+            </div>
           </div>
-          <p>건축허가는 당초 6/22 예상에서 6/25 전후로 보정되었습니다. 허가 후 착공계 즉시 접수가 필요하며, 철골 사전준비와 연결해야 합니다.</p>
-        </div>
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>실행 게이트 3: 차주 부대공사</h3><span class="meta">확인 필요</span>
+          <div class="gantt-row">
+            <div class="gantt-label">전기·설비전기</div>
+            <div class="bar-wrap">
+              <div class="bar risk" style="left:36%; width:22%;"></div>
+              <div class="bar-label">7/25~8/25 예상, 미충족 시 설치 지연 리스크</div>
+            </div>
           </div>
-          <p>사무동·기숙사 방수, 펜스·게이트, 공장주변 제초·벌목을 허가 대기기간 동안 병행 실행하는 방향입니다. 완료 기준은 사진 증빙과 작업구간 확인입니다.</p>
-        </div>
-        <div class="phase">
-          <div class="phase-head"></section>
-<section class="dashboard-source-block"><h3>실행 게이트 4: 설비 Master Plan</h3><span class="meta">2026-06-15 ~ 2026-09-30</span>
+          <div class="gantt-row">
+            <div class="gantt-label">설비 Master Plan</div>
+            <div class="bar-wrap">
+              <div class="bar ok" style="left:20%; width:55%;"></div>
+              <div class="bar-label">6/15~9/30 설계·제조·운송·설치·디버깅</div>
+            </div>
           </div>
-          <p>설비 일정은 6/15~7/3 기술 파라미터·설계, 7/1~9/1 제조, 9/11~9/25 설치, 9/25~9/30 디버깅으로 이어집니다. 10월 정상조업 목표와의 정합성이 핵심입니다.</p>
+          <div class="gantt-row">
+            <div class="gantt-label">정상조업 준비</div>
+            <div class="bar-wrap">
+              <div class="bar info" style="left:72%; width:16%;"></div>
+              <div class="bar-label">10월 통합 시운전·운영인력·품질기준 점검</div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div style="margin-top:16px" class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>일자/기간</th>
-              <th>항목</th>
-              <th>노트 기반 내용</th>
-              <th>판단</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2026-06-15</td>
-              <td>옹벽 기초/저판</td>
-              <td>철근 배근 후 콘크리트 타설, 2차 철근 반입</td>
-              <td><span class="tag green">완료/확인</span></td>
-            </tr>
-            <tr>
-              <td>2026-06-16 ~ 2026-06-18</td>
-              <td>외부 옹벽 벽체</td>
-              <td>A/B 구간 거푸집 및 철근배근 진행</td>
-              <td><span class="tag blue">진행</span></td>
-            </tr>
-            <tr>
-              <td>2026-06-23 ~ 2026-07-10</td>
-              <td>부대공사</td>
-              <td>방수, 펜스·게이트, 제초·벌목</td>
-              <td><span class="tag orange">예정/확인 필요</span></td>
-            </tr>
-            <tr>
-              <td>2026-06-25 전후</td>
-              <td>허가 Gate</td>
-              <td>건축허가 예상 보정</td>
-              <td><span class="tag red">중요</span></td>
-            </tr>
-            <tr>
-              <td>2026-07-03</td>
-              <td>설계/BOM Gate</td>
-              <td>기술 파라미터·설계 및 장납기품 우선발주 판단</td>
-              <td><span class="tag orange">중요</span></td>
-            </tr>
-            <tr>
-              <td>2026-09-30</td>
-              <td>설비 디버깅</td>
-              <td>현장 설치 후 시운행·검수 마감</td>
-              <td><span class="tag blue">목표</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div style="margin-top:14px" class="grid-2">
-        <div class="callout">
-          <strong>실행 게이트 메모</strong>
-          <p>허가 대기기간을 대기시간으로 두지 않고, 현장정리·방수·펜스·제초·철골 사전준비로 전환하는 것이 현재 노트의 운영 원칙입니다.</p>
+        <div class="grid-2" style="margin-top:14px">
+          <div class="panel"></section>
+<section class="dashboard-source-block"><h3>차주 실행 게이트</h3><ul>
+              <li>허가 보정일 확인 및 보완요청 추적</li>
+              <li>착공계 제출 문서 사전 완성</li>
+              <li>철골 사전준비 범위 확정</li>
+              <li>방수·펜스·제초 착수 기준 합의</li>
+              <li>설비 상세설계·BOM·장납기품 리스트 검토</li>
+            </ul>
+          </div>
         </div>
-        <div class="callout">
-          <strong>일정 해석 주의</strong>
-          <p>본 문서는 “확정 일정”을 발행하는 문서가 아니라, 노트에 적힌 예상/보정/후속 관리 기준을 읽기 쉽게 재구성한 공사일보입니다.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="card" id="evidence">
-      <div class="section-head">
-        <div></section>
+      <section class="section" id="evidence"></section>
   </div>
 </section>
 <section class="dashboard-section" id="budget">
   <h2>② 자금스케줄</h2>
   <div class="dashboard-section-body">
-    <section class="dashboard-source-block"><h3>자금/자원 또는 공정 증빙</h3><p>오늘의 증빙은 공정 사진과 자재 반입 사실, 그리고 일정/설비 기준선입니다. 자금 수치가 확정된 항목만 표기합니다.</p>
-        </div>
-      </div>
+    <section class="dashboard-source-block"><h3>자금/자원 또는 공정 증빙</h3><p class="section-sub">노트에 직접 언급된 범위만 보존합니다. 비용·수량의 세부값은 원문 노트가 더 필요하면 확인 필요로 둡니다.</p>
 
-      <div class="grid-4">
-        <div class="metric" style="--accent:var(--success)">
-          <div class="k">공사비</div>
-          <p class="v">금재종합건설 8.6억</p>
-          <p class="d">증축·옹벽·부대공사 확정계약 기준입니다. 선지급과 잔여 계약금, 기성 Gate는 별도 관리입니다.</p>
+        <div class="grid-2">
+          <div class="panel"></section>
+<section class="dashboard-source-block"><h3>자원/운영 메모</h3><ul>
+              <li>설비업체 Master Plan 일정축은 2026-06-15 ~ 2026-09-30입니다.</li>
+              <li>차주에는 사무동·기숙사 방수, 펜스·게이트, 공장주변 제초작업 착수 예정입니다.</li>
+              <li>자금 규모의 세부 합계는 본 노트에 직접 숫자로 고정되지 않았으므로 확인 필요입니다.</li>
+              <li>원문에는 금재종합건설, 신비엔텍, 대기배출·전기·집진 접점이 별도 관리 항목으로 언급됩니다.</li>
+            </ul>
+          </div>
         </div>
-        <div class="metric" style="--accent:var(--danger)">
-          <div class="k">설비비</div>
-          <p class="v">신비엔텍 8.28억</p>
-          <p class="d">본선 선별·패킹 설비 우선 검토 기준입니다. VAT 별도이며 집진·후드·덕트는 별도 확정입니다.</p>
-        </div>
-        <div class="metric" style="--accent:var(--info)">
-          <div class="k">총 관리금액</div>
-          <p class="v">42.38억 + α</p>
-          <p class="d">토지·건물 25.5억 + 금재 8.6억 + 신비엔텍 8.28억의 합계이며, +α는 별도 확정 항목입니다.</p>
-        </div>
-        <div class="metric" style="--accent:var(--warn)">
-          <div class="k">증빙</div>
-          <p class="v">사진·검측·반입</p>
-          <p class="d">6/15 타설, 2차 철근 반입, 벽체 배근 진행 사진이 중요 증빙입니다.</p>
-        </div>
-      </div>
+      </section>
 
-      <div style="margin-top:16px" class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>구분</th>
-              <th>내용</th>
-              <th>상태</th>
-              <th>후속 관리</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>공정 증빙</strong></td>
-              <td>옹벽 기초 및 저판 철근 배근 후 콘크리트 타설, 2차 철근 반입</td>
-              <td>완료/확인</td>
-              <td>피복, 정착, 겹침이음, 레벨, 초기 양생</td>
-            </tr>
-            <tr>
-              <td><strong>연속구간 확인</strong></td>
-              <td>저판 타설 완료 구간 전경 확인</td>
-              <td>확인</td>
-              <td>이어치기, 거푸집 간섭, 벽체 철근 수직도</td>
-            </tr>
-            <tr>
-              <td><strong>자재 반입</strong></td>
-              <td>후속 작업용 2차 철근 현장 반입 및 야적</td>
-              <td>완료</td>
-              <td>규격·수량 검수, 오염·변형 방지</td>
-            </tr>
-            <tr>
-              <td><strong>설비 일정</strong></td>
-              <td>6/15~9/30 Master Plan 접수</td>
-              <td>기준선</td>
-              <td>설계/BOM 7/3, 제조 7/1, 설치 9/11, 디버깅 9/30</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div style="margin-top:14px" class="grid-2">
-        <div class="callout">
-          <strong>현장 증빙 체크</strong>
-          <p>금일과 연속일의 사진은 공사일보의 핵심 증빙입니다. 특히 타설면, 벽체 철근 위치, 야적 상태, 작업구간 경계가 보여야 합니다.</p>
-        </div>
-        <div class="callout">
-          <strong>자금 해석 주의</strong>
-          <p>예산표는 노트에 있는 확정/검토 기준만 보여줍니다. 별도 확정 항목은 +α로 남기고, 미확정 금액은 임의 추정하지 않았습니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" id="risk">
-      <div class="section-head">
-        <div></section>
+      <section class="section" id="risk-decision"></section>
   </div>
 </section>
-<section class="dashboard-section is-empty" id="inventory">
+<section class="dashboard-section" id="inventory">
   <h2>③ 재고관리계획</h2>
   <div class="dashboard-section-body">
-    <p class="dashboard-empty">재고 또는 자재 관리 정보가 확인되지 않습니다.</p>
+    <section class="dashboard-source-block"><h3>공정 증빙</h3><table>
+              <thead>
+                <tr>
+                  <th>일자</th>
+                  <th>확인 내용</th>
+                  <th>후속 관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2026-06-15</td>
+                  <td>옹벽 기초 및 저판 철근 배근 후 콘크리트 타설</td>
+                  <td>피복, 정착, 겹침이음, 레벨, 초기 양생관리</td>
+                </tr>
+                <tr>
+                  <td>2026-06-15</td>
+                  <td>2차 철근 현장 반입 및 야적 완료</td>
+                  <td>규격·수량 검수, 오염·변형 방지</td>
+                </tr>
+                <tr>
+                  <td>2026-06-16~06-18</td>
+                  <td>A/B 구간 외부 옹벽 벽체 거푸집·철근배근 진행</td>
+                  <td>수직도, 체결상태, 타설 전 청소 확인</td>
+                </tr>
+                <tr>
+                  <td>2026-06-17</td>
+                  <td>증축건물 모서리~2동 방향 약 11~12m 차량동선 확인</td>
+                  <td>적치물 정리, 회전반경, 유도자 배치 기준 확인</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel"></section>
   </div>
 </section>
 <section class="dashboard-section" id="risk">
   <h2>④ 리스크·의사결정</h2>
   <div class="dashboard-section-body">
-    <section class="dashboard-source-block"><h3>리스크·의사결정</h3><p>현장 검토에서 가장 중요한 것은 무엇이 막혀 있는가, 무엇을 지금 결정해야 하는가입니다. 아래 표는 노트의 판단만을 그대로 정리했습니다.</p>
+    <section class="dashboard-source-block"><h3>결정 컨텍스트</h3><ul>
+              <li>증축안과 비증축안은 예산, 일정, 운영성, 인허가 리스크를 같은 표에서 비교합니다.</li>
+              <li>허가 대기기간은 부대공사 실행기간으로 활용합니다.</li>
+              <li>설비는 건축공사와 병행축으로 묶어 10월 정상조업 목표와 연결합니다.</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>리스크 ID</th>
-              <th>구분</th>
-              <th>현재 상태</th>
-              <th>영향</th>
-              <th>대응 방향</th>
-              <th>등급</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>R-01</td>
-              <td>건축허가 지연</td>
-              <td>6/22 → 6/25 예상으로 보정</td>
-              <td>착공계 및 증축 착수 압박</td>
-              <td>허가 즉시 착공계 접수, 선행서류 사전 패키지화</td>
-              <td><span class="tag red">상</span></td>
-            </tr>
-            <tr>
-              <td>R-03</td>
-              <td>옹벽 타설 전 품질</td>
-              <td>벽체 거푸집·철근배근 진행</td>
-              <td>재시공·균열 리스크</td>
-              <td>타설 전 검측 체크리스트 운영</td>
-              <td><span class="tag red">상</span></td>
-            </tr>
-            <tr>
-              <td>R-04</td>
-              <td>설비 접점</td>
-              <td>9/11 설치 예정</td>
-              <td>설치 지연 및 디버깅 압박</td>
-              <td>8월 말~9월 초 현장조건 Gate 설정</td>
-              <td><span class="tag red">상</span></td>
-            </tr>
-            <tr>
-              <td>R-06</td>
-              <td>펜스/게이트/제초</td>
-              <td>차주 착수 예정</td>
-              <td>경계선 및 동선 간섭</td>
-              <td>제초·벌목 선행 완료사진 관리</td>
-              <td><span class="tag orange">중</span></td>
-            </tr>
-            <tr>
-              <td>R-07</td>
-              <td>차량 동선</td>
-              <td>11~12m 폭 확인</td>
-              <td>대형차량 반입 간섭</td>
-              <td>적치물 제거, 유도자 배치, 회전반경 확인</td>
-              <td><span class="tag orange">중상</span></td>
-            </tr>
-            <tr>
-              <td>R-08</td>
-              <td>별도 설비 패키지 누락</td>
-              <td>집진·전기·후드 별도 확정 필요</td>
-              <td>환경 인허가 및 시운전 지연</td>
-              <td>백필터·후드·덕트·대기배출·전기 접점 별도 발주검토</td>
-              <td><span class="tag red">상</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <section class="cards" aria-label="빠른 상태 카드">
+         
+          <div class="label">현장 공정</div>
+          <div class="value">구조체 진입</div>
+          <div class="desc">옹벽 기초 및 저판 철근 배근 후 콘크리트 타설 완료. 후속 벽체 배근 준비 단계.</div>
+          <div class="meta"><span class="status ok">진행</span><span class="status neutral">공사일보 기반</span></div>
+         
+         
+          <div class="label">허가 Gate</div>
+          <div class="value">2026-06-25 예상</div>
+          <div class="desc">당초 6/22에서 시청 내부 처리 상황 반영으로 보정. 허가 즉시 착공계 접수 필요.</div>
+          <div class="meta"><span class="status warn">보정</span><span class="status neutral">확정 아님</span></div>
+         
+         
+          <div class="label">설비 일정축</div>
+          <div class="value">106일</div>
+          <div class="desc">2026-06-15 ~ 2026-09-30. 설계, 제조, 포장, 운송, 설치, 디버깅으로 관리.</div>
+          <div class="meta"><span class="status risk">압축 필요</span><span class="status neutral">병행관리</span></div>
+         
+         
+          <div class="label">차주 우선</div>
+          <div class="value">동시관리</div>
+          <div class="desc">허가, 착공계, 철골 사전준비, 설비 상세설계, 방수·펜스·제초를 한 묶음으로 운영.</div>
+          <div class="meta"><span class="status info">실행 게이트</span><span class="status neutral">현장 검토</span></div>
+         
+      </section>
 
-      <div class="grid-2" style="margin-top:14px">
-        <div class="callout">
-          <strong>의사결정 포인트</strong>
-          <p>현재 핵심 판단은 “증축할지 말지”가 아니라, 증축안과 비증축 기존공장 배치안 중 어떤 조합을 금주 내 보고 수준까지 확정할 수 있는가입니다.</p>
+      <section class="section" id="doc-map"></section>
+<section class="dashboard-source-block"><h3>핵심 판단</h3><p><strong>허가·착공계·철골·설비를 동시관리</strong></p>
+            <p>각 항목을 따로 보는 것이 아니라 10월 정상조업 목표를 유지하는 하나의 실행 체계로 묶습니다.</p>
+          </div>
         </div>
-        <div class="callout">
-          <strong>후속 액션</strong>
-          <p>허가 대기기간 동안 부대공사와 철골 준비를 병행하고, 설비는 설계/BOM/장납기품 우선발주 여부를 먼저 확인해야 합니다.</p>
+      </section>
+
+      <section class="section" id="control-flow"></section>
+<section class="dashboard-source-block"><h3>리스크·의사결정</h3><p class="section-sub">결정 로그와 리스크를 한 장에서 검토할 수 있도록 묶었습니다.</p>
+
+        <div class="risk-grid">
+          <div class="risk-item"></section>
+<section class="dashboard-source-block"><h3>리스크 상</h3><ul>
+              <li><strong>건축허가 지연</strong>: 6/22 대비 6/25 전후로 보정됨. 착공계 접수와 증축 착수 압박.</li>
+              <li><strong>옹벽 타설 전 품질</strong>: 피복, 수직도, 체결, 하부 틈새 확인 미흡 시 재시공 위험.</li>
+              <li><strong>설비 접점 미충족</strong>: 건축, 전기, 집진, 기초 미충족 시 9/11 설치 지연 가능.</li>
+              <li><strong>장납기품 발주 지연</strong>: 7/3 설계/BOM Gate 미달 시 제조 착수 리스크.</li>
+            </ul>
+          </div>
+
+          <div class="risk-item"></section>
+<section class="dashboard-source-block"><h3>의사결정 진행중</h3><ul>
+              <li>증축안과 비증축안 2종을 금주 내 경영진 보고 수준까지 압축해야 합니다.</li>
+              <li>비증축 기존공장 배치안은 현실 대안 후보이나 동선·운영성 재검증이 필요합니다.</li>
+              <li>트롬멜 저망 대응 기준은 2mm 기준을 우선 비교축으로 두되 품질 요건 재확인이 필요합니다.</li>
+              <li>발주 전략은 레이아웃 확정 전에는 범위 확정 불가 상태입니다.</li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <div style="margin-top:14px" class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Decision ID</th>
-              <th>일자</th>
-              <th>판단</th>
-              <th>근거</th>
-              <th>후속 조치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>D-15</td>
-              <td>2026-06-15</td>
-              <td>옹벽 기초부가 구조체 시공 단계로 전환</td>
-              <td>저판 철근배근 및 콘크리트 타설, 2차 철근 반입 완료</td>
-              <td>벽체 배근·거푸집·타설 전 검측 강화</td>
-            </tr>
-            <tr>
-              <td>D-17</td>
-              <td>2026-06-19</td>
-              <td>건축허가 Gate는 6/25 예상 기준으로 보정</td>
-              <td>시청 내부 업무 진행상 6/22 대비 지연 예상</td>
-              <td>허가 즉시 착공계 접수 및 철골 사전준비</td>
-            </tr>
-            <tr>
-              <td>D-18</td>
-              <td>2026-06-19</td>
-              <td>설비업체 Master Plan을 공식 일정축으로 통합</td>
-              <td>6/15~9/30 전체 106일 일정표 접수</td>
-              <td>설계·제조·설치·디버깅을 통합 간트에 반영</td>
-            </tr>
-            <tr>
-              <td>D-19</td>
-              <td>2026-06-19</td>
-              <td>허가 대기기간을 부대공사 실행기간으로 활용</td>
-              <td>방수, 펜스·게이트, 제초작업 차주 착수 예정</td>
-              <td>차주 현장 실행 패키지로 관리</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+        <div style="margin-top:14px">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>주제</th>
+                <th>상태</th>
+                <th>현재 판단</th>
+                <th>후속 액션</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>D-01</td>
+                <td>최종 레이아웃 선정</td>
+                <td><span class="status warn">검토중</span></td>
+                <td>증축안과 비증축안 2종으로 압축해 금주 내 확정 필요</td>
+                <td>레이아웃 2종 비교안 정리</td>
+              </tr>
+              <tr>
+                <td>D-03</td>
+                <td>비증축 기존공장 배치안 실현성</td>
+                <td><span class="status warn">검토중</span></td>
+                <td>가장 현실적인 후보이나 동선·운영성 재검증 필요</td>
+                <td>기존건물 배치안 병목 점검</td>
+              </tr>
+              <tr>
+                <td>D-06</td>
+                <td>증축 방식 판단</td>
+                <td><span class="status warn">검토중</span></td>
+                <td>자원순환시설 인허가 증축은 가능하나 민원 리스크 큼</td>
+                <td>증축 방식별 리스크 메모 제출</td>
+              </tr>
+              <tr>
+                <td>D-07</td>
+                <td>비증축 기존공장 배치안 확정</td>
+                <td><span class="status info">진행중</span></td>
+                <td>투자비 리스크를 줄이기 위한 현실 대안으로 우선 압축 중</td>
+                <td>금주 레이아웃 사양 확정</td>
+              </tr>
+              <tr>
+                <td>D-08</td>
+                <td>2안별 예산·일정표 제출</td>
+                <td><span class="status info">진행중</span></td>
+                <td>금주 제출분은 확정표가 아니라 1차 예상안이어야 함</td>
+                <td>예산표 2종, 통합 예상 일정표 작성</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <section class="card" id="milestone">
-      <div class="section-head">
-        <div></section>
+      <section class="section" id="milestones"></section>
+<section class="dashboard-source-block"><h3>마일스톤 판단</h3><ul>
+              <li>현재 가장 중요한 분기점은 2026-06-25 허가 Gate입니다.</li>
+              <li>설비 Master Plan의 2026-09-30 디버깅 완료가 10월 정상조업 준비의 핵심입니다.</li>
+              <li>초기 부대공사와 구조체 시공은 허가 대기와 별개로 병행 가능합니다.</li>
+              <li>모든 계획은 확인된 노트 내용만 반영하며, 빠진 데이터는 확인 필요로 유지합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="update-log"></section>
   </div>
 </section>
 <section class="dashboard-section" id="milestone">
   <h2>⑤ 마일스톤요약</h2>
   <div class="dashboard-section-body">
-    <section class="dashboard-source-block"><h3>금일 공정은 옹벽 기초/저판 타설에서 벽체 배근 준비로 넘어갔고, 다음 Gate는 허가·착공계·철골 준비다.</h3><p class="lede">
-            본 문서는 활성 노트의 내용만을 기반으로 구성한 단독 HTML 공사일보입니다. 오늘의 사실은 2026-06-15의 구조체 시공 실적과 2026-06-19 기준의 일정·리스크·설비 Master Plan 보정에 한정해 표시했고, 확인되지 않은 수량·비용·완료율은 넣지 않았습니다.
-          </p>
-
-          <div class="hero-points">
-            <div class="point">
-              <div class="k">TL;DR</div>
-              <div class="v">옹벽 저판 타설과 2차 철근 반입이 완료되었고, 벽체 거푸집·철근배근이 진행 중입니다. 건축허가 예상은 6/25 전후로 보정되었으며, 허가 즉시 착공계 접수가 핵심입니다.</div>
-            </div>
-            <div class="point">
-              <div class="k">오늘의 판단</div>
-              <div class="v">현장은 구조체 시공 단계로 진입했고, 허가 대기기간은 방수·펜스·제초·철골 사전준비의 실행기간으로 활용해야 합니다.</div>
-            </div>
+    <section class="dashboard-source-block"><h3>다음 확인 포인트</h3><ul>
+              <li>건축허가 확정일과 추가 보완 요청 여부</li>
+              <li>착공계 접수 패키지의 준비 상태</li>
+              <li>철골 사전준비 범위와 책임 주체</li>
+            </ul>
           </div>
         </div>
+      </section>
 
-        <aside class="side-stack">
-          <div class="status-card">
-            <div class="status-row"></section>
-<section class="dashboard-source-block"><h3>예정/후속 구간</h3><span class="meta">확인 필요</span>
+      <section class="section" id="schedule"></section>
+<section class="dashboard-source-block"><h3>마일스톤 운영맵</h3><table>
+              <thead>
+                <tr>
+                  <th>Phase</th>
+                  <th>마일스톤</th>
+                  <th>목표일</th>
+                  <th>상태</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>PHASE 1</td><td>증축 의사결정 및 인허가 제출</td><td>2026-05-12 ~ 2026-06-05</td><td><span class="status ok">완료</span></td></tr>
+                <tr><td>PHASE 2</td><td>Kick-off 및 초기 부대공사 선행착수</td><td>2026-06-08 ~ 2026-06-11</td><td><span class="status ok">완료</span></td></tr>
+                <tr><td>PHASE 3</td><td>내부정리·방수·펜스·대문 1차</td><td>2026-06-11 ~ 2026-06-30</td><td><span class="status warn">진행/보정</span></td></tr>
+                <tr><td>PHASE 4</td><td>옹벽 저판 타설 및 벽체 거푸집 진행</td><td>2026-06-15 ~ 2026-06-18</td><td><span class="status ok">완료/진행</span></td></tr>
+                <tr><td>PHASE 5</td><td>건축허가 및 착공계 Gate</td><td>2026-06-25 예상</td><td><span class="status warn">대기/보정</span></td></tr>
+                <tr><td>PHASE 6</td><td>청소·도배·장판·운영공간 기본정비</td><td>2026-06-20 ~ 2026-07-05</td><td><span class="status neutral">예정/진행</span></td></tr>
+                <tr><td>PHASE 7</td><td>철골 사전준비 및 철콘·기초·배근</td><td>2026-06-23 ~ 2026-07-05</td><td><span class="status neutral">예정/진행</span></td></tr>
+                <tr><td>PHASE 8</td><td>판넬·연결부 정비</td><td>2026-07-01 ~ 2026-08-05</td><td><span class="status neutral">예정</span></td></tr>
+                <tr><td>PHASE 9</td><td>바닥·옹벽·마감 및 증축구간 완료</td><td>2026-07-15 ~ 2026-08-20</td><td><span class="status neutral">예정</span></td></tr>
+                <tr><td>PHASE 10</td><td>전기 인입·설비전기 및 설치 전 현장점검</td><td>2026-07-25 ~ 2026-08-25</td><td><span class="status neutral">예정</span></td></tr>
+                <tr><td>PHASE 11</td><td>설비 기술 파라미터·설계</td><td>2026-06-15 ~ 2026-07-03</td><td><span class="status info">진행</span></td></tr>
+                <tr><td>PHASE 12</td><td>설비 제조</td><td>2026-07-01 ~ 2026-09-01</td><td><span class="status neutral">예정</span></td></tr>
+                <tr><td>PHASE 13</td><td>운송·현장설치</td><td>2026-09-03 ~ 2026-09-25</td><td><span class="status neutral">예정</span></td></tr>
+                <tr><td>PHASE 14</td><td>디버깅 및 검수</td><td>2026-09-25 ~ 2026-09-30</td><td><span class="status neutral">예정</span></td></tr>
+                <tr><td>PHASE 15</td><td>정상조업 준비</td><td>2026-10-01 ~ 2026-10-18</td><td><span class="status neutral">예정</span></td></tr>
+              </tbody>
+            </table>
           </div>
-          <p>철골 사전준비, 판넬·연결부 정비, 전기 인입·설비전기, 설비 설치·디버깅, 정상조업 준비가 순차 연결됩니다.</p>
-        </div>
-      </div>
 
-      <div style="margin-top:16px" class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Phase</th>
-              <th>마일스톤</th>
-              <th>목표/기준일</th>
-              <th>현재 상태</th>
-              <th>판단</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>PHASE 1</td>
-              <td>증축 의사결정 및 인허가 제출</td>
-              <td>2026-05-12 ~ 2026-06-05</td>
-              <td>완료</td>
-              <td>실행 기준 확정</td>
-            </tr>
-            <tr>
-              <td>PHASE 2</td>
-              <td>Kick-off 및 초기 부대공사 선행착수</td>
-              <td>2026-06-08 ~ 2026-06-11</td>
-              <td>완료</td>
-              <td>6/8 Kick-off 일정축 확정</td>
-            </tr>
-            <tr>
-              <td>PHASE 4</td>
-              <td>옹벽 저판 타설 및 벽체 거푸집 진행</td>
-              <td>2026-06-15 ~ 2026-06-18</td>
-              <td>완료/진행</td>
-              <td>구조체 시공 단계 진입</td>
-            </tr>
-            <tr>
-              <td>PHASE 5</td>
-              <td>건축허가 및 착공계 Gate</td>
-              <td>2026-06-25 예상</td>
-              <td>대기/보정</td>
-              <td>허가 즉시 착공계 접수 필요</td>
-            </tr>
-            <tr>
-              <td>PHASE 11</td>
-              <td>설비 기술 파라미터·설계</td>
-              <td>2026-06-15 ~ 2026-07-03</td>
-              <td>진행</td>
-              <td>설계·BOM·장납기품 우선발주 Gate</td>
-            </tr>
-            <tr>
-              <td>PHASE 14</td>
-              <td>디버깅 및 검수</td>
-              <td>2026-09-25 ~ 2026-09-30</td>
-              <td>예정</td>
-              <td>10월 정상조업 전 최종 Gate</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="card" id="log">
-      <div class="section-head">
-        <div></section>
+          <div class="panel"></section>
   </div>
 </section>
 <section class="dashboard-section" id="log">
   <h2>⑥ 업데이트로그</h2>
   <div class="dashboard-section-body">
-    <section class="dashboard-source-block"><h3>업데이트 로그</h3><p>활성 노트의 “2026-06-19 주간 업데이트 브리핑”과 공사일보 기록을 바탕으로 오늘 필요한 변화만 남겼습니다.</p>
-        </div>
-      </div>
+    <section class="dashboard-source-block"><h3>업데이트 로그</h3><p class="section-sub">주간 브리핑과 공사일보 기준으로 요약한 변경 사항입니다.</p>
 
-      <div class="timeline">
-        <div class="phase">
-          <div class="phase-head"></section>
+        <div class="log">
+          <div class="log-item">
+            <div class="log-top">
+              <strong>2026-06-15</strong>
+              <span class="status ok">공사일보</span>
+            </div>
+            <p>옹벽 기초 및 저판 철근 배근 후 콘크리트 타설을 진행했고, 2차 철근 반입을 완료했습니다.</p>
+          </div>
+          <div class="log-item">
+            <div class="log-top">
+              <strong>2026-06-16 ~ 2026-06-18</strong>
+              <span class="status info">현장 진척</span>
+            </div>
+            <p>A/B 구간 외부 옹벽 벽체 거푸집·철근배근이 진행되었습니다. 타설 전 수직도, 체결, 청소 확인이 후속 관리 포인트입니다.</p>
+          </div>
+          <div class="log-item">
+            <div class="log-top">
+              <strong>2026-06-19</strong>
+              <span class="status warn">허가 보정</span>
+            </div>
+            <p>건축허가 예정일이 2026-06-22에서 2026-06-25 전후로 보정되었습니다. 허가 즉시 착공계 접수 준비가 필요합니다.</p>
+          </div>
+          <div class="log-item">
+            <div class="log-top">
+              <strong>2026-06-19</strong>
+              <span class="status info">설비 통합</span>
+            </div>
+            <p>설비업체 Master Plan 106일 일정이 공식 일정축으로 통합되었습니다. 설계·제조·운송·설치·디버깅이 건축공정과 병행됩니다.</p>
+          </div>
+          <div class="log-item">
+            <div class="log-top">
+              <strong>2026-06-19</strong>
+              <span class="status neutral">현장 조건</span>
+            </div>
+            <p>증축건물 모서리~2동 방향 약 11~12m 차량동선이 확인되었으며, 적치물 제거와 유도자 배치가 후속 관리 대상입니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="review-room"></section>
   </div>
 </section>
 <section class="dashboard-section" id="review">
   <h2>리뷰 룸</h2>
   <div class="dashboard-section-body">
-    <section class="dashboard-source-block"><h3>리뷰 룸</h3><p>현장 검토자는 아래 질문에 답하면 됩니다. 답변은 복사해 AI 메모로 넘길 수 있도록 구성했습니다.</p>
-        </div>
-      </div>
+    <section class="dashboard-source-block"><h3>리뷰 룸</h3><p class="section-sub">현장 검토의 마지막 단계입니다. 이 섹션은 읽는 사람이 바로 피드백을 남길 수 있도록 설계했습니다.</p>
 
-      <div class="review-grid">
-        <div class="review-box"></section>
-<section class="dashboard-source-block"><h3>섹션별 리뷰 프롬프트</h3><div class="prompt">
-            <div class="q">1. 오늘 완료된 사실은 무엇이며, 다음 공정으로 넘겨도 되는 기준이 충족되었는가?</div>
-            <div class="q">2. 6/25 허가 예상 보정에 따라 착공계 서류와 철골 사전준비는 충분히 앞서 있는가?</div>
-            <div class="q">3. 방수·펜스·제초·동선 정리 중 오늘 즉시 착수해야 할 항목은 무엇인가?</div>
-            <div class="q">4. 설비 Master Plan에서 7/3 설계/BOM Gate와 장납기품 우선발주 여부는 확인되었는가?</div>
-            <div class="q">5. 9/11 설치와 9/30 디버깅을 위협하는 미충족 조건은 무엇인가?</div>
+        <div class="review-grid">
+          <div>
+            <div class="qa"></section>
+<section class="dashboard-source-block"><h3>리뷰 프롬프트</h3><ul>
+                <li>이번 주에 실제로 확정된 것과 아직 확인 필요한 것을 구분하면 무엇인가요?</li>
+                <li>2026-06-25 허가 Gate에 걸리는 가장 큰 blockers는 무엇인가요?</li>
+                <li>설비 Master Plan과 건축공정의 접점에서 우선 조정해야 할 항목은 무엇인가요?</li>
+                <li>차주 현장 실행 패키지에서 바로 착수 가능한 것과 보류해야 할 것은 무엇인가요?</li>
+              </ul>
+            </div>
+
+            <div class="qa"></section>
+<section class="dashboard-source-block"><h3>피드백 체크리스트</h3><div class="checklist">
+                <label class="check"><input type="checkbox"> 날짜와 상태가 노트 근거와 일치한다.</label>
+                <label class="check"><input type="checkbox"> 확인되지 않은 수치가 확인 필요로 표시되어 있다.</label>
+                <label class="check"><input type="checkbox"> 리스크와 의사결정이 분리되어 읽힌다.</label>
+                <label class="check"><input type="checkbox"> 다음 실행 게이트가 현장 언어로 이해된다.</label>
+                <label class="check"><input type="checkbox"> 리뷰 후 즉시 보완할 항목이 드러난다.</label>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="review-box"></section>
-<section class="dashboard-source-block"><h3>피드백 체크리스트</h3><ul>
-            <li>금일 사실과 기준 컨텍스트를 혼동하지 않았는가</li>
-            <li>확정되지 않은 수치나 날짜를 임의로 넣지 않았는가</li>
-            <li>현장 증빙과 리스크를 별도로 읽을 수 있는가</li>
-            <li>다음 주 행동이 단문으로 바로 보이는가</li>
-            <li>현장 검토자가 메모를 붙이기 쉬운가</li>
-          </ul>
-        </div>
-      </div>
+          <div>
+            <div class="qa"></section>
+<section class="dashboard-source-block"><h3>피드백 to AI</h3><p>아래 박스에 수정 요청, 누락 정보, 오해 소지, 다음 버전 반영 지시를 적으세요. 이 문서는 로컬에서만 동작합니다.</p>
+              <textarea id="feedback" class="feedback" placeholder="예: 허가 Gate 설명을 더 짧게, 차주 현장 실행 패키지에 사진 증빙 항목을 추가, 확인 필요 항목을 표 앞에 몰아 배치..."></textarea>
+              <div class="actions">
+                <button class="btn primary" type="button" id="copyFeedback">피드백 복사</button>
+                <button class="btn" type="button" id="clearFeedback">초기화</button>
+              </div>
+            </div>
 
-      <div style="margin-top:14px" class="feedback">
-        <div class="review-box"></section>
-<section class="dashboard-source-block"><h3>리뷰 메모 입력</h3><textarea id="feedbackText" placeholder="예: 6/15 타설 사진 추가 확인 필요. 6/25 허가 서류 패키지 상태 점검. 방수 착수 전 누수부위 범위 재확인."></textarea>
-          <div class="feedback-actions" style="margin-top:10px">
-            <button class="btn" id="copyNote" type="button">메모 복사</button>
-            <button class="btn" id="clearNote" type="button">메모 지우기</button>
-          </div>
-          <p class="feedback-note">이 영역은 현장 검토 후 자연스럽게 끝나는 피드백 단계입니다. 댓글이 열려 있으면 이 메모를 붙여서 후속 검토로 넘기면 됩니다.</p>
-        </div>
-        <div class="review-box"></section>
+            <div class="qa"></section>
   </div>
 </section>
 <section class="dashboard-section is-empty" id="source">
