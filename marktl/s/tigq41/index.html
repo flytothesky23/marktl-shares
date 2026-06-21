@@ -1,0 +1,1390 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-11 지수통합선별공장 공사일보 1일차</title>
+  <meta name="description" content="2026-06-11 지수통합선별공장 공사일보 1일차 2026-06-11 기준 통합노트 HTML">
+  <link rel="icon" href="data:,">
+  <style>
+    :root{
+      --bg:#0b1220;
+      --bg2:#0f172a;
+      --panel:#111827;
+      --panel2:#172033;
+      --card:#182235;
+      --line:rgba(148,163,184,.22);
+      --text:#e5edf8;
+      --muted:#aebbd0;
+      --faint:#75849b;
+      --blue:#60a5fa;
+      --cyan:#22d3ee;
+      --green:#4ade80;
+      --orange:#fb923c;
+      --red:#f87171;
+      --purple:#a78bfa;
+      --yellow:#facc15;
+      --shadow:0 24px 70px rgba(0,0,0,.38);
+      --radius:24px;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+      color-scheme:dark;
+    }
+    [data-theme="light"]{
+      --bg:#f4f7fb;
+      --bg2:#eaf1f8;
+      --panel:#ffffff;
+      --panel2:#f8fafc;
+      --card:#ffffff;
+      --line:rgba(15,23,42,.15);
+      --text:#0f172a;
+      --muted:#475569;
+      --faint:#64748b;
+      --shadow:0 22px 58px rgba(15,23,42,.12);
+      color-scheme:light;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(248,113,113,.26), transparent 30%),
+        radial-gradient(circle at 82% 12%, rgba(20,184,166,.22), transparent 34%),
+        linear-gradient(180deg, #050913 0%, var(--bg) 22%, #05070d 100%);
+      color:var(--text);
+      line-height:1.62;
+      word-break:keep-all;
+      overflow-wrap:break-word;
+    }
+    [data-theme="light"] body{
+      background:
+        radial-gradient(circle at 9% 6%, rgba(248,113,113,.12), transparent 32%),
+        radial-gradient(circle at 84% 11%, rgba(20,184,166,.14), transparent 36%),
+        linear-gradient(180deg,#f8fafc 0%,var(--bg) 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    button{
+      font:inherit;
+      border:0;
+      color:inherit;
+      cursor:pointer;
+    }
+    .shell{
+      width:min(1240px, calc(100% - 40px));
+      margin:0 auto;
+      padding:34px 0 64px;
+    }
+    .hero{
+      position:relative;
+      min-height:330px;
+      border:1px solid var(--line);
+      border-radius:32px;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(74,222,128,.14), transparent 34%),
+        radial-gradient(circle at 85% 24%, rgba(96,165,250,.22), transparent 30%),
+        linear-gradient(135deg, rgba(17,24,39,.95), rgba(15,23,42,.80));
+      box-shadow:var(--shadow);
+      padding:34px;
+    }
+    [data-theme="light"] .hero{
+      background:
+        linear-gradient(135deg, rgba(74,222,128,.16), transparent 34%),
+        radial-gradient(circle at 85% 24%, rgba(96,165,250,.24), transparent 30%),
+        linear-gradient(135deg, #ffffff, #eef6ff);
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:8px;
+      background:linear-gradient(90deg,var(--green),var(--blue),var(--purple),var(--orange));
+    }
+    .hero-top{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      align-items:flex-start;
+      gap:24px;
+      position:relative;
+      z-index:1;
+    }
+    .eyebrow{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      color:var(--yellow);
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    h1{
+      max-width:820px;
+      margin:18px 0 18px;
+      font-size:clamp(38px, 5.4vw, 74px);
+      line-height:1.06;
+      letter-spacing:0;
+      color:#fff;
+    }
+    [data-theme="light"] h1{color:#0f172a}
+    .lead{
+      max-width:840px;
+      margin:0 0 24px;
+      color:var(--muted);
+      font-size:18px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:nowrap;
+      justify-content:flex-end;
+      min-width:max-content;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      color:var(--text);
+      font-weight:800;
+      backdrop-filter:blur(12px);
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg,#2563eb,#0891b2);
+      border-color:rgba(255,255,255,.22);
+      color:#fff;
+    }
+    .meta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 11px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.07);
+      color:var(--muted);
+      font-size:13px;
+      font-weight:800;
+    }
+    [data-theme="light"] .pill{background:rgba(15,23,42,.04)}
+    .hero-metrics{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+      margin-top:30px;
+    }
+    .metric{
+      min-height:128px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      background:rgba(255,255,255,.07);
+      box-shadow:0 14px 34px rgba(0,0,0,.16);
+    }
+    [data-theme="light"] .metric{background:rgba(255,255,255,.72)}
+    .metric .k{
+      color:var(--faint);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+    .metric .v{
+      margin:8px 0 7px;
+      font-size:28px;
+      line-height:1.12;
+      font-weight:950;
+      color:var(--c);
+    }
+    .metric .d{color:var(--muted);font-size:14px;line-height:1.46}
+    .layout{
+      display:grid;
+      grid-template-columns:280px minmax(0,1fr);
+      gap:24px;
+      margin-top:24px;
+      align-items:start;
+    }
+    .layout > *,
+    .sidebar,
+    main{
+      min-width:0;
+    }
+    .sidebar{
+      position:sticky;
+      top:18px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(17,24,39,.72);
+      box-shadow:var(--shadow);
+      padding:18px;
+      backdrop-filter:blur(14px);
+    }
+    [data-theme="light"] .sidebar{background:rgba(255,255,255,.82)}
+    .side-title{
+      color:var(--cyan);
+      font-weight:950;
+      margin-bottom:10px;
+      font-size:17px;
+    }
+    .toc{
+      display:grid;
+      gap:7px;
+      margin:0 0 18px;
+      padding:0;
+      list-style:none;
+    }
+    .toc a{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      padding:9px 10px;
+      border-radius:12px;
+      color:var(--muted);
+      border:1px solid transparent;
+      font-size:14px;
+      font-weight:800;
+    }
+    .toc a:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .toc a:hover{background:rgba(15,23,42,.04)}
+    .toc .n{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      flex:none;
+      width:26px;
+      height:26px;
+      border-radius:9px;
+      color:#fff;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      font-size:12px;
+      font-weight:950;
+    }
+    .side-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      margin-top:12px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .side-card{background:rgba(15,23,42,.035)}
+    .side-card h3{
+      margin:0 0 8px;
+      color:var(--green);
+      font-size:15px;
+    }
+    .side-card p,.side-card li{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .side-card ul{padding-left:18px;margin:8px 0 0}
+    main{display:grid;gap:24px}
+    main > *{min-width:0}
+    .block{
+      min-width:0;
+      max-width:100%;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      background:linear-gradient(180deg,rgba(24,34,53,.82),rgba(17,24,39,.76));
+      box-shadow:var(--shadow);
+    }
+    [data-theme="light"] .block{
+      background:linear-gradient(180deg,#fff,#f8fafc);
+    }
+    .block h2{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:0 0 12px;
+      font-size:28px;
+      line-height:1.2;
+      letter-spacing:0;
+    }
+    .block h2 .num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      color:#fff;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      font-weight:950;
+      font-size:18px;
+      flex:none;
+    }
+    .block h3{
+      margin:24px 0 10px;
+      color:var(--cyan);
+      font-size:20px;
+      line-height:1.3;
+    }
+    .block p{color:var(--muted)}
+    .grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .card{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      background:rgba(255,255,255,.06);
+      min-height:128px;
+    }
+    [data-theme="light"] .card{background:#fff}
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:6px;
+      background:var(--c,var(--blue));
+    }
+    .card .k{
+      color:var(--faint);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .card .v{
+      margin:8px 0 7px;
+      color:var(--c,var(--blue));
+      font-size:24px;
+      line-height:1.12;
+      font-weight:950;
+    }
+    .card p{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .tagrow{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      border:1px solid currentColor;
+      color:var(--c,var(--blue));
+      border-radius:999px;
+      padding:2px 7px;
+      font-size:12px;
+      font-weight:800;
+      opacity:.88;
+    }
+    .note{
+      margin:16px 0;
+      border-left:5px solid var(--cyan);
+      border-radius:14px;
+      padding:14px 16px;
+      background:rgba(34,211,238,.08);
+      color:var(--muted);
+    }
+    .note b{color:var(--text)}
+    .note.success{border-left-color:var(--green);background:rgba(74,222,128,.09)}
+    .note.warn{border-left-color:var(--orange);background:rgba(251,146,60,.10)}
+    .note.danger{border-left-color:var(--red);background:rgba(248,113,113,.10)}
+    .table-wrap{
+      max-width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line);
+      border-radius:18px;
+      margin:14px 0 22px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:760px;
+      background:rgba(255,255,255,.03);
+    }
+    [data-theme="light"] table{background:#fff}
+    th,td{
+      padding:12px 13px;
+      text-align:left;
+      vertical-align:top;
+      border-bottom:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+    th{
+      color:var(--text);
+      background:rgba(96,165,250,.12);
+      font-weight:950;
+      white-space:nowrap;
+    }
+    tbody tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+    [data-theme="light"] tbody tr:nth-child(even) td{background:#f8fafc}
+    td b{color:var(--text)}
+    .status{
+      display:inline-flex;
+      align-items:center;
+      padding:3px 8px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .status.ok{color:#052e16;background:#bbf7d0}
+    .status.warn{color:#431407;background:#fed7aa}
+    .status.risk{color:#450a0a;background:#fecaca}
+    .status.info{color:#172554;background:#bfdbfe}
+    .mermaid-wrap{
+      position:relative;
+      max-width:100%;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:12px;
+      overflow-x:auto;
+      background:rgba(2,6,23,.32);
+      margin:14px 0 22px;
+    }
+    [data-theme="light"] .mermaid-wrap{background:#f8fafc}
+    .mermaid-wrap svg{
+      max-width:none;
+      height:auto;
+    }
+    .gantt-wrap pre.mermaid{
+      min-width:min(1180px, 100%);
+    }
+    .gantt-wrap svg{
+      width:100%;
+      min-width:min(1180px, 100%);
+      overflow:visible;
+    }
+    .gantt-wrap svg text,
+    .gantt-wrap svg tspan,
+    .gantt-wrap svg .taskText,
+    .gantt-wrap svg [class*="taskText"]{
+      font-size:10px!important;
+    }
+    .gantt-wrap svg .titleText{
+      font-size:18px!important;
+      font-weight:950!important;
+      letter-spacing:0!important;
+    }
+    .gantt-wrap svg .sectionTitle{
+      font-size:11px!important;
+    }
+    .mermaid-wrap svg text,
+    .mermaid-wrap svg tspan,
+    .mermaid-wrap svg .label,
+    .mermaid-wrap svg .nodeLabel,
+    .mermaid-wrap svg .edgeLabel,
+    .mermaid-wrap svg .sectionTitle,
+    .mermaid-wrap svg .taskText,
+    .mermaid-wrap svg .taskTextOutsideRight,
+    .mermaid-wrap svg foreignObject,
+    .mermaid-wrap svg span,
+    .mermaid-wrap svg p{
+      color:#e5edf8!important;
+      fill:#e5edf8!important;
+      font-weight:800!important;
+      text-shadow:none!important;
+    }
+    [data-theme="light"] .mermaid-wrap svg text,
+    [data-theme="light"] .mermaid-wrap svg tspan,
+    [data-theme="light"] .mermaid-wrap svg .label,
+    [data-theme="light"] .mermaid-wrap svg .nodeLabel,
+    [data-theme="light"] .mermaid-wrap svg .edgeLabel,
+    [data-theme="light"] .mermaid-wrap svg .sectionTitle,
+    [data-theme="light"] .mermaid-wrap svg .taskText,
+    [data-theme="light"] .mermaid-wrap svg .taskTextOutsideRight,
+    [data-theme="light"] .mermaid-wrap svg foreignObject,
+    [data-theme="light"] .mermaid-wrap svg span,
+    [data-theme="light"] .mermaid-wrap svg p{
+      color:#0f172a!important;
+      fill:#0f172a!important;
+    }
+    .flowchart-wrap svg g.node foreignObject,
+    .flowchart-wrap svg g.node foreignObject *,
+    .flowchart-wrap svg g.node .label,
+    .flowchart-wrap svg g.node .nodeLabel{
+      color:#0f172a!important;
+      fill:#0f172a!important;
+      font-weight:900!important;
+      opacity:1!important;
+      text-shadow:none!important;
+    }
+    .flowchart-wrap svg g.edgeLabel,
+    .flowchart-wrap svg g.edgeLabel foreignObject,
+    .flowchart-wrap svg g.edgeLabel foreignObject *,
+    .flowchart-wrap svg g.edgeLabel .label,
+    .flowchart-wrap svg g.edgeLabel .edgeLabel{
+      background:#e0f2fe!important;
+      color:#0f172a!important;
+      fill:#0f172a!important;
+      font-weight:900!important;
+      opacity:1!important;
+      text-shadow:none!important;
+    }
+    [data-theme="light"] .flowchart-wrap svg g.edgeLabel foreignObject,
+    [data-theme="light"] .flowchart-wrap svg g.edgeLabel foreignObject *,
+    [data-theme="light"] .flowchart-wrap svg g.edgeLabel .edgeLabel{
+      background:#f8fafc!important;
+      color:#0f172a!important;
+      fill:#0f172a!important;
+    }
+    .mermaid-wrap svg .grid .tick line,
+    .mermaid-wrap svg .tick line{
+      stroke:#94a3b8!important;
+      opacity:.75!important;
+    }
+    [data-theme="light"] .mermaid-wrap svg .grid .tick line,
+    [data-theme="light"] .mermaid-wrap svg .tick line{
+      stroke:#64748b!important;
+      opacity:.75!important;
+    }
+    .diagram-toolbar{
+      display:flex;
+      justify-content:flex-end;
+      margin-bottom:8px;
+    }
+    .diagram-expand{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:34px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 12px;
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      font-size:13px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+    [data-theme="light"] .diagram-expand{background:#fff}
+    .diagram-modal{
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      background:rgba(2,6,23,.72);
+      backdrop-filter:blur(10px);
+    }
+    .diagram-modal.open{display:flex}
+    .diagram-modal-card{
+      width:min(1220px, calc(100vw - 40px));
+      max-height:calc(100vh - 40px);
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:var(--panel);
+      box-shadow:0 28px 90px rgba(0,0,0,.46);
+      padding:18px;
+    }
+    [data-theme="light"] .diagram-modal-card{background:#fff}
+    .diagram-modal-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .diagram-modal-title{
+      color:var(--text);
+      font-size:17px;
+      font-weight:950;
+    }
+    .diagram-close{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 12px;
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      font-weight:900;
+      white-space:nowrap;
+    }
+    [data-theme="light"] .diagram-close{background:#f8fafc}
+    .diagram-modal-body .mermaid-wrap{
+      margin:0;
+      max-width:none;
+      overflow:auto;
+    }
+    .diagram-modal-body svg{
+      width:100%;
+      min-width:980px;
+      height:auto;
+    }
+    .diagram-modal-body .gantt-wrap{
+      padding:18px;
+    }
+    .diagram-modal-body .gantt-wrap svg{
+      min-width:1320px;
+    }
+    .diagram-modal-body .gantt-wrap svg .titleText{
+      font-size:24px!important;
+    }
+    pre.mermaid{
+      margin:0;
+      min-width:720px;
+      color:var(--text);
+      white-space:pre-wrap;
+    }
+    .flow{
+      display:grid;
+      grid-template-columns:repeat(7,minmax(0,1fr));
+      gap:8px;
+      margin:14px 0 20px;
+    }
+    .step{
+      min-height:88px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      text-align:center;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:10px;
+      background:rgba(96,165,250,.08);
+    }
+    .step b{color:var(--cyan);font-size:13px}
+    .step span{color:var(--muted);font-size:12px;line-height:1.35}
+    .budget{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .pie{
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .pie{background:#fff}
+    .pie h4{margin:0 0 12px;color:var(--text)}
+    .pie-flex{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .pie-flex svg{width:160px;max-width:42%;flex:none}
+    .donut-chart{
+      position:relative;
+      width:180px;
+      max-width:42%;
+      aspect-ratio:1;
+      flex:none;
+      border-radius:50%;
+      background:var(--segments);
+      box-shadow:inset 0 0 0 1px var(--line), 0 12px 24px rgba(0,0,0,.14);
+    }
+    .donut-chart:after{
+      content:"";
+      position:absolute;
+      inset:29%;
+      border-radius:50%;
+      background:var(--panel);
+      box-shadow:inset 0 0 0 1px var(--line);
+    }
+    [data-theme="light"] .donut-chart:after{background:#fff}
+    .donut-center{
+      position:absolute;
+      inset:29%;
+      z-index:1;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:var(--text);
+      line-height:1.15;
+    }
+    .donut-center span{
+      font-size:11px;
+      font-weight:900;
+    }
+    .donut-center b{
+      margin-top:4px;
+      font-size:17px;
+      font-weight:950;
+    }
+    .legend{font-size:14px;color:var(--muted)}
+    .legend div{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin:7px 0;
+      line-height:1.35;
+    }
+    .legend i{
+      display:inline-block;
+      width:11px;
+      height:11px;
+      border-radius:3px;
+      flex:none;
+    }
+    .legend b{color:var(--text)}
+    .legend .pct{
+      color:var(--faint);
+      font-size:12px;
+      font-weight:800;
+    }
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:10px;
+      margin:14px 0;
+    }
+    .phase{
+      min-height:132px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .phase{background:#fff}
+    .phase .idx{
+      color:var(--c,var(--blue));
+      font-weight:950;
+      font-size:12px;
+      letter-spacing:.08em;
+    }
+    .phase b{display:block;color:var(--text);margin:6px 0 6px}
+    .phase p{margin:0;color:var(--muted);font-size:13px}
+    .review-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    .review-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .review-card{background:#fff}
+    .review-card h4{margin:0 0 8px;color:#e9dbff}
+    [data-theme="light"] .review-card h4{color:#5b21b6}
+    .review-card p,.review-card li{color:var(--muted);font-size:14px}
+    textarea{
+      width:100%;
+      min-height:140px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font:inherit;
+      resize:vertical;
+    }
+    [data-theme="light"] textarea{background:#fff}
+    .copy-row{
+      display:flex;
+      justify-content:flex-end;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .source{
+      color:var(--faint);
+      font-size:13px;
+    }
+    .print-only{display:none}
+    @media(max-width:1100px){
+      .hero-metrics,.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .layout{grid-template-columns:1fr}
+      .sidebar{position:relative;top:auto}
+      .toc{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .flow,.timeline{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+    @media(max-width:760px){
+      .shell{width:min(100% - 22px,1240px);padding-top:16px}
+      .hero{padding:24px 18px;border-radius:24px}
+      .hero-top{display:block}
+      .hero-actions{justify-content:flex-start;margin-top:16px;flex-wrap:wrap;min-width:0}
+      .hero-metrics,.grid4,.grid3,.grid2,.budget,.review-grid,.flow,.timeline,.toc{grid-template-columns:1fr}
+      .block{padding:18px;border-radius:20px}
+      .block h2{font-size:23px}
+      .pie-flex{display:block}
+      .pie-flex svg{max-width:100%;width:180px}
+      .donut-chart{max-width:100%;width:190px;margin-bottom:14px}
+      .diagram-modal{padding:12px}
+      .diagram-modal-card{width:calc(100vw - 24px);max-height:calc(100vh - 24px);padding:12px;border-radius:18px}
+      .diagram-modal-body svg{min-width:860px}
+    }
+    @media print{
+      :root{color-scheme:light}
+      body{background:#fff;color:#111827}
+      .shell{width:100%;padding:0}
+      .hero,.block,.sidebar,.card,.metric,.pie,.phase,.review-card{
+        box-shadow:none;
+        background:#fff;
+        color:#111827;
+        break-inside:avoid;
+      }
+      .layout{grid-template-columns:1fr}
+      .sidebar,.hero-actions,.copy-row{display:none}
+      .hero{min-height:auto;border-radius:18px;margin-bottom:14px}
+      h1{color:#0f172a;font-size:32px}
+      .lead,.metric .d,.card p,.note,p,li,td{color:#334155}
+      .hero-metrics,.grid4{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+      .grid3{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+      .grid2,.budget{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+      .block{padding:14px;margin-bottom:12px}
+      .block h2{font-size:20px}
+      th,td{font-size:10px;padding:7px}
+      table{min-width:0}
+      .print-only{display:block}
+      textarea{display:none}
+    }
+  
+
+    .share-home{position:fixed;right:18px;bottom:18px;z-index:40;display:inline-flex;align-items:center;gap:8px;padding:11px 14px;border-radius:999px;background:linear-gradient(135deg,#2563eb,#0891b2);color:#fff;font-weight:900;border:1px solid rgba(255,255,255,.28);box-shadow:0 18px 42px rgba(15,23,42,.28)}
+    .source-section .quote-line{margin:.25rem 0;color:var(--muted)}
+    .source-section h3,.source-section h4{scroll-margin-top:18px}
+    .source-section ul{margin-top:8px}
+    .source-section code{padding:2px 6px;border-radius:8px;background:rgba(148,163,184,.14);font-size:.9em}
+    .source-section .note.info{border-left-color:var(--cyan)}
+    .source-section .note.info + .quote-line{margin-top:-6px}
+    .source-section .table-wrap{margin:12px 0 18px}
+    .summary-list{display:grid;gap:10px;margin:14px 0}
+    .summary-list li{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.05);padding:12px 14px;color:var(--muted)}
+    [data-theme="light"] .summary-list li{background:#fff}
+    .source-badge{display:inline-flex;margin:0 8px 8px 0;padding:6px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-weight:800;font-size:12px}
+    @media print{.share-home{display:none}}
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026-06-11 지수통합선별공장 공사일보 1일차">
+<meta property="og:description" content="2026-06-11 지수통합선별공장 공사일보 1일차 2026-06-11 기준 통합노트 HTML">
+<meta property="og:url" content="https://flytothesky23.github.io/marktl-shares/marktl/s/tigq41/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2026-06-11 지수통합선별공장 공사일보 1일차">
+<meta name="twitter:description" content="2026-06-11 지수통합선별공장 공사일보 1일차 2026-06-11 기준 통합노트 HTML">
+<link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/marktl/s/tigq41/">
+</head>
+<body>
+  <a class="share-home" data-marktl-share-home href="https://flytothesky23.github.io/marktl-shares/marktl/">공유 홈</a>
+  <div class="shell">
+    <section class="hero" id="top">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow">JISOO INTEGRATED FACTORY · PROJECT CONTROL</div>
+          <h1>2026-06-11 지수통합선별공장 공사일보 1일차</h1>
+        </div>
+        <div class="hero-actions" aria-label="문서 동작">
+          <button class="btn primary" data-copy="summary">핵심 요약 복사</button>
+          <button class="btn" data-copy="next">후속 과제 복사</button>
+          <button class="btn" id="themeToggle" type="button">라이트 전환</button>
+        </div>
+      </div>
+      <p class="lead">한 줄 요약</p>
+      <div class="meta-row">
+        <span class="pill">작성 기준 2026-06-11</span>
+        <span class="pill">보고 기간 2026-06-11</span>
+        <span class="pill">상태 정리완료</span>
+        <span class="pill">Owner Kisoo Kil</span>
+        
+      </div>
+      <div class="hero-metrics">
+        <article class="metric" style="--c:var(--green)">
+          <div class="k">CONSTRUCTION</div>
+          <div class="v">06-11</div>
+          <div class="d"># 2026-06-11 지수통합선별공장 공사일보 1일차</div>
+        </article>
+        <article class="metric" style="--c:var(--orange)">
+          <div class="k">PERMIT / GATE</div>
+          <div class="v">Gate</div>
+          <div class="d">동시에 무허가 창고 철거, 물홈통 막힘에 따른 옥상 침수 방지/방수공사, 정문게이트·펜스 정리, 계근대 설치 후보지 검토까지 후속 공사 리스크를 정리했다.</div>
+        </article>
+        <article class="metric" style="--c:var(--red)">
+          <div class="k">EQUIPMENT</div>
+          <div class="v">설비</div>
+          <div class="d">위치/공종: 공장 측면 야드 / 기존 설비 보관구간</div>
+        </article>
+        <article class="metric" style="--c:var(--cyan)">
+          <div class="k">SITE READY</div>
+          <div class="v">현장</div>
+          <div class="d">금일은 <strong>공장바닥 콘크리트 철거 및 옹벽 기초공사 착공</strong>이 현장에서 확인된 날이다.</div>
+        </article>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="문서 지도">
+        <div class="side-title">문서 지도</div>
+        <ul class="toc">
+          <li><a href="#quick"><span class="n">0</span>빠른 현황</a></li>
+          <li><a href="#gantt"><span class="n">1</span>통합간트차트</a></li>
+          <li><a href="#workflow"><span class="n">2</span>실행 흐름</a></li>
+          <li><a href="#source-content"><span class="n">3</span>원문 기반 노트</a></li>
+          <li><a href="#review"><span class="n">4</span>리뷰 룸</a></li>
+          <li><a href="#1-라이브-대시보드"><span class="n">1</span>1. 라이브 대시보드</a></li><li><a href="#2-금일-공사일보-핵심-카드"><span class="n">2</span>2. 금일 공사일보 핵심 카드</a></li><li><a href="#3-전체-구조-mermaid-맵"><span class="n">3</span>3. 전체 구조 Mermaid 맵</a></li><li><a href="#4-직원-시공사-처리-흐름-mermaid"><span class="n">4</span>4. 직원/시공사 처리 흐름 Mermaid</a></li><li><a href="#5-계획-대비-실행-mermaid-gantt"><span class="n">5</span>5. 계획 대비 실행 Mermaid Gantt</a></li><li><a href="#6-사진별-공사일보-기록"><span class="n">6</span>6. 사진별 공사일보 기록</a></li><li><a href="#7-후속-액션-체크리스트"><span class="n">7</span>7. 후속 액션 체크리스트</a></li>
+        </ul>
+        <div class="side-card">
+          <h3>검토 기준</h3>
+          <p>원문 Markdown의 날짜, 표, 체크리스트, Mermaid 일정만 공개용 HTML로 정리했다. 내부 자동화 코드와 Obsidian 링크 문법은 제거했다.</p>
+        </div>
+      </aside>
+
+      <main>
+        <section class="block" id="quick">
+          <h2><span class="num">0</span>빠른 현황</h2>
+          <div>
+            <span class="source-badge">Source: 2026-06-11_공사일보_1일차.md</span>
+            <span class="source-badge">Style: 2026-06-19 통합노트 기준</span>
+          </div>
+          <ul class="summary-list">
+            <li>한 줄 요약</li><li>금일은 <strong>공장바닥 콘크리트 철거 및 옹벽 기초공사 착공</strong>이 현장에서 확인된 날이다. 동시에 무허가 창고 철거, 물홈통 막힘에 따른 옥상 침수 방지/방수공사, 정문게이트·펜스 정리, 계근대 설치 후보지 검토까지 후속 공사 리스크를 정리했다.</li><li>Dataview 점검</li><li>실제 노트 위치인 20_실행/프로젝트/2026년/지수 통합선별공장/00_타임라인을 조회한다. 기준일 이후 문서는 제외하고, 일자는 yyyy-MM-dd까지만 표시한다.</li>
+          </ul>
+          <div class="grid2">
+            <div class="note success"><b>공개용 정리 원칙</b><br>원문 사실관계를 유지하고, 내부 자동화 코드·위키링크·첨부 이미지 임베드는 제외했다.</div>
+            <div class="note warn"><b>확인 필요</b><br>수치·일정이 표 또는 Mermaid에 있는 경우 해당 원문 표/간트를 우선 기준으로 검토한다.</div>
+          </div>
+        </section>
+
+        <section class="block" id="gantt">
+          <h2><span class="num">1</span>통합간트차트</h2>
+          <p>2026-06-11 기준 원문 일정 정보를 Mermaid Gantt로 표시한다. 원문에 Gantt가 없는 경우에는 기준일 중심의 확인 일정만 보수적으로 표시한다.</p>
+          <div class="mermaid-wrap gantt-wrap"><div class="mermaid">gantt
+    title 지수통합선별공장 계획 대비 실행 · 2026-06-11 기준
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+
+    section 인허가·자금
+    인허가 진주시청 제출 완료 :done, a1, 2026-06-05, 1d
+    보증서 전 10% 지급·접수 후 잔여금 :crit, a2, 2026-06-10, 1d
+    건축허가승인 후 착공계 신청 :crit, a3, 2026-06-11, 2026-06-30
+
+    section 현장·부대공사
+    부대공사 선행 착수 :active, b1, 2026-06-08, 2026-06-30
+    바닥 콘크리트 철거 확인 :done, b2, 2026-06-11, 1d
+    옹벽 기초공사 연계 :active, b3, 2026-06-11, 2026-06-30
+    기숙사·사무동 방수 보완 :active, b4, 2026-06-11, 2026-06-30
+    펜스 및 입구게이트 :b5, 2026-06-17, 2026-07-15
+    증축구간 공사 예측 :b6, 2026-06-23, 2026-08-30
+
+    section 리스크 제거
+    무허가 창고 철거 지시 :crit, c1, 2026-06-11, 2026-06-20
+    계근대 위치·동선 검토 :c2, 2026-06-11, 2026-06-25</div></div>
+        </section>
+
+        <section class="block" id="workflow">
+          <h2><span class="num">2</span>실행 흐름</h2>
+          <p>주요 공사·자금·설비·인허가 항목이 한 흐름에서 검토되도록 원문 요약을 다이어그램으로 연결했다.</p>
+          <div class="mermaid-wrap flowchart-wrap"><div class="mermaid">flowchart TB
+    subgraph TOP[&quot; &quot;]
+    direction LR
+        subgraph LEFT[&quot;착공·선행&quot;]
+        direction TB
+            W[철거] --&gt; W1[파쇄·적치]
+            R[옹벽] --&gt; R1[기준선·6/30]
+        end
+
+        S((6/11 현장))
+
+        subgraph RIGHT[&quot;리스크·장마&quot;]
+        direction TB
+            P[리스크] --&gt; P1[창고철거·기록]
+            D[배수] --&gt; D1[물홈통·방수]
+        end
+    end
+
+    subgraph BOTTOM[&quot;외곽·물류&quot;]
+    direction LR
+        G[게이트] --&gt; G1[6/17~7/15]
+        K[계근] --&gt; K1[회차·인입]
+    end
+
+    S ---|착공| W
+    S ---|선행| R
+    S ---|준공| P
+    S ---|장마| D
+    S ---|외곽| G
+    S ---|물류| K
+
+    classDef work fill:#dbeafe,stroke:#2563eb,color:#0f172a,stroke-width:2px;
+    classDef risk fill:#fee2e2,stroke:#dc2626,color:#0f172a,stroke-width:2px;
+    classDef check fill:#ffedd5,stroke:#f97316,color:#0f172a,stroke-width:2px;
+    classDef done fill:#dcfce7,stroke:#16a34a,color:#0f172a,stroke-width:2px;
+    class S done;
+    class W,R,W1,R1 work;
+    class P,D,P1,D1 risk;
+    class G,K,G1,K1 check;</div></div>
+        </section>
+
+        <section class="block source-section" id="source-content"><h2><span class="num">0</span>원문 기반 통합노트</h2><p># 2026-06-11 지수통합선별공장 공사일보 1일차</p><div class="note info"><b>한 줄 요약</b></div><p class="quote-line">금일은 <strong>공장바닥 콘크리트 철거 및 옹벽 기초공사 착공</strong>이 현장에서 확인된 날이다. 동시에 무허가 창고 철거, 물홈통 막힘에 따른 옥상 침수 방지/방수공사, 정문게이트·펜스 정리, 계근대 설치 후보지 검토까지 후속 공사 리스크를 정리했다.</p><section class="block source-section" id="1-라이브-대시보드"><h2><span class="num">§</span>1. 라이브 대시보드</h2><div class="note info"><b>Dataview 점검</b></div><p class="quote-line">실제 노트 위치인 20_실행/프로젝트/2026년/지수 통합선별공장/00_타임라인을 조회한다. 기준일 이후 문서는 제외하고, 일자는 yyyy-MM-dd까지만 표시한다.</p></section><section class="block source-section" id="2-금일-공사일보-핵심-카드"><h2><span class="num">§</span>2. 금일 공사일보 핵심 카드</h2><div class="table-wrap"><table><thead><tr><th>구분</th><th>내용</th><th>상태</th><th>후속관리</th></tr></thead><tbody><tr><td>착공/철거</td><td>브레이커로 기존 바닥 콘크리트 파쇄</td><td>진행</td><td>철거 범위·잔재 반출량 기록</td></tr><tr><td>옹벽 기초</td><td>옹벽 기초공사 착공 전 바닥 철거</td><td>착수</td><td>기준선·레벨·배수 간섭 확인</td></tr><tr><td>준공 리스크</td><td>건축물대장에 없는 외곽 무허가 창고 철거 지시</td><td>중요</td><td>철거 전후 사진·폐기물 처리기록 보관</td></tr><tr><td>방수/배수</td><td>기숙사·사무동 물홈통 막힘 및 옥상 침수 방지</td><td>지시</td><td>장마 전 물홈통 청소·방수 범위 확정</td></tr><tr><td>게이트/펜스</td><td>기존 펜스 주변 풀·덩굴·나무 제거</td><td>검토</td><td>게이트·펜스 시공 일정 확인</td></tr><tr><td>계근대</td><td>설치 후보지 및 대형차 동선 검토</td><td>검토</td><td>설치업체 현장 미팅 의뢰</td></tr></tbody></table></div></section><section class="block source-section" id="3-전체-구조-mermaid-맵"><h2><span class="num">§</span>3. 전체 구조 Mermaid 맵</h2><div class="mermaid-wrap flowchart-wrap"><div class="mermaid">flowchart TB
+    subgraph TOP[&quot; &quot;]
+    direction LR
+        subgraph LEFT[&quot;착공·선행&quot;]
+        direction TB
+            W[철거] --&gt; W1[파쇄·적치]
+            R[옹벽] --&gt; R1[기준선·6/30]
+        end
+
+        S((6/11 현장))
+
+        subgraph RIGHT[&quot;리스크·장마&quot;]
+        direction TB
+            P[리스크] --&gt; P1[창고철거·기록]
+            D[배수] --&gt; D1[물홈통·방수]
+        end
+    end
+
+    subgraph BOTTOM[&quot;외곽·물류&quot;]
+    direction LR
+        G[게이트] --&gt; G1[6/17~7/15]
+        K[계근] --&gt; K1[회차·인입]
+    end
+
+    S ---|착공| W
+    S ---|선행| R
+    S ---|준공| P
+    S ---|장마| D
+    S ---|외곽| G
+    S ---|물류| K
+
+    classDef work fill:#dbeafe,stroke:#2563eb,color:#0f172a,stroke-width:2px;
+    classDef risk fill:#fee2e2,stroke:#dc2626,color:#0f172a,stroke-width:2px;
+    classDef check fill:#ffedd5,stroke:#f97316,color:#0f172a,stroke-width:2px;
+    classDef done fill:#dcfce7,stroke:#16a34a,color:#0f172a,stroke-width:2px;
+    class S done;
+    class W,R,W1,R1 work;
+    class P,D,P1,D1 risk;
+    class G,K,G1,K1 check;</div></div><p><strong>흐름 메모</strong></p><ul><li><code>6/11 현장</code>을 중심에 두고 착공·선행은 좌측, 리스크·장마는 우측, 외곽·물류는 하단으로 묶었다.</li><li>노드에는 공종명과 핵심 마감일만 두고, 상세 설명은 사진 기록과 체크리스트에서 관리한다.</li><li>옹벽/판넬 관리 기준은 <code>6/30</code> 완료목표로 본다.</li></ul></section><section class="block source-section" id="4-직원-시공사-처리-흐름-mermaid"><h2><span class="num">§</span>4. 직원/시공사 처리 흐름 Mermaid</h2><div class="mermaid-wrap flowchart-wrap"><div class="mermaid">flowchart TB
+    subgraph TOP[&quot; &quot;]
+    direction LR
+        subgraph LEFT[&quot;시공사&quot;]
+        direction TB
+            C[공종확인] --&gt; C1[철거·옹벽]
+            B[방수범위] --&gt; B1[물홈통·방수]
+        end
+
+        R((접수·기록))
+
+        subgraph RIGHT[&quot;PM&quot;]
+        direction TB
+            P[일정관리] --&gt; P1[착공계·6/30]
+            M[업체조율] --&gt; M1[계근·게이트]
+        end
+    end
+
+    subgraph BOTTOM[&quot;준공·증빙&quot;]
+    direction LR
+        A[인허가] --&gt; A1[창고사진·준공자료]
+        E[증빙] --&gt; E1[폐기물·처리기록]
+    end
+
+    R ---|공종| C
+    R ---|방수| B
+    R ---|일정| P
+    R ---|협의| M
+    R ---|준공| A
+    R ---|보관| E
+
+    classDef core fill:#dbeafe,stroke:#2563eb,color:#0f172a,stroke-width:2px;
+    classDef owner fill:#e0f2fe,stroke:#0284c7,color:#0f172a,stroke-width:2px;
+    classDef risk fill:#fee2e2,stroke:#dc2626,color:#0f172a,stroke-width:2px;
+    classDef check fill:#ffedd5,stroke:#f97316,color:#0f172a,stroke-width:2px;
+    class R core;
+    class C,B,C1,B1 owner;
+    class A,E,A1,E1 risk;
+    class P,M,P1,M1 check;</div></div><p><strong>처리 메모</strong></p><ul><li><code>접수·기록</code>을 중심에 두고 시공사는 좌측, PM은 우측, 준공·증빙은 하단으로 묶었다.</li><li>시공사는 공종·방수 범위를 확정하고, PM은 착공계/일정과 계근·게이트 업체 조율을 맡는다.</li><li>착공계는 단독 선행절차가 아니라 <code>건축허가승인 후 착공계 신청</code>으로 관리한다.</li><li>게이트/펜스는 6/17 착수, 7/15 완료 흐름으로 본다.</li></ul></section><section class="block source-section" id="5-계획-대비-실행-mermaid-gantt"><h2><span class="num">§</span>5. 계획 대비 실행 Mermaid Gantt</h2><div class="mermaid-wrap gantt-wrap"><div class="mermaid">gantt
+    title 지수통합선별공장 계획 대비 실행 · 2026-06-11 기준
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+
+    section 인허가·자금
+    인허가 진주시청 제출 완료 :done, a1, 2026-06-05, 1d
+    보증서 전 10% 지급·접수 후 잔여금 :crit, a2, 2026-06-10, 1d
+    건축허가승인 후 착공계 신청 :crit, a3, 2026-06-11, 2026-06-30
+
+    section 현장·부대공사
+    부대공사 선행 착수 :active, b1, 2026-06-08, 2026-06-30
+    바닥 콘크리트 철거 확인 :done, b2, 2026-06-11, 1d
+    옹벽 기초공사 연계 :active, b3, 2026-06-11, 2026-06-30
+    기숙사·사무동 방수 보완 :active, b4, 2026-06-11, 2026-06-30
+    펜스 및 입구게이트 :b5, 2026-06-17, 2026-07-15
+    증축구간 공사 예측 :b6, 2026-06-23, 2026-08-30
+
+    section 리스크 제거
+    무허가 창고 철거 지시 :crit, c1, 2026-06-11, 2026-06-20
+    계근대 위치·동선 검토 :c2, 2026-06-11, 2026-06-25</div></div></section><section class="block source-section" id="6-사진별-공사일보-기록"><h2><span class="num">§</span>6. 사진별 공사일보 기록</h2><h4>P01. 바닥 콘크리트 철거 착수</h4><ul><li>위치/공종: 공장 전면 야드 / 옹벽 기초 예정선</li><li>작업/확인: 휠굴삭기 브레이커로 기존 콘크리트 포장 파쇄. 철거 라인을 따라 파쇄물 집적.</li><li>관리포인트: 파쇄물 비산·분진, 장비 작업반경 출입통제, 철거폐기물 반출동선 확보 필요</li><li>분류: <code>철거·기초</code></li></ul><h4>P02. 작업구간 현장협의</h4><ul><li>위치/공종: 공장 측면 야드 / 기존 설비 보관구간</li><li>작업/확인: 기존 철구조물·선별설비 주변에서 작업자 현장 확인. 파쇄 구간과 설비 간섭 여부 검토.</li><li>관리포인트: 기존 설비와 작업장비 간 간섭, 파쇄잔재 방치 시 보행·차량 위험</li><li>분류: <code>현장협의</code></li></ul><h4>P03. 공장 출입구 전면 상태</h4><ul><li>위치/공종: 대형 출입문 전면 야드</li><li>작업/확인: 자재 반입·장비 진입 동선 확인. 기존 바닥 절단/파쇄 흔적과 잡초 구간 확인.</li><li>관리포인트: 차량 동선과 작업구간 분리 필요, 출입문 전면 파쇄물 정리 필요</li><li>분류: <code>동선확인</code></li></ul><h4>P04. 전면 야드 전체 기준사진</h4><ul><li>위치/공종: 공장 전면 전체</li><li>작업/확인: 공장동 전면과 야드 전체 현황 기록. 옹벽·기초공사 전 기준사진으로 보관.</li><li>관리포인트: 외벽 하부 우수흔적/오염부 관찰, 공사 중 외벽 보호·출입문 주변 정리 필요</li><li>분류: <code>기준사진</code></li></ul><h4>P05. 정문·게이트·펜스 예정구간</h4><ul><li>위치/공종: 사무동 전면 / 정문 진입부</li><li>작업/확인: 정문 게이트 및 펜스공사 전 진입부, 주차공간, 외곽 수목 상태 확인.</li><li>관리포인트: 기존 펜스 주변 풀·덩굴·나무 제거 필요, 게이트 시공 전 차량통제 계획 필요</li><li>분류: <code>게이트·펜스</code></li></ul><h4>P06. 공장동 사이 작업동선</h4><ul><li>위치/공종: 공장동 사이 넓은 야드</li><li>작업/확인: 굴삭기 작업 위치와 양측 공장동 사이 통행공간 확인. 파쇄물 적치 위치 검토.</li><li>관리포인트: 장비 이동반경과 차량 통행로 분리, 철거폐기물 임시적치 위치 지정 필요</li><li>분류: <code>장비동선</code></li></ul><h4>P07. 기숙사·사무동 외곽 배수/방수</h4><ul><li>위치/공종: 건물 외곽 물홈통·수목 인접부</li><li>작업/확인: 외벽 배수관, 물홈통, 수목·낙엽 밀집 구간 확인. 옥상 침수 방지 및 방수공사 지시.</li><li>관리포인트: 물홈통 막힘 시 옥상 침수·누수·곰팡이 리스크. 장마 전 청소·방수 선행 필요</li><li>분류: <code>방수·배수</code></li></ul><h4>P08. 무허가 창고 철거 대상</h4><ul><li>위치/공종: 부지 외곽 / 공장 측면 후면부</li><li>작업/확인: 건축물대장에 없는 외곽 창고 확인. 추후 준공검사 리스크 제거 목적으로 철거 지시.</li><li>관리포인트: 준공검사·인허가 리스크. 철거 전 내부 잔존물 확인 및 폐기물 처리기록 필요</li><li>분류: <code>인허가리스크</code></li></ul><h4>P09. 계근대 후보지 1차 검토</h4><ul><li>위치/공종: 정문~사무동 전면 넓은 포장 야드</li><li>작업/확인: 대형차 진입·정차·회차 가능한 공간 확인. 계근대 설치업체 현장 미팅 필요.</li><li>관리포인트: 주차차량과 계근차량 동선 충돌, 기초보강·전기/통신 인입 검토 필요</li><li>분류: <code>계근대</code></li></ul><h4>P10. 정문 방향 계근·게이트 동선</h4><ul><li>위치/공종: 정문 입구 및 외곽 전기설비 인접부</li><li>작업/확인: 정문 방향 시야와 차량 진입공간 확인. 계근대 위치·게이트 거리·대기공간 검토.</li><li>관리포인트: 전주·전기설비 간섭, 차량 대기공간 부족 가능성, 바닥 보강 범위 산정 필요</li><li>분류: <code>계근·진입</code></li></ul></section><section class="block source-section" id="7-후속-액션-체크리스트"><h2><span class="num">§</span>7. 후속 액션 체크리스트</h2><h4>공정관리</h4><ul><li>철거 범위와 잔재 반출량 기록</li><li>옹벽 기초 기준선·레벨 확인</li><li>작업반경 출입통제 표지 설치</li><li>파쇄물 임시적치 및 반출동선 지정</li></ul><h4>준공/인허가 리스크</h4><ul><li>무허가 창고 내부 잔존물 확인</li><li>무허가 창고 철거 전 사진 보관</li><li>철거 후 사진 및 폐기물 처리기록 보관</li><li>준공검사 대응자료로 별도 편철</li></ul><h4>방수/배수</h4><ul><li>기숙사·사무동 물홈통 막힘 확인</li><li>낙엽·수목·이물질 제거</li><li>옥상 침수 가능 구간 점검</li><li>방수공사 범위와 견적 확인</li></ul><h4>계근대/게이트</h4><ul><li>계근대 설치업체 현장 미팅 일정 확정</li><li>대형차 진입·정차·회차 동선 검토</li><li>전기·통신 인입 가능 여부 확인</li><li>정문게이트·펜스 주변 수목 제거 일정 확인</li></ul></section>
+
+        <section class="block" id="review">
+          <h2><span class="num">R</span>리뷰 룸</h2>
+          <div class="review-grid">
+            <article class="review-card">
+              <h4>일정 검토</h4>
+              <p>Gantt와 원문 표의 기준일이 서로 맞는지 확인한다.</p>
+            </article>
+            <article class="review-card">
+              <h4>자금·계약 검토</h4>
+              <p>금액, 지급 Gate, 견적 범위가 원문 기준과 일치하는지 확인한다.</p>
+            </article>
+            <article class="review-card">
+              <h4>현장·인허가 검토</h4>
+              <p>착공계, 보완요구, 현장 리스크가 차주 실행계획에 반영됐는지 확인한다.</p>
+            </article>
+          </div>
+          <h3>검토 메모</h3>
+          <textarea id="readerMemo" placeholder="검토 의견, 다음 회의 질문, 보완 요청사항을 적어두세요. 이 메모는 이 브라우저에만 저장됩니다."></textarea>
+          <div class="copy-row">
+            <button class="btn" id="saveMemo" type="button">메모 저장</button>
+            <button class="btn" data-copy="review">리뷰 질문 복사</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const copyMap = {
+      summary: "2026-06-11 지수통합선별공장 공사일보 1일차\n1. 한 줄 요약\n2. 금일은 **공장바닥 콘크리트 철거 및 옹벽 기초공사 착공**이 현장에서 확인된 날이다. 동시에 무허가 창고 철거, 물홈통 막힘에 따른 옥상 침수 방지/방수공사, 정문게이트·펜스 정리, 계근대 설치 후보지 검토까지 후속 공사 리스크를 정리했다.\n3. Dataview 점검\n4. 실제 노트 위치인 20_실행/프로젝트/2026년/지수 통합선별공장/00_타임라인을 조회한다. 기준일 이후 문서는 제외하고, 일자는 yyyy-MM-dd까지만 표시한다.",
+      next: "- 5. 계획 대비 실행 Mermaid Gantt\n- 7. 후속 액션 체크리스트\n- 준공/인허가 리스크",
+      review: "리뷰 질문\n1. 2026-06-11 기준 일정과 원문 표/간트가 일치하는가?\n2. 금액과 지급 Gate는 원문 기준에서 누락 없이 반영됐는가?\n3. 인허가·현장·설비 리스크 중 차주 실행계획으로 옮겨야 할 항목은 무엇인가?"
+    };
+    async function copyText(text){
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      const ok = document.execCommand("copy");
+      ta.remove();
+      return ok;
+    }
+    document.querySelectorAll("[data-copy]").forEach((button)=>{
+      button.addEventListener("click", async ()=>{
+        const key = button.getAttribute("data-copy");
+        await copyText(copyMap[key] || "");
+        const old = button.textContent;
+        button.textContent = "복사됨";
+        setTimeout(()=>button.textContent = old, 1200);
+      });
+    });
+    const themeButton = document.getElementById("themeToggle");
+    const themeKey = "jisoo-2026-06-11-theme";
+    const savedTheme = localStorage.getItem(themeKey);
+    if(savedTheme === "light"){
+      document.documentElement.setAttribute("data-theme","light");
+      themeButton.textContent = "다크 전환";
+    }
+    themeButton.addEventListener("click", ()=>{
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      if(isLight){
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem(themeKey,"dark");
+        themeButton.textContent = "라이트 전환";
+      } else {
+        document.documentElement.setAttribute("data-theme","light");
+        localStorage.setItem(themeKey,"light");
+        themeButton.textContent = "다크 전환";
+      }
+      requestAnimationFrame(syncMermaidThemeColors);
+    });
+    const memo = document.getElementById("readerMemo");
+    const memoKey = "jisoo-2026-06-11-review-memo";
+    memo.value = localStorage.getItem(memoKey) || "";
+    document.getElementById("saveMemo").addEventListener("click", ()=>{
+      localStorage.setItem(memoKey, memo.value);
+      const button = document.getElementById("saveMemo");
+      const old = button.textContent;
+      button.textContent = "저장됨";
+      setTimeout(()=>button.textContent = old, 1200);
+    });
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    function syncMermaidThemeColors(){
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      const textColor = isLight ? "#0f172a" : "#e5edf8";
+      const gridColor = isLight ? "#64748b" : "#94a3b8";
+      const nodeTextColor = "#0f172a";
+      const edgeTextColor = "#0f172a";
+      const edgeLabelBg = isLight ? "#f8fafc" : "#e0f2fe";
+      document.querySelectorAll('.mermaid-wrap svg text, .mermaid-wrap svg tspan, .mermaid-wrap svg .label, .mermaid-wrap svg .nodeLabel, .mermaid-wrap svg .edgeLabel, .mermaid-wrap svg .sectionTitle, .mermaid-wrap svg .taskText, .mermaid-wrap svg [class*="taskText"], .mermaid-wrap svg foreignObject, .mermaid-wrap svg foreignObject *').forEach((el)=>{
+        let color = textColor;
+        const inGantt = Boolean(el.closest(".gantt-wrap"));
+        const inModal = Boolean(el.closest(".diagram-modal-body"));
+        if(el.closest(".flowchart-wrap g.node")){
+          color = nodeTextColor;
+        } else if(el.closest(".flowchart-wrap g.edgeLabel")){
+          color = edgeTextColor;
+          el.style.setProperty("background",edgeLabelBg,"important");
+          el.style.setProperty("background-color",edgeLabelBg,"important");
+        }
+        el.style.setProperty("fill",color,"important");
+        el.style.setProperty("color",color,"important");
+        el.style.setProperty("font-weight","800","important");
+        el.style.setProperty("opacity","1","important");
+        el.style.setProperty("text-shadow","none","important");
+        if(inGantt){
+          const isTitle = el.classList.contains("titleText");
+          const isSection = el.classList.contains("sectionTitle");
+          const fontSize = isTitle ? (inModal ? "24px" : "18px") : (isSection ? (inModal ? "14px" : "11px") : (inModal ? "13px" : "10px"));
+          el.style.setProperty("font-size",fontSize,"important");
+          if(isTitle) el.style.setProperty("font-weight","950","important");
+        }
+      });
+      document.querySelectorAll('.flowchart-wrap svg g.edgeLabel, .flowchart-wrap svg g.edgeLabel foreignObject, .flowchart-wrap svg g.edgeLabel .label, .flowchart-wrap svg g.edgeLabel .edgeLabel').forEach((el)=>{
+        el.style.setProperty("background",edgeLabelBg,"important");
+        el.style.setProperty("background-color",edgeLabelBg,"important");
+        el.style.setProperty("color",edgeTextColor,"important");
+        el.style.setProperty("fill",edgeTextColor,"important");
+        el.style.setProperty("opacity","1","important");
+      });
+      document.querySelectorAll('.mermaid-wrap svg .grid .tick line, .mermaid-wrap svg .tick line').forEach((el)=>{
+        el.style.setProperty("stroke",gridColor,"important");
+        el.style.setProperty("opacity",".75","important");
+      });
+      adjustGanttLayout();
+    }
+    function adjustGanttLayout(){
+      document.querySelectorAll(".gantt-wrap svg").forEach((svg)=>{
+        if(!svg.dataset.baseViewBox){
+          svg.dataset.baseViewBox = svg.getAttribute("viewBox") || "";
+        }
+        const parts = svg.dataset.baseViewBox.split(/\s+/).map(Number);
+        if(parts.length === 4 && parts.every(Number.isFinite)){
+          const inModal = Boolean(svg.closest(".diagram-modal-body"));
+          const extraBottom = inModal ? 62 : 44;
+          svg.setAttribute("viewBox", `${parts[0]} ${parts[1]} ${parts[2]} ${parts[3] + extraBottom}`);
+        }
+        const inModal = Boolean(svg.closest(".diagram-modal-body"));
+        const axisY = inModal ? "38" : "28";
+        svg.querySelectorAll(".tick text").forEach((text)=>{
+          text.setAttribute("y",axisY);
+          text.setAttribute("dy","1em");
+          text.style.setProperty("font-size",inModal ? "13px" : "11px","important");
+          text.style.setProperty("font-weight","900","important");
+        });
+      });
+    }
+    function setupDiagramModals(){
+      let modal = document.querySelector(".diagram-modal");
+      if(!modal){
+        modal = document.createElement("div");
+        modal.className = "diagram-modal";
+        modal.setAttribute("role","dialog");
+        modal.setAttribute("aria-modal","true");
+        modal.innerHTML = '<div class="diagram-modal-card"><div class="diagram-modal-head"><div class="diagram-modal-title">다이어그램 확대 보기</div><button class="diagram-close" type="button">닫기</button></div><div class="diagram-modal-body"></div></div>';
+        document.body.appendChild(modal);
+        const closeModal = () => modal.classList.remove("open");
+        modal.querySelector(".diagram-close").addEventListener("click", closeModal);
+        modal.addEventListener("click", (event)=>{
+          if(event.target === modal) closeModal();
+        });
+        document.addEventListener("keydown", (event)=>{
+          if(event.key === "Escape") closeModal();
+        });
+      }
+      document.querySelectorAll(".mermaid-wrap").forEach((wrap)=>{
+        if(wrap.closest(".diagram-modal")) return;
+        if(!wrap.querySelector(".diagram-toolbar")){
+          const toolbar = document.createElement("div");
+          toolbar.className = "diagram-toolbar";
+          const button = document.createElement("button");
+          button.className = "diagram-expand";
+          button.type = "button";
+          button.title = "다이어그램을 큰 모달로 봅니다";
+          button.setAttribute("aria-label","다이어그램 확대 보기");
+          button.textContent = "확대 보기";
+          toolbar.appendChild(button);
+          wrap.prepend(toolbar);
+          button.addEventListener("click", ()=>{
+            const clone = wrap.cloneNode(true);
+            const cloneToolbar = clone.querySelector(".diagram-toolbar");
+            if(cloneToolbar) cloneToolbar.remove();
+            const body = modal.querySelector(".diagram-modal-body");
+            body.innerHTML = "";
+            body.appendChild(clone);
+            modal.classList.add("open");
+            requestAnimationFrame(syncMermaidThemeColors);
+          });
+        }
+      });
+    }
+    if(window.mermaid){
+      const mermaidLight = document.documentElement.getAttribute("data-theme") === "light";
+      window.mermaid.initialize({
+        startOnLoad:false,
+        theme:"base",
+        themeVariables: mermaidLight ? {
+          background:"#f8fafc",
+          primaryColor:"#dbeafe",
+          primaryTextColor:"#0f172a",
+          primaryBorderColor:"#2563eb",
+          lineColor:"#94a3b8",
+          secondaryColor:"#dcfce7",
+          tertiaryColor:"#fff7ed",
+          textColor:"#0f172a",
+          taskTextColor:"#0f172a",
+          taskTextOutsideColor:"#0f172a",
+          taskTextLightColor:"#0f172a",
+          sectionBkgColor:"#eef2f7",
+          altSectionBkgColor:"#e2e8f0",
+          gridColor:"#64748b"
+        } : {
+          background:"#111827",
+          primaryColor:"#1e3a8a",
+          primaryTextColor:"#e5edf8",
+          primaryBorderColor:"#60a5fa",
+          lineColor:"#64748b",
+          secondaryColor:"#14532d",
+          tertiaryColor:"#431407",
+          textColor:"#e5edf8",
+          taskTextColor:"#e5edf8",
+          taskTextOutsideColor:"#e5edf8",
+          sectionBkgColor:"#1f2937",
+          altSectionBkgColor:"#111827",
+          gridColor:"#475569"
+        },
+        securityLevel:"loose",
+        gantt:{
+          barHeight:16,
+          barGap:3,
+          topPadding:44,
+          leftPadding:120,
+          gridLineStartPadding:20,
+          fontSize:10,
+          sectionFontSize:11,
+          rightPadding:36
+        }
+      });
+      window.addEventListener("load", ()=>{
+        window.mermaid.run({querySelector:".mermaid"}).catch((error)=>{
+          console.error("Mermaid render failed", error);
+        }).finally(()=>{
+          syncMermaidThemeColors();
+          setupDiagramModals();
+        });
+      });
+    } else {
+      window.addEventListener("load", ()=>{
+        syncMermaidThemeColors();
+        setupDiagramModals();
+      });
+    }
+  </script>
+</body>
+</html>

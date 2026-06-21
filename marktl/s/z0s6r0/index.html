@@ -1,0 +1,1428 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-05-26 지수통합선별공장 프로젝트관리표 통합노트</title>
+  <meta name="description" content="지수통합선별공장 프로젝트관리표 통합노트 2026-05-26 기준 통합노트 HTML">
+  <link rel="icon" href="data:,">
+  <style>
+    :root{
+      --bg:#0b1220;
+      --bg2:#0f172a;
+      --panel:#111827;
+      --panel2:#172033;
+      --card:#182235;
+      --line:rgba(148,163,184,.22);
+      --text:#e5edf8;
+      --muted:#aebbd0;
+      --faint:#75849b;
+      --blue:#60a5fa;
+      --cyan:#22d3ee;
+      --green:#4ade80;
+      --orange:#fb923c;
+      --red:#f87171;
+      --purple:#a78bfa;
+      --yellow:#facc15;
+      --shadow:0 24px 70px rgba(0,0,0,.38);
+      --radius:24px;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+      color-scheme:dark;
+    }
+    [data-theme="light"]{
+      --bg:#f4f7fb;
+      --bg2:#eaf1f8;
+      --panel:#ffffff;
+      --panel2:#f8fafc;
+      --card:#ffffff;
+      --line:rgba(15,23,42,.15);
+      --text:#0f172a;
+      --muted:#475569;
+      --faint:#64748b;
+      --shadow:0 22px 58px rgba(15,23,42,.12);
+      color-scheme:light;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(248,113,113,.26), transparent 30%),
+        radial-gradient(circle at 82% 12%, rgba(20,184,166,.22), transparent 34%),
+        linear-gradient(180deg, #050913 0%, var(--bg) 22%, #05070d 100%);
+      color:var(--text);
+      line-height:1.62;
+      word-break:keep-all;
+      overflow-wrap:break-word;
+    }
+    [data-theme="light"] body{
+      background:
+        radial-gradient(circle at 9% 6%, rgba(248,113,113,.12), transparent 32%),
+        radial-gradient(circle at 84% 11%, rgba(20,184,166,.14), transparent 36%),
+        linear-gradient(180deg,#f8fafc 0%,var(--bg) 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    button{
+      font:inherit;
+      border:0;
+      color:inherit;
+      cursor:pointer;
+    }
+    .shell{
+      width:min(1240px, calc(100% - 40px));
+      margin:0 auto;
+      padding:34px 0 64px;
+    }
+    .hero{
+      position:relative;
+      min-height:330px;
+      border:1px solid var(--line);
+      border-radius:32px;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(74,222,128,.14), transparent 34%),
+        radial-gradient(circle at 85% 24%, rgba(96,165,250,.22), transparent 30%),
+        linear-gradient(135deg, rgba(17,24,39,.95), rgba(15,23,42,.80));
+      box-shadow:var(--shadow);
+      padding:34px;
+    }
+    [data-theme="light"] .hero{
+      background:
+        linear-gradient(135deg, rgba(74,222,128,.16), transparent 34%),
+        radial-gradient(circle at 85% 24%, rgba(96,165,250,.24), transparent 30%),
+        linear-gradient(135deg, #ffffff, #eef6ff);
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:8px;
+      background:linear-gradient(90deg,var(--green),var(--blue),var(--purple),var(--orange));
+    }
+    .hero-top{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      align-items:flex-start;
+      gap:24px;
+      position:relative;
+      z-index:1;
+    }
+    .eyebrow{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      color:var(--yellow);
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    h1{
+      max-width:820px;
+      margin:18px 0 18px;
+      font-size:clamp(38px, 5.4vw, 74px);
+      line-height:1.06;
+      letter-spacing:0;
+      color:#fff;
+    }
+    [data-theme="light"] h1{color:#0f172a}
+    .lead{
+      max-width:840px;
+      margin:0 0 24px;
+      color:var(--muted);
+      font-size:18px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:nowrap;
+      justify-content:flex-end;
+      min-width:max-content;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      color:var(--text);
+      font-weight:800;
+      backdrop-filter:blur(12px);
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg,#2563eb,#0891b2);
+      border-color:rgba(255,255,255,.22);
+      color:#fff;
+    }
+    .meta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 11px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.07);
+      color:var(--muted);
+      font-size:13px;
+      font-weight:800;
+    }
+    [data-theme="light"] .pill{background:rgba(15,23,42,.04)}
+    .hero-metrics{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+      margin-top:30px;
+    }
+    .metric{
+      min-height:128px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      background:rgba(255,255,255,.07);
+      box-shadow:0 14px 34px rgba(0,0,0,.16);
+    }
+    [data-theme="light"] .metric{background:rgba(255,255,255,.72)}
+    .metric .k{
+      color:var(--faint);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+    .metric .v{
+      margin:8px 0 7px;
+      font-size:28px;
+      line-height:1.12;
+      font-weight:950;
+      color:var(--c);
+    }
+    .metric .d{color:var(--muted);font-size:14px;line-height:1.46}
+    .layout{
+      display:grid;
+      grid-template-columns:280px minmax(0,1fr);
+      gap:24px;
+      margin-top:24px;
+      align-items:start;
+    }
+    .layout > *,
+    .sidebar,
+    main{
+      min-width:0;
+    }
+    .sidebar{
+      position:sticky;
+      top:18px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(17,24,39,.72);
+      box-shadow:var(--shadow);
+      padding:18px;
+      backdrop-filter:blur(14px);
+    }
+    [data-theme="light"] .sidebar{background:rgba(255,255,255,.82)}
+    .side-title{
+      color:var(--cyan);
+      font-weight:950;
+      margin-bottom:10px;
+      font-size:17px;
+    }
+    .toc{
+      display:grid;
+      gap:7px;
+      margin:0 0 18px;
+      padding:0;
+      list-style:none;
+    }
+    .toc a{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      padding:9px 10px;
+      border-radius:12px;
+      color:var(--muted);
+      border:1px solid transparent;
+      font-size:14px;
+      font-weight:800;
+    }
+    .toc a:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .toc a:hover{background:rgba(15,23,42,.04)}
+    .toc .n{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      flex:none;
+      width:26px;
+      height:26px;
+      border-radius:9px;
+      color:#fff;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      font-size:12px;
+      font-weight:950;
+    }
+    .side-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      margin-top:12px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .side-card{background:rgba(15,23,42,.035)}
+    .side-card h3{
+      margin:0 0 8px;
+      color:var(--green);
+      font-size:15px;
+    }
+    .side-card p,.side-card li{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .side-card ul{padding-left:18px;margin:8px 0 0}
+    main{display:grid;gap:24px}
+    main > *{min-width:0}
+    .block{
+      min-width:0;
+      max-width:100%;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      background:linear-gradient(180deg,rgba(24,34,53,.82),rgba(17,24,39,.76));
+      box-shadow:var(--shadow);
+    }
+    [data-theme="light"] .block{
+      background:linear-gradient(180deg,#fff,#f8fafc);
+    }
+    .block h2{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:0 0 12px;
+      font-size:28px;
+      line-height:1.2;
+      letter-spacing:0;
+    }
+    .block h2 .num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      color:#fff;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      font-weight:950;
+      font-size:18px;
+      flex:none;
+    }
+    .block h3{
+      margin:24px 0 10px;
+      color:var(--cyan);
+      font-size:20px;
+      line-height:1.3;
+    }
+    .block p{color:var(--muted)}
+    .grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .card{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      background:rgba(255,255,255,.06);
+      min-height:128px;
+    }
+    [data-theme="light"] .card{background:#fff}
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:6px;
+      background:var(--c,var(--blue));
+    }
+    .card .k{
+      color:var(--faint);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .card .v{
+      margin:8px 0 7px;
+      color:var(--c,var(--blue));
+      font-size:24px;
+      line-height:1.12;
+      font-weight:950;
+    }
+    .card p{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .tagrow{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      border:1px solid currentColor;
+      color:var(--c,var(--blue));
+      border-radius:999px;
+      padding:2px 7px;
+      font-size:12px;
+      font-weight:800;
+      opacity:.88;
+    }
+    .note{
+      margin:16px 0;
+      border-left:5px solid var(--cyan);
+      border-radius:14px;
+      padding:14px 16px;
+      background:rgba(34,211,238,.08);
+      color:var(--muted);
+    }
+    .note b{color:var(--text)}
+    .note.success{border-left-color:var(--green);background:rgba(74,222,128,.09)}
+    .note.warn{border-left-color:var(--orange);background:rgba(251,146,60,.10)}
+    .note.danger{border-left-color:var(--red);background:rgba(248,113,113,.10)}
+    .table-wrap{
+      max-width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line);
+      border-radius:18px;
+      margin:14px 0 22px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:760px;
+      background:rgba(255,255,255,.03);
+    }
+    [data-theme="light"] table{background:#fff}
+    th,td{
+      padding:12px 13px;
+      text-align:left;
+      vertical-align:top;
+      border-bottom:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+    th{
+      color:var(--text);
+      background:rgba(96,165,250,.12);
+      font-weight:950;
+      white-space:nowrap;
+    }
+    tbody tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+    [data-theme="light"] tbody tr:nth-child(even) td{background:#f8fafc}
+    td b{color:var(--text)}
+    .status{
+      display:inline-flex;
+      align-items:center;
+      padding:3px 8px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .status.ok{color:#052e16;background:#bbf7d0}
+    .status.warn{color:#431407;background:#fed7aa}
+    .status.risk{color:#450a0a;background:#fecaca}
+    .status.info{color:#172554;background:#bfdbfe}
+    .mermaid-wrap{
+      position:relative;
+      max-width:100%;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:12px;
+      overflow-x:auto;
+      background:rgba(2,6,23,.32);
+      margin:14px 0 22px;
+    }
+    [data-theme="light"] .mermaid-wrap{background:#f8fafc}
+    .mermaid-wrap svg{
+      max-width:none;
+      height:auto;
+    }
+    .gantt-wrap pre.mermaid{
+      min-width:min(1180px, 100%);
+    }
+    .gantt-wrap svg{
+      width:100%;
+      min-width:min(1180px, 100%);
+      overflow:visible;
+    }
+    .gantt-wrap svg text,
+    .gantt-wrap svg tspan,
+    .gantt-wrap svg .taskText,
+    .gantt-wrap svg [class*="taskText"]{
+      font-size:10px!important;
+    }
+    .gantt-wrap svg .titleText{
+      font-size:18px!important;
+      font-weight:950!important;
+      letter-spacing:0!important;
+    }
+    .gantt-wrap svg .sectionTitle{
+      font-size:11px!important;
+    }
+    .mermaid-wrap svg text,
+    .mermaid-wrap svg tspan,
+    .mermaid-wrap svg .label,
+    .mermaid-wrap svg .nodeLabel,
+    .mermaid-wrap svg .edgeLabel,
+    .mermaid-wrap svg .sectionTitle,
+    .mermaid-wrap svg .taskText,
+    .mermaid-wrap svg .taskTextOutsideRight,
+    .mermaid-wrap svg foreignObject,
+    .mermaid-wrap svg span,
+    .mermaid-wrap svg p{
+      color:#e5edf8!important;
+      fill:#e5edf8!important;
+      font-weight:800!important;
+      text-shadow:none!important;
+    }
+    [data-theme="light"] .mermaid-wrap svg text,
+    [data-theme="light"] .mermaid-wrap svg tspan,
+    [data-theme="light"] .mermaid-wrap svg .label,
+    [data-theme="light"] .mermaid-wrap svg .nodeLabel,
+    [data-theme="light"] .mermaid-wrap svg .edgeLabel,
+    [data-theme="light"] .mermaid-wrap svg .sectionTitle,
+    [data-theme="light"] .mermaid-wrap svg .taskText,
+    [data-theme="light"] .mermaid-wrap svg .taskTextOutsideRight,
+    [data-theme="light"] .mermaid-wrap svg foreignObject,
+    [data-theme="light"] .mermaid-wrap svg span,
+    [data-theme="light"] .mermaid-wrap svg p{
+      color:#0f172a!important;
+      fill:#0f172a!important;
+    }
+    .flowchart-wrap svg g.node foreignObject,
+    .flowchart-wrap svg g.node foreignObject *,
+    .flowchart-wrap svg g.node .label,
+    .flowchart-wrap svg g.node .nodeLabel{
+      color:#0f172a!important;
+      fill:#0f172a!important;
+      font-weight:900!important;
+      opacity:1!important;
+      text-shadow:none!important;
+    }
+    .flowchart-wrap svg g.edgeLabel,
+    .flowchart-wrap svg g.edgeLabel foreignObject,
+    .flowchart-wrap svg g.edgeLabel foreignObject *,
+    .flowchart-wrap svg g.edgeLabel .label,
+    .flowchart-wrap svg g.edgeLabel .edgeLabel{
+      background:#e0f2fe!important;
+      color:#0f172a!important;
+      fill:#0f172a!important;
+      font-weight:900!important;
+      opacity:1!important;
+      text-shadow:none!important;
+    }
+    [data-theme="light"] .flowchart-wrap svg g.edgeLabel foreignObject,
+    [data-theme="light"] .flowchart-wrap svg g.edgeLabel foreignObject *,
+    [data-theme="light"] .flowchart-wrap svg g.edgeLabel .edgeLabel{
+      background:#f8fafc!important;
+      color:#0f172a!important;
+      fill:#0f172a!important;
+    }
+    .mermaid-wrap svg .grid .tick line,
+    .mermaid-wrap svg .tick line{
+      stroke:#94a3b8!important;
+      opacity:.75!important;
+    }
+    [data-theme="light"] .mermaid-wrap svg .grid .tick line,
+    [data-theme="light"] .mermaid-wrap svg .tick line{
+      stroke:#64748b!important;
+      opacity:.75!important;
+    }
+    .diagram-toolbar{
+      display:flex;
+      justify-content:flex-end;
+      margin-bottom:8px;
+    }
+    .diagram-expand{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:34px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 12px;
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      font-size:13px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+    [data-theme="light"] .diagram-expand{background:#fff}
+    .diagram-modal{
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      background:rgba(2,6,23,.72);
+      backdrop-filter:blur(10px);
+    }
+    .diagram-modal.open{display:flex}
+    .diagram-modal-card{
+      width:min(1220px, calc(100vw - 40px));
+      max-height:calc(100vh - 40px);
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:var(--panel);
+      box-shadow:0 28px 90px rgba(0,0,0,.46);
+      padding:18px;
+    }
+    [data-theme="light"] .diagram-modal-card{background:#fff}
+    .diagram-modal-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .diagram-modal-title{
+      color:var(--text);
+      font-size:17px;
+      font-weight:950;
+    }
+    .diagram-close{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 12px;
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      font-weight:900;
+      white-space:nowrap;
+    }
+    [data-theme="light"] .diagram-close{background:#f8fafc}
+    .diagram-modal-body .mermaid-wrap{
+      margin:0;
+      max-width:none;
+      overflow:auto;
+    }
+    .diagram-modal-body svg{
+      width:100%;
+      min-width:980px;
+      height:auto;
+    }
+    .diagram-modal-body .gantt-wrap{
+      padding:18px;
+    }
+    .diagram-modal-body .gantt-wrap svg{
+      min-width:1320px;
+    }
+    .diagram-modal-body .gantt-wrap svg .titleText{
+      font-size:24px!important;
+    }
+    pre.mermaid{
+      margin:0;
+      min-width:720px;
+      color:var(--text);
+      white-space:pre-wrap;
+    }
+    .flow{
+      display:grid;
+      grid-template-columns:repeat(7,minmax(0,1fr));
+      gap:8px;
+      margin:14px 0 20px;
+    }
+    .step{
+      min-height:88px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      text-align:center;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:10px;
+      background:rgba(96,165,250,.08);
+    }
+    .step b{color:var(--cyan);font-size:13px}
+    .step span{color:var(--muted);font-size:12px;line-height:1.35}
+    .budget{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .pie{
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .pie{background:#fff}
+    .pie h4{margin:0 0 12px;color:var(--text)}
+    .pie-flex{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .pie-flex svg{width:160px;max-width:42%;flex:none}
+    .donut-chart{
+      position:relative;
+      width:180px;
+      max-width:42%;
+      aspect-ratio:1;
+      flex:none;
+      border-radius:50%;
+      background:var(--segments);
+      box-shadow:inset 0 0 0 1px var(--line), 0 12px 24px rgba(0,0,0,.14);
+    }
+    .donut-chart:after{
+      content:"";
+      position:absolute;
+      inset:29%;
+      border-radius:50%;
+      background:var(--panel);
+      box-shadow:inset 0 0 0 1px var(--line);
+    }
+    [data-theme="light"] .donut-chart:after{background:#fff}
+    .donut-center{
+      position:absolute;
+      inset:29%;
+      z-index:1;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:var(--text);
+      line-height:1.15;
+    }
+    .donut-center span{
+      font-size:11px;
+      font-weight:900;
+    }
+    .donut-center b{
+      margin-top:4px;
+      font-size:17px;
+      font-weight:950;
+    }
+    .legend{font-size:14px;color:var(--muted)}
+    .legend div{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin:7px 0;
+      line-height:1.35;
+    }
+    .legend i{
+      display:inline-block;
+      width:11px;
+      height:11px;
+      border-radius:3px;
+      flex:none;
+    }
+    .legend b{color:var(--text)}
+    .legend .pct{
+      color:var(--faint);
+      font-size:12px;
+      font-weight:800;
+    }
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:10px;
+      margin:14px 0;
+    }
+    .phase{
+      min-height:132px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .phase{background:#fff}
+    .phase .idx{
+      color:var(--c,var(--blue));
+      font-weight:950;
+      font-size:12px;
+      letter-spacing:.08em;
+    }
+    .phase b{display:block;color:var(--text);margin:6px 0 6px}
+    .phase p{margin:0;color:var(--muted);font-size:13px}
+    .review-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    .review-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .review-card{background:#fff}
+    .review-card h4{margin:0 0 8px;color:#e9dbff}
+    [data-theme="light"] .review-card h4{color:#5b21b6}
+    .review-card p,.review-card li{color:var(--muted);font-size:14px}
+    textarea{
+      width:100%;
+      min-height:140px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font:inherit;
+      resize:vertical;
+    }
+    [data-theme="light"] textarea{background:#fff}
+    .copy-row{
+      display:flex;
+      justify-content:flex-end;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .source{
+      color:var(--faint);
+      font-size:13px;
+    }
+    .print-only{display:none}
+    @media(max-width:1100px){
+      .hero-metrics,.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .layout{grid-template-columns:1fr}
+      .sidebar{position:relative;top:auto}
+      .toc{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .flow,.timeline{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+    @media(max-width:760px){
+      .shell{width:min(100% - 22px,1240px);padding-top:16px}
+      .hero{padding:24px 18px;border-radius:24px}
+      .hero-top{display:block}
+      .hero-actions{justify-content:flex-start;margin-top:16px;flex-wrap:wrap;min-width:0}
+      .hero-metrics,.grid4,.grid3,.grid2,.budget,.review-grid,.flow,.timeline,.toc{grid-template-columns:1fr}
+      .block{padding:18px;border-radius:20px}
+      .block h2{font-size:23px}
+      .pie-flex{display:block}
+      .pie-flex svg{max-width:100%;width:180px}
+      .donut-chart{max-width:100%;width:190px;margin-bottom:14px}
+      .diagram-modal{padding:12px}
+      .diagram-modal-card{width:calc(100vw - 24px);max-height:calc(100vh - 24px);padding:12px;border-radius:18px}
+      .diagram-modal-body svg{min-width:860px}
+    }
+    @media print{
+      :root{color-scheme:light}
+      body{background:#fff;color:#111827}
+      .shell{width:100%;padding:0}
+      .hero,.block,.sidebar,.card,.metric,.pie,.phase,.review-card{
+        box-shadow:none;
+        background:#fff;
+        color:#111827;
+        break-inside:avoid;
+      }
+      .layout{grid-template-columns:1fr}
+      .sidebar,.hero-actions,.copy-row{display:none}
+      .hero{min-height:auto;border-radius:18px;margin-bottom:14px}
+      h1{color:#0f172a;font-size:32px}
+      .lead,.metric .d,.card p,.note,p,li,td{color:#334155}
+      .hero-metrics,.grid4{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+      .grid3{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+      .grid2,.budget{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+      .block{padding:14px;margin-bottom:12px}
+      .block h2{font-size:20px}
+      th,td{font-size:10px;padding:7px}
+      table{min-width:0}
+      .print-only{display:block}
+      textarea{display:none}
+    }
+  
+
+    .share-home{position:fixed;right:18px;bottom:18px;z-index:40;display:inline-flex;align-items:center;gap:8px;padding:11px 14px;border-radius:999px;background:linear-gradient(135deg,#2563eb,#0891b2);color:#fff;font-weight:900;border:1px solid rgba(255,255,255,.28);box-shadow:0 18px 42px rgba(15,23,42,.28)}
+    .source-section .quote-line{margin:.25rem 0;color:var(--muted)}
+    .source-section h3,.source-section h4{scroll-margin-top:18px}
+    .source-section ul{margin-top:8px}
+    .source-section code{padding:2px 6px;border-radius:8px;background:rgba(148,163,184,.14);font-size:.9em}
+    .source-section .note.info{border-left-color:var(--cyan)}
+    .source-section .note.info + .quote-line{margin-top:-6px}
+    .source-section .table-wrap{margin:12px 0 18px}
+    .summary-list{display:grid;gap:10px;margin:14px 0}
+    .summary-list li{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.05);padding:12px 14px;color:var(--muted)}
+    [data-theme="light"] .summary-list li{background:#fff}
+    .source-badge{display:inline-flex;margin:0 8px 8px 0;padding:6px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-weight:800;font-size:12px}
+    @media print{.share-home{display:none}}
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026-05-26 지수통합선별공장 프로젝트관리표 통합노트">
+<meta property="og:description" content="지수통합선별공장 프로젝트관리표 통합노트 2026-05-26 기준 통합노트 HTML">
+<meta property="og:url" content="https://flytothesky23.github.io/marktl-shares/marktl/s/z0s6r0/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2026-05-26 지수통합선별공장 프로젝트관리표 통합노트">
+<meta name="twitter:description" content="지수통합선별공장 프로젝트관리표 통합노트 2026-05-26 기준 통합노트 HTML">
+<link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/marktl/s/z0s6r0/">
+</head>
+<body>
+  <a class="share-home" data-marktl-share-home href="https://flytothesky23.github.io/marktl-shares/marktl/">공유 홈</a>
+  <div class="shell">
+    <section class="hero" id="top">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow">JISOO INTEGRATED FACTORY · PROJECT CONTROL</div>
+          <h1>지수통합선별공장 프로젝트관리표 통합노트</h1>
+        </div>
+        <div class="hero-actions" aria-label="문서 동작">
+          <button class="btn primary" data-copy="summary">핵심 요약 복사</button>
+          <button class="btn" data-copy="next">후속 과제 복사</button>
+          <button class="btn" id="themeToggle" type="button">라이트 전환</button>
+        </div>
+      </div>
+      <p class="lead">기존 통합노트의 골격은 유지하되, 2026-05-26 기준으로 <strong>설비업체 2개 견적 접수</strong>, <strong>지수공장 인력충원계획 구체화</strong>, <strong>외국인 고용 가능 시점 재정의</strong>, <strong>10월말 정상조업 기준 재정렬</strong>을 추가 반영한다.</p>
+      <div class="meta-row">
+        <span class="pill">작성 기준 2026-05-26</span>
+        <span class="pill">보고 기간 2026-05-26 기준</span>
+        <span class="pill">상태 진행중</span>
+        <span class="pill">Owner Kisoo Kil</span>
+        
+      </div>
+      <div class="hero-metrics">
+        <article class="metric" style="--c:var(--green)">
+          <div class="k">CONSTRUCTION</div>
+          <div class="v">1명</div>
+          <div class="d">| 관리자 | 1명 | 소장/부소장 | 제조업 관리자 경력, 중장비 자격, 현장관리 중심 | 선채용 후 칠서 선행교육 |</div>
+        </article>
+        <article class="metric" style="--c:var(--orange)">
+          <div class="k">PERMIT / GATE</div>
+          <div class="v">5명</div>
+          <div class="d">| 인력계획 | 지수공장 정상 운영 기본 인력은 총 5명 기준이며, 외국인 2명은 10월말 초기 가동인력이 아닌 보완 변수 | ③ 재고관리계획, ④ 리스크·의사결정 |</div>
+        </article>
+        <article class="metric" style="--c:var(--red)">
+          <div class="k">EQUIPMENT</div>
+          <div class="v">05-26</div>
+          <div class="d">기존 통합노트의 골격은 유지하되, 2026-05-26 기준으로 <strong>설비업체 2개 견적 접수</strong>, <strong>지수공장 인력충원계획 구체화</strong>, <strong>외국인 고용 가능 시점 재정의</strong>, <strong>10월말 정상조업 기준 재정렬</strong>을 추가 반영한다.</div>
+        </article>
+        <article class="metric" style="--c:var(--cyan)">
+          <div class="k">SITE READY</div>
+          <div class="v">05-26</div>
+          <div class="d">기존 통합노트의 골격은 유지하되, 2026-05-26 기준으로 <strong>설비업체 2개 견적 접수</strong>, <strong>지수공장 인력충원계획 구체화</strong>, <strong>외국인 고용 가능 시점 재정의</strong>, <strong>10월말 정상조업 기준 재정렬</strong>을 추가 반영한다.</div>
+        </article>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="문서 지도">
+        <div class="side-title">문서 지도</div>
+        <ul class="toc">
+          <li><a href="#quick"><span class="n">0</span>빠른 현황</a></li>
+          <li><a href="#gantt"><span class="n">1</span>통합간트차트</a></li>
+          <li><a href="#workflow"><span class="n">2</span>실행 흐름</a></li>
+          <li><a href="#source-content"><span class="n">3</span>원문 기반 노트</a></li>
+          <li><a href="#review"><span class="n">4</span>리뷰 룸</a></li>
+          <li><a href="#금주-업데이트-브리핑-2026-05-26"><span class="n">1</span>금주 업데이트 브리핑 · 2026-05-26</a></li><li><a href="#빠른-현황"><span class="n">2</span>빠른 현황</a></li><li><a href="#운영-체크리스트"><span class="n">3</span>운영 체크리스트</a></li><li><a href="#①-통합간트차트"><span class="n">4</span>① 통합간트차트</a></li><li><a href="#②-자금스케줄"><span class="n">5</span>② 자금스케줄</a></li><li><a href="#③-재고관리계획"><span class="n">6</span>③ 재고관리계획</a></li><li><a href="#④-리스크-의사결정"><span class="n">7</span>④ 리스크·의사결정</a></li><li><a href="#⑤-마일스톤요약"><span class="n">8</span>⑤ 마일스톤요약</a></li><li><a href="#⑥-업데이트로그"><span class="n">9</span>⑥ 업데이트로그</a></li><li><a href="#통합-업데이트-로그"><span class="n">10</span>통합 업데이트 로그</a></li><li><a href="#⑦-금주-업데이트-상세-설비견적-인력계획-정상조업-기준"><span class="n">11</span>⑦ 금주 업데이트 상세 · 설비견적 / 인력계획 / 정상조업 기준</a></li>
+        </ul>
+        <div class="side-card">
+          <h3>검토 기준</h3>
+          <p>원문 Markdown의 날짜, 표, 체크리스트, Mermaid 일정만 공개용 HTML로 정리했다. 내부 자동화 코드와 Obsidian 링크 문법은 제거했다.</p>
+        </div>
+      </aside>
+
+      <main>
+        <section class="block" id="quick">
+          <h2><span class="num">0</span>빠른 현황</h2>
+          <div>
+            <span class="source-badge">Source: 2026-05-26 - 지수통합선별공장_프로젝트관리표_통합노트.md</span>
+            <span class="source-badge">Style: 2026-06-19 통합노트 기준</span>
+          </div>
+          <ul class="summary-list">
+            <li>기존 통합노트의 골격은 유지하되, 2026-05-26 기준으로 <strong>설비업체 2개 견적 접수</strong>, <strong>지수공장 인력충원계획 구체화</strong>, <strong>외국인 고용 가능 시점 재정의</strong>, <strong>10월말 정상조업 기준 재정렬</strong>을 추가 반영한다.</li><li>이번 업데이트의 핵심은 단순히 신규 항목을 추가하는 것이 아니라, 기존의 일정·자금·재고·리스크·마일스톤 구조 안에 <strong>설비 견적 비교와 인력 운영 리스크</strong>를 연결하는 것이다.</li><li>자금스케줄 업데이트 필요</li><li>기존 설비 계획예산은 <strong>12억</strong> 기준이었으나, 금주 접수된 2개 업체 견적은 모두 <strong>약 13.45억대</strong>입니다.</li><li>따라서 아직 견적 접수 단계이더라도, 경영진 보고 및 재무 사전준비 관점에서는 <strong>최소 1.45~1.47억 수준의 추가 자금 필요 가능성</strong>을 자금스케줄에 반영해야 합니다.</li>
+          </ul>
+          <div class="grid2">
+            <div class="note success"><b>공개용 정리 원칙</b><br>원문 사실관계를 유지하고, 내부 자동화 코드·위키링크·첨부 이미지 임베드는 제외했다.</div>
+            <div class="note warn"><b>확인 필요</b><br>수치·일정이 표 또는 Mermaid에 있는 경우 해당 원문 표/간트를 우선 기준으로 검토한다.</div>
+          </div>
+        </section>
+
+        <section class="block" id="gantt">
+          <h2><span class="num">1</span>통합간트차트</h2>
+          <p>2026-05-26 기준 원문 일정 정보를 Mermaid Gantt로 표시한다. 원문에 Gantt가 없는 경우에는 기준일 중심의 확인 일정만 보수적으로 표시한다.</p>
+          <div class="mermaid-wrap gantt-wrap"><div class="mermaid">gantt
+    title 지수통합선별공장 프로젝트 통합 일정
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m/%d
+    section 의사결정
+    01 증축 최종 의사결정 : milestone, done,crit, 2026-05-12, 1d
+    section 설계·인허가
+    02 인허가 컨설팅 업체 탐색 및 기초데이터 준비 : done, 2026-05-12, 2026-05-13
+    03 공장설립인허가 기초자료 전달 : milestone, done, 2026-05-13, 1d
+    04 건축설계용역 계약 완료 확인 및 설계 착수 : done, 2026-05-13, 2026-05-14
+    05 증축 설계도면 및 인허가 도서 작성 : active,crit, 2026-05-14, 2026-05-29
+    06 인허가 컨설팅 범위·제출자료 확정 : active,crit, 2026-05-14, 2026-05-22
+    section 견적·계약
+    07 증축·토목·부대 범위 및 견적 취합 : 2026-05-18, 2026-05-24
+    08 설비 범위 확정·견적서 접수·12억 예산 검증 : crit, 2026-05-18, 2026-05-24
+    09 최종 계약단가 협상 : crit, 2026-05-25, 2026-05-29
+    10 계약 체결 및 발주 일정 확정 : crit, 2026-05-29, 2026-05-31
+    section 착공 준비
+    11 공장설립인허가 신청·착공계 제출 준비 : crit, 2026-05-25, 2026-06-05
+    12 허가·착공 수리 대기 및 보완 대응 : crit, 2026-06-05, 2026-06-19
+    13 착공 가능 확인 : milestone, crit, 2026-06-19, 1d
+    section 건축공사
+    14 증축 기초공사 및 골조 설치 : crit, 2026-06-22, 2026-07-17
+    15 바닥 공사 및 장비 기초 준비 : crit, 2026-07-13, 2026-07-31
+    16 판넬·지붕·외피 공사 : crit, 2026-07-20, 2026-08-07
+    17 내부 마감 및 준공 서류 준비 : 2026-08-03, 2026-08-14
+    18 건축 준공 신청 및 검사 : 2026-08-17, 2026-08-28
+    section 설비제작
+    19 설비 제작 및 공급 준비 : crit, 2026-06-03, 2026-08-25
+    section 설비반입·설치
+    20 주요 설비 반입 및 안착 : crit, 2026-08-31, 2026-09-11
+    21 기계 설치·전기 제어·집진 연결 : crit, 2026-09-07, 2026-09-25
+    section 환경인허가
+    22 대기배출시설 신고 및 현장 확인 : crit, 2026-09-21, 2026-10-02
+    section 시운전
+    23 시스템 통합 시운전 : crit, 2026-09-28, 2026-10-09
+    section 정상조업
+    24 정상 조업 준비 및 개시 : crit, 2026-10-12, 2026-10-18</div></div>
+        </section>
+
+        <section class="block" id="workflow">
+          <h2><span class="num">2</span>실행 흐름</h2>
+          <p>주요 공사·자금·설비·인허가 항목이 한 흐름에서 검토되도록 원문 요약을 다이어그램으로 연결했다.</p>
+          <div class="mermaid-wrap flowchart-wrap"><div class="mermaid">flowchart LR
+    A([증축 최종 의사결정&lt;br/&gt;2026-05-12]) --&gt; B[계약·발주 Gate&lt;br/&gt;M2 05/29~31]
+    A --&gt; C[인허가·착공 Gate&lt;br/&gt;M4 06/19]
+    B --&gt; D[설비 제작 12주 병목&lt;br/&gt;작업 19]
+    C --&gt; E[건축 기초·골조·마감&lt;br/&gt;작업 14~18]
+    D --&gt; F[설비 반입·설치&lt;br/&gt;작업 20·21]
+    E --&gt; F
+    F --&gt; G[환경신고&lt;br/&gt;작업 22]
+    G --&gt; H[통합 시운전&lt;br/&gt;작업 23]
+    H --&gt; I([정상 조업&lt;br/&gt;10/12~18])
+    J[&quot;자금 리스크&lt;br/&gt;6~9월 집중&quot;] -. 지급조건 .-&gt; B
+    J -. 실행액·차액 .-&gt; E
+    K[&quot;의사결정 운영 기준&lt;br/&gt;주간 업데이트&quot;] -. 기준 동기화 .-&gt; C
+    K -. 변경 로그 .-&gt; G
+    classDef done fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#052e16;
+    classDef risk fill:#fee2e2,stroke:#dc2626,stroke-width:3px,color:#450a0a;
+    classDef gate fill:#fef3c7,stroke:#d97706,stroke-width:3px,color:#451a03;
+    classDef action fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#082f49;
+    classDef money fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#2e1065;
+    class A,I done; class D,J risk; class B,C gate; class E,F,G,H action; class K money;</div></div>
+        </section>
+
+        <section class="block source-section" id="source-content"><h2><span class="num">0</span>원문 기반 통합노트</h2><p># 지수통합선별공장 프로젝트관리표 통합노트</p><section class="block source-section" id="금주-업데이트-브리핑-2026-05-26"><h2><span class="num">§</span>금주 업데이트 브리핑 · 2026-05-26</h2><div class="note info"><b>금주 핵심 요약</b></div><p class="quote-line">기존 통합노트의 골격은 유지하되, 2026-05-26 기준으로 <strong>설비업체 2개 견적 접수</strong>, <strong>지수공장 인력충원계획 구체화</strong>, <strong>외국인 고용 가능 시점 재정의</strong>, <strong>10월말 정상조업 기준 재정렬</strong>을 추가 반영한다.</p><p class="quote-line">이번 업데이트의 핵심은 단순히 신규 항목을 추가하는 것이 아니라, 기존의 일정·자금·재고·리스크·마일스톤 구조 안에 <strong>설비 견적 비교와 인력 운영 리스크</strong>를 연결하는 것이다.</p><h4>금주 업데이트 판단</h4><div class="table-wrap"><table><thead><tr><th>구분</th><th>판단</th><th>통합노트 반영 위치</th></tr></thead><tbody><tr><td>설비 견적</td><td>2개 업체 견적이 접수되었으나 금액 차이는 크지 않고, 납기·지급조건·설비범위 검토가 핵심</td><td><code>② 자금스케줄</code>, <code>④ 리스크·의사결정</code>, <code>⑤ 마일스톤요약</code></td></tr><tr><td>인력계획</td><td>지수공장 정상 운영 기본 인력은 총 5명 기준이며, 외국인 2명은 10월말 초기 가동인력이 아닌 보완 변수</td><td><code>③ 재고관리계획</code>, <code>④ 리스크·의사결정</code></td></tr><tr><td>정상조업</td><td>10월22일 이후~10월말을 실질적인 정상조업 전환 기준으로 봐야 함</td><td><code>① 통합간트차트</code>, <code>⑤ 마일스톤요약</code></td></tr><tr><td>외국인 고용</td><td>2026년 7~10월 사전준비, 10~11월초 가능성 통보, 11월말~12월 연내 채용 가능 시 빠른 일정</td><td><code>④ 리스크·의사결정</code>, <code>⑥ 업데이트로그</code></td></tr></tbody></table></div></section><section class="block source-section" id="빠른-현황"><h2><span class="num">§</span>빠른 현황</h2></section><section class="block source-section" id="운영-체크리스트"><h2><span class="num">§</span>운영 체크리스트</h2><ul><li>간트차트의 <code>진행중/위험/긴급</code> 작업 상태를 주간 회의 전 업데이트</li><li>견적·계약·발주 일정 확정 여부 확인</li><li>설비 제작 12주 병목의 착수일·진도·리스크 확인</li><li>6~9월 자금 집행계획과 실제 실행액 비교</li><li>재고 소진/이전/보관 실적을 실제 출고 기준으로 반영</li><li>리스크 조치계획과 연결작업 번호의 변경 여부 확인</li><li>마일스톤 목표일 변경 시 업데이트로그에 기록</li></ul></section><section class="block source-section" id="①-통합간트차트"><h2><span class="num">§</span>① 통합간트차트</h2><p class="quote-line">기준: 앱 Firestore 현재 실행 일정 · 기간: 2026.05.12 ~ 2026.10.18 · 업데이트: 2026.05.19</p><h4>일정 핵심 카드</h4><h4>Mermaid Gantt</h4><div class="mermaid-wrap gantt-wrap"><div class="mermaid">gantt
+    title 지수통합선별공장 프로젝트 통합 일정
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m/%d
+    section 의사결정
+    01 증축 최종 의사결정 : milestone, done,crit, 2026-05-12, 1d
+    section 설계·인허가
+    02 인허가 컨설팅 업체 탐색 및 기초데이터 준비 : done, 2026-05-12, 2026-05-13
+    03 공장설립인허가 기초자료 전달 : milestone, done, 2026-05-13, 1d
+    04 건축설계용역 계약 완료 확인 및 설계 착수 : done, 2026-05-13, 2026-05-14
+    05 증축 설계도면 및 인허가 도서 작성 : active,crit, 2026-05-14, 2026-05-29
+    06 인허가 컨설팅 범위·제출자료 확정 : active,crit, 2026-05-14, 2026-05-22
+    section 견적·계약
+    07 증축·토목·부대 범위 및 견적 취합 : 2026-05-18, 2026-05-24
+    08 설비 범위 확정·견적서 접수·12억 예산 검증 : crit, 2026-05-18, 2026-05-24
+    09 최종 계약단가 협상 : crit, 2026-05-25, 2026-05-29
+    10 계약 체결 및 발주 일정 확정 : crit, 2026-05-29, 2026-05-31
+    section 착공 준비
+    11 공장설립인허가 신청·착공계 제출 준비 : crit, 2026-05-25, 2026-06-05
+    12 허가·착공 수리 대기 및 보완 대응 : crit, 2026-06-05, 2026-06-19
+    13 착공 가능 확인 : milestone, crit, 2026-06-19, 1d
+    section 건축공사
+    14 증축 기초공사 및 골조 설치 : crit, 2026-06-22, 2026-07-17
+    15 바닥 공사 및 장비 기초 준비 : crit, 2026-07-13, 2026-07-31
+    16 판넬·지붕·외피 공사 : crit, 2026-07-20, 2026-08-07
+    17 내부 마감 및 준공 서류 준비 : 2026-08-03, 2026-08-14
+    18 건축 준공 신청 및 검사 : 2026-08-17, 2026-08-28
+    section 설비제작
+    19 설비 제작 및 공급 준비 : crit, 2026-06-03, 2026-08-25
+    section 설비반입·설치
+    20 주요 설비 반입 및 안착 : crit, 2026-08-31, 2026-09-11
+    21 기계 설치·전기 제어·집진 연결 : crit, 2026-09-07, 2026-09-25
+    section 환경인허가
+    22 대기배출시설 신고 및 현장 확인 : crit, 2026-09-21, 2026-10-02
+    section 시운전
+    23 시스템 통합 시운전 : crit, 2026-09-28, 2026-10-09
+    section 정상조업
+    24 정상 조업 준비 및 개시 : crit, 2026-10-12, 2026-10-18</div></div></section><section class="block source-section" id="②-자금스케줄"><h2><span class="num">§</span>② 자금스케줄</h2><h4>예산 구조 시각화</h4><h4>설비견적 접수 기준 자금스케줄 가상 시뮬레이션</h4><div class="note info"><b>자금스케줄 업데이트 필요</b></div><p class="quote-line">기존 설비 계획예산은 <strong>12억</strong> 기준이었으나, 금주 접수된 2개 업체 견적은 모두 <strong>약 13.45억대</strong>입니다.</p><p class="quote-line">따라서 아직 견적 접수 단계이더라도, 경영진 보고 및 재무 사전준비 관점에서는 <strong>최소 1.45~1.47억 수준의 추가 자금 필요 가능성</strong>을 자금스케줄에 반영해야 합니다.</p><p class="quote-line">아래 시뮬레이션은 계약 전 가정치입니다. 실제 지급월은 계약일, 제작착수일, 납품일, 시운전 완료일 확정 후 업데이트합니다.</p><h4>지급률별 자금소요 시뮬레이션</h4><div class="table-wrap"><table><thead><tr><th>구분</th><th>총액</th><th>1차 계약/착수</th><th>2차 제작중도</th><th>3차 납품/설치</th><th>4차 시운전</th><th>기존 12억 대비 증감</th></tr></thead><tbody><tr><td>기존 설비예산 30/40/30</td><td>12.00억</td><td>3.60억</td><td>4.80억</td><td>3.60억</td><td>-</td><td>-</td></tr><tr><td>신비앤텍 30/40/30 임시가정</td><td>13.47억</td><td>4.04억</td><td>5.39억</td><td>4.04억</td><td>-</td><td>+1.47억</td></tr><tr><td>부영 30/30/30/10 명시</td><td>13.45억</td><td>4.04억</td><td>4.04억</td><td>4.04억</td><td>1.35억</td><td>+1.45억</td></tr></tbody></table></div><h4>월별 자금스케줄 반영 관점</h4><div class="table-wrap"><table><thead><tr><th>관리월</th><th>기존 계획</th><th>신비앤텍 가정 반영</th><th>부영 조건 반영</th><th>판단</th></tr></thead><tbody><tr><td>계약/착수월</td><td>3.60억</td><td>4.04억</td><td>4.04억</td><td>착수 시점부터 약 0.44억 추가 준비 필요</td></tr><tr><td>제작중도월</td><td>4.80억</td><td>5.39억</td><td>4.04억</td><td>신비앤텍은 중도금 부담 증가, 부영은 중도 부담 완화</td></tr><tr><td>납품/설치월</td><td>3.60억</td><td>4.04억</td><td>4.04억</td><td>양사 모두 기존 대비 약 0.44억 증가</td></tr><tr><td>시운전완료월</td><td>-</td><td>-</td><td>1.35억</td><td>부영은 최종 10%가 후단으로 이연되나 납기 6개월 리스크가 더 큼</td></tr></tbody></table></div><div class="note info"><b>자금·일정 동시 판단</b></div><p class="quote-line">두 업체 모두 기존 12억 예산을 초과하므로, <strong>계약 전 예산 증액 또는 설비범위 조정 판단</strong>이 필요합니다.</p><p class="quote-line">다만 부영은 30/30/30/10 조건으로 현금흐름은 분산되지만, 납기 6개월 이내 조건이 10월말 정상조업 목표와 충돌할 수 있습니다. 신비앤텍은 납기 3개월로 일정상 유리하나 지급조건이 명확하지 않아 계약 전 지급률 확정이 필요합니다.</p><div class="mermaid-wrap gantt-wrap"><div class="mermaid">gantt
+    title 설비 견적 지급률별 자금·일정 시뮬레이션
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+
+    section 기존 예산 12억
+    계약/착수 3.60억 :done, p1, 2026-06-03, 1d
+    제작중도 4.80억 :p2, 2026-07-15, 1d
+    납품/설치 3.60억 :p3, 2026-09-15, 1d
+
+    section 신비앤텍 13.47억 가정
+    계약/착수 4.04억 :crit, s1, 2026-06-03, 1d
+    제작중도 5.39억 :crit, s2, 2026-07-15, 1d
+    납품/설치 4.04억 :crit, s3, 2026-09-15, 1d
+
+    section 부영 13.45억 명시조건
+    계약금 4.04억 :b1, 2026-06-03, 1d
+    중도금 4.04억 :b2, 2026-08-03, 1d
+    납품후 4.04억 :b3, 2026-11-30, 1d
+    시운전후 1.35억 :b4, 2026-12-15, 1d</div></div><h4>자금 집행 운영 메모</h4></section><section class="block source-section" id="③-재고관리계획"><h2><span class="num">§</span>③ 재고관리계획</h2></section><section class="block source-section" id="④-리스크-의사결정"><h2><span class="num">§</span>④ 리스크·의사결정</h2><h4>핵심 리스크 관리</h4><h4>리스크·의사결정 맥락 다이어그램</h4><div class="mermaid-wrap flowchart-wrap"><div class="mermaid">flowchart LR
+    A([증축 최종 의사결정&lt;br/&gt;2026-05-12]) --&gt; B[계약·발주 Gate&lt;br/&gt;M2 05/29~31]
+    A --&gt; C[인허가·착공 Gate&lt;br/&gt;M4 06/19]
+    B --&gt; D[설비 제작 12주 병목&lt;br/&gt;작업 19]
+    C --&gt; E[건축 기초·골조·마감&lt;br/&gt;작업 14~18]
+    D --&gt; F[설비 반입·설치&lt;br/&gt;작업 20·21]
+    E --&gt; F
+    F --&gt; G[환경신고&lt;br/&gt;작업 22]
+    G --&gt; H[통합 시운전&lt;br/&gt;작업 23]
+    H --&gt; I([정상 조업&lt;br/&gt;10/12~18])
+    J[&quot;자금 리스크&lt;br/&gt;6~9월 집중&quot;] -. 지급조건 .-&gt; B
+    J -. 실행액·차액 .-&gt; E
+    K[&quot;의사결정 운영 기준&lt;br/&gt;주간 업데이트&quot;] -. 기준 동기화 .-&gt; C
+    K -. 변경 로그 .-&gt; G
+    classDef done fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#052e16;
+    classDef risk fill:#fee2e2,stroke:#dc2626,stroke-width:3px,color:#450a0a;
+    classDef gate fill:#fef3c7,stroke:#d97706,stroke-width:3px,color:#451a03;
+    classDef action fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#082f49;
+    classDef money fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#2e1065;
+    class A,I done; class D,J risk; class B,C gate; class E,F,G,H action; class K money;</div></div></section><section class="block source-section" id="⑤-마일스톤요약"><h2><span class="num">§</span>⑤ 마일스톤요약</h2><h4>마일스톤 운영맵</h4><h4>마일스톤 영향 관계</h4><div class="mermaid-wrap flowchart-wrap"><div class="mermaid">flowchart LR
+    P1[&quot;PHASE 1&lt;br/&gt;M0·M1&lt;br/&gt;실행기준 확정&lt;br/&gt;05/12~14&quot;] --&gt; P2[&quot;PHASE 2&lt;br/&gt;M2·M3·M4&lt;br/&gt;계약·인허가 Gate&lt;br/&gt;05/29~06/19&quot;]
+    P2 --&gt; P3[&quot;PHASE 3&lt;br/&gt;M5·M6·M7&lt;br/&gt;건축/설비 전환&lt;br/&gt;07/17~08/31&quot;]
+    P3 --&gt; P4[&quot;PHASE 4&lt;br/&gt;M8·M9·M10·M11&lt;br/&gt;설치·신고·시운전·정상조업&lt;br/&gt;09/25~10/18&quot;]
+    P2 -. &quot;발주 지연 → 설비 제작 병목&quot; .-&gt; P3
+    P2 -. &quot;착공 지연 → 건축 일정 압박&quot; .-&gt; P3
+    P3 -. &quot;설치 지연 → 신고·시운전 압박&quot; .-&gt; P4
+    classDef base fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#052e16;
+    classDef gate fill:#ffedd5,stroke:#f97316,stroke-width:2px,color:#431407;
+    classDef build fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#172554;
+    classDef op fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#2e1065;
+    class P1 base; class P2 gate; class P3 build; class P4 op;</div></div></section><section class="block source-section" id="⑥-업데이트로그"><h2><span class="num">§</span>⑥ 업데이트로그</h2></section><section class="block source-section" id="통합-업데이트-로그"><h2><span class="num">§</span>통합 업데이트 로그</h2><ul><li>2026-05-19 · 업데이트 엑셀 기준 통합 노트 생성</li><li>2026-05-19 · 내부 자동화 기반 카드·차트·테이블 구조로 전면 개선</li><li>2026-05-19 · 원문 코드 노출 문제 방지를 위해 모든 시각화 코드를 내부 자동화 블록 내부로 정리</li><li>2026-05-19 · 금액 표기를 한글 금액 단위로 압축해 표 폭과 가독성 개선</li><li>2026-05-19 · 첨부 PDF 검토 기준으로 페이지 구분, 밝은 표 헤더, 좌→우 다이어그램 흐름 보정</li></ul></section><section class="block source-section" id="⑦-금주-업데이트-상세-설비견적-인력계획-정상조업-기준"><h2><span class="num">§</span>⑦ 금주 업데이트 상세 · 설비견적 / 인력계획 / 정상조업 기준</h2><div class="note info"><b>임원 보고용 리마인드</b></div><p class="quote-line">금주 업데이트의 핵심은 <strong>설비 견적금액이 기존 12억 예산을 초과했다는 점</strong>, <strong>납기 차이가 정상조업 일정에 직접 영향을 준다는 점</strong>, <strong>10월말 초기 정상조업은 내국인 기본인력 5명과 대체인력 체계로 관리해야 한다는 점</strong>입니다.</p><p class="quote-line">외국인 2명은 지수 할당 보완인력으로 관리하되, 11월말~12월 가능 시 빠른 일정이므로 10월말 초기 정상조업 필수 전제로 놓지 않습니다.</p><h4>⑦-1. 설비업체 견적 비교 및 자금 영향 업데이트</h4><h4>지급률별 시뮬레이션 요약</h4><div class="table-wrap"><table><thead><tr><th>시나리오</th><th>총액</th><th>지급률 가정/조건</th><th>1차</th><th>2차</th><th>3차</th><th>4차</th><th>예산 대비</th></tr></thead><tbody><tr><td>기존 계획</td><td>12.00억</td><td>30/40/30</td><td>3.60억</td><td>4.80억</td><td>3.60억</td><td>-</td><td>-</td></tr><tr><td>신비앤텍</td><td>13.47억</td><td>30/40/30 임시가정</td><td>4.04억</td><td>5.39억</td><td>4.04억</td><td>-</td><td>+1.47억</td></tr><tr><td>부영</td><td>13.45억</td><td>30/30/30/10 명시</td><td>4.04억</td><td>4.04억</td><td>4.04억</td><td>1.35억</td><td>+1.45억</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div><div class="note info"><b>자금스케줄 반영 결론</b></div><p class="quote-line">기존 설비 지급계획의 12억 기준을 그대로 유지하면 실제 계약 직전 예산 부족이 발생할 수 있습니다.</p><p class="quote-line">신비앤텍 기준은 <strong>중도금 피크가 커지는 구조</strong>, 부영 기준은 <strong>후단 지급이 생기지만 납기 리스크가 커지는 구조</strong>입니다. 따라서 최종 업체 선정 전에도 자금관리표에는 <strong>예산초과 1.45~1.47억, 지급조건 미확정, 납기 리스크</strong>를 별도 관리항목으로 추가해야 합니다.</p><div class="mermaid-wrap flowchart-wrap"><div class="mermaid">flowchart LR
+    A[기존 설비예산&lt;br/&gt;12.00억] --&gt; B{견적 접수&lt;br/&gt;13.45억대}
+    B --&gt; C[신비앤텍&lt;br/&gt;13.47억&lt;br/&gt;납기 3개월]
+    B --&gt; D[부영&lt;br/&gt;13.45억&lt;br/&gt;납기 6개월 이내]
+    C --&gt; E[자금 영향&lt;br/&gt;+1.47억&lt;br/&gt;지급조건 확인 필요]
+    C --&gt; F[일정 영향&lt;br/&gt;10월말 정상조업 대응 가능성 높음]
+    D --&gt; G[자금 영향&lt;br/&gt;+1.45억&lt;br/&gt;30/30/30/10 분산]
+    D --&gt; H[일정 영향&lt;br/&gt;6개월 납기 시 정상조업 지연 위험]
+    E --&gt; I[계약 전 의사결정&lt;br/&gt;예산증액·범위조정·납기협의]
+    F --&gt; I
+    G --&gt; I
+    H --&gt; I
+    classDef base fill:#e2e8f0,stroke:#64748b,stroke-width:2px,color:#0f172a;
+    classDef quote fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#172554;
+    classDef risk fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#450a0a;
+    classDef action fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#052e16;
+    class A base; class B,C,D quote; class E,G,H risk; class F,I action;</div></div><h4>⑦-2. 지수공장 인력충원계획 업데이트</h4><div class="note info"><b>보정 기준</b></div><p class="quote-line">지수공장 기본 운영인력은 <strong>총 5명</strong>입니다. 외국인 근로자는 전체 6명이 아니라 <strong>지수통합선별장 할당 2명</strong>이며, 정부 절차·공고·인력관리 컨설팅업체 일정상 <strong>2026년 11월말~12월 연내 가능 시 빠른 일정</strong>으로 보아야 합니다. 따라서 10월말 초기 정상조업은 외국인 2명을 전제로 두지 않고, 내국인 기본인력과 대체인력으로 관리해야 합니다.</p><div class="table-wrap"><table><thead><tr><th>구분</th><th>인원</th><th>역할</th><th>채용/배치 기준</th><th>통합노트 관리 포인트</th></tr></thead><tbody><tr><td>관리자</td><td>1명</td><td>소장/부소장</td><td>제조업 관리자 경력, 중장비 자격, 현장관리 중심</td><td>선채용 후 칠서 선행교육</td></tr><tr><td>현장근무자</td><td>3명</td><td>지게차·로더·선별 기사</td><td>자격증 보유자 우대, 별도 시급/성과급 검토</td><td>외국인과 무관하게 내국인 공고 지속</td></tr><tr><td>기존인원</td><td>1명</td><td>김인규 반장</td><td>하동지점 기존 근무 인력 전환</td><td>초기 생산 안정화 핵심 인력</td></tr><tr><td>보완인력</td><td>2명</td><td>외국인 근로자</td><td>총 6명 중 지수 할당 2명</td><td>11월말~12월 가능성, 초기 정상조업 필수인력에서 제외</td></tr></tbody></table></div><div class="mermaid-wrap gantt-wrap"><div class="mermaid">gantt
+    title 지수공장 인력충원 및 정상조업 연동 일정
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+
+    section 내국인 기본인력
+    관리자·현장기사 채용공고 개시 :done, m1, 2026-05-27, 1d
+    채용 공고 및 접수 지속 :active, m2, 2026-05-27, 2026-06-30
+    채용 확정 및 조건 협의 :crit, m3, 2026-06-10, 2026-07-15
+    칠서지점 파견교육·수습 2~3개월 :crit, m4, 2026-06-20, 2026-09-20
+
+    section 정상조업 준비
+    설비 설치·환경신고·시운전 연계 :m5, 2026-09-01, 2026-10-21
+    정상조업 전환 준비 :crit, m6, 2026-10-22, 2026-10-31
+    지수공장 본격 배치 :milestone, m7, 2026-10-31, 1d
+
+    section 외국인 보완인력
+    외국인 고용 사전준비·행정절차 :m8, 2026-07-01, 2026-10-31
+    컨설팅업체 가능성 통보 :milestone, m9, 2026-11-05, 1d
+    지수 할당 2명 연내 가능 구간 :m10, 2026-11-25, 2026-12-31</div></div><h4>⑦-3. 전주 대비 금주 변경사항 Matrix</h4><div class="mermaid-wrap flowchart-wrap"><div class="mermaid">flowchart LR
+    W[전주 기준&lt;br/&gt;일정·예산·리스크 관리] --&gt; Q[금주 견적 접수&lt;br/&gt;13.45억대 2건]
+    W --&gt; M[금주 인력계획 구체화&lt;br/&gt;총 5명 기본체계]
+    Q --&gt; B[자금스케줄 보정&lt;br/&gt;12억 -&gt; 13.45억대]
+    Q --&gt; L[납기 판단&lt;br/&gt;3개월 vs 6개월]
+    M --&gt; T[10월말 초기 정상조업&lt;br/&gt;내국인·대체인력 중심]
+    M --&gt; F[외국인 2명&lt;br/&gt;11월말~12월 보완]
+    B --&gt; R[임원 보고 핵심&lt;br/&gt;예산·납기·인력 동시 판단]
+    L --&gt; R
+    T --&gt; R
+    F --&gt; R
+    classDef base fill:#e2e8f0,stroke:#64748b,stroke-width:2px,color:#0f172a;
+    classDef update fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#172554;
+    classDef risk fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#450a0a;
+    classDef action fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#052e16;
+    class W base; class Q,M update; class B,L,F risk; class T,R action;</div></div><h4>⑦-4. 금주 추가 리스크 포트폴리오</h4><div class="note info"><b>금주 리스크 판단</b></div><p class="quote-line">금주 추가 리스크는 단순 항목 나열이 아니라, <strong>예산 초과 - 납기 차이 - 인력 교육기간 - 외국인 고용 지연</strong>이 서로 연결된 복합 리스크입니다. 특히 설비업체 선정이 늦어지거나 납기가 10월말 정상조업 기준을 넘기면, 인력교육이 끝나도 투입할 설비가 없거나 반대로 설비가 준비되어도 숙련 인력이 부족한 상황이 발생할 수 있습니다.</p><div class="table-wrap"><table><thead><tr><th>리스크</th><th>발생 조건</th><th>영향</th><th>즉시 대응</th><th>보고 기준</th></tr></thead><tbody><tr><td>R5 견적금액 예산 초과</td><td>13.45억대 견적 기준 계약 추진</td><td>기존 12억 예산 대비 1.45~1.47억 추가 필요</td><td>예산증액 가능성 및 설비범위 조정안 병행 검토</td><td>계약 전 보고 필요</td></tr><tr><td>R6 납기 차이</td><td>부영 6개월 이내 납기 적용</td><td>10월말 정상조업 일정과 충돌 가능</td><td>납기 단축 가능성, 지체조건, 우선협상 기준 검토</td><td>업체 선정 핵심 기준</td></tr><tr><td>R7 인력 교육기간 부족</td><td>6~7월 채용 확정 지연</td><td>칠서 교육 2~3개월 부족으로 초기 숙련도 저하</td><td>선채용·선교육 원칙 적용</td><td>주간 점검 필요</td></tr><tr><td>R8 외국인 고용 지연</td><td>11월말~12월 가능 일정</td><td>10월말 초기 정상조업 인력으로 활용 어려움</td><td>내국인 5명 기본체계와 대체인력 2명으로 운영계획 수립</td><td>중장기 보완인력</td></tr></tbody></table></div><h4>⑦-5. 통합 업데이트 로그 추가</h4><ul><li>2026-05-26 · 기존 통합노트 골격은 유지하고, 금주 업데이트를 자금·일정·리스크·인력계획에 연결하는 방식으로 통합.</li><li>2026-05-26 · 신비앤텍 <code>PS BALL 선별 라인</code> 견적 반영: 1,347,397,500원, VAT 별도, 납기 발주 후 3개월, Spare Part 제외, 지급조건 확인 필요.</li><li>2026-05-26 · 부영 <code>진주시 통합 선별장</code> 견적 반영: 1,345,400,000원, VAT 별도, 납기 발주 후 6개월 이내, 지급조건 30/30/30/10, 설치·설치용 크레인 포함, 기초 제외.</li><li>2026-05-26 · 설비 계획예산 12억 대비 두 업체 견적 모두 1.45~1.47억 초과 가능성이 있어 자금스케줄 가상 시뮬레이션을 추가.</li><li>2026-05-26 · 기존 12억 30/40/30 지급계획 대비 신비앤텍 30/40/30 임시가정, 부영 30/30/30/10 명시조건을 비교 반영.</li><li>2026-05-26 · 정상조업 기준은 2026-10-22 이후~10월말로 보수적 재정렬.</li><li>2026-05-26 · 지수공장 기본 인력계획은 총 5명으로 반영: 관리자 1명, 현장기사 3명, 기존 하동 반장 1명.</li><li>2026-05-26 · 외국인 근로자는 전체 6명이 아니라 지수통합선별장 할당 2명으로 보정.</li><li>2026-05-26 · 외국인 고용은 2026년 7~10월 사전준비, 10~11월초 가능성 통보, 11월말~12월 연내 채용 가능 시 빠른 일정으로 분류.</li><li>2026-05-26 · 외국인 2명은 10월말 초기 정상조업 필수인력이 아니라 중장기 보완인력으로 분리 관리.</li><li>2026-05-26 · 대체인력 2명 후보군은 채용 지연 및 초기 숙련도 부족 리스크 대응방안으로 유지.</li></ul><h4>⑦-6. 금주 후속 액션 · 확인표</h4><h4>최종 리마인드</h4><div class="note info"><b>금주 보고 핵심</b></div><p class="quote-line">1. 설비 견적은 2개 업체 모두 <strong>13.45억대</strong>로 기존 12억 예산보다 큽니다.</p><p class="quote-line">2. 단순 최저가가 아니라 <strong>납기 3개월 vs 6개월</strong>, <strong>지급조건</strong>, <strong>포함/제외 범위</strong>, <strong>사양 정합성</strong>을 함께 판단해야 합니다.</p><p class="quote-line">3. 10월말 정상조업을 위해서는 외국인 2명을 기다리는 구조가 아니라, <strong>내국인 기본인력 5명 + 대체인력 후보군</strong>으로 초기 운영 공백을 막아야 합니다.</p><p class="quote-line">4. 외국인 2명은 11월말~12월 가능성이므로, 초기 정상조업 인력이 아니라 <strong>연내 보완인력 및 안정화 인력</strong>으로 별도 관리합니다.</p></section>
+
+        <section class="block" id="review">
+          <h2><span class="num">R</span>리뷰 룸</h2>
+          <div class="review-grid">
+            <article class="review-card">
+              <h4>일정 검토</h4>
+              <p>Gantt와 원문 표의 기준일이 서로 맞는지 확인한다.</p>
+            </article>
+            <article class="review-card">
+              <h4>자금·계약 검토</h4>
+              <p>금액, 지급 Gate, 견적 범위가 원문 기준과 일치하는지 확인한다.</p>
+            </article>
+            <article class="review-card">
+              <h4>현장·인허가 검토</h4>
+              <p>착공계, 보완요구, 현장 리스크가 차주 실행계획에 반영됐는지 확인한다.</p>
+            </article>
+          </div>
+          <h3>검토 메모</h3>
+          <textarea id="readerMemo" placeholder="검토 의견, 다음 회의 질문, 보완 요청사항을 적어두세요. 이 메모는 이 브라우저에만 저장됩니다."></textarea>
+          <div class="copy-row">
+            <button class="btn" id="saveMemo" type="button">메모 저장</button>
+            <button class="btn" data-copy="review">리뷰 질문 복사</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const copyMap = {
+      summary: "2026-05-26 지수통합선별공장 프로젝트관리표 통합노트\n1. 기존 통합노트의 골격은 유지하되, 2026-05-26 기준으로 **설비업체 2개 견적 접수**, **지수공장 인력충원계획 구체화**, **외국인 고용 가능 시점 재정의**, **10월말 정상조업 기준 재정렬**을 추가 반영한다.\n2. 이번 업데이트의 핵심은 단순히 신규 항목을 추가하는 것이 아니라, 기존의 일정·자금·재고·리스크·마일스톤 구조 안에 **설비 견적 비교와 인력 운영 리스크**를 연결하는 것이다.\n3. 자금스케줄 업데이트 필요\n4. 기존 설비 계획예산은 **12억** 기준이었으나, 금주 접수된 2개 업체 견적은 모두 **약 13.45억대**입니다.\n5. 따라서 아직 견적 접수 단계이더라도, 경영진 보고 및 재무 사전준비 관점에서는 **최소 1.45~1.47억 수준의 추가 자금 필요 가능성**을 자금스케줄에 반영해야 합니다.\n6. 아래 시뮬레이션은 계약 전 가정치입니다. 실제 지급월은 계약일, 제작착수일, 납품일, 시운전 완료일 확정 후 업데이트합니다.",
+      next: "- 운영 체크리스트\n- ④ 리스크·의사결정\n- 핵심 리스크 관리\n- 리스크·의사결정 맥락 다이어그램\n- ⑦-4. 금주 추가 리스크 포트폴리오\n- ⑦-6. 금주 후속 액션 · 확인표",
+      review: "리뷰 질문\n1. 2026-05-26 기준 일정과 원문 표/간트가 일치하는가?\n2. 금액과 지급 Gate는 원문 기준에서 누락 없이 반영됐는가?\n3. 인허가·현장·설비 리스크 중 차주 실행계획으로 옮겨야 할 항목은 무엇인가?"
+    };
+    async function copyText(text){
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      const ok = document.execCommand("copy");
+      ta.remove();
+      return ok;
+    }
+    document.querySelectorAll("[data-copy]").forEach((button)=>{
+      button.addEventListener("click", async ()=>{
+        const key = button.getAttribute("data-copy");
+        await copyText(copyMap[key] || "");
+        const old = button.textContent;
+        button.textContent = "복사됨";
+        setTimeout(()=>button.textContent = old, 1200);
+      });
+    });
+    const themeButton = document.getElementById("themeToggle");
+    const themeKey = "jisoo-2026-05-26-theme";
+    const savedTheme = localStorage.getItem(themeKey);
+    if(savedTheme === "light"){
+      document.documentElement.setAttribute("data-theme","light");
+      themeButton.textContent = "다크 전환";
+    }
+    themeButton.addEventListener("click", ()=>{
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      if(isLight){
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem(themeKey,"dark");
+        themeButton.textContent = "라이트 전환";
+      } else {
+        document.documentElement.setAttribute("data-theme","light");
+        localStorage.setItem(themeKey,"light");
+        themeButton.textContent = "다크 전환";
+      }
+      requestAnimationFrame(syncMermaidThemeColors);
+    });
+    const memo = document.getElementById("readerMemo");
+    const memoKey = "jisoo-2026-05-26-review-memo";
+    memo.value = localStorage.getItem(memoKey) || "";
+    document.getElementById("saveMemo").addEventListener("click", ()=>{
+      localStorage.setItem(memoKey, memo.value);
+      const button = document.getElementById("saveMemo");
+      const old = button.textContent;
+      button.textContent = "저장됨";
+      setTimeout(()=>button.textContent = old, 1200);
+    });
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    function syncMermaidThemeColors(){
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      const textColor = isLight ? "#0f172a" : "#e5edf8";
+      const gridColor = isLight ? "#64748b" : "#94a3b8";
+      const nodeTextColor = "#0f172a";
+      const edgeTextColor = "#0f172a";
+      const edgeLabelBg = isLight ? "#f8fafc" : "#e0f2fe";
+      document.querySelectorAll('.mermaid-wrap svg text, .mermaid-wrap svg tspan, .mermaid-wrap svg .label, .mermaid-wrap svg .nodeLabel, .mermaid-wrap svg .edgeLabel, .mermaid-wrap svg .sectionTitle, .mermaid-wrap svg .taskText, .mermaid-wrap svg [class*="taskText"], .mermaid-wrap svg foreignObject, .mermaid-wrap svg foreignObject *').forEach((el)=>{
+        let color = textColor;
+        const inGantt = Boolean(el.closest(".gantt-wrap"));
+        const inModal = Boolean(el.closest(".diagram-modal-body"));
+        if(el.closest(".flowchart-wrap g.node")){
+          color = nodeTextColor;
+        } else if(el.closest(".flowchart-wrap g.edgeLabel")){
+          color = edgeTextColor;
+          el.style.setProperty("background",edgeLabelBg,"important");
+          el.style.setProperty("background-color",edgeLabelBg,"important");
+        }
+        el.style.setProperty("fill",color,"important");
+        el.style.setProperty("color",color,"important");
+        el.style.setProperty("font-weight","800","important");
+        el.style.setProperty("opacity","1","important");
+        el.style.setProperty("text-shadow","none","important");
+        if(inGantt){
+          const isTitle = el.classList.contains("titleText");
+          const isSection = el.classList.contains("sectionTitle");
+          const fontSize = isTitle ? (inModal ? "24px" : "18px") : (isSection ? (inModal ? "14px" : "11px") : (inModal ? "13px" : "10px"));
+          el.style.setProperty("font-size",fontSize,"important");
+          if(isTitle) el.style.setProperty("font-weight","950","important");
+        }
+      });
+      document.querySelectorAll('.flowchart-wrap svg g.edgeLabel, .flowchart-wrap svg g.edgeLabel foreignObject, .flowchart-wrap svg g.edgeLabel .label, .flowchart-wrap svg g.edgeLabel .edgeLabel').forEach((el)=>{
+        el.style.setProperty("background",edgeLabelBg,"important");
+        el.style.setProperty("background-color",edgeLabelBg,"important");
+        el.style.setProperty("color",edgeTextColor,"important");
+        el.style.setProperty("fill",edgeTextColor,"important");
+        el.style.setProperty("opacity","1","important");
+      });
+      document.querySelectorAll('.mermaid-wrap svg .grid .tick line, .mermaid-wrap svg .tick line').forEach((el)=>{
+        el.style.setProperty("stroke",gridColor,"important");
+        el.style.setProperty("opacity",".75","important");
+      });
+      adjustGanttLayout();
+    }
+    function adjustGanttLayout(){
+      document.querySelectorAll(".gantt-wrap svg").forEach((svg)=>{
+        if(!svg.dataset.baseViewBox){
+          svg.dataset.baseViewBox = svg.getAttribute("viewBox") || "";
+        }
+        const parts = svg.dataset.baseViewBox.split(/\s+/).map(Number);
+        if(parts.length === 4 && parts.every(Number.isFinite)){
+          const inModal = Boolean(svg.closest(".diagram-modal-body"));
+          const extraBottom = inModal ? 62 : 44;
+          svg.setAttribute("viewBox", `${parts[0]} ${parts[1]} ${parts[2]} ${parts[3] + extraBottom}`);
+        }
+        const inModal = Boolean(svg.closest(".diagram-modal-body"));
+        const axisY = inModal ? "38" : "28";
+        svg.querySelectorAll(".tick text").forEach((text)=>{
+          text.setAttribute("y",axisY);
+          text.setAttribute("dy","1em");
+          text.style.setProperty("font-size",inModal ? "13px" : "11px","important");
+          text.style.setProperty("font-weight","900","important");
+        });
+      });
+    }
+    function setupDiagramModals(){
+      let modal = document.querySelector(".diagram-modal");
+      if(!modal){
+        modal = document.createElement("div");
+        modal.className = "diagram-modal";
+        modal.setAttribute("role","dialog");
+        modal.setAttribute("aria-modal","true");
+        modal.innerHTML = '<div class="diagram-modal-card"><div class="diagram-modal-head"><div class="diagram-modal-title">다이어그램 확대 보기</div><button class="diagram-close" type="button">닫기</button></div><div class="diagram-modal-body"></div></div>';
+        document.body.appendChild(modal);
+        const closeModal = () => modal.classList.remove("open");
+        modal.querySelector(".diagram-close").addEventListener("click", closeModal);
+        modal.addEventListener("click", (event)=>{
+          if(event.target === modal) closeModal();
+        });
+        document.addEventListener("keydown", (event)=>{
+          if(event.key === "Escape") closeModal();
+        });
+      }
+      document.querySelectorAll(".mermaid-wrap").forEach((wrap)=>{
+        if(wrap.closest(".diagram-modal")) return;
+        if(!wrap.querySelector(".diagram-toolbar")){
+          const toolbar = document.createElement("div");
+          toolbar.className = "diagram-toolbar";
+          const button = document.createElement("button");
+          button.className = "diagram-expand";
+          button.type = "button";
+          button.title = "다이어그램을 큰 모달로 봅니다";
+          button.setAttribute("aria-label","다이어그램 확대 보기");
+          button.textContent = "확대 보기";
+          toolbar.appendChild(button);
+          wrap.prepend(toolbar);
+          button.addEventListener("click", ()=>{
+            const clone = wrap.cloneNode(true);
+            const cloneToolbar = clone.querySelector(".diagram-toolbar");
+            if(cloneToolbar) cloneToolbar.remove();
+            const body = modal.querySelector(".diagram-modal-body");
+            body.innerHTML = "";
+            body.appendChild(clone);
+            modal.classList.add("open");
+            requestAnimationFrame(syncMermaidThemeColors);
+          });
+        }
+      });
+    }
+    if(window.mermaid){
+      const mermaidLight = document.documentElement.getAttribute("data-theme") === "light";
+      window.mermaid.initialize({
+        startOnLoad:false,
+        theme:"base",
+        themeVariables: mermaidLight ? {
+          background:"#f8fafc",
+          primaryColor:"#dbeafe",
+          primaryTextColor:"#0f172a",
+          primaryBorderColor:"#2563eb",
+          lineColor:"#94a3b8",
+          secondaryColor:"#dcfce7",
+          tertiaryColor:"#fff7ed",
+          textColor:"#0f172a",
+          taskTextColor:"#0f172a",
+          taskTextOutsideColor:"#0f172a",
+          taskTextLightColor:"#0f172a",
+          sectionBkgColor:"#eef2f7",
+          altSectionBkgColor:"#e2e8f0",
+          gridColor:"#64748b"
+        } : {
+          background:"#111827",
+          primaryColor:"#1e3a8a",
+          primaryTextColor:"#e5edf8",
+          primaryBorderColor:"#60a5fa",
+          lineColor:"#64748b",
+          secondaryColor:"#14532d",
+          tertiaryColor:"#431407",
+          textColor:"#e5edf8",
+          taskTextColor:"#e5edf8",
+          taskTextOutsideColor:"#e5edf8",
+          sectionBkgColor:"#1f2937",
+          altSectionBkgColor:"#111827",
+          gridColor:"#475569"
+        },
+        securityLevel:"loose",
+        gantt:{
+          barHeight:16,
+          barGap:3,
+          topPadding:44,
+          leftPadding:120,
+          gridLineStartPadding:20,
+          fontSize:10,
+          sectionFontSize:11,
+          rightPadding:36
+        }
+      });
+      window.addEventListener("load", ()=>{
+        window.mermaid.run({querySelector:".mermaid"}).catch((error)=>{
+          console.error("Mermaid render failed", error);
+        }).finally(()=>{
+          syncMermaidThemeColors();
+          setupDiagramModals();
+        });
+      });
+    } else {
+      window.addEventListener("load", ()=>{
+        syncMermaidThemeColors();
+        setupDiagramModals();
+      });
+    }
+  </script>
+</body>
+</html>
