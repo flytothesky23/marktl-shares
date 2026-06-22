@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -850,10 +850,7 @@
       .print-only{display:block}
       textarea{display:none}
     }
-  
-
-    .share-home{position:fixed;right:18px;bottom:18px;z-index:40;display:inline-flex;align-items:center;gap:8px;padding:11px 14px;border-radius:999px;background:linear-gradient(135deg,#2563eb,#0891b2);color:#fff;font-weight:900;border:1px solid rgba(255,255,255,.28);box-shadow:0 18px 42px rgba(15,23,42,.28)}
-    .source-section .quote-line{margin:.25rem 0;color:var(--muted)}
+.source-section .quote-line{margin:.25rem 0;color:var(--muted)}
     .source-section h3,.source-section h4{scroll-margin-top:18px}
     .source-section ul{margin-top:8px}
     .source-section code{padding:2px 6px;border-radius:8px;background:rgba(148,163,184,.14);font-size:.9em}
@@ -864,8 +861,7 @@
     .summary-list li{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.05);padding:12px 14px;color:var(--muted)}
     [data-theme="light"] .summary-list li{background:#fff}
     .source-badge{display:inline-flex;margin:0 8px 8px 0;padding:6px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-weight:800;font-size:12px}
-    @media print{.share-home{display:none}}
-  </style>
+</style>
 <meta property="og:type" content="article">
 <meta property="og:title" content="2026-06-13 지수통합선별공장 프로젝트관리표 통합노트">
 <meta property="og:description" content="지수통합선별공장 프로젝트관리표 통합노트 2026-06-13 기준 통합노트 HTML">
@@ -876,8 +872,7 @@
 <link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/marktl/s/syhiq3/">
 </head>
 <body>
-  <a class="share-home" data-marktl-share-home href="https://flytothesky23.github.io/marktl-shares/marktl/">공유 홈</a>
-  <div class="shell">
+<div class="shell">
     <section class="hero" id="top">
       <div class="hero-top">
         <div>
@@ -887,8 +882,9 @@
         <div class="hero-actions" aria-label="문서 동작">
           <button class="btn primary" data-copy="summary">핵심 요약 복사</button>
           <button class="btn" data-copy="next">후속 과제 복사</button>
-          <button class="btn" id="themeToggle" type="button">라이트 전환</button>
-        </div>
+          <button class="btn" id="themeToggle" type="button">다크 전환</button>
+
+          <a class="btn marktl-share-home-inline" data-marktl-share-home href="https://flytothesky23.github.io/marktl-shares/marktl/" rel="home">공유 홈</a></div>
       </div>
       <p class="lead">금주는 <strong>계획 검토 단계가 실제 실행관리 단계로 전환된 주간</strong>입니다. 공사는 6/8 Kick-off 이후 6/11 바닥 콘크리트 철거 및 옹벽 기초공사 착수로 실행이 확인되었고, 설비는 기존 사일로·버킷엘리베이터 중심의 고상·저장형 구조에서 <strong>저상·직결형 선별공정</strong>으로 재정리되었습니다. 동시에 자금은 30% 일괄 지급이 아니라 <strong>10% 선지급 + 잔여 20% Gate</strong> 구조로 보정되었으며, 인허가는 진주시의 장애인 편의시설 검토 요구가 추가되어 보완</p>
       <div class="meta-row">
@@ -1216,7 +1212,10 @@
     const themeButton = document.getElementById("themeToggle");
     const themeKey = "jisoo-2026-06-13-theme";
     const savedTheme = localStorage.getItem(themeKey);
-    if(savedTheme === "light"){
+    if(savedTheme === "dark"){
+      document.documentElement.removeAttribute("data-theme");
+      themeButton.textContent = "라이트 전환";
+    } else {
       document.documentElement.setAttribute("data-theme","light");
       themeButton.textContent = "다크 전환";
     }
@@ -1244,7 +1243,7 @@
       setTimeout(()=>button.textContent = old, 1200);
     });
   </script>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
     function syncMermaidThemeColors(){

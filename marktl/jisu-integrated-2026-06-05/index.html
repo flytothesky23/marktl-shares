@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<link rel="icon" href="data:,">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-05 지수통합선별공장 프로젝트관리표 통합노트</title>
+  <style>
+:root { color-scheme: dark; --bg:#0b0f17; --panel:#111827; --panel-2:#172033; --card:#121b2c; --text:#f8fafc; --muted:#b8c2d6; --line:#2b374d; --line-strong:#465572; --blue:#60a5fa; --green:#5ee3a1; --orange:#fb923c; --red:#fb7185; --purple:#c084fc; --teal:#2dd4bf; --yellow:#facc15; --shadow:0 18px 44px rgba(0,0,0,.28); --diagram-panel:#0f172a; --diagram-node:#f8fafc; --diagram-text:#111827; --diagram-stroke:#8aa3c5; --diagram-muted:#475569; --button:#182236; --button-text:#f8fafc; }
+[data-theme="light"] { color-scheme: light; --bg:#f5f7fb; --panel:#ffffff; --panel-2:#eef2f7; --card:#ffffff; --text:#111827; --muted:#4b5563; --line:#d8dee9; --line-strong:#9aa7ba; --blue:#2563eb; --green:#15803d; --orange:#ea580c; --red:#dc2626; --purple:#7c3aed; --teal:#0f766e; --yellow:#b45309; --shadow:0 16px 40px rgba(15,23,42,.10); --diagram-panel:#ffffff; --diagram-node:#ffffff; --diagram-text:#111827; --diagram-stroke:#64748b; --diagram-muted:#475569; --button:#f0f4f9; --button-text:#111827; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Segoe UI",sans-serif; line-height:1.62; overflow-x:hidden; }
+a { color:inherit; }
+button, a.button { border:1px solid var(--line); background:var(--button); color:var(--button-text); padding:9px 12px; border-radius:8px; font-weight:800; cursor:pointer; text-decoration:none; font-size:14px; min-height:38px; display:inline-flex; align-items:center; justify-content:center; gap:6px; }
+button:hover, a.button:hover { border-color:var(--line-strong); }
+button:focus-visible, a.button:focus-visible { outline:3px solid color-mix(in srgb, var(--blue) 42%, transparent); outline-offset:2px; }
+.page { width:min(1320px, calc(100% - 32px)); margin:0 auto; padding:22px 0 64px; }
+.topbar { position:sticky; top:10px; z-index:30; display:flex; justify-content:space-between; gap:14px; align-items:center; padding:10px 12px; border:1px solid var(--line); background:color-mix(in srgb, var(--panel) 92%, transparent); backdrop-filter:blur(14px); border-radius:10px; box-shadow:var(--shadow); }
+.brand { display:flex; align-items:center; gap:10px; font-weight:900; }
+.brand-mark { width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--blue),var(--green) 58%,var(--orange)); }
+.nav { display:flex; flex-wrap:wrap; gap:7px; justify-content:flex-end; }
+.nav a { text-decoration:none; border:1px solid var(--line); border-radius:8px; padding:7px 9px; color:var(--muted); font-weight:800; font-size:13px; }
+.hero { padding:44px 0 26px; display:grid; grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr); gap:24px; align-items:stretch; }
+.hero-main { min-height:350px; display:flex; flex-direction:column; justify-content:space-between; border-bottom:1px solid var(--line); padding:10px 0 28px; }
+.kicker { color:var(--orange); font-size:13px; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+h1 { margin:12px 0 14px; font-size:56px; line-height:1.05; letter-spacing:0; }
+.subtitle { margin:0; color:var(--muted); font-size:20px; max-width:780px; }
+.hero-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.chip { display:inline-flex; border:1px solid var(--line); color:var(--muted); padding:6px 9px; border-radius:8px; font-size:13px; font-weight:800; background:color-mix(in srgb, var(--panel-2) 74%, transparent); }
+.chip.strong { color:#111827; background:var(--yellow); border-color:transparent; }
+.hero-side { display:grid; grid-template-columns:1fr; gap:10px; }
+.status-card, .metric, .memo, .donut-card, .decision-card, .risk-card, .milestone-card { background:var(--card); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); }
+.status-card { padding:18px; }
+.status-card b { display:block; color:var(--green); font-size:15px; margin-bottom:7px; }
+.status-card p { margin:0; color:var(--muted); }
+.metric-grid { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px; margin:18px 0 36px; }
+.metric { padding:16px; border-top:5px solid var(--tone); }
+.metric small { display:block; color:var(--muted); font-weight:900; letter-spacing:.08em; }
+.metric strong { display:block; color:var(--tone); font-size:28px; line-height:1.1; margin:8px 0 6px; }
+.metric p { margin:0; color:var(--muted); font-size:14px; }
+.layout { display:grid; grid-template-columns:230px minmax(0,1fr); gap:24px; align-items:start; }
+.layout > *, main, section.report-section { min-width:0; }
+.toc { position:sticky; top:78px; border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:14px; }
+.toc h2 { margin:0 0 10px; font-size:16px; }
+.toc a { display:block; padding:8px 8px; color:var(--muted); text-decoration:none; border-radius:6px; font-weight:800; font-size:14px; }
+.toc a:hover { background:var(--panel-2); color:var(--text); }
+section.report-section { margin:0 0 42px; scroll-margin-top:90px; }
+.section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:14px; }
+h2 { margin:0; font-size:30px; line-height:1.18; letter-spacing:0; }
+h3 { margin:0 0 10px; font-size:19px; letter-spacing:0; }
+.section-head p { margin:0; color:var(--muted); max-width:650px; }
+.table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+table { width:100%; min-width:840px; border-collapse:collapse; }
+th, td { padding:11px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); word-break:keep-all; }
+th { background:var(--panel-2); color:var(--text); font-size:13px; }
+td { color:var(--muted); font-size:14px; }
+td:first-child { color:var(--text); font-weight:800; }
+.summary-grid, .cards-3, .cards-4 { display:grid; gap:12px; }
+.summary-grid { grid-template-columns:repeat(2, minmax(0,1fr)); }
+.cards-3 { grid-template-columns:repeat(3, minmax(0,1fr)); }
+.cards-4 { grid-template-columns:repeat(4, minmax(0,1fr)); }
+.memo { padding:18px; }
+.memo strong { color:var(--blue); }
+.memo p, .memo li { color:var(--muted); margin-top:0; }
+.diagram-shell { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:12px; overflow-x:auto; }
+.diagram-toolbar { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.diagram-toolbar span { color:var(--muted); font-weight:800; font-size:13px; }
+.diagram-svg { display:block; width:100%; min-width:940px; height:auto; }
+.diagram-panel { fill:var(--diagram-panel); stroke:var(--line); }
+.diagram-title { fill:var(--text); font-size:18px; font-weight:900; }
+.diagram-subtitle, .gantt-date, .gantt-inline-date, .gantt-legend text { fill:var(--muted); font-size:10.5px; font-weight:800; }
+.gantt-task-label { fill:var(--text); font-size:10.5px; font-weight:800; }
+.gantt-group { fill:var(--muted); font-size:10px; font-weight:900; }
+.gantt-grid { stroke:var(--line); stroke-width:1; }
+.gantt-row-bg { fill:color-mix(in srgb, var(--panel-2) 30%, transparent); }
+.gantt-row-bg.alt { fill:color-mix(in srgb, var(--panel-2) 56%, transparent); }
+.gantt-bar { stroke:rgba(255,255,255,.28); stroke-width:.5; }
+.gantt-bar.done, .gantt-milestone.done { fill:var(--green); }
+.gantt-bar.active, .gantt-milestone.active, .gantt-milestone.gate { fill:var(--blue); }
+.gantt-bar.critical, .gantt-milestone.critical { fill:var(--red); }
+.gantt-bar.equipment, .gantt-milestone.equipment { fill:var(--purple); }
+.gantt-milestone { stroke:var(--bg); stroke-width:1; }
+.today-line { stroke:var(--orange); stroke-width:2; stroke-dasharray:4 4; }
+.today-label { fill:var(--orange); font-size:11px; font-weight:900; }
+.flow-node rect { fill:var(--diagram-node); stroke:var(--diagram-stroke); stroke-width:2; }
+.flow-node.ok rect { fill:#dcfce7; stroke:#16a34a; }
+.flow-node.pay rect { fill:#dbeafe; stroke:#2563eb; }
+.flow-node.warn rect, .flow-node.gate rect { fill:#ffedd5; stroke:#f97316; }
+.flow-node.risk rect { fill:#fee2e2; stroke:#dc2626; }
+.flow-node text { fill:var(--diagram-text); }
+.box-title { font-size:14px; font-weight:900; }
+.box-line { font-size:12px; font-weight:800; }
+.flow-arrow { stroke:var(--diagram-muted); stroke-width:2.3; fill:none; }
+.flow-arrow.dashed { stroke-dasharray:6 5; }
+.arrow-head { fill:var(--diagram-muted); }
+.donut-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; margin:12px 0; }
+.donut-card { padding:16px; }
+.donut-layout { display:grid; grid-template-columns:184px minmax(0,1fr); gap:14px; align-items:center; }
+.donut-hole { fill:var(--card); }
+.donut-kicker { fill:var(--muted); font-size:12px; font-weight:900; }
+.donut-total { fill:var(--text); font-size:16px; font-weight:900; }
+.donut-legend { list-style:none; padding:0; margin:0; display:grid; gap:7px; }
+.donut-legend li { display:grid; grid-template-columns:12px minmax(0,1fr) auto auto; gap:8px; align-items:center; color:var(--muted); font-size:14px; }
+.swatch { width:10px; height:10px; border-radius:3px; background:var(--swatch); }
+.donut-legend b { color:var(--text); }
+.donut-legend em { color:var(--muted); font-style:normal; }
+.decision-card, .risk-card, .milestone-card { padding:15px; }
+.decision-card small, .risk-card small, .milestone-card small { display:block; color:var(--muted); font-weight:900; margin-bottom:6px; }
+.decision-card b, .risk-card b, .milestone-card b { color:var(--tone); }
+.decision-card p, .risk-card p, .milestone-card p { color:var(--muted); margin:8px 0 0; }
+.review-room { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.copy-target { white-space:pre-wrap; color:var(--muted); margin:0; }
+.footer { margin-top:42px; padding:20px 0; color:var(--muted); border-top:1px solid var(--line); font-size:13px; }
+.toast { position:fixed; right:18px; bottom:18px; background:var(--panel); color:var(--text); border:1px solid var(--line); box-shadow:var(--shadow); border-radius:8px; padding:10px 12px; opacity:0; transform:translateY(12px); transition:opacity .18s ease, transform .18s ease; pointer-events:none; z-index:60; }
+.toast.show { opacity:1; transform:none; }
+.modal { position:fixed; inset:0; z-index:80; display:none; }
+.modal.open { display:block; }
+.modal-backdrop { position:absolute; inset:0; background:rgba(0,0,0,.62); }
+.modal-card { position:absolute; inset:28px; background:var(--bg); border:1px solid var(--line); border-radius:10px; box-shadow:0 30px 90px rgba(0,0,0,.55); display:flex; flex-direction:column; overflow:hidden; }
+.modal-head { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; border-bottom:1px solid var(--line); background:var(--panel); }
+.modal-head strong { font-size:18px; }
+.modal-body { padding:12px; overflow:auto; }
+.modal-body .diagram-svg { min-width:1260px; }
+.modal-body .diagram-title { font-size:24px; }
+.modal-body .gantt-task-label { font-size:13px; }
+.modal-body .gantt-group, .modal-body .gantt-date, .modal-body .gantt-inline-date { font-size:12px; }
+.modal-body .box-title { font-size:16px; }
+.modal-body .box-line { font-size:14px; }
+@media (max-width:1100px) { .hero, .layout { grid-template-columns:1fr; } .toc { position:relative; top:auto; } .metric-grid, .cards-4 { grid-template-columns:repeat(2, minmax(0,1fr)); } }
+@media (max-width:760px) { .page { width:min(100% - 20px, 1320px); } .topbar { align-items:flex-start; flex-direction:column; } h1 { font-size:36px; } h2 { font-size:24px; } .hero { padding-top:26px; } .metric-grid, .summary-grid, .cards-3, .cards-4, .donut-grid, .review-room { grid-template-columns:1fr; } .donut-layout { grid-template-columns:1fr; } .section-head { align-items:flex-start; flex-direction:column; } .modal-card { inset:12px; } }
+@media print { body { background:#fff; color:#111827; } .topbar, .hero-actions, .toc, .expand-btn, .modal, .toast { display:none !important; } .layout { display:block; } .page { width:100%; padding:0; } section.report-section { break-inside:avoid; } .diagram-shell, .table-wrap, .memo, .metric, .donut-card { box-shadow:none; } }
+
+/* MarkTL 0.19.2 header consistency */
+.topbar { display:none !important; }
+.page { width:min(1240px, calc(100% - 40px)); margin:0 auto; padding:34px 0 64px; }
+.hero { position:relative; min-height:330px; border:1px solid var(--line); border-radius:32px; overflow:hidden; background:linear-gradient(135deg, rgba(74,222,128,.14), transparent 34%), radial-gradient(circle at 85% 24%, rgba(96,165,250,.22), transparent 30%), linear-gradient(135deg, rgba(17,24,39,.95), rgba(15,23,42,.80)); box-shadow:var(--shadow); padding:34px; display:block; }
+[data-theme="light"] .hero { background:linear-gradient(135deg, rgba(74,222,128,.16), transparent 34%), radial-gradient(circle at 85% 24%, rgba(96,165,250,.24), transparent 30%), linear-gradient(135deg, #ffffff, #eef6ff); }
+.hero:before { content:""; position:absolute; inset:0 0 auto; height:8px; background:linear-gradient(90deg,var(--green),var(--blue),var(--purple),var(--orange)); }
+.hero-top { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:flex-start; gap:24px; position:relative; z-index:1; }
+.eyebrow { display:inline-flex; gap:10px; align-items:center; color:var(--yellow); font-weight:900; letter-spacing:.16em; text-transform:uppercase; font-size:12px; }
+h1 { max-width:820px; margin:18px 0 18px; font-size:clamp(38px,5.4vw,74px); line-height:1.06; letter-spacing:0; color:#fff; }
+[data-theme="light"] h1 { color:#0f172a; }
+.lead { max-width:840px; margin:0 0 24px; color:var(--muted); font-size:18px; position:relative; z-index:1; }
+.hero-actions { display:flex; gap:10px; flex-wrap:nowrap; justify-content:flex-end; min-width:max-content; margin-top:0; position:relative; z-index:1; }
+.btn, .hero-actions button, .hero-actions a { display:inline-flex; align-items:center; gap:8px; padding:11px 14px; min-height:40px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid var(--line); color:var(--text); font-weight:800; text-decoration:none; backdrop-filter:blur(12px); white-space:nowrap; }
+.btn.primary, .hero-actions .primary { background:linear-gradient(135deg,#2563eb,#0891b2); border-color:rgba(255,255,255,.22); color:#fff; }
+.meta-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; position:relative; z-index:1; }
+.chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:0; }
+.chip { display:inline-flex; align-items:center; gap:7px; padding:8px 11px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.07); color:var(--muted); font-size:13px; font-weight:800; }
+[data-theme="light"] .chip { background:rgba(15,23,42,.04); }
+.chip.strong { color:#111827; background:var(--yellow); border-color:transparent; }
+.hero-side { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:22px; position:relative; z-index:1; }
+@media (max-width:960px) { .hero-top { grid-template-columns:1fr; } .hero-actions { justify-content:flex-start; flex-wrap:wrap; min-width:0; } .hero-side { grid-template-columns:1fr; } }
+@media (max-width:760px) { .page { width:min(100% - 20px, 1320px); } .hero { padding:26px 20px; border-radius:24px; } h1 { font-size:36px; } }
+
+</style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026-06-05 지수통합선별공장 프로젝트관리표 통합노트">
+<meta property="og:description" content="2026-06-05 지수통합선별공장 프로젝트관리표 통합노트 JISOO INTEGRATED FACTORY · PROJECT CONTROL 지수통합선별공장 프로젝트관리표 통합노트 핵심 요약 복사 후속 과제 복사 다크 전환 공유 홈 2026-06-05 기준. 계약 체결 완료, 인허가 제출, 보증서·계약금 지급, 6/8 부대공사 선행 착수, 6/22 착공계 신청으로 이어지는 실행 흐름을 통합 관리한다. 기준일 2026-06-05 상태 진행중 공사계약 완료 인허가 제출 완료 패킹라인 결정 필요 이번...">
+<meta property="og:url" content="https://flytothesky23.github.io/marktl-shares/marktl/s/tijvm0/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2026-06-05 지수통합선별공장 프로젝트관리표 통합노트">
+<meta name="twitter:description" content="2026-06-05 지수통합선별공장 프로젝트관리표 통합노트 JISOO INTEGRATED FACTORY · PROJECT CONTROL 지수통합선별공장 프로젝트관리표 통합노트 핵심 요약 복사 후속 과제 복사 다크 전환 공유 홈 2026-06-05 기준. 계약 체결 완료, 인허가 제출, 보증서·계약금 지급, 6/8 부대공사 선행 착수, 6/22 착공계 신청으로 이어지는 실행 흐름을 통합 관리한다. 기준일 2026-06-05 상태 진행중 공사계약 완료 인허가 제출 완료 패킹라인 결정 필요 이번...">
+<link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/marktl/s/tijvm0/">
+</head>
+<body>
+  <div class="page">
+    <section class="hero" id="top">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow">JISOO INTEGRATED FACTORY · PROJECT CONTROL</div>
+          <h1>지수통합선별공장 프로젝트관리표 통합노트</h1>
+        </div>
+        <div class="hero-actions" aria-label="문서 동작">
+          <button class="btn primary" type="button" data-copy="summary">핵심 요약 복사</button>
+          <button class="btn" type="button" data-copy="next">후속 과제 복사</button>
+          <button class="btn" type="button" id="themeToggle">다크 전환</button>
+          <a class="btn marktl-share-home-inline" href="https://flytothesky23.github.io/marktl-shares/marktl/" data-marktl-share-home rel="home">공유 홈</a></div>
+      </div>
+      <p class="lead">2026-06-05 기준. 계약 체결 완료, 인허가 제출, 보증서·계약금 지급, 6/8 부대공사 선행 착수, 6/22 착공계 신청으로 이어지는 실행 흐름을 통합 관리한다.</p>
+      <div class="meta-row"><div class="chips"><span class="chip strong">기준일 2026-06-05</span><span class="chip">상태 진행중</span><span class="chip">공사계약 완료</span><span class="chip">인허가 제출 완료</span><span class="chip">패킹라인 결정 필요</span></div></div>
+      <aside class="hero-side" aria-label="핵심 상태">
+        <article class="status-card"><b>이번 주 판단</b><p>공휴일로 실질 작업일은 짧았지만 프로젝트 전체를 흔드는 신규 이슈는 제한적이다. 다만 6/8 패킹라인 결정과 6/10 보증서·계약금 지급이 지연되면 설비계약과 착공계 준비에 간접 압박이 발생한다.</p></article>
+        <article class="status-card"><b>관리 기준</b><p>금재종합건설 8.6억은 2026-05-29 전자결재 최종승인 기준으로 확정 관리하고, 설비는 13.45억대 견적 기준으로 변동관리한다.</p></article>
+      </aside>
+    </section>
+
+    <div class="metric-grid" aria-label="헤드라인 지표">
+      <article class="metric" style="--tone:var(--green)"><small>CONSTRUCTION</small><strong>8.6억</strong><p>금재종합건설 공사계약 확정. 30/30/30/10 지급조건으로 관리.</p></article>
+      <article class="metric" style="--tone:var(--blue)"><small>PERMIT GATE</small><strong>6/5</strong><p>증축인허가 및 공장설립인허가 진주시청 제출 완료.</p></article>
+      <article class="metric" style="--tone:var(--orange)"><small>CASH GATE</small><strong>6/10</strong><p>계약보증서 접수 및 계약금 30% 2.58억 지급 예정.</p></article>
+      <article class="metric" style="--tone:var(--red)"><small>EQUIPMENT</small><strong>6/8</strong><p>패킹라인 이송방식 최종 결정 후 설비공급업체 계약일정 유지.</p></article>
+    </div>
+
+    <div class="layout">
+      <aside class="toc" aria-label="문서 지도">
+        <h2>문서 지도</h2>
+        <a href="#overview">빠른 현황</a>
+        <a href="#gantt">통합간트차트</a>
+        <a href="#funding">자금스케줄</a>
+        <a href="#equipment">설비·현장</a>
+        <a href="#risks">리스크·의사결정</a>
+        <a href="#milestones">마일스톤</a>
+        <a href="#next">차주 실행계획</a>
+        <a href="#review">리뷰룸</a>
+      </aside>
+
+      <main>
+        <section class="report-section" id="overview">
+          <div class="section-head"><h2>빠른 현황</h2><p>전주 기준과 6/5 업데이트를 비교해 일정, 자금, 설비 판단이 동시에 바뀐 지점을 먼저 확인한다.</p></div>
+          <div class="table-wrap"><table><thead><tr><th>관리영역</th><th>변경 전</th><th>변경 후</th><th>판단</th></tr></thead><tbody><tr><td>증축·부대공사</td><td>공사비 추정 및 견적 검토</td><td>금재종합건설 8.6억 전자결재 최종승인 기준</td><td>자금스케줄 확정 반영</td></tr>
+<tr><td>공사 지급조건</td><td>증축/토목 분리 가정</td><td>30% / 30% / 30% / 10%</td><td>월별 자금계획 재산정</td></tr>
+<tr><td>공사 일정</td><td>8월말 준공검사 전환</td><td>2026-09-15 준공 완료</td><td>설비 반입·설치 일정 접점 재조정</td></tr>
+<tr><td>설비 납기</td><td>업체별 견적 비교 단계</td><td>부영 10/15 납기 가능 입장</td><td>계약/설계승인 단축 전제 확인</td></tr>
+<tr><td>하동 설비 재활용</td><td>포괄적 재활용 가능성</td><td>선별기·백필터 가능, 패킹설비 불가</td><td>견적 재산정 및 인허가 확인</td></tr>
+<tr><td>패킹라인 이송</td><td>컨셉 레이아웃 기준</td><td>벨트각도/대안설비 결정 필요</td><td>설비 발주의 선행 의사결정 항목</td></tr></tbody></table></div>
+        </section>
+
+        <section class="report-section" id="gantt">
+          <div class="section-head"><h2>통합간트차트</h2><p>금재종합건설 계약 및 세부공정 기준의 공사 일정과 부영 EPC 조건부 납기 흐름을 같은 축에 놓았다.</p></div>
+          <div class="diagram-shell">
+            <div class="diagram-toolbar"><span>일정 기준: 2026-06-05 업데이트</span><button type="button" class="expand-btn" data-target="gantt-main" data-title="통합간트차트 확대 보기">확대 보기</button></div>
+            <svg id="gantt-main" class="diagram-svg gantt-svg" viewBox="0 0 1160 670" role="img" aria-label="2026-06-05 기준 통합 일정 간트">
+    <text x="32" y="34" class="diagram-title">지수통합선별공장 통합 일정 · 2026-06-05 기준</text>
+    <text x="930" y="34" class="diagram-subtitle">범위: 2026-06-01 ~ 2026-10-31</text>
+    <rect x="24" y="48" width="1112" height="594" rx="10" class="diagram-panel"/>
+    <line x1="248.0" y1="72" x2="248.0" y2="618" class="gantt-grid"/><text x="248.0" y="63" class="gantt-date" text-anchor="middle">06/01</text><text x="248.0" y="648" class="gantt-date bottom" text-anchor="middle">06/01</text><line x1="327.2" y1="72" x2="327.2" y2="618" class="gantt-grid"/><text x="327.2" y="63" class="gantt-date" text-anchor="middle">06/15</text><text x="327.2" y="648" class="gantt-date bottom" text-anchor="middle">06/15</text><line x1="417.7" y1="72" x2="417.7" y2="618" class="gantt-grid"/><text x="417.7" y="63" class="gantt-date" text-anchor="middle">07/01</text><text x="417.7" y="648" class="gantt-date bottom" text-anchor="middle">07/01</text><line x1="496.9" y1="72" x2="496.9" y2="618" class="gantt-grid"/><text x="496.9" y="63" class="gantt-date" text-anchor="middle">07/15</text><text x="496.9" y="648" class="gantt-date bottom" text-anchor="middle">07/15</text><line x1="593.1" y1="72" x2="593.1" y2="618" class="gantt-grid"/><text x="593.1" y="63" class="gantt-date" text-anchor="middle">08/01</text><text x="593.1" y="648" class="gantt-date bottom" text-anchor="middle">08/01</text><line x1="672.3" y1="72" x2="672.3" y2="618" class="gantt-grid"/><text x="672.3" y="63" class="gantt-date" text-anchor="middle">08/15</text><text x="672.3" y="648" class="gantt-date bottom" text-anchor="middle">08/15</text><line x1="768.5" y1="72" x2="768.5" y2="618" class="gantt-grid"/><text x="768.5" y="63" class="gantt-date" text-anchor="middle">09/01</text><text x="768.5" y="648" class="gantt-date bottom" text-anchor="middle">09/01</text><line x1="847.7" y1="72" x2="847.7" y2="618" class="gantt-grid"/><text x="847.7" y="63" class="gantt-date" text-anchor="middle">09/15</text><text x="847.7" y="648" class="gantt-date bottom" text-anchor="middle">09/15</text><line x1="938.3" y1="72" x2="938.3" y2="618" class="gantt-grid"/><text x="938.3" y="63" class="gantt-date" text-anchor="middle">10/01</text><text x="938.3" y="648" class="gantt-date bottom" text-anchor="middle">10/01</text><line x1="1017.5" y1="72" x2="1017.5" y2="618" class="gantt-grid"/><text x="1017.5" y="63" class="gantt-date" text-anchor="middle">10/15</text><text x="1017.5" y="648" class="gantt-date bottom" text-anchor="middle">10/15</text><line x1="1108.0" y1="72" x2="1108.0" y2="618" class="gantt-grid"/><text x="1108.0" y="63" class="gantt-date" text-anchor="middle">10/31</text><text x="1108.0" y="648" class="gantt-date bottom" text-anchor="middle">10/31</text>
+    <line x1="270.6" y1="72" x2="270.6" y2="618" class="today-line"/>
+    <text x="278.6" y="86" class="today-label">기준일</text>
+    <rect x="248" y="83" width="860" height="28" rx="4" class="gantt-row-bg "/><text x="32" y="100" class="gantt-group">설계</text><text x="118" y="100" class="gantt-task-label">건축설계 완료</text><path d="M 259.3 88 L 267.3 96 L 259.3 104 L 251.3 96 Z" class="gantt-milestone done"/><text x="271.3" y="100" class="gantt-inline-date">06/03</text>
+<rect x="248" y="111" width="860" height="28" rx="4" class="gantt-row-bg alt"/><text x="32" y="128" class="gantt-group">인허가</text><text x="118" y="128" class="gantt-task-label">증축·공장설립 인허가 제출</text><path d="M 270.6 116 L 278.6 124 L 270.6 132 L 262.6 124 Z" class="gantt-milestone done"/><text x="282.6" y="128" class="gantt-inline-date">06/05</text>
+<rect x="248" y="139" width="860" height="28" rx="4" class="gantt-row-bg "/><text x="32" y="156" class="gantt-group">현장</text><text x="118" y="156" class="gantt-task-label">현장사무소·건자재 입고</text><rect x="248.0" y="145" width="22.6" height="14" rx="4" class="gantt-bar done"/><text x="260.0" y="143" class="gantt-inline-date">06/01~06/05</text>
+<rect x="248" y="167" width="860" height="28" rx="4" class="gantt-row-bg alt"/><text x="32" y="184" class="gantt-group">현장</text><text x="118" y="184" class="gantt-task-label">부대공사 선행 착수</text><path d="M 287.6 172 L 295.6 180 L 287.6 188 L 279.6 180 Z" class="gantt-milestone gate"/><text x="299.6" y="184" class="gantt-inline-date">06/08</text>
+<rect x="248" y="195" width="860" height="28" rx="4" class="gantt-row-bg "/><text x="32" y="212" class="gantt-group">자금</text><text x="118" y="212" class="gantt-task-label">계약보증서·계약금 2.58억</text><path d="M 298.9 200 L 306.9 208 L 298.9 216 L 290.9 208 Z" class="gantt-milestone gate"/><text x="310.9" y="212" class="gantt-inline-date">06/10</text>
+<rect x="248" y="223" width="860" height="28" rx="4" class="gantt-row-bg alt"/><text x="32" y="240" class="gantt-group">부대공사</text><text x="118" y="240" class="gantt-task-label">옹벽·벽체판넬 완료관리</text><rect x="287.6" y="229" width="79.2" height="14" rx="4" class="gantt-bar critical"/><text x="327.2" y="227" class="gantt-inline-date">06/08~06/22</text>
+<rect x="248" y="251" width="860" height="28" rx="4" class="gantt-row-bg "/><text x="32" y="268" class="gantt-group">착공</text><text x="118" y="268" class="gantt-task-label">착공계 신청</text><path d="M 366.8 256 L 374.8 264 L 366.8 272 L 358.8 264 Z" class="gantt-milestone gate"/><text x="378.8" y="268" class="gantt-inline-date">06/22</text>
+<rect x="248" y="279" width="860" height="28" rx="4" class="gantt-row-bg alt"/><text x="32" y="296" class="gantt-group">부대공사</text><text x="118" y="296" class="gantt-task-label">기숙사 방수·사무동 보완</text><rect x="287.6" y="285" width="124.5" height="14" rx="4" class="gantt-bar active"/><text x="349.8" y="283" class="gantt-inline-date">06/08~06/30</text>
+<rect x="248" y="307" width="860" height="28" rx="4" class="gantt-row-bg "/><text x="32" y="324" class="gantt-group">부대공사</text><text x="118" y="324" class="gantt-task-label">펜스·입구게이트 공사</text><rect x="417.7" y="313" width="79.2" height="14" rx="4" class="gantt-bar active"/><text x="457.3" y="311" class="gantt-inline-date">07/01~07/15</text>
+<rect x="248" y="335" width="860" height="28" rx="4" class="gantt-row-bg alt"/><text x="32" y="352" class="gantt-group">증축</text><text x="118" y="352" class="gantt-task-label">기초공사·골조 기초</text><rect x="468.7" y="341" width="56.6" height="14" rx="4" class="gantt-bar critical"/><text x="496.9" y="339" class="gantt-inline-date">07/10~07/20</text>
+<rect x="248" y="363" width="860" height="28" rx="4" class="gantt-row-bg "/><text x="32" y="380" class="gantt-group">증축</text><text x="118" y="380" class="gantt-task-label">바닥공사·철골 자재입고</text><rect x="525.2" y="369" width="90.5" height="14" rx="4" class="gantt-bar critical"/><text x="570.5" y="367" class="gantt-inline-date">07/20~08/05</text>
+<rect x="248" y="391" width="860" height="28" rx="4" class="gantt-row-bg alt"/><text x="32" y="408" class="gantt-group">증축</text><text x="118" y="408" class="gantt-task-label">철골 설치 완료</text><path d="M 615.8 396 L 623.8 404 L 615.8 412 L 607.8 404 Z" class="gantt-milestone gate"/><text x="627.8" y="408" class="gantt-inline-date">08/05</text>
+<rect x="248" y="419" width="860" height="28" rx="4" class="gantt-row-bg "/><text x="32" y="436" class="gantt-group">증축</text><text x="118" y="436" class="gantt-task-label">벽체·지붕 판넬공사</text><rect x="672.3" y="425" width="84.9" height="14" rx="4" class="gantt-bar active"/><text x="714.8" y="423" class="gantt-inline-date">08/15~08/30</text>
+<rect x="248" y="447" width="860" height="28" rx="4" class="gantt-row-bg alt"/><text x="32" y="464" class="gantt-group">증축</text><text x="118" y="464" class="gantt-task-label">전기·마감공사</text><path d="M 757.2 452 L 765.2 460 L 757.2 468 L 749.2 460 Z" class="gantt-milestone gate"/><text x="769.2" y="464" class="gantt-inline-date">08/30</text>
+<rect x="248" y="475" width="860" height="28" rx="4" class="gantt-row-bg "/><text x="32" y="492" class="gantt-group">준공</text><text x="118" y="492" class="gantt-task-label">준공검사 신청</text><path d="M 762.9 480 L 770.9 488 L 762.9 496 L 754.9 488 Z" class="gantt-milestone gate"/><text x="774.9" y="492" class="gantt-inline-date">08/31</text>
+<rect x="248" y="503" width="860" height="28" rx="4" class="gantt-row-bg alt"/><text x="32" y="520" class="gantt-group">준공</text><text x="118" y="520" class="gantt-task-label">준공 완료</text><path d="M 847.7 508 L 855.7 516 L 847.7 524 L 839.7 516 Z" class="gantt-milestone critical"/><text x="859.7" y="520" class="gantt-inline-date">09/15</text>
+<rect x="248" y="531" width="860" height="28" rx="4" class="gantt-row-bg "/><text x="32" y="548" class="gantt-group">설비</text><text x="118" y="548" class="gantt-task-label">부영 EPC 납기 가능일</text><path d="M 1017.5 536 L 1025.5 544 L 1017.5 552 L 1009.5 544 Z" class="gantt-milestone equipment"/><text x="1029.5" y="548" class="gantt-inline-date">10/15</text>
+<rect x="248" y="559" width="860" height="28" rx="4" class="gantt-row-bg alt"/><text x="32" y="576" class="gantt-group">설비</text><text x="118" y="576" class="gantt-task-label">설치·점검·정상조업 준비</text><rect x="1023.1" y="565" width="84.9" height="14" rx="4" class="gantt-bar equipment"/><text x="1065.6" y="563" class="gantt-inline-date">10/16~10/31</text>
+    <g class="gantt-legend" transform="translate(32 628)">
+      <rect x="0" y="-10" width="14" height="10" rx="3" class="gantt-bar done"/><text x="20" y="0">완료</text>
+      <rect x="74" y="-10" width="14" height="10" rx="3" class="gantt-bar active"/><text x="94" y="0">진행/관리</text>
+      <rect x="176" y="-10" width="14" height="10" rx="3" class="gantt-bar critical"/><text x="196" y="0">긴급/병목</text>
+      <rect x="292" y="-10" width="14" height="10" rx="3" class="gantt-bar equipment"/><text x="312" y="0">설비</text>
+    </g>
+  </svg>
+          </div>
+          <div class="table-wrap" style="margin-top:12px"><table><thead><tr><th>완료 예정일</th><th>공정</th><th>구분</th><th>상태</th></tr></thead><tbody><tr><td>2026.06.03</td><td>건축설계 완료</td><td>증축공사</td><td>완료</td></tr>
+<tr><td>2026.06.05</td><td>현장사무소 개설 및 공사 준비</td><td>부대공사</td><td>완료</td></tr>
+<tr><td>2026.06.05</td><td>증축인허가 및 공장설립인허가 진주시청 제출</td><td>증축공사</td><td>완료</td></tr>
+<tr><td>2026.06.10</td><td>계약보증서 접수 및 계약금 30% 지급</td><td>자금</td><td>예정</td></tr>
+<tr><td>2026.06.22</td><td>착공계 신청, 옹벽공사, 1동 벽체판넬 수정공사</td><td>증축/부대</td><td>관리</td></tr>
+<tr><td>2026.06.30</td><td>기숙사 방수공사 및 사무동 보완작업</td><td>부대공사</td><td>관리</td></tr>
+<tr><td>2026.07.10</td><td>기초공사 및 골조 기초</td><td>증축공사</td><td>예정</td></tr>
+<tr><td>2026.07.15</td><td>펜스 및 입구게이트공사</td><td>부대공사</td><td>예정</td></tr>
+<tr><td>2026.08.05</td><td>철골 공사 설치 완료</td><td>증축공사</td><td>예정</td></tr>
+<tr><td>2026.08.31</td><td>준공검사 신청</td><td>증축공사</td><td>예정</td></tr>
+<tr><td>2026.09.15</td><td>준공 완료</td><td>증축공사</td><td>목표</td></tr>
+<tr><td>2026.10.15</td><td>부영 EPC 납기 가능일</td><td>설비</td><td>조건부</td></tr></tbody></table></div>
+        </section>
+
+        <section class="report-section" id="funding">
+          <div class="section-head"><h2>자금스케줄</h2><p>토지·건물 누적 실행액과 금재 확정 공사비, 설비 견적관리 금액을 분리해 총 관리금액과 향후 지급관리 금액을 맞춘다.</p></div>
+          <div class="donut-grid">
+            <article class="donut-card">
+    <h3>프로젝트 총 관리금액 구성</h3>
+    <div class="donut-layout">
+      <svg class="donut-svg" viewBox="0 0 184 184" role="img" aria-label="프로젝트 총 관리금액 구성">
+        <path d="M 92.00 14.00 A 78 78 0 1 1 74.37 167.98 L 82.06 134.86 A 44 44 0 1 0 92.00 48.00 Z" fill="#3b82f6"/><path d="M 74.37 167.98 A 78 78 0 0 1 15.66 107.99 L 48.93 101.02 A 44 44 0 0 0 82.06 134.86 Z" fill="#22c55e"/><path d="M 15.66 107.99 A 78 78 0 0 1 92.00 14.00 L 92.00 48.00 A 44 44 0 0 0 48.93 101.02 Z" fill="#f97316"/>
+        <circle cx="92" cy="92" r="42" class="donut-hole"></circle>
+        <text x="92" y="86" text-anchor="middle" class="donut-kicker">합계</text>
+        <text x="92" y="106" text-anchor="middle" class="donut-total">47.55억</text>
+      </svg>
+      <ul class="donut-legend"><li><span class="swatch" style="--swatch:#3b82f6"></span><span>토지·건물 누적 실행</span><b>25.5억</b><em>54%</em></li><li><span class="swatch" style="--swatch:#22c55e"></span><span>금재 확정공사</span><b>8.6억</b><em>18%</em></li><li><span class="swatch" style="--swatch:#f97316"></span><span>설비 견적관리</span><b>13.45억</b><em>28%</em></li></ul>
+    </div>
+  </article>
+            <article class="donut-card">
+    <h3>향후 지급관리 구성</h3>
+    <div class="donut-layout">
+      <svg class="donut-svg" viewBox="0 0 184 184" role="img" aria-label="향후 지급관리 구성">
+        <path d="M 92.00 14.00 A 78 78 0 0 1 141.71 152.11 L 120.04 125.91 A 44 44 0 0 0 92.00 48.00 Z" fill="#3b82f6"/><path d="M 141.71 152.11 A 78 78 0 1 1 92.00 14.00 L 92.00 48.00 A 44 44 0 1 0 120.04 125.91 Z" fill="#22c55e"/>
+        <circle cx="92" cy="92" r="42" class="donut-hole"></circle>
+        <text x="92" y="86" text-anchor="middle" class="donut-kicker">합계</text>
+        <text x="92" y="106" text-anchor="middle" class="donut-total">22.05억</text>
+      </svg>
+      <ul class="donut-legend"><li><span class="swatch" style="--swatch:#3b82f6"></span><span>금재 확정공사</span><b>8.6억</b><em>39%</em></li><li><span class="swatch" style="--swatch:#22c55e"></span><span>설비 견적관리</span><b>13.45억</b><em>61%</em></li></ul>
+    </div>
+  </article>
+          </div>
+          <div class="diagram-shell" style="margin-top:12px">
+            <div class="diagram-toolbar"><span>공사 지급조건과 설비 견적 병행관리</span><button type="button" class="expand-btn" data-target="funding-flow" data-title="자금 흐름 확대 보기">확대 보기</button></div>
+            <svg id="funding-flow" class="diagram-svg flow-svg" viewBox="0 0 1120 360" role="img" aria-label="자금 지급 흐름">
+    <defs><marker id="arrowHead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" class="arrow-head"/></marker></defs>
+    <text x="30" y="38" class="diagram-title">금재 8.6억 지급 조건과 설비 견적 병행관리</text>
+    <g class="flow-node ok"><rect x="34" y="76" width="170" height="82" rx="10"/><text x="119" y="100" text-anchor="middle"><tspan x="119" dy="0" class="box-title">공사계약 확정</tspan><tspan x="119" dy="18" class="box-line">금재 8.6억</tspan><tspan x="119" dy="18" class="box-line">VAT 별도</tspan></text></g>
+    <g class="flow-node pay"><rect x="244" y="76" width="170" height="82" rx="10"/><text x="329" y="100" text-anchor="middle"><tspan x="329" dy="0" class="box-title">계약금 30%</tspan><tspan x="329" dy="18" class="box-line">2.58억</tspan><tspan x="329" dy="18" class="box-line">6/10 예정</tspan></text></g>
+    <g class="flow-node pay"><rect x="454" y="76" width="170" height="82" rx="10"/><text x="539" y="100" text-anchor="middle"><tspan x="539" dy="0" class="box-title">중도금 1차</tspan><tspan x="539" dy="18" class="box-line">2.58억</tspan><tspan x="539" dy="18" class="box-line">7월</tspan></text></g>
+    <g class="flow-node pay"><rect x="664" y="76" width="170" height="82" rx="10"/><text x="749" y="100" text-anchor="middle"><tspan x="749" dy="0" class="box-title">중도금 2차</tspan><tspan x="749" dy="18" class="box-line">2.58억</tspan><tspan x="749" dy="18" class="box-line">8월</tspan></text></g>
+    <g class="flow-node pay"><rect x="874" y="76" width="170" height="82" rx="10"/><text x="959" y="100" text-anchor="middle"><tspan x="959" dy="0" class="box-title">준공 후 잔금</tspan><tspan x="959" dy="18" class="box-line">0.86억</tspan><tspan x="959" dy="18" class="box-line">9월</tspan></text></g>
+    <line x1="204" y1="117" x2="244" y2="117" class="flow-arrow " marker-end="url(#arrowHead)"/><line x1="414" y1="117" x2="454" y2="117" class="flow-arrow " marker-end="url(#arrowHead)"/><line x1="624" y1="117" x2="664" y2="117" class="flow-arrow " marker-end="url(#arrowHead)"/><line x1="834" y1="117" x2="874" y2="117" class="flow-arrow " marker-end="url(#arrowHead)"/>
+    <g class="flow-node warn"><rect x="244" y="224" width="220" height="82" rx="10"/><text x="354" y="248" text-anchor="middle"><tspan x="354" dy="0" class="box-title">설비 견적</tspan><tspan x="354" dy="18" class="box-line">13.45억대</tspan><tspan x="354" dy="18" class="box-line">업체선정 전</tspan></text></g>
+    <g class="flow-node risk"><rect x="524" y="224" width="220" height="82" rx="10"/><text x="634" y="248" text-anchor="middle"><tspan x="634" dy="0" class="box-title">추가 자금 가능성</tspan><tspan x="634" dy="18" class="box-line">기존 12억 대비</tspan><tspan x="634" dy="18" class="box-line">+1.45억 내외</tspan></text></g>
+    <g class="flow-node ok"><rect x="804" y="224" width="220" height="82" rx="10"/><text x="914" y="248" text-anchor="middle"><tspan x="914" dy="0" class="box-title">향후 지급관리</tspan><tspan x="914" dy="18" class="box-line">공사+설비</tspan><tspan x="914" dy="18" class="box-line">약 22.05억</tspan></text></g>
+    <line x1="464" y1="265" x2="524" y2="265" class="flow-arrow " marker-end="url(#arrowHead)"/><line x1="744" y1="265" x2="804" y2="265" class="flow-arrow " marker-end="url(#arrowHead)"/>
+    <path d="M 959 158 C 959 190, 918 206, 900 224" class="flow-arrow dashed" marker-end="url(#arrowHead)"/>
+  </svg>
+          </div>
+          <div class="table-wrap" style="margin-top:12px"><table><thead><tr><th>지급단계</th><th>지급률</th><th>금액</th><th>기준 이벤트</th><th>관리월 가정</th></tr></thead><tbody><tr><td>계약 시</td><td>30%</td><td>2.58억</td><td>계약보증서 접수 및 계약금 지급</td><td>2026년 6월 10일 예정</td></tr>
+<tr><td>중도금 1차</td><td>30%</td><td>2.58억</td><td>착공계·옹벽·기초공사 진행</td><td>2026년 7월</td></tr>
+<tr><td>중도금 2차</td><td>30%</td><td>2.58억</td><td>철골·판넬·마감 진행</td><td>2026년 8월</td></tr>
+<tr><td>준공 후 잔금</td><td>10%</td><td>0.86억</td><td>준공 완료 후</td><td>2026년 9월</td></tr></tbody></table></div>
+        </section>
+
+        <section class="report-section" id="equipment">
+          <div class="section-head"><h2>설비·현장 운영</h2><p>부영 EPC, 하동 설비 재활용, 패킹라인 이송방식은 설비 발주 범위를 확정하기 전 반드시 묶어서 판단해야 한다.</p></div>
+          <div class="cards-3">
+            <article class="decision-card" style="--tone:var(--orange)"><small>납기</small><b>부영 2026-10-15 가능 입장</b><p>차주 계약과 설계·승인 단축이 전제다. 계약 전 납기확약과 지체조건을 확인한다.</p></article>
+            <article class="decision-card" style="--tone:var(--blue)"><small>재활용</small><b>선별기·백필터 가능, 패킹설비 불가</b><p>재활용 수량, 이전설치비, 보수항목, 중고 설비 인허가 조건을 재확인한다.</p></article>
+            <article class="decision-card" style="--tone:var(--red)"><small>병목</small><b>패킹라인 이송방식 미결정</b><p>20도 이하 벨트안, 40도 유지 책임범위, 체인·스크류 대안 중 결론이 필요하다.</p></article>
+          </div>
+          <div class="table-wrap" style="margin-top:12px"><table><thead><tr><th>대상</th><th>금주 확인</th><th>추가 조건</th><th>관리 포인트</th></tr></thead><tbody><tr><td>부영 EPC</td><td>2026-10-15 납기 가능 입장</td><td>차주 계약 및 설계/승인 단축 전제</td><td>납기확약·지체조건 확인</td></tr>
+<tr><td>신비앤텍</td><td>13.47억대 견적</td><td>30/40/30 임시 가정</td><td>지급조건 및 납기 재확인</td></tr>
+<tr><td>하동 선별기</td><td>재활용 가능</td><td>이전설치비와 주요 부품 보수 필요</td><td>수량·구성 확정 후 견적 재산정</td></tr>
+<tr><td>하동 백필터</td><td>활용 가능 의견</td><td>중고 설비 설치 인허가 확인 필요</td><td>인허가 확인 전 조건부 가능</td></tr>
+<tr><td>패킹설비</td><td>재활용 불가 판단</td><td>5톤 버퍼탱크 적용 시 높이·동선 문제</td><td>신규 설계 또는 대안설비 반영</td></tr>
+<tr><td>패킹라인</td><td>벨트각도/대안설비 미결정</td><td>20도 이하 또는 체인/스크류 대안 판단</td><td>6/8 회의 핵심 안건</td></tr></tbody></table></div>
+        </section>
+
+        <section class="report-section" id="risks">
+          <div class="section-head"><h2>리스크·의사결정</h2><p>공사계약은 완료되었으므로 주된 병목은 설비계약, 인허가 보완, 보증서·계약금 지급, 패킹라인 결정으로 이동했다.</p></div>
+          <div class="diagram-shell">
+            <div class="diagram-toolbar"><span>패킹라인과 설비계약 의사결정 흐름</span><button type="button" class="expand-btn" data-target="decision-flow" data-title="의사결정 다이어그램 확대 보기">확대 보기</button></div>
+            <svg id="decision-flow" class="diagram-svg flow-svg dense" viewBox="0 0 1160 520" role="img" aria-label="패킹라인 이송방식 의사결정 흐름">
+    <defs><marker id="arrowHead2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" class="arrow-head"/></marker></defs>
+    <text x="30" y="38" class="diagram-title">패킹라인 이송방식 결정 흐름 · 6/8 회의 안건</text>
+    <g class="flow-node gate"><rect x="40" y="78" width="210" height="82" rx="10"/><text x="145" y="102" text-anchor="middle"><tspan x="145" dy="0" class="box-title">패킹라인 결정</tspan><tspan x="145" dy="18" class="box-line">벨트 유지 여부</tspan><tspan x="145" dy="18" class="box-line">발주 전 결론 필요</tspan></text></g>
+    <g class="flow-node warn"><rect x="330" y="78" width="210" height="82" rx="10"/><text x="435" y="102" text-anchor="middle"><tspan x="435" dy="0" class="box-title">벨트 유지</tspan><tspan x="435" dy="18" class="box-line">20도 이하 가능?</tspan><tspan x="435" dy="18" class="box-line">길이·동선 증가</tspan></text></g>
+    <g class="flow-node risk"><rect x="620" y="78" width="210" height="82" rx="10"/><text x="725" y="102" text-anchor="middle"><tspan x="725" dy="0" class="box-title">40도 유지</tspan><tspan x="725" dy="18" class="box-line">PS Ball 흘러내림</tspan><tspan x="725" dy="18" class="box-line">책임범위 불명확</tspan></text></g>
+    <g class="flow-node warn"><rect x="910" y="78" width="210" height="82" rx="10"/><text x="1015" y="102" text-anchor="middle"><tspan x="1015" dy="0" class="box-title">대안 이송설비</tspan><tspan x="1015" dy="18" class="box-line">체인·스크류</tspan><tspan x="1015" dy="18" class="box-line">유지보수 검토</tspan></text></g>
+    <line x1="250" y1="119" x2="330" y2="119" class="flow-arrow " marker-end="url(#arrowHead2)"/>
+    <line x1="540" y1="119" x2="620" y2="119" class="flow-arrow " marker-end="url(#arrowHead2)"/>
+    <line x1="830" y1="119" x2="910" y2="119" class="flow-arrow " marker-end="url(#arrowHead2)"/>
+    <g class="flow-node ok"><rect x="110" y="236" width="220" height="82" rx="10"/><text x="220" y="260" text-anchor="middle"><tspan x="220" dy="0" class="box-title">하동 재활용</tspan><tspan x="220" dy="18" class="box-line">선별기·백필터 가능</tspan><tspan x="220" dy="18" class="box-line">패킹설비 불가</tspan></text></g>
+    <g class="flow-node pay"><rect x="470" y="236" width="220" height="82" rx="10"/><text x="580" y="260" text-anchor="middle"><tspan x="580" dy="0" class="box-title">설비 범위 재산정</tspan><tspan x="580" dy="18" class="box-line">이전설치비</tspan><tspan x="580" dy="18" class="box-line">보수·예비품 분리</tspan></text></g>
+    <g class="flow-node gate"><rect x="830" y="236" width="220" height="82" rx="10"/><text x="940" y="260" text-anchor="middle"><tspan x="940" dy="0" class="box-title">부영 EPC 전제</tspan><tspan x="940" dy="18" class="box-line">10/15 납기 가능</tspan><tspan x="940" dy="18" class="box-line">차주 계약·승인 단축</tspan></text></g>
+    <path d="M 1015 160 C 1015 205, 940 220, 940 236" class="flow-arrow dashed" marker-end="url(#arrowHead2)"/>
+    <path d="M 220 160 C 220 195, 220 210, 220 236" class="flow-arrow dashed" marker-end="url(#arrowHead2)"/>
+    <line x1="330" y1="277" x2="470" y2="277" class="flow-arrow " marker-end="url(#arrowHead2)"/>
+    <line x1="690" y1="277" x2="830" y2="277" class="flow-arrow " marker-end="url(#arrowHead2)"/>
+    <g class="flow-node gate"><rect x="310" y="390" width="240" height="82" rx="10"/><text x="430" y="414" text-anchor="middle"><tspan x="430" dy="0" class="box-title">월요일 결론화</tspan><tspan x="430" dy="18" class="box-line">Silo 보류</tspan><tspan x="430" dy="18" class="box-line">설비 높이 저감안 포함</tspan></text></g>
+    <g class="flow-node ok"><rect x="670" y="390" width="240" height="82" rx="10"/><text x="790" y="414" text-anchor="middle"><tspan x="790" dy="0" class="box-title">계약 일정 유지</tspan><tspan x="790" dy="18" class="box-line">설계·승인 착수</tspan><tspan x="790" dy="18" class="box-line">납기 확약 확인</tspan></text></g>
+    <path d="M 580 318 C 580 350, 450 360, 430 390" class="flow-arrow" marker-end="url(#arrowHead2)"/>
+    <path d="M 940 318 C 940 350, 810 360, 790 390" class="flow-arrow" marker-end="url(#arrowHead2)"/>
+    <line x1="550" y1="431" x2="670" y2="431" class="flow-arrow " marker-end="url(#arrowHead2)"/>
+  </svg>
+          </div>
+          <div class="table-wrap" style="margin-top:12px"><table><thead><tr><th>ID</th><th>리스크</th><th>등급</th><th>발생 조건</th><th>대응</th></tr></thead><tbody><tr><td>R1</td><td>설비 계약·제작 병목</td><td>최상</td><td>패킹라인 이송방식 결정 지연</td><td>6/8 결론화, 설비공급업체 계약일정 유지</td></tr>
+<tr><td>R2</td><td>인허가 보완요청</td><td>상</td><td>6/5 제출서류 보완요청 또는 접수 누락</td><td>6/10~12 담당부서·건축사사무소 확인 루틴</td></tr>
+<tr><td>R3</td><td>계약보증서·계약금 지연</td><td>상</td><td>6/10 보증서 원본 또는 지급 증빙 미확정</td><td>지급 예정일, 보증서 원본, 전자결재 증빙 동시 확인</td></tr>
+<tr><td>R4</td><td>설비 예산 초과</td><td>상</td><td>13.45억대 견적 기준 계약</td><td>예산증액, 범위조정, 예비품 별도관리</td></tr>
+<tr><td>R5</td><td>하동 설비 재활용 범위 미확정</td><td>중상</td><td>선별기·백필터 재활용 수량 미확정</td><td>이전비, 보수항목, 인허가 조건 확정</td></tr>
+<tr><td>R6</td><td>공사·설비 일정 접점</td><td>중상</td><td>준공 9/15, 설비 납기 10/15 기준</td><td>건축 준공 후 반입 준비기간과 시운전 기간 관리</td></tr></tbody></table></div>
+        </section>
+
+        <section class="report-section" id="milestones">
+          <div class="section-head"><h2>마일스톤</h2><p>실행기준 확정에서 정상조업 준비까지의 흐름을 게이트별로 정리한다.</p></div>
+          <div class="cards-4">
+            <article class="milestone-card" style="--tone:var(--green)"><small>PHASE 1</small><b>실행기준 확정</b><p>M0 증축 최종 의사결정 2026-05-12, M1 자료 제공·설계 착수 2026-05-14.</p></article>
+            <article class="milestone-card" style="--tone:var(--orange)"><small>PHASE 2</small><b>계약/인허가 Gate</b><p>M2 금재 공사계약 확정, M3 인허가 제출, M4 착공 가능 확인.</p></article>
+            <article class="milestone-card" style="--tone:var(--blue)"><small>PHASE 3</small><b>건축/설비 병렬진행</b><p>기초, 골조, 내부 마감, 준공검사와 설비 반입 전환을 병렬 관리한다.</p></article>
+            <article class="milestone-card" style="--tone:var(--purple)"><small>PHASE 4</small><b>설치·신고·정상조업</b><p>기계·전기·집진 연결, 대기배출시설 신고, 통합 시운전, 10월 정상조업 준비.</p></article>
+          </div>
+        </section>
+
+        <section class="report-section" id="next">
+          <div class="section-head"><h2>차주 실행계획</h2><p>차주는 실적보고보다 6/8 설비 의사결정, 6/10 보증서·계약금 지급, 인허가 보완요청 확인을 하나의 실행 패키지로 관리해야 한다.</p></div>
+          <div class="table-wrap"><table><thead><tr><th>일자</th><th>구분</th><th>핵심 일정</th><th>경고 신호</th><th>대안/관리방안</th></tr></thead><tbody><tr><td>2026-06-08</td><td>현장/공사</td><td>부대공사 선행 착수 및 현장 준비상태 확인</td><td>현장 정리·자재·인력·장비 준비 미흡</td><td>사진기록, 체크리스트, 금재 현장책임자 확인</td></tr>
+<tr><td>2026-06-08</td><td>설비</td><td>패킹라인 이송방식 최종 결정</td><td>벨트각도/대안설비 판단 보류</td><td>Silo 보류 + 설비 높이 저감안, 체인타입/스크류안 비교 후 결론화</td></tr>
+<tr><td>2026-06-10</td><td>자금</td><td>계약보증서 접수 및 계약금 30% 2.58억 지급</td><td>보증서 지연, 지급 증빙 미확정</td><td>지급 예정일·보증서 원본·전자결재 증빙 동시 확인</td></tr>
+<tr><td>2026-06-10~12</td><td>인허가</td><td>6/5 제출서류 보완요청 여부 확인</td><td>보완요청 발생 또는 접수 누락</td><td>건축사사무소와 진주시청 담당부서 확인 루틴 운영</td></tr>
+<tr><td>2026-06-22</td><td>착공계</td><td>착공계 신청 기준 유지</td><td>6/10 자금 또는 인허가 보완 지연</td><td>착공계 선행서류와 공사계약 증빙 사전 패키지화</td></tr></tbody></table></div>
+        </section>
+
+        <section class="report-section" id="review">
+          <div class="section-head"><h2>리뷰룸</h2><p>회의 전 복사해서 공유하기 위한 짧은 메모다.</p></div>
+          <div class="review-room">
+            <article class="memo"><h3>핵심 요약</h3><p id="copy-summary" class="copy-target">2026-06-05 기준 지수통합선별공장 프로젝트는 계약 체결 완료, 인허가 제출, 6/10 보증서·계약금 지급, 6/8 부대공사 선행 착수, 6/22 착공계 신청 흐름을 유지하고 있습니다. 다만 패킹라인 이송방식, 설비공급업체 계약일정, 하동 설비 재활용 범위, 설비 견적 13.45억대 초과 가능성은 차주 핵심 의사결정 항목입니다.</p></article>
+            <article class="memo"><h3>차주 과제</h3><p id="copy-next" class="copy-target">1. 6/8 패킹라인 이송방식 최종 결정. 2. 6/10 계약보증서 접수 및 계약금 2.58억 지급 확인. 3. 6/5 제출 인허가 보완요청 여부 확인. 4. 부영 EPC 납기확약, 설계·승인 단축 조건, 예비품 별도 견적 확인. 5. 하동 선별기·백필터 재활용 범위와 이전설치비 재산정.</p></article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">기준자료: 2026-06-05 지수통합선별공장 프로젝트관리표 통합노트 REV6 FULL CONTEXT FIX. 공개 HTML용으로 Obsidian 전용 문법과 DataviewJS는 제거했다.</footer>
+  </div>
+
+  <div class="modal" id="diagramModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="modal"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head"><strong id="modalTitle">확대 보기</strong><button type="button" data-close="modal">닫기</button></div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite">복사했습니다</div>
+
+  <script>
+(function(){
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const setTheme = (theme) => {
+    root.setAttribute('data-theme', theme);
+    toggle.textContent = theme === 'dark' ? '라이트 전환' : '다크 전환';
+  };
+  setTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  toggle.addEventListener('click', () => setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  const toast = document.getElementById('toast');
+  const showToast = (message) => {
+    toast.textContent = message;
+    toast.classList.add('show');
+    window.setTimeout(() => toast.classList.remove('show'), 1400);
+  };
+  const fallbackCopy = (text) => {
+    const area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.top = '-1000px';
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand('copy');
+    area.remove();
+  };
+  document.querySelectorAll('[data-copy]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const id = button.getAttribute('data-copy') === 'summary' ? 'copy-summary' : 'copy-next';
+      const text = document.getElementById(id).textContent.trim();
+      try {
+        if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+        else fallbackCopy(text);
+        showToast('복사했습니다');
+      } catch (error) {
+        fallbackCopy(text);
+        showToast('복사했습니다');
+      }
+    });
+  });
+
+  const modal = document.getElementById('diagramModal');
+  const modalBody = document.getElementById('modalBody');
+  const modalTitle = document.getElementById('modalTitle');
+  const closeModal = () => { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); modalBody.innerHTML = ''; };
+  document.querySelectorAll('.expand-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = document.getElementById(button.dataset.target);
+      if (!target) return;
+      modalTitle.textContent = button.dataset.title || '확대 보기';
+      modalBody.innerHTML = '';
+      modalBody.appendChild(target.cloneNode(true));
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+    });
+  });
+  document.querySelectorAll('[data-close="modal"]').forEach((el) => el.addEventListener('click', closeModal));
+  window.addEventListener('keydown', (event) => { if (event.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+})();
+  </script>
+</body>
+</html>
