@@ -1,0 +1,1636 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-19 지수통합선별공장 프로젝트관리표 통합노트</title>
+  <meta name="description" content="지수통합선별공장 프로젝트관리표 통합노트. 2026-06-19 기준 주간 업데이트, 통합간트, 자금·설비 Master Plan, 현장·부대공사, 리스크, 마일스톤 관리 HTML.">
+  <link rel="icon" href="data:,">
+  <style>
+    :root{
+      --bg:#0b1220;
+      --bg2:#0f172a;
+      --panel:#111827;
+      --panel2:#172033;
+      --card:#182235;
+      --line:rgba(148,163,184,.22);
+      --text:#e5edf8;
+      --muted:#aebbd0;
+      --faint:#75849b;
+      --blue:#60a5fa;
+      --cyan:#22d3ee;
+      --green:#4ade80;
+      --orange:#fb923c;
+      --red:#f87171;
+      --purple:#a78bfa;
+      --yellow:#facc15;
+      --shadow:0 24px 70px rgba(0,0,0,.38);
+      --radius:24px;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+      color-scheme:dark;
+    }
+    [data-theme="light"]{
+      --bg:#f4f7fb;
+      --bg2:#eaf1f8;
+      --panel:#ffffff;
+      --panel2:#f8fafc;
+      --card:#ffffff;
+      --line:rgba(15,23,42,.15);
+      --text:#0f172a;
+      --muted:#475569;
+      --faint:#64748b;
+      --shadow:0 22px 58px rgba(15,23,42,.12);
+      color-scheme:light;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(248,113,113,.26), transparent 30%),
+        radial-gradient(circle at 82% 12%, rgba(20,184,166,.22), transparent 34%),
+        linear-gradient(180deg, #050913 0%, var(--bg) 22%, #05070d 100%);
+      color:var(--text);
+      line-height:1.62;
+      word-break:keep-all;
+      overflow-wrap:break-word;
+    }
+    [data-theme="light"] body{
+      background:
+        radial-gradient(circle at 9% 6%, rgba(248,113,113,.12), transparent 32%),
+        radial-gradient(circle at 84% 11%, rgba(20,184,166,.14), transparent 36%),
+        linear-gradient(180deg,#f8fafc 0%,var(--bg) 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    button{
+      font:inherit;
+      border:0;
+      color:inherit;
+      cursor:pointer;
+    }
+    .shell{
+      width:min(1240px, calc(100% - 40px));
+      margin:0 auto;
+      padding:34px 0 64px;
+    }
+    .hero{
+      position:relative;
+      min-height:330px;
+      border:1px solid var(--line);
+      border-radius:32px;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(74,222,128,.14), transparent 34%),
+        radial-gradient(circle at 85% 24%, rgba(96,165,250,.22), transparent 30%),
+        linear-gradient(135deg, rgba(17,24,39,.95), rgba(15,23,42,.80));
+      box-shadow:var(--shadow);
+      padding:34px;
+    }
+    [data-theme="light"] .hero{
+      background:
+        linear-gradient(135deg, rgba(74,222,128,.16), transparent 34%),
+        radial-gradient(circle at 85% 24%, rgba(96,165,250,.24), transparent 30%),
+        linear-gradient(135deg, #ffffff, #eef6ff);
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:8px;
+      background:linear-gradient(90deg,var(--green),var(--blue),var(--purple),var(--orange));
+    }
+    .hero-top{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      align-items:flex-start;
+      gap:24px;
+      position:relative;
+      z-index:1;
+    }
+    .eyebrow{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      color:var(--yellow);
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    h1{
+      max-width:820px;
+      margin:18px 0 18px;
+      font-size:clamp(38px, 5.4vw, 74px);
+      line-height:1.06;
+      letter-spacing:0;
+      color:#fff;
+    }
+    [data-theme="light"] h1{color:#0f172a}
+    .lead{
+      max-width:840px;
+      margin:0 0 24px;
+      color:var(--muted);
+      font-size:18px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:nowrap;
+      justify-content:flex-end;
+      min-width:max-content;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      color:var(--text);
+      font-weight:800;
+      backdrop-filter:blur(12px);
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg,#2563eb,#0891b2);
+      border-color:rgba(255,255,255,.22);
+      color:#fff;
+    }
+    .meta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 11px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.07);
+      color:var(--muted);
+      font-size:13px;
+      font-weight:800;
+    }
+    [data-theme="light"] .pill{background:rgba(15,23,42,.04)}
+    .hero-metrics{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+      margin-top:30px;
+    }
+    .metric{
+      min-height:128px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      background:rgba(255,255,255,.07);
+      box-shadow:0 14px 34px rgba(0,0,0,.16);
+    }
+    [data-theme="light"] .metric{background:rgba(255,255,255,.72)}
+    .metric .k{
+      color:var(--faint);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+    .metric .v{
+      margin:8px 0 7px;
+      font-size:28px;
+      line-height:1.12;
+      font-weight:950;
+      color:var(--c);
+    }
+    .metric .d{color:var(--muted);font-size:14px;line-height:1.46}
+    .layout{
+      display:grid;
+      grid-template-columns:280px minmax(0,1fr);
+      gap:24px;
+      margin-top:24px;
+      align-items:start;
+    }
+    .layout > *,
+    .sidebar,
+    main{
+      min-width:0;
+    }
+    .sidebar{
+      position:sticky;
+      top:18px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(17,24,39,.72);
+      box-shadow:var(--shadow);
+      padding:18px;
+      backdrop-filter:blur(14px);
+    }
+    [data-theme="light"] .sidebar{background:rgba(255,255,255,.82)}
+    .side-title{
+      color:var(--cyan);
+      font-weight:950;
+      margin-bottom:10px;
+      font-size:17px;
+    }
+    .toc{
+      display:grid;
+      gap:7px;
+      margin:0 0 18px;
+      padding:0;
+      list-style:none;
+    }
+    .toc a{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      padding:9px 10px;
+      border-radius:12px;
+      color:var(--muted);
+      border:1px solid transparent;
+      font-size:14px;
+      font-weight:800;
+    }
+    .toc a:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .toc a:hover{background:rgba(15,23,42,.04)}
+    .toc .n{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      flex:none;
+      width:26px;
+      height:26px;
+      border-radius:9px;
+      color:#fff;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      font-size:12px;
+      font-weight:950;
+    }
+    .side-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      margin-top:12px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .side-card{background:rgba(15,23,42,.035)}
+    .side-card h3{
+      margin:0 0 8px;
+      color:var(--green);
+      font-size:15px;
+    }
+    .side-card p,.side-card li{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .side-card ul{padding-left:18px;margin:8px 0 0}
+    main{display:grid;gap:24px}
+    main > *{min-width:0}
+    .block{
+      min-width:0;
+      max-width:100%;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      background:linear-gradient(180deg,rgba(24,34,53,.82),rgba(17,24,39,.76));
+      box-shadow:var(--shadow);
+    }
+    [data-theme="light"] .block{
+      background:linear-gradient(180deg,#fff,#f8fafc);
+    }
+    .block h2{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:0 0 12px;
+      font-size:28px;
+      line-height:1.2;
+      letter-spacing:0;
+    }
+    .block h2 .num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      color:#fff;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      font-weight:950;
+      font-size:18px;
+      flex:none;
+    }
+    .block h3{
+      margin:24px 0 10px;
+      color:var(--cyan);
+      font-size:20px;
+      line-height:1.3;
+    }
+    .block p{color:var(--muted)}
+    .grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .card{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      background:rgba(255,255,255,.06);
+      min-height:128px;
+    }
+    [data-theme="light"] .card{background:#fff}
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:6px;
+      background:var(--c,var(--blue));
+    }
+    .card .k{
+      color:var(--faint);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .card .v{
+      margin:8px 0 7px;
+      color:var(--c,var(--blue));
+      font-size:24px;
+      line-height:1.12;
+      font-weight:950;
+    }
+    .card p{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .tagrow{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      border:1px solid currentColor;
+      color:var(--c,var(--blue));
+      border-radius:999px;
+      padding:2px 7px;
+      font-size:12px;
+      font-weight:800;
+      opacity:.88;
+    }
+    .note{
+      margin:16px 0;
+      border-left:5px solid var(--cyan);
+      border-radius:14px;
+      padding:14px 16px;
+      background:rgba(34,211,238,.08);
+      color:var(--muted);
+    }
+    .note b{color:var(--text)}
+    .note.success{border-left-color:var(--green);background:rgba(74,222,128,.09)}
+    .note.warn{border-left-color:var(--orange);background:rgba(251,146,60,.10)}
+    .note.danger{border-left-color:var(--red);background:rgba(248,113,113,.10)}
+    .table-wrap{
+      max-width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line);
+      border-radius:18px;
+      margin:14px 0 22px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:760px;
+      background:rgba(255,255,255,.03);
+    }
+    [data-theme="light"] table{background:#fff}
+    th,td{
+      padding:12px 13px;
+      text-align:left;
+      vertical-align:top;
+      border-bottom:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+    th{
+      color:var(--text);
+      background:rgba(96,165,250,.12);
+      font-weight:950;
+      white-space:nowrap;
+    }
+    tbody tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+    [data-theme="light"] tbody tr:nth-child(even) td{background:#f8fafc}
+    td b{color:var(--text)}
+    .status{
+      display:inline-flex;
+      align-items:center;
+      padding:3px 8px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .status.ok{color:#052e16;background:#bbf7d0}
+    .status.warn{color:#431407;background:#fed7aa}
+    .status.risk{color:#450a0a;background:#fecaca}
+    .status.info{color:#172554;background:#bfdbfe}
+    .mermaid-wrap{
+      position:relative;
+      max-width:100%;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:12px;
+      overflow-x:auto;
+      background:rgba(2,6,23,.32);
+      margin:14px 0 22px;
+    }
+    [data-theme="light"] .mermaid-wrap{background:#f8fafc}
+    .mermaid-wrap svg{
+      max-width:none;
+      height:auto;
+    }
+    .gantt-wrap pre.mermaid{
+      min-width:min(1180px, 100%);
+    }
+    .gantt-wrap svg{
+      width:100%;
+      min-width:min(1180px, 100%);
+      overflow:visible;
+    }
+    .gantt-wrap svg text,
+    .gantt-wrap svg tspan,
+    .gantt-wrap svg .taskText,
+    .gantt-wrap svg [class*="taskText"]{
+      font-size:10px!important;
+    }
+    .gantt-wrap svg .titleText{
+      font-size:18px!important;
+      font-weight:950!important;
+      letter-spacing:0!important;
+    }
+    .gantt-wrap svg .sectionTitle{
+      font-size:11px!important;
+    }
+    .mermaid-wrap svg text,
+    .mermaid-wrap svg tspan,
+    .mermaid-wrap svg .label,
+    .mermaid-wrap svg .nodeLabel,
+    .mermaid-wrap svg .edgeLabel,
+    .mermaid-wrap svg .sectionTitle,
+    .mermaid-wrap svg .taskText,
+    .mermaid-wrap svg .taskTextOutsideRight,
+    .mermaid-wrap svg foreignObject,
+    .mermaid-wrap svg span,
+    .mermaid-wrap svg p{
+      color:#e5edf8!important;
+      fill:#e5edf8!important;
+      font-weight:800!important;
+      text-shadow:none!important;
+    }
+    [data-theme="light"] .mermaid-wrap svg text,
+    [data-theme="light"] .mermaid-wrap svg tspan,
+    [data-theme="light"] .mermaid-wrap svg .label,
+    [data-theme="light"] .mermaid-wrap svg .nodeLabel,
+    [data-theme="light"] .mermaid-wrap svg .edgeLabel,
+    [data-theme="light"] .mermaid-wrap svg .sectionTitle,
+    [data-theme="light"] .mermaid-wrap svg .taskText,
+    [data-theme="light"] .mermaid-wrap svg .taskTextOutsideRight,
+    [data-theme="light"] .mermaid-wrap svg foreignObject,
+    [data-theme="light"] .mermaid-wrap svg span,
+    [data-theme="light"] .mermaid-wrap svg p{
+      color:#0f172a!important;
+      fill:#0f172a!important;
+    }
+    .flowchart-wrap svg g.node foreignObject,
+    .flowchart-wrap svg g.node foreignObject *,
+    .flowchart-wrap svg g.node .label,
+    .flowchart-wrap svg g.node .nodeLabel{
+      color:#0f172a!important;
+      fill:#0f172a!important;
+      font-weight:900!important;
+      opacity:1!important;
+      text-shadow:none!important;
+    }
+    .flowchart-wrap svg g.edgeLabel,
+    .flowchart-wrap svg g.edgeLabel foreignObject,
+    .flowchart-wrap svg g.edgeLabel foreignObject *,
+    .flowchart-wrap svg g.edgeLabel .label,
+    .flowchart-wrap svg g.edgeLabel .edgeLabel{
+      background:#e0f2fe!important;
+      color:#0f172a!important;
+      fill:#0f172a!important;
+      font-weight:900!important;
+      opacity:1!important;
+      text-shadow:none!important;
+    }
+    [data-theme="light"] .flowchart-wrap svg g.edgeLabel foreignObject,
+    [data-theme="light"] .flowchart-wrap svg g.edgeLabel foreignObject *,
+    [data-theme="light"] .flowchart-wrap svg g.edgeLabel .edgeLabel{
+      background:#f8fafc!important;
+      color:#0f172a!important;
+      fill:#0f172a!important;
+    }
+    .mermaid-wrap svg .grid .tick line,
+    .mermaid-wrap svg .tick line{
+      stroke:#94a3b8!important;
+      opacity:.75!important;
+    }
+    [data-theme="light"] .mermaid-wrap svg .grid .tick line,
+    [data-theme="light"] .mermaid-wrap svg .tick line{
+      stroke:#64748b!important;
+      opacity:.75!important;
+    }
+    .diagram-toolbar{
+      display:flex;
+      justify-content:flex-end;
+      margin-bottom:8px;
+    }
+    .diagram-expand{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:34px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 12px;
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      font-size:13px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+    [data-theme="light"] .diagram-expand{background:#fff}
+    .diagram-modal{
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      background:rgba(2,6,23,.72);
+      backdrop-filter:blur(10px);
+    }
+    .diagram-modal.open{display:flex}
+    .diagram-modal-card{
+      width:min(1220px, calc(100vw - 40px));
+      max-height:calc(100vh - 40px);
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:var(--panel);
+      box-shadow:0 28px 90px rgba(0,0,0,.46);
+      padding:18px;
+    }
+    [data-theme="light"] .diagram-modal-card{background:#fff}
+    .diagram-modal-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .diagram-modal-title{
+      color:var(--text);
+      font-size:17px;
+      font-weight:950;
+    }
+    .diagram-close{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 12px;
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      font-weight:900;
+      white-space:nowrap;
+    }
+    [data-theme="light"] .diagram-close{background:#f8fafc}
+    .diagram-modal-body .mermaid-wrap{
+      margin:0;
+      max-width:none;
+      overflow:auto;
+    }
+    .diagram-modal-body svg{
+      width:100%;
+      min-width:980px;
+      height:auto;
+    }
+    .diagram-modal-body .gantt-wrap{
+      padding:18px;
+    }
+    .diagram-modal-body .gantt-wrap svg{
+      min-width:1320px;
+    }
+    .diagram-modal-body .gantt-wrap svg .titleText{
+      font-size:24px!important;
+    }
+    pre.mermaid{
+      margin:0;
+      min-width:720px;
+      color:var(--text);
+      white-space:pre-wrap;
+    }
+    .flow{
+      display:grid;
+      grid-template-columns:repeat(7,minmax(0,1fr));
+      gap:8px;
+      margin:14px 0 20px;
+    }
+    .step{
+      min-height:88px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      text-align:center;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:10px;
+      background:rgba(96,165,250,.08);
+    }
+    .step b{color:var(--cyan);font-size:13px}
+    .step span{color:var(--muted);font-size:12px;line-height:1.35}
+    .budget{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .pie{
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .pie{background:#fff}
+    .pie h4{margin:0 0 12px;color:var(--text)}
+    .pie-flex{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .pie-flex svg{width:160px;max-width:42%;flex:none}
+    .donut-chart{
+      position:relative;
+      width:180px;
+      max-width:42%;
+      aspect-ratio:1;
+      flex:none;
+      border-radius:50%;
+      background:var(--segments);
+      box-shadow:inset 0 0 0 1px var(--line), 0 12px 24px rgba(0,0,0,.14);
+    }
+    .donut-chart:after{
+      content:"";
+      position:absolute;
+      inset:29%;
+      border-radius:50%;
+      background:var(--panel);
+      box-shadow:inset 0 0 0 1px var(--line);
+    }
+    [data-theme="light"] .donut-chart:after{background:#fff}
+    .donut-center{
+      position:absolute;
+      inset:29%;
+      z-index:1;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:var(--text);
+      line-height:1.15;
+    }
+    .donut-center span{
+      font-size:11px;
+      font-weight:900;
+    }
+    .donut-center b{
+      margin-top:4px;
+      font-size:17px;
+      font-weight:950;
+    }
+    .legend{font-size:14px;color:var(--muted)}
+    .legend div{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin:7px 0;
+      line-height:1.35;
+    }
+    .legend i{
+      display:inline-block;
+      width:11px;
+      height:11px;
+      border-radius:3px;
+      flex:none;
+    }
+    .legend b{color:var(--text)}
+    .legend .pct{
+      color:var(--faint);
+      font-size:12px;
+      font-weight:800;
+    }
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:10px;
+      margin:14px 0;
+    }
+    .phase{
+      min-height:132px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .phase{background:#fff}
+    .phase .idx{
+      color:var(--c,var(--blue));
+      font-weight:950;
+      font-size:12px;
+      letter-spacing:.08em;
+    }
+    .phase b{display:block;color:var(--text);margin:6px 0 6px}
+    .phase p{margin:0;color:var(--muted);font-size:13px}
+    .review-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    .review-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      background:rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .review-card{background:#fff}
+    .review-card h4{margin:0 0 8px;color:#e9dbff}
+    [data-theme="light"] .review-card h4{color:#5b21b6}
+    .review-card p,.review-card li{color:var(--muted);font-size:14px}
+    textarea{
+      width:100%;
+      min-height:140px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font:inherit;
+      resize:vertical;
+    }
+    [data-theme="light"] textarea{background:#fff}
+    .copy-row{
+      display:flex;
+      justify-content:flex-end;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .source{
+      color:var(--faint);
+      font-size:13px;
+    }
+    .print-only{display:none}
+    @media(max-width:1100px){
+      .hero-metrics,.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .layout{grid-template-columns:1fr}
+      .sidebar{position:relative;top:auto}
+      .toc{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .flow,.timeline{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+    @media(max-width:760px){
+      .shell{width:min(100% - 22px,1240px);padding-top:16px}
+      .hero{padding:24px 18px;border-radius:24px}
+      .hero-top{display:block}
+      .hero-actions{justify-content:flex-start;margin-top:16px;flex-wrap:wrap;min-width:0}
+      .hero-metrics,.grid4,.grid3,.grid2,.budget,.review-grid,.flow,.timeline,.toc{grid-template-columns:1fr}
+      .block{padding:18px;border-radius:20px}
+      .block h2{font-size:23px}
+      .pie-flex{display:block}
+      .pie-flex svg{max-width:100%;width:180px}
+      .donut-chart{max-width:100%;width:190px;margin-bottom:14px}
+      .diagram-modal{padding:12px}
+      .diagram-modal-card{width:calc(100vw - 24px);max-height:calc(100vh - 24px);padding:12px;border-radius:18px}
+      .diagram-modal-body svg{min-width:860px}
+    }
+    @media print{
+      :root{color-scheme:light}
+      body{background:#fff;color:#111827}
+      .shell{width:100%;padding:0}
+      .hero,.block,.sidebar,.card,.metric,.pie,.phase,.review-card{
+        box-shadow:none;
+        background:#fff;
+        color:#111827;
+        break-inside:avoid;
+      }
+      .layout{grid-template-columns:1fr}
+      .sidebar,.hero-actions,.copy-row{display:none}
+      .hero{min-height:auto;border-radius:18px;margin-bottom:14px}
+      h1{color:#0f172a;font-size:32px}
+      .lead,.metric .d,.card p,.note,p,li,td{color:#334155}
+      .hero-metrics,.grid4{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+      .grid3{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+      .grid2,.budget{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+      .block{padding:14px;margin-bottom:12px}
+      .block h2{font-size:20px}
+      th,td{font-size:10px;padding:7px}
+      table{min-width:0}
+      .print-only{display:block}
+      textarea{display:none}
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026-06-19 지수통합선별공장 프로젝트관리표 통합노트">
+<meta property="og:description" content="지수통합선별공장 프로젝트관리표 통합노트. 2026-06-19 기준 주간 업데이트, 통합간트, 자금·설비 Master Plan, 현장·부대공사, 리스크, 마일스톤 관리 HTML.">
+<meta property="og:url" content="https://flytothesky23.github.io/marktl-shares/marktl/s/1d2oul5/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2026-06-19 지수통합선별공장 프로젝트관리표 통합노트">
+<meta name="twitter:description" content="지수통합선별공장 프로젝트관리표 통합노트. 2026-06-19 기준 주간 업데이트, 통합간트, 자금·설비 Master Plan, 현장·부대공사, 리스크, 마일스톤 관리 HTML.">
+<link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/marktl/s/1d2oul5/">
+
+<style data-marktl-share-home-style>
+  .marktl-share-home-button {
+    position: fixed;
+    top: max(14px, env(safe-area-inset-top));
+    right: max(14px, env(safe-area-inset-right));
+    z-index: 2147483000;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 36px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, .42);
+    background: rgba(255, 255, 255, .88);
+    color: #0f172a;
+    box-shadow: 0 12px 34px rgba(15, 23, 42, .16);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    font: 700 13px/1.1 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-decoration: none;
+  }
+  .marktl-share-home-button:hover { transform: translateY(-1px); box-shadow: 0 16px 38px rgba(15, 23, 42, .2); }
+  .marktl-share-home-button:focus-visible { outline: 3px solid rgba(59, 130, 246, .45); outline-offset: 3px; }
+  @media (prefers-color-scheme: dark) {
+    .marktl-share-home-button {
+      background: rgba(15, 23, 42, .86);
+      color: #f8fafc;
+      border-color: rgba(148, 163, 184, .36);
+    }
+  }
+  @media print { .marktl-share-home-button { display: none !important; } }
+</style>
+</head>
+<body>
+<a class="marktl-share-home-button" data-marktl-share-home href="https://flytothesky23.github.io/marktl-shares/marktl/" rel="home">← 공유 홈</a>
+  <div class="shell">
+    <section class="hero" id="top">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow">JISOO INTEGRATED FACTORY · WEEKLY CONTROL</div>
+          <h1>지수통합선별공장 프로젝트관리표 통합노트</h1>
+        </div>
+        <div class="hero-actions" aria-label="문서 동작">
+          <button class="btn primary" data-copy="summary">핵심 요약 복사</button>
+          <button class="btn" data-copy="next">차주 과제 복사</button>
+          <button class="btn" id="themeToggle" type="button">라이트 전환</button>
+        </div>
+      </div>
+      <div class="meta-row">
+        <span class="pill">작성 기준 2026-06-19</span>
+        <span class="pill">보고 기간 2026-06-15 ~ 2026-06-19</span>
+        <span class="pill">상태 진행중</span>
+        <span class="pill">Owner Kisoo Kil</span>
+        <span class="pill">이전 보고 2026-06-13 주간 통합보고서</span>
+      </div>
+      <div class="hero-metrics">
+        <article class="metric" style="--c:var(--green)">
+          <div class="k">CONSTRUCTION</div>
+          <div class="v">구조체 진입</div>
+          <div class="d">6/15 저판 타설, 6/16~18 벽체 거푸집·철근배근으로 실행 초기 단계를 통과.</div>
+        </article>
+        <article class="metric" style="--c:var(--orange)">
+          <div class="k">PERMIT GATE</div>
+          <div class="v">6/25 예상</div>
+          <div class="d">건축허가는 시청 내부 처리 흐름에 따라 6/22에서 6/25 전후로 보정.</div>
+        </article>
+        <article class="metric" style="--c:var(--red)">
+          <div class="k">EQUIPMENT</div>
+          <div class="v">9/30 디버깅</div>
+          <div class="d">신비엔텍 Master Plan 기준 설계·제조·운송·설치·검수 106일 일정축 확보.</div>
+        </article>
+        <article class="metric" style="--c:var(--cyan)">
+          <div class="k">SITE READY</div>
+          <div class="v">11~12m 동선</div>
+          <div class="d">대형덤프·트레일러 통과 가능성 확인. 적치물, 유도자, 회전반경 관리 필요.</div>
+        </article>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="문서 지도">
+        <div class="side-title">문서 지도</div>
+        <ul class="toc">
+          <li><a href="#quick"><span class="n">0</span>빠른 현황</a></li>
+          <li><a href="#gantt"><span class="n">1</span>통합간트차트</a></li>
+          <li><a href="#budget"><span class="n">2</span>자금·설비</a></li>
+          <li><a href="#site"><span class="n">3</span>현장·동선</a></li>
+          <li><a href="#risk"><span class="n">4</span>리스크·의사결정</a></li>
+          <li><a href="#milestone"><span class="n">5</span>마일스톤</a></li>
+          <li><a href="#weekly"><span class="n">6</span>금주 업데이트</a></li>
+          <li><a href="#next"><span class="n">7</span>차주 실행계획</a></li>
+          <li><a href="#review"><span class="n">8</span>리뷰 룸</a></li>
+        </ul>
+        <div class="side-card">
+          <h3>이번 주 판단</h3>
+          <p>공사는 구조체 시공 단계에 진입했고, 행정 Gate는 6/25로 보정한다. 허가 대기기간에는 방수·펜스·제초·철골 준비를 병행한다.</p>
+        </div>
+        <div class="side-card">
+          <h3>검토 체크</h3>
+          <ul>
+            <li>허가 즉시 착공계 접수 가능 여부</li>
+            <li>타설 전 검측 체크리스트</li>
+            <li>7/3 설비 BOM·장납기품 Gate</li>
+            <li>8/25 전기·설비전기 선행조건</li>
+          </ul>
+        </div>
+      </aside>
+
+      <main>
+        <section class="block" id="quick">
+          <h2><span class="num">0</span>빠른 현황</h2>
+          <p>6월 19일 기준 관리 초점은 “현장 실행은 구조체로 진입, 행정은 6/25 Gate로 보정, 설비는 9/30 디버깅 완료축으로 병행관리”다.</p>
+          <div class="grid4">
+            <article class="card" style="--c:var(--green)">
+              <div class="k">공사</div>
+              <div class="v">구조체</div>
+              <p>옹벽 저판 타설 완료, A/B 구간 벽체 거푸집·철근배근 진행.</p>
+              <div class="tagrow"><span class="tag">#옹벽</span><span class="tag">#검측</span></div>
+            </article>
+            <article class="card" style="--c:var(--orange)">
+              <div class="k">인허가</div>
+              <div class="v">6/25</div>
+              <p>건축허가 예상일 보정. 허가 후 착공계 즉시 접수 준비 필요.</p>
+              <div class="tagrow"><span class="tag">#건축허가</span><span class="tag">#착공계</span></div>
+            </article>
+            <article class="card" style="--c:var(--red)">
+              <div class="k">설비</div>
+              <div class="v">106일</div>
+              <p>6/15~9/30 Master Plan 접수. 7/3 설계·BOM Gate 확인.</p>
+              <div class="tagrow"><span class="tag">#설비제작</span><span class="tag">#BOM</span></div>
+            </article>
+            <article class="card" style="--c:var(--blue)">
+              <div class="k">차주</div>
+              <div class="v">병행착수</div>
+              <p>방수, 펜스·게이트, 제초·벌목, 철골 사전준비를 병행.</p>
+              <div class="tagrow"><span class="tag">#방수</span><span class="tag">#철골</span></div>
+            </article>
+          </div>
+
+          <h3>2026-06-19 기준 핵심 판단</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>관리영역</th><th>지난주 보고 기준</th><th>금주 업데이트</th><th>최종 판단</th></tr></thead>
+              <tbody>
+                <tr><td><b>증축·부대공사</b></td><td>6/11 바닥 철거 및 옹벽 기초 착공 확인</td><td>6/15 저판 철근배근 및 콘크리트 타설, 6/16~18 외부 옹벽 벽체 거푸집·철근배근 진행</td><td><span class="status ok">구조체 진입</span> 실행 초기 단계를 넘어 구조체 시공 단계로 진입</td></tr>
+                <tr><td><b>인허가</b></td><td>6/22 건축허가 및 착공계 신청 목표</td><td>시청 내부 업무진행상 건축허가가 차주 6/25 전후로 지연 예상</td><td><span class="status warn">Gate 보정</span> 허가 즉시 착공계 접수 필요</td></tr>
+                <tr><td><b>증축공사 착수</b></td><td>건축허가 후 착공계 접수 및 본공사 전환</td><td>차주 건축허가 후 착공계 즉시 접수, 증축공사 일정 착수 및 철골 사전준비 예정</td><td>허가 대기 중 철골·자재·현장준비 선행이 핵심</td></tr>
+                <tr><td><b>설비 Master Plan</b></td><td>신비엔텍 8.28억 본선 설비 우선 검토 기준</td><td>선별라인 설비업체 Master Plan 접수. 6/15~9/30 전체 106일 계획</td><td><span class="status info">일정축 확보</span> 10월 정상조업 목표와 정합 가능</td></tr>
+                <tr><td><b>부대공사</b></td><td>사무동·기숙사·펜스·게이트 보완 필요</td><td>차주 사무동·기숙사 방수, 펜스·게이트, 공장주변 제초작업 착수 예정</td><td>허가 지연기간을 현장준비 및 부대공사 실행기간으로 활용</td></tr>
+                <tr><td><b>현장동선</b></td><td>설비 반입 및 대형차량 동선 검토 필요</td><td>증축건물 모서리~2동 방향 약 11~12m, 대형덤프·트레일러 통과 가능 판단</td><td>동선 가능성 확인. 적치물 정리·유도자·회전반경 관리 필요</td></tr>
+                <tr><td><b>정상조업</b></td><td>10월 정상조업 준비 목표</td><td>설비 디버깅 9/30 완료 계획, 건축허가 6/25 보정</td><td><span class="status ok">목표 유지</span> 6/25 허가·설비 상세·전기/집진 접점이 핵심 Gate</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>운영 체크리스트</h3>
+          <div class="grid2">
+            <div class="note success"><b>현장 품질</b><br>저판 레벨, 양생, 벽체 철근 위치, 철근 규격·수량, 피복두께, 수직도, 결속상태, 타설 전 청소를 사진 증빙으로 정리한다.</div>
+            <div class="note warn"><b>차주 실행</b><br>6/25 허가 Gate, 착공계 서류, 철골 사전준비, 방수·펜스·제초 착수, 설비 BOM·장납기품 확인을 동시에 관리한다.</div>
+          </div>
+        </section>
+
+        <section class="block" id="gantt">
+          <h2><span class="num">1</span>통합간트차트</h2>
+          <div class="note">
+            <b>일정 보정 기준</b><br>
+            6/8 Kick-off 미팅의 증축공사 전체 일정축을 6/19 통합간트에 복원한다. 인허가·보증·계약, 초기 부대공사, 증축구간 본공정, 설비 Master Plan, 10월 정상조업 준비를 하나의 일정축으로 통합한다.
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>구분</th><th>6/8 Kick-off 기준</th><th>6/19 업데이트 반영</th><th>일정 판단</th></tr></thead>
+              <tbody>
+                <tr><td><b>인허가·보증·계약</b></td><td>6/8 인허가 신청, 6/19 전후 허가/보증 예상, 6/19~6/25 계약금/선급금 지급 관리</td><td>건축허가 Gate를 6/25 전후로 보정, 허가 후 착공계 즉시 접수</td><td>행정·보증·자금 Gate를 증축공사 본공정의 선행조건으로 표시</td></tr>
+                <tr><td><b>초기 부대공사</b></td><td>6/11 내부정리·철거 착수, 6월 중순 방수, 6월 중하순 펜스·대문, 6/30 부대공사 1차 마무리</td><td>방수·펜스·게이트·제초를 6/23~7/10 조정 반영</td><td>허가 대기기간을 부대공사 실행기간으로 활용</td></tr>
+                <tr><td><b>증축구간 본공정</b></td><td>철콘·기초·배근 6/15~7/5, 판넬·연결부 7/1~8/5, 바닥·옹벽·마감 7/15~8/20</td><td>6/15 저판 타설, 6/16~18 벽체 거푸집·철근배근 실적 완료 처리</td><td>8/20 전후 증축구간 완료 목표 복원</td></tr>
+                <tr><td><b>전기·설비전기</b></td><td>전기 인입·설비전기 7/25~8/25, 후속업체 일정 선점 필요</td><td>9/11 설비 현장설치 전 선행조건 Gate로 연결</td><td>8/25 전기 Gate 미충족 시 9월 설비설치 지연 위험</td></tr>
+                <tr><td><b>설비 Master Plan</b></td><td>기존 Kick-off에는 별도 상세 일정 없음</td><td>6/15~9/30 설계·제조·운송·설치·디버깅 반영</td><td>건축공사와 설비공사를 병행축으로 통합 관리</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mermaid-wrap gantt-wrap">
+            <pre class="mermaid">gantt
+    title 지수통합선별공장 프로젝트 통합 일정 · 2026-06-19 기준
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m/%d
+
+    section 완료·전주 기준
+    증축 최종 의사결정 : milestone, done,crit, 2026-05-12, 1d
+    증축인허가 및 공장설립인허가 제출 : milestone, done,crit, 2026-06-05, 1d
+    금재 Kick-off 및 부대공사 선행착수 : milestone, done,crit, 2026-06-08, 1d
+    내부 정리·철거·집기 이동 착수 : done, interior_start, 2026-06-11, 2026-06-20
+
+    section 인허가·보증·계약 Gate
+    인허가 신청/접수 : milestone, done, permit_apply, 2026-06-08, 1d
+    허가서 또는 접수증 확보 관리 : active, permit_doc, 2026-06-09, 2026-06-25
+    건축허가 당초 예정일 : milestone, permit_plan, 2026-06-22, 1d
+    시청 내부처리 반영 건축허가 예상 : milestone, crit, permit_gate, 2026-06-25, 1d
+    착공계 즉시 접수 및 증축공사 착수전환 : crit, start_report, 2026-06-25, 2026-06-26
+
+    section 금주 현장실적
+    옹벽 기초·저판 철근배근 및 콘크리트 타설 : done,crit, rc_slab, 2026-06-15, 1d
+    A/B 구간 외부 옹벽 벽체 거푸집·철근배근 : done,crit, wall_form, 2026-06-16, 2026-06-18
+    차량동선 11~12m 확인 및 제초·벌목 지시 : done, logistics, 2026-06-17, 1d
+
+    section 초기 부대공사·운영공간 정비
+    사무동·기숙사 방수공사 보완 : crit, waterproof2, 2026-06-23, 2026-06-30
+    펜스·게이트 공사 보완 및 기준선 확정 : fence2, 2026-06-23, 2026-07-10
+    공장주변 제초·벌목 및 경계선 정리 : active, clearing, 2026-06-23, 2026-06-30
+    청소·도배·장판·기본정비 : cleaning, 2026-06-20, 2026-07-05
+
+    section 증축구간 본공정
+    철콘·기초·배근 전체 공정 : crit, rc_total, 2026-06-15, 2026-07-05
+    철골 사전준비 및 자재·제작 준비 : crit, steel_ready, 2026-06-23, 2026-07-03
+    철거·판넬·연결부 정비 : crit, panel_link, 2026-07-01, 2026-08-05
+    바닥·옹벽·마감 : crit, floor_wall_finish, 2026-07-15, 2026-08-20
+    증축구간 완료 목표 : milestone, crit, building_done, 2026-08-20, 1d
+    전기 인입·설비전기 : crit, electric, 2026-07-25, 2026-08-25
+    설비 설치 선행조건 완료 Gate : milestone, crit, site_ready, 2026-08-25, 1d
+
+    section 설비업체 Master Plan
+    계약 후 기술 파라미터 및 설계 : crit, equip_design, 2026-06-15, 2026-07-03
+    장납기품 우선발주 및 BOM 확정 Gate : milestone, crit, bom_gate, 2026-07-03, 1d
+    장비 제조 : crit, equip_mfg, 2026-07-01, 2026-09-01
+    포장 : equip_pack, 2026-09-02, 2026-09-03
+    운송 중국-한국-현장 : crit, equip_ship, 2026-09-03, 2026-09-10
+    현장 설치 : crit, equip_install, 2026-09-11, 2026-09-25
+    디버깅 및 검수 : crit, equip_debug, 2026-09-25, 2026-09-30
+    설비 디버깅 완료 목표 : milestone, crit, debug_done, 2026-09-30, 1d
+
+    section 정상조업 준비
+    통합 시운전·운영인력·품질기준 점검 : crit, trial, 2026-10-01, 2026-10-10
+    정상조업 준비 및 개시 : crit, normal_ops, 2026-10-12, 2026-10-18</pre>
+          </div>
+          <h3>계획 대비 실행 업데이트 표</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>일자/기간</th><th>구분</th><th>실행/변경 내용</th><th>후속 관리</th></tr></thead>
+              <tbody>
+                <tr><td>2026-06-08~06-25</td><td>인허가·보증·계약</td><td>허가서/접수증·보증서·계약금 지급 흐름을 본공정 선행 Gate로 통합</td><td>6/25 허가 예상, 허가 즉시 착공계 접수, 보증·잔여 지급 프로세스 연결</td></tr>
+                <tr><td>2026-06-11~07-10</td><td>초기 부대공사</td><td>내부정리·방수·펜스·대문·제초·청소정비 일정을 복원하고 6/19 진행상황에 맞춰 보정</td><td>방수 6/30, 펜스·게이트 7/10, 청소·기본정비 7/5 완료 기준 관리</td></tr>
+                <tr><td>2026-06-15</td><td>옹벽</td><td>옹벽 기초 및 저판 철근배근 후 콘크리트 타설, 2차 철근 반입</td><td>저판 레벨, 양생, 벽체 철근 위치, 철근 규격·수량 검수</td></tr>
+                <tr><td>2026-06-16~06-18</td><td>옹벽</td><td>A/B면 외부 옹벽 벽체 거푸집 및 철근배근 진행</td><td>피복두께, 수직도, 결속상태, 타설 전 청소 확인</td></tr>
+                <tr><td>2026-07-01~08-20</td><td>증축구간 본공정</td><td>철콘·기초·배근 이후 판넬·연결부 정비, 바닥·옹벽·마감까지 8/20 완료 목표 반영</td><td>판넬 완료 전후 전기 일정 선점, 바닥·옹벽 마감과 설비 설치조건 연결</td></tr>
+                <tr><td>2026-09-11~09-30</td><td>설비설치·디버깅</td><td>설비 현장설치·디버깅 일정을 증축구간 완료 및 전기 Gate 뒤에 배치</td><td>건축·전기·집진 미충족 시 9월 설치·디버깅 압박 관리</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="block" id="budget">
+          <h2><span class="num">2</span>자금·설비 Master Plan</h2>
+          <div class="note">
+            <b>자금관리 원칙</b><br>
+            토지·건물 25.5억, 금재 확정공사 8.6억, 신비엔텍 본선설비 8.28억을 중심으로 관리하고, 집진·후드·덕트·대기배출·전기/제어·추가 컨베이어는 +α 별도 확정 항목으로 분리한다.
+          </div>
+          <div class="grid4">
+            <article class="card" style="--c:var(--green)"><div class="k">TOTAL</div><div class="v">42.38억+α</div><p>토지·건물 25.5억 + 금재 8.6억 + 신비엔텍 본선 8.28억.</p></article>
+            <article class="card" style="--c:var(--blue)"><div class="k">CONSTRUCTION</div><div class="v">8.6억</div><p>금재종합건설 확정계약. 10% 선지급과 기성 Gate 별도 추적.</p></article>
+            <article class="card" style="--c:var(--red)"><div class="k">EQUIPMENT</div><div class="v">8.28억</div><p>신비엔텍 본선 선별·패킹 설비 우선 검토 기준. VAT 별도.</p></article>
+            <article class="card" style="--c:var(--orange)"><div class="k">UNFIXED</div><div class="v">별도확정</div><p>집진·후드·덕트·대기배출·전기/제어 접점 별도 검토.</p></article>
+          </div>
+
+          <div class="budget">
+            <article class="pie">
+              <h4>프로젝트 총 관리금액 구성</h4>
+              <div class="pie-flex">
+                <div class="donut-chart" role="img" aria-label="총 관리금액 42.38억 중 토지·건물 25.5억 60.2%, 금재 확정공사 8.6억 20.3%, 신비엔텍 본선설비 8.28억 19.5%" style="--segments:conic-gradient(#312e81 0deg 216.6deg, #166534 216.6deg 289.7deg, #0e7490 289.7deg 360deg)">
+                  <div class="donut-center"><span>합계</span><b>42.38억</b></div>
+                </div>
+                <div class="legend">
+                  <div><i style="background:#312e81"></i><span>토지·건물 <b>25.5억</b> <span class="pct">60.2%</span></span></div>
+                  <div><i style="background:#166534"></i><span>금재 확정공사 <b>8.6억</b> <span class="pct">20.3%</span></span></div>
+                  <div><i style="background:#0e7490"></i><span>신비엔텍 본선설비 <b>8.28억</b> <span class="pct">19.5%</span></span></div>
+                </div>
+              </div>
+            </article>
+            <article class="pie">
+              <h4>향후 지급관리 구성</h4>
+              <div class="pie-flex">
+                <div class="donut-chart" role="img" aria-label="향후 지급관리 16.88억 중 금재 잔여/기성관리 8.6억 51.0%, 신비엔텍 본선설비 8.28억 49.0%" style="--segments:conic-gradient(#166534 0deg 183.4deg, #dc2626 183.4deg 360deg)">
+                  <div class="donut-center"><span>관리</span><b>16.88억</b></div>
+                </div>
+                <div class="legend">
+                  <div><i style="background:#166534"></i><span>금재 잔여/기성관리 <b>8.6억</b> <span class="pct">51.0%</span></span></div>
+                  <div><i style="background:#dc2626"></i><span>신비엔텍 본선설비 <b>8.28억</b> <span class="pct">49.0%</span></span></div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <h3>선별라인 설비업체 Master Plan 반영</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>순서</th><th>항목</th><th>시작</th><th>완료</th><th>일정</th><th>핵심 작업 내용</th><th>결과물</th><th>보고 판단</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td><b>계약 후 기술 파라미터 및 설계</b></td><td>06월15일</td><td>07월03일</td><td>17일</td><td>계약서 검토, 기술 제안서 확보, 설계, 구매품 구매</td><td>계약서, 기술제안서, 설계도면, BOM List</td><td>장납기품 우선발주 여부가 1차 Gate</td></tr>
+                <tr><td>2</td><td><b>장비 제조</b></td><td>07월01일</td><td>09월01일</td><td>60일</td><td>가공, 구매, 조립, 시운행</td><td>완성품</td><td>건축공사와 병행되는 설비 핵심 공정</td></tr>
+                <tr><td>3</td><td><b>포장</b></td><td>09월02일</td><td>09월03일</td><td>2일</td><td>장비 수출규격 포장</td><td>출하성적서, Packing List, 포장</td><td>출하 품질자료 확보 필요</td></tr>
+                <tr><td>4</td><td><b>운송</b></td><td>09월03일</td><td>09월10일</td><td>7일</td><td>중국-한국-고객사 현장</td><td>운송</td><td>DDP 조건, 통관·국내운송 리스크 확인</td></tr>
+                <tr><td>5</td><td><b>현장 설치</b></td><td>09월11일</td><td>09월25일</td><td>15일</td><td>현장 설치</td><td>현장 설치 완료</td><td>건축·전기·집진 준비상태와 직접 연동</td></tr>
+                <tr><td>6</td><td><b>디버깅</b></td><td>09월25일</td><td>09월30일</td><td>5일</td><td>시운행 및 검수</td><td>디버깅 및 검수</td><td>10월 정상조업 전 최종 성능확인 Gate</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mermaid-wrap flowchart-wrap">
+            <pre class="mermaid">flowchart LR
+    A[6/15~7/3<br/>기술 파라미터·설계] --> B[7/1~9/1<br/>장비 제조]
+    B --> C[9/2~9/3<br/>포장]
+    C --> D[9/3~9/10<br/>운송]
+    D --> E[9/11~9/25<br/>현장 설치]
+    E --> F[9/25~9/30<br/>디버깅·검수]
+    F --> G[10월<br/>통합점검·정상조업 준비]
+    A -. 장납기품 우선발주 .-> B
+    E -. 건축·전기·집진 준비 필요 .-> H[현장 선행조건]
+    H -. 미충족 시 설치 지연 .-> E
+    classDef done fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#052e16;
+    classDef active fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#172554;
+    classDef risk fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#450a0a;
+    classDef gate fill:#ffedd5,stroke:#f97316,stroke-width:2px,color:#431407;
+    class A,B,C,D active; class E,F gate; class H risk; class G done;</pre>
+          </div>
+        </section>
+
+        <section class="block" id="site">
+          <h2><span class="num">3</span>현장·부대공사·동선 관리</h2>
+          <h3>6/15~6/18 공사일보 통합 요약</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>일자</th><th>주요 공종</th><th>현장 진행</th><th>관리 포인트</th><th>보고 판단</th></tr></thead>
+              <tbody>
+                <tr><td>2026-06-15</td><td><b>옹벽 기초·저판</b></td><td>옹벽 기초 및 저판 철근배근 후 콘크리트 타설, 2차 철근 반입</td><td>피복·정착·겹침이음, 레벨, 양생, 철근 규격·수량 검수</td><td>옹벽 기초부 구조체 시공 단계 진입</td></tr>
+                <tr><td>2026-06-16</td><td><b>외부 옹벽 벽체</b></td><td>A/B면 외부 옹벽 벽체 거푸집 및 철근배근</td><td>거푸집 수직도, 벽체 두께, 버팀, 타설 전 청소</td><td>벽체 타설 전 형상 확보 단계</td></tr>
+                <tr><td>2026-06-17</td><td><b>옹벽·동선·부대</b></td><td>A/B 구간 거푸집 설치, 증축건물 모서리~2동 방향 11~12m 확인, 제초·벌목 지시</td><td>대형덤프·트레일러 통과 전 적치물 정리, 회전반경, 유도자, 펜스 기준선 확보</td><td>공사·물류·경계공사가 동시에 연결되는 관리일</td></tr>
+                <tr><td>2026-06-18</td><td><b>외부 옹벽 벽체</b></td><td>거푸집 패널 및 지지재 설치상태 확인</td><td>체결상태, 하부 틈새, 누수·벌어짐 방지, 작업발판 안전</td><td>타설 전 검측 항목 구체화 필요</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>차주 현장 실행 패키지</h3>
+          <div class="grid3">
+            <article class="card" style="--c:var(--cyan)"><div class="k">방수공사</div><div class="v">6/23~6/30</div><p>사무동, 기숙사, 기술사건물 누수부위 보수와 작업 전·중·후 사진기록.</p></article>
+            <article class="card" style="--c:var(--green)"><div class="k">펜스·게이트</div><div class="v">~7/10</div><p>제초·벌목 후 기준선 확보, 게이트 위치와 차량동선 간섭 해소.</p></article>
+            <article class="card" style="--c:var(--orange)"><div class="k">차량동선</div><div class="v">11~12m</div><p>적치물 제거, 유도자 배치, 대형차량 회전반경 및 설비반입 조건 확인.</p></article>
+          </div>
+          <div class="flow">
+            <div class="step"><b>Step 1</b><span>저판 타설·벽체 거푸집</span></div>
+            <div class="step"><b>Step 2</b><span>타설 전 검측</span></div>
+            <div class="step"><b>Step 3</b><span>방수·펜스·제초</span></div>
+            <div class="step"><b>Step 4</b><span>건축허가 6/25</span></div>
+            <div class="step"><b>Step 5</b><span>착공계 즉시 접수</span></div>
+            <div class="step"><b>Step 6</b><span>철골 준비 연동</span></div>
+            <div class="step"><b>Step 7</b><span>설비 설치조건 확보</span></div>
+          </div>
+        </section>
+
+        <section class="block" id="risk">
+          <h2><span class="num">4</span>리스크·의사결정</h2>
+          <h3>핵심 리스크 관리</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ID</th><th>구분</th><th>금주 상태</th><th>발생 조건</th><th>영향</th><th>대응 방향</th><th>등급</th></tr></thead>
+              <tbody>
+                <tr><td>R-01</td><td><b>건축허가 지연</b></td><td>6/22 → 6/25 예상</td><td>시청 내부 업무진행 지연 또는 추가 보완</td><td>착공계 접수 및 증축공사 착수 일정 압박</td><td>허가 즉시 착공계 접수, 선행서류 사전 패키지화</td><td><span class="status risk">상</span></td></tr>
+                <tr><td>R-02</td><td><b>철골 준비 지연</b></td><td>차주 사전준비 예정</td><td>철골 제작·자재·반입 준비 미흡</td><td>증축 본공사 착수 지연</td><td>자재입고 계획, 검수체계 선확정</td><td><span class="status warn">중상</span></td></tr>
+                <tr><td>R-03</td><td><b>옹벽 타설 전 품질</b></td><td>벽체 거푸집·철근배근 진행</td><td>피복, 수직도, 체결, 하부 틈새 미확인</td><td>타설 품질·재시공·균열 리스크</td><td>타설 전 검측 체크리스트 운영</td><td><span class="status risk">상</span></td></tr>
+                <tr><td>R-04</td><td><b>설비 접점 리스크</b></td><td>9/11 현장설치 예정</td><td>건축·전기·집진·기초 준비 미충족</td><td>설치 지연 및 9/30 디버깅 압박</td><td>8월 말~9월 초 현장조건 Gate 설정</td><td><span class="status risk">상</span></td></tr>
+                <tr><td>R-05</td><td><b>장납기품 발주</b></td><td>6/15~7/3 설계/BOM 기간</td><td>BOM 확정 지연, 구매품·가공품 발주 지연</td><td>7/1 제조 착수 및 9/1 완료 지연</td><td>장납기품 우선발주 목록 별도 관리</td><td><span class="status risk">상</span></td></tr>
+                <tr><td>R-06</td><td><b>펜스·제초 지연</b></td><td>차주 착수 예정</td><td>식생, 경계선 불명확, 작업공간 미확보</td><td>펜스 시공 및 차량동선 간섭</td><td>제초·벌목 선행 완료사진 관리</td><td><span class="status warn">중</span></td></tr>
+                <tr><td>R-07</td><td><b>차량동선 관리</b></td><td>11~12m 폭 확인</td><td>적치물·장비·회전반경 미정리</td><td>대형덤프·트레일러·설비반입 간섭</td><td>유도자 배치, 적치구역 지정, 반입동선 시뮬레이션</td><td><span class="status warn">중상</span></td></tr>
+                <tr><td>R-08</td><td><b>별도 설비 패키지</b></td><td>집진·전기·후드 별도 확정 필요</td><td>본선 설비 외 항목 미계약</td><td>환경 인허가·시운전 지연</td><td>백필터·후드·덕트·대기배출·전기 접점 별도 발주검토</td><td><span class="status risk">상</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>의사결정 로그</h3>
+          <div class="grid2">
+            <article class="card" style="--c:var(--green)"><div class="k">D-15 · 2026-06-15</div><div class="v">구조체 전환</div><p>저판 철근배근 및 콘크리트 타설, 2차 철근 반입 완료. 벽체 배근·거푸집·타설 전 검측 강화.</p></article>
+            <article class="card" style="--c:var(--cyan)"><div class="k">D-16 · 2026-06-17</div><div class="v">동선 가능</div><p>증축건물 모서리~2동 방향 11~12m 확인. 적치물 정리, 회전반경, 유도자 배치 확인.</p></article>
+            <article class="card" style="--c:var(--orange)"><div class="k">D-17 · 2026-06-19</div><div class="v">6/25 Gate</div><p>건축허가 Gate는 6/25 예상 기준으로 보정. 허가 즉시 착공계 접수 및 철골 사전준비.</p></article>
+            <article class="card" style="--c:var(--red)"><div class="k">D-18 · 2026-06-19</div><div class="v">설비 일정축</div><p>6/15~9/30 전체 106일 일정표 접수. 설계·제조·설치·디버깅을 통합 간트에 반영.</p></article>
+          </div>
+        </section>
+
+        <section class="block" id="milestone">
+          <h2><span class="num">5</span>마일스톤요약</h2>
+          <div class="timeline">
+            <article class="phase" style="--c:var(--green)"><div class="idx">PHASE 1</div><b>의사결정·인허가 제출</b><p>2026-05-12 ~ 06-05 · 완료</p></article>
+            <article class="phase" style="--c:var(--green)"><div class="idx">PHASE 2</div><b>Kick-off·선행착수</b><p>2026-06-08 ~ 06-11 · 완료</p></article>
+            <article class="phase" style="--c:var(--orange)"><div class="idx">PHASE 3</div><b>부대공사 1차</b><p>2026-06-11 ~ 06-30 · 진행/보정</p></article>
+            <article class="phase" style="--c:var(--green)"><div class="idx">PHASE 4</div><b>옹벽 저판·벽체</b><p>2026-06-15 ~ 06-18 · 완료/진행</p></article>
+            <article class="phase" style="--c:var(--orange)"><div class="idx">PHASE 5</div><b>건축허가·착공계</b><p>2026-06-25 예상 · 대기/보정</p></article>
+            <article class="phase" style="--c:var(--blue)"><div class="idx">PHASE 6</div><b>운영공간 기본정비</b><p>2026-06-20 ~ 07-05 · 예정/진행</p></article>
+            <article class="phase" style="--c:var(--blue)"><div class="idx">PHASE 7</div><b>철골·철콘·기초</b><p>2026-06-23 ~ 07-05 · 예정/진행</p></article>
+            <article class="phase" style="--c:var(--blue)"><div class="idx">PHASE 8</div><b>판넬·연결부</b><p>2026-07-01 ~ 08-05 · 예정</p></article>
+            <article class="phase" style="--c:var(--blue)"><div class="idx">PHASE 9</div><b>바닥·옹벽·마감</b><p>2026-07-15 ~ 08-20 · 예정</p></article>
+            <article class="phase" style="--c:var(--red)"><div class="idx">PHASE 10</div><b>전기·설비전기</b><p>2026-07-25 ~ 08-25 · 예정 Gate</p></article>
+            <article class="phase" style="--c:var(--purple)"><div class="idx">PHASE 11</div><b>설비 설계·BOM</b><p>2026-06-15 ~ 07-03 · 진행</p></article>
+            <article class="phase" style="--c:var(--purple)"><div class="idx">PHASE 12</div><b>설비 제조</b><p>2026-07-01 ~ 09-01 · 예정</p></article>
+            <article class="phase" style="--c:var(--purple)"><div class="idx">PHASE 13</div><b>운송·현장설치</b><p>2026-09-03 ~ 09-25 · 예정</p></article>
+            <article class="phase" style="--c:var(--red)"><div class="idx">PHASE 14</div><b>디버깅·검수</b><p>2026-09-25 ~ 09-30 · 예정 Gate</p></article>
+            <article class="phase" style="--c:var(--green)"><div class="idx">PHASE 15</div><b>정상조업 준비</b><p>2026-10-01 ~ 10-18 · 예정</p></article>
+          </div>
+          <div class="mermaid-wrap flowchart-wrap">
+            <pre class="mermaid">flowchart LR
+    P1[PHASE 1<br/>의사결정·인허가 제출] --> P2[PHASE 2<br/>Kick-off·선행착수]
+    P2 --> P3[PHASE 3<br/>부대공사 1차]
+    P2 --> P4[PHASE 4<br/>옹벽 구조체 시공]
+    P4 --> P5[PHASE 5<br/>건축허가·착공계 Gate]
+    P5 --> P6[PHASE 6<br/>철골·철콘·기초]
+    P6 --> P7[PHASE 7<br/>판넬·연결부]
+    P7 --> P8[PHASE 8<br/>바닥·옹벽·마감]
+    P8 --> P9[PHASE 9<br/>전기·설비전기]
+    P9 --> P10[PHASE 10<br/>설비 현장설치]
+    P10 --> P11[PHASE 11<br/>디버깅·검수]
+    P11 --> P12[PHASE 12<br/>10월 정상조업 준비]
+    P3 -. 현장조건 확보 .-> P8
+    P5 -. 허가 지연 시 .-> R1[착공계·철골 일정 압박]
+    P9 -. 전기·집진 미충족 시 .-> R2[설비 설치·디버깅 지연]
+    classDef base fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#052e16;
+    classDef gate fill:#ffedd5,stroke:#f97316,stroke-width:2px,color:#431407;
+    classDef build fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#172554;
+    classDef risk fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#450a0a;
+    class P1,P2,P3,P4 base; class P5 gate; class P6,P7,P8,P9,P10,P11,P12 build; class R1,R2 risk;</pre>
+          </div>
+        </section>
+
+        <section class="block" id="weekly">
+          <h2><span class="num">6</span>금주 업데이트 상세 · 2026-06-15~06-19</h2>
+          <h3>6-1. 현장 공사일보 종합 판단</h3>
+          <div class="note success">
+            <b>금주 공사 핵심</b><br>
+            이번 주 현장 공사는 옹벽 기초부 시공에서 벽체 형상 확보 단계로 이동했다. 6/15 저판 철근배근 및 콘크리트 타설이 완료되었고, 6/16~18에는 A/B 구간 외부 옹벽 벽체의 거푸집·철근배근이 진행되었다.
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>구분</th><th>금주 확인</th><th>관리 판단</th></tr></thead>
+              <tbody>
+                <tr><td><b>옹벽 저판</b></td><td>6/15 철근배근 및 콘크리트 타설 완료</td><td>벽체 거푸집 설치의 기준면 확보</td></tr>
+                <tr><td><b>벽체 거푸집</b></td><td>6/16~18 A/B 구간 거푸집·지지재 설치</td><td>타설 전 수직도·두께·체결·버팀 확인 필요</td></tr>
+                <tr><td><b>철근</b></td><td>2차 철근 반입 및 후속 배근 진행</td><td>규격·수량·야적상태·피복두께 검수 필요</td></tr>
+                <tr><td><b>동선</b></td><td>11~12m 폭 확인</td><td>대형덤프·트레일러 통과 가능하나 적치물·회전반경 관리 필요</td></tr>
+                <tr><td><b>환경정리</b></td><td>제초·벌목 지시</td><td>펜스·게이트 공사의 선행조건</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>6-2. 건축허가 지연 및 착공계 대응</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>항목</th><th>기존 계획</th><th>금주 변경</th><th>대응 방향</th></tr></thead>
+              <tbody>
+                <tr><td><b>건축허가 예정일</b></td><td>2026-06-22</td><td>시청 내부 업무진행상 2026-06-25 전후 예상</td><td>담당부서 확인 루틴 유지, 보완요청 발생 시 즉시 대응</td></tr>
+                <tr><td><b>착공계</b></td><td>6/22 전후 접수 목표</td><td>허가 후 즉시 접수</td><td>착공계 서류 사전 패키지화, 시공사·감리·설계사 자료 동시 준비</td></tr>
+                <tr><td><b>증축공사 착수</b></td><td>건축허가 후 일정 착수</td><td>차주 허가 후 즉시 증축공사 일정 착수 예정</td><td>착공계 접수일 기준 공정표 재확정</td></tr>
+                <tr><td><b>철골 준비</b></td><td>증축공사 착수 후 준비</td><td>사전 철골준비작업 예정</td><td>허가 대기기간 중 제작·자재·반입계획 선행</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>6-3. 설비업체 Master Plan의 의미</h3>
+          <div class="note">
+            <b>보고 판단</b><br>
+            선별라인 Master Plan은 단순 일정표가 아니라, 10월 정상조업 목표를 검증하는 기준 일정이다. 9/30 디버깅 완료가 가능하려면 7/3까지 기술 파라미터·설계·BOM이 확정되어야 하고, 7/1부터 제조가 병행 착수되어야 한다.
+          </div>
+        </section>
+
+        <section class="block" id="next">
+          <h2><span class="num">7</span>차주 실행계획 · 2026-06-22~06-26</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>우선순위</th><th>실행과제</th><th>기한</th><th>담당/협의</th><th>산출물</th><th>완료 기준</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td><b>건축허가 6/25 예상일 관리 및 보완요구 추적</b></td><td>6/25</td><td>건축사, 진주시, 시공사</td><td>허가 진행상태 메모, 보완자료</td><td>허가 수리 또는 추가 보완사항 명확화</td></tr>
+                <tr><td>2</td><td><b>허가 후 착공계 즉시 접수</b></td><td>허가 당일~익일</td><td>시공사, 감리, 설계</td><td>착공계 접수증, 착공서류 패키지</td><td>접수완료 및 착공 가능상태 확인</td></tr>
+                <tr><td>3</td><td><b>철골 사전준비 작업</b></td><td>6/23~7/3</td><td>금재, 철골업체</td><td>제작/자재/반입계획</td><td>착공 후 지연 없는 자재 준비상태</td></tr>
+                <tr><td>4</td><td><b>사무동·기숙사 방수공사 착수</b></td><td>6/23~6/30</td><td>시공사, 현장관리</td><td>전·중·후 사진, 작업범위</td><td>누수부위 보완 및 완료확인</td></tr>
+                <tr><td>5</td><td><b>펜스·게이트 공사 착수</b></td><td>6/23~7/10</td><td>시공사, 현장관리</td><td>경계선, 자재입고, 시공사진</td><td>기준선 확보 및 설치공정 착수</td></tr>
+                <tr><td>6</td><td><b>공장 주변 제초·벌목</b></td><td>6/23~6/30</td><td>현장관리, 시공사</td><td>전·후 비교사진</td><td>펜스 시공 간섭요소 제거</td></tr>
+                <tr><td>7</td><td><b>설비 상세설계·BOM·장납기 발주 확인</b></td><td>6/23~7/3</td><td>설비업체, 구매, 설계</td><td>설계도면, BOM List, 장납기 리스트</td><td>7/1 제조 병행착수 가능성 확인</td></tr>
+                <tr><td>8</td><td><b>현장 설치 선행조건 점검표 작성</b></td><td>6/26~7/5</td><td>설비업체, 전기, 집진, 시공사</td><td>설치 선행조건 체크리스트</td><td>9/11 설치 착수 조건 사전 정의</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>차주 회의 핵심 안건</h3>
+          <div class="grid3">
+            <div class="note warn"><b>인허가</b><br>6/25 예상일, 추가 보완요청 가능성, 허가 직후 착공계 접수 서류 완성도.</div>
+            <div class="note"><b>현장</b><br>철골 사전준비, 방수·펜스·게이트·제초작업의 작업범위와 완료기준.</div>
+            <div class="note danger"><b>설비</b><br>7/3 설계/BOM Gate, 7/1 제조 착수 가능성, 9/11 설치 전 선행조건.</div>
+          </div>
+        </section>
+
+        <section class="block" id="review">
+          <h2><span class="num">8</span>리뷰 룸</h2>
+          <p>보고서 검토자는 아래 세 가지 관점으로 판단하면 된다. 이 영역은 원문을 다시 분석하지 않고도 다음 회의의 질문을 바로 정리할 수 있도록 구성했다.</p>
+          <div class="review-grid">
+            <article class="review-card">
+              <h4>일정 검토</h4>
+              <p>6/25 허가 Gate 보정이 8/20 증축구간 완료와 9/11 설비 현장설치에 미치는 영향을 확인한다.</p>
+            </article>
+            <article class="review-card">
+              <h4>현장 검토</h4>
+              <p>거푸집·철근배근 검측, 차량동선 11~12m, 제초·펜스 기준선 확보 여부를 사진 증빙으로 확인한다.</p>
+            </article>
+            <article class="review-card">
+              <h4>설비 검토</h4>
+              <p>7/3 설계·BOM·장납기품 Gate와 전기·집진·대기배출 별도 패키지 누락 리스크를 점검한다.</p>
+            </article>
+          </div>
+          <h3>검토 메모</h3>
+          <textarea id="readerMemo" placeholder="검토 의견, 다음 회의 질문, 보완 요청사항을 적어두세요. 이 메모는 이 브라우저에만 저장됩니다."></textarea>
+          <div class="copy-row">
+            <button class="btn" id="saveMemo" type="button">메모 저장</button>
+            <button class="btn" data-copy="review">리뷰 질문 복사</button>
+          </div>
+        </section>
+      <section class="marktl-reader-feedback" aria-label="Reader feedback">
+<style>
+.marktl-reader-feedback { margin: 40px auto 0; padding: 0; }
+.marktl-reader-feedback h2 { margin: 0 0 8px; font: 800 22px/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback p { margin: 0 0 14px; color: #526173; font: 500 14px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback .giscus, .marktl-reader-feedback .giscus-frame { width: 100%; }
+</style>
+<h2>Reader feedback</h2>
+<p>Leave a public GitHub comment or reaction below.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="flytothesky23/marktl-shares"
+        data-repo-id="R_kgDOSbdK8Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOSbdK8c4C84EC"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ko"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+</main>
+    </div>
+  </div>
+
+  <script>
+    const copyMap = {
+      summary: `2026-06-19 지수통합선별공장 보고 핵심\n1. 공사는 6/15 저판 타설과 6/16~18 벽체 거푸집·철근배근으로 구조체 시공 단계에 진입했습니다.\n2. 건축허가 Gate는 시청 내부 처리 흐름에 따라 6/25 전후로 보정합니다.\n3. 허가 즉시 착공계 접수, 철골 사전준비, 방수·펜스·제초 병행이 차주 핵심입니다.\n4. 설비 Master Plan은 6/15~9/30 전체 106일 일정으로, 7/3 설계·BOM·장납기품 Gate가 중요합니다.\n5. 10월 정상조업 목표는 유지 가능하지만 전기·집진·대기배출·현장 설치조건을 별도 Gate로 관리해야 합니다.`,
+      next: `차주 실행계획 2026-06-22~06-26\n- 건축허가 6/25 예상일 관리 및 보완요구 추적\n- 허가 후 착공계 즉시 접수\n- 철골 사전준비 작업\n- 사무동·기숙사 방수공사 착수\n- 펜스·게이트 공사 착수\n- 공장 주변 제초·벌목\n- 설비 상세설계·BOM·장납기 발주 확인\n- 현장 설치 선행조건 점검표 작성`,
+      review: `리뷰 질문\n1. 6/25 허가 Gate 보정이 8/20 증축구간 완료와 9/11 설비 현장설치에 미치는 영향은 무엇인가?\n2. 옹벽 벽체 타설 전 검측 항목과 사진 증빙은 충분한가?\n3. 방수·펜스·제초·철골 사전준비가 허가 대기기간에 실제로 병행 가능한가?\n4. 7/3 설계·BOM·장납기품 Gate를 설비업체와 어떻게 확인할 것인가?\n5. 전기·집진·대기배출 별도 패키지 누락 리스크를 누가 확정 관리할 것인가?`
+    };
+    async function copyText(text){
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      const ok = document.execCommand("copy");
+      ta.remove();
+      return ok;
+    }
+    document.querySelectorAll("[data-copy]").forEach((button)=>{
+      button.addEventListener("click", async ()=>{
+        const key = button.getAttribute("data-copy");
+        await copyText(copyMap[key] || "");
+        const old = button.textContent;
+        button.textContent = "복사됨";
+        setTimeout(()=>button.textContent = old, 1200);
+      });
+    });
+    const themeButton = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("jisoo-2026-06-19-theme");
+    if(savedTheme === "light"){
+      document.documentElement.setAttribute("data-theme","light");
+      themeButton.textContent = "다크 전환";
+    }
+    themeButton.addEventListener("click", ()=>{
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      if(isLight){
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("jisoo-2026-06-19-theme","dark");
+        themeButton.textContent = "라이트 전환";
+      } else {
+        document.documentElement.setAttribute("data-theme","light");
+        localStorage.setItem("jisoo-2026-06-19-theme","light");
+        themeButton.textContent = "다크 전환";
+      }
+      requestAnimationFrame(syncMermaidThemeColors);
+    });
+    const memo = document.getElementById("readerMemo");
+    const memoKey = "jisoo-2026-06-19-review-memo";
+    memo.value = localStorage.getItem(memoKey) || "";
+    document.getElementById("saveMemo").addEventListener("click", ()=>{
+      localStorage.setItem(memoKey, memo.value);
+      const button = document.getElementById("saveMemo");
+      const old = button.textContent;
+      button.textContent = "저장됨";
+      setTimeout(()=>button.textContent = old, 1200);
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    function syncMermaidThemeColors(){
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      const textColor = isLight ? "#0f172a" : "#e5edf8";
+      const gridColor = isLight ? "#64748b" : "#94a3b8";
+      const nodeTextColor = "#0f172a";
+      const edgeTextColor = "#0f172a";
+      const edgeLabelBg = isLight ? "#f8fafc" : "#e0f2fe";
+      document.querySelectorAll('.mermaid-wrap svg text, .mermaid-wrap svg tspan, .mermaid-wrap svg .label, .mermaid-wrap svg .nodeLabel, .mermaid-wrap svg .edgeLabel, .mermaid-wrap svg .sectionTitle, .mermaid-wrap svg .taskText, .mermaid-wrap svg [class*="taskText"], .mermaid-wrap svg foreignObject, .mermaid-wrap svg foreignObject *').forEach((el)=>{
+        let color = textColor;
+        const inGantt = Boolean(el.closest(".gantt-wrap"));
+        const inModal = Boolean(el.closest(".diagram-modal-body"));
+        if(el.closest(".flowchart-wrap g.node")){
+          color = nodeTextColor;
+        } else if(el.closest(".flowchart-wrap g.edgeLabel")){
+          color = edgeTextColor;
+          el.style.setProperty("background",edgeLabelBg,"important");
+          el.style.setProperty("background-color",edgeLabelBg,"important");
+        }
+        el.style.setProperty("fill",color,"important");
+        el.style.setProperty("color",color,"important");
+        el.style.setProperty("font-weight","800","important");
+        el.style.setProperty("opacity","1","important");
+        el.style.setProperty("text-shadow","none","important");
+        if(inGantt){
+          const isTitle = el.classList.contains("titleText");
+          const isSection = el.classList.contains("sectionTitle");
+          const fontSize = isTitle ? (inModal ? "24px" : "18px") : (isSection ? (inModal ? "14px" : "11px") : (inModal ? "13px" : "10px"));
+          el.style.setProperty("font-size",fontSize,"important");
+          if(isTitle) el.style.setProperty("font-weight","950","important");
+        }
+      });
+      document.querySelectorAll('.flowchart-wrap svg g.edgeLabel, .flowchart-wrap svg g.edgeLabel foreignObject, .flowchart-wrap svg g.edgeLabel .label, .flowchart-wrap svg g.edgeLabel .edgeLabel').forEach((el)=>{
+        el.style.setProperty("background",edgeLabelBg,"important");
+        el.style.setProperty("background-color",edgeLabelBg,"important");
+        el.style.setProperty("color",edgeTextColor,"important");
+        el.style.setProperty("fill",edgeTextColor,"important");
+        el.style.setProperty("opacity","1","important");
+      });
+      document.querySelectorAll('.mermaid-wrap svg .grid .tick line, .mermaid-wrap svg .tick line').forEach((el)=>{
+        el.style.setProperty("stroke",gridColor,"important");
+        el.style.setProperty("opacity",".75","important");
+      });
+      adjustGanttLayout();
+    }
+    function adjustGanttLayout(){
+      document.querySelectorAll(".gantt-wrap svg").forEach((svg)=>{
+        if(!svg.dataset.baseViewBox){
+          svg.dataset.baseViewBox = svg.getAttribute("viewBox") || "";
+        }
+        const parts = svg.dataset.baseViewBox.split(/\s+/).map(Number);
+        if(parts.length === 4 && parts.every(Number.isFinite)){
+          const inModal = Boolean(svg.closest(".diagram-modal-body"));
+          const extraBottom = inModal ? 62 : 44;
+          svg.setAttribute("viewBox", `${parts[0]} ${parts[1]} ${parts[2]} ${parts[3] + extraBottom}`);
+        }
+        const inModal = Boolean(svg.closest(".diagram-modal-body"));
+        const axisY = inModal ? "38" : "28";
+        svg.querySelectorAll(".tick text").forEach((text)=>{
+          text.setAttribute("y",axisY);
+          text.setAttribute("dy","1em");
+          text.style.setProperty("font-size",inModal ? "13px" : "11px","important");
+          text.style.setProperty("font-weight","900","important");
+        });
+      });
+    }
+    function setupDiagramModals(){
+      let modal = document.querySelector(".diagram-modal");
+      if(!modal){
+        modal = document.createElement("div");
+        modal.className = "diagram-modal";
+        modal.setAttribute("role","dialog");
+        modal.setAttribute("aria-modal","true");
+        modal.innerHTML = `<div class="diagram-modal-card"><div class="diagram-modal-head"><div class="diagram-modal-title">다이어그램 확대 보기</div><button class="diagram-close" type="button">닫기</button></div><div class="diagram-modal-body"></div></div>`;
+        document.body.appendChild(modal);
+        const closeModal = () => modal.classList.remove("open");
+        modal.querySelector(".diagram-close").addEventListener("click", closeModal);
+        modal.addEventListener("click", (event)=>{
+          if(event.target === modal) closeModal();
+        });
+        document.addEventListener("keydown", (event)=>{
+          if(event.key === "Escape") closeModal();
+        });
+      }
+      document.querySelectorAll(".mermaid-wrap").forEach((wrap)=>{
+        if(wrap.closest(".diagram-modal")) return;
+        if(!wrap.querySelector(".diagram-toolbar")){
+          const toolbar = document.createElement("div");
+          toolbar.className = "diagram-toolbar";
+          const button = document.createElement("button");
+          button.className = "diagram-expand";
+          button.type = "button";
+          button.title = "다이어그램을 큰 모달로 봅니다";
+          button.setAttribute("aria-label","다이어그램 확대 보기");
+          button.textContent = "확대 보기";
+          toolbar.appendChild(button);
+          wrap.prepend(toolbar);
+          button.addEventListener("click", ()=>{
+            const clone = wrap.cloneNode(true);
+            const cloneToolbar = clone.querySelector(".diagram-toolbar");
+            if(cloneToolbar) cloneToolbar.remove();
+            const body = modal.querySelector(".diagram-modal-body");
+            body.innerHTML = "";
+            body.appendChild(clone);
+            modal.classList.add("open");
+            requestAnimationFrame(syncMermaidThemeColors);
+          });
+        }
+      });
+    }
+    if(window.mermaid){
+      const mermaidLight = document.documentElement.getAttribute("data-theme") === "light";
+      window.mermaid.initialize({
+        startOnLoad:false,
+        theme:"base",
+        themeVariables: mermaidLight ? {
+          background:"#f8fafc",
+          primaryColor:"#dbeafe",
+          primaryTextColor:"#0f172a",
+          primaryBorderColor:"#2563eb",
+          lineColor:"#94a3b8",
+          secondaryColor:"#dcfce7",
+          tertiaryColor:"#fff7ed",
+          textColor:"#0f172a",
+          taskTextColor:"#0f172a",
+          taskTextOutsideColor:"#0f172a",
+          taskTextLightColor:"#0f172a",
+          sectionBkgColor:"#eef2f7",
+          altSectionBkgColor:"#e2e8f0",
+          gridColor:"#64748b"
+        } : {
+          background:"#111827",
+          primaryColor:"#1e3a8a",
+          primaryTextColor:"#e5edf8",
+          primaryBorderColor:"#60a5fa",
+          lineColor:"#64748b",
+          secondaryColor:"#14532d",
+          tertiaryColor:"#431407",
+          textColor:"#e5edf8",
+          taskTextColor:"#e5edf8",
+          taskTextOutsideColor:"#e5edf8",
+          sectionBkgColor:"#1f2937",
+          altSectionBkgColor:"#111827",
+          gridColor:"#475569"
+        },
+        securityLevel:"loose",
+        gantt:{
+          barHeight:16,
+          barGap:3,
+          topPadding:44,
+          leftPadding:120,
+          gridLineStartPadding:20,
+          fontSize:10,
+          sectionFontSize:11,
+          rightPadding:36
+        }
+      });
+      window.addEventListener("load", ()=>{
+        window.mermaid.run({querySelector:".mermaid"}).catch(()=>{}).finally(()=>{
+          syncMermaidThemeColors();
+          setupDiagramModals();
+        });
+      });
+    } else {
+      window.addEventListener("load", ()=>{
+        syncMermaidThemeColors();
+        setupDiagramModals();
+      });
+    }
+  </script>
+</body>
+</html>
