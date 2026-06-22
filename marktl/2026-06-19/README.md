@@ -2,7 +2,7 @@
 
 This folder is a static MarkTL HTML export bundle.
 
-- Source note: External HTML file: 2026-06-19_지수통합선별공장_프로젝트관리표_통합노트.html
+- Source note: External HTML file: 2026-06-19_지수 통합선별공장_공사일보.html
 - Artifact goal: review
 - Artifact type: strategy-brief
 - Template: dashboard
