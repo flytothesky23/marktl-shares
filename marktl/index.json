@@ -1,7 +1,26 @@
 {
   "version": 2,
-  "updatedAt": "2026-06-22T07:57:45.901Z",
+  "updatedAt": "2026-06-22T08:08:53.879Z",
   "items": [
+    {
+      "schemaVersion": 2,
+      "slug": "2026-06-19-지수-통합선별공장-공사일보",
+      "shortId": "1hdm3ap",
+      "title": "2026-06-19 지수 통합선별공장 공사일보",
+      "date": "2026-06-19",
+      "url": "https://flytothesky23.github.io/marktl-shares/marktl/s/1hdm3ap/",
+      "canonicalUrl": "https://flytothesky23.github.io/marktl-shares/marktl/2026-06-19-지수-통합선별공장-공사일보/",
+      "sourcePath": "External HTML file: 2026-06-19_지수 통합선별공장_공사일보.html",
+      "sourcePathKey": "external html file: 2026-06-19_지수 통합선별공장_공사일보.html",
+      "artifactType": "html-upload",
+      "excerpt": "2026-06-19 지수 통합선별공장 공사일보 옹벽 거푸집 보강 · 콘크리트 타설 · 타설 후 보양 사진 4매 상태: 최종본 날씨: 미제공 금일 핵심 옹벽 콘크리트 타설 선행 작업 거푸집 보강 완료 상태 타설 후 보양 관리 초점 초기 양생·균열 점검 1. 금일 작업 요약 작업내용: 옹벽 거푸집 보강 후 콘크리트 타설 실시",
+      "tags": [
+        "지수통합선별공장",
+        "공사일보"
+      ],
+      "updatedAt": "2026-06-22T08:08:53.879Z",
+      "publishedByHost": "codex-local-repair"
+    },
     {
       "schemaVersion": 2,
       "slug": "2026-06-19",
