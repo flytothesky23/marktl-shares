@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-06-22T05:15:42.730Z",
+  "updatedAt": "2026-06-22T05:20:11.322Z",
   "items": [
     {
       "schemaVersion": 2,
@@ -286,7 +286,8 @@
         "착공",
         "기초저판"
       ],
-      "updatedAt": "2026-05-19T00:00:00.000Z",
+      "thumbnailUrl": "https://flytothesky23.github.io/marktl-shares/marktl/s/3nxxv6/assets/thumbnail-mqoro1e9.png",
+      "updatedAt": "2026-06-22T05:20:11.322Z",
       "publishedByHost": "codex-local-batch"
     }
   ]
