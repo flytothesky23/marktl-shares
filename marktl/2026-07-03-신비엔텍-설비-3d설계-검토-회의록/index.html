@@ -1,0 +1,1524 @@
+<!doctype html>
+<html data-theme="light" lang="ko">
+<head>
+<link rel="icon" href="data:,">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>신비엔텍 제작사(중국) 협업 설비 2D·3D 설계 검토 회의록</title>
+  <style>
+    :root{
+      --bg: #f4f6f8;
+      --surface: rgba(255,255,255,.82);
+      --surface-solid: #ffffff;
+      --surface-2: #edf2f7;
+      --line: rgba(31, 41, 55, .12);
+      --text: #132033;
+      --muted: #5b687a;
+      --soft: #7b8798;
+      --accent: #0f766e;
+      --accent-2: #1d4ed8;
+      --warn: #a16207;
+      --danger: #b42318;
+      --success: #047857;
+      --shadow: 0 18px 50px rgba(15, 23, 42, .08);
+      --shadow-sm: 0 8px 24px rgba(15, 23, 42, .06);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --content-max: 1240px;
+      --toc-w: 288px;
+      --sticky-top: 18px;
+      --focus: 0 0 0 3px rgba(29, 78, 216, .16), 0 0 0 1px rgba(29, 78, 216, .25);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      line-height:1.6;
+      background:
+        radial-gradient(circle at top left, rgba(15,118,110,.10), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(29,78,216,.10), transparent 24%),
+        linear-gradient(180deg, #f8fafc 0%, var(--bg) 38%, #eef3f8 100%);
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    button, summary{
+      font:inherit;
+    }
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .shell{
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius: calc(var(--radius-xl) + 4px);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.68)),
+        linear-gradient(120deg, rgba(15,118,110,.05), rgba(29,78,216,.03));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto -12% -42% auto;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(15,118,110,.15), transparent 62%);
+      pointer-events:none;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding: .38rem .72rem;
+      border-radius:999px;
+      background: rgba(15,118,110,.10);
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: .01em;
+      font-size:.88rem;
+    }
+
+    .title-row{
+      display:grid;
+      grid-template-columns: 1.5fr .95fr;
+      gap: 24px;
+      margin-top: 18px;
+      align-items:end;
+    }
+
+    h1{
+      margin: 0 0 12px 0;
+      font-size: clamp(2rem, 3.8vw, 3.5rem);
+      line-height:1.08;
+      letter-spacing: -.03em;
+    }
+
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size: 1.02rem;
+      max-width: 68ch;
+    }
+
+    .hero-metrics{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric{
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(15,23,42,.08);
+      border-radius: var(--radius-lg);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .metric .k{
+      display:block;
+      color:var(--soft);
+      font-size:.82rem;
+      margin-bottom:4px;
+    }
+    .metric .v{
+      display:block;
+      font-size: 1.02rem;
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+
+    .topbar{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin: 18px 0 20px;
+    }
+
+    .meta-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding: .52rem .82rem;
+      border-radius:999px;
+      background: rgba(255,255,255,.82);
+      border:1px solid var(--line);
+      color:var(--text);
+      box-shadow: var(--shadow-sm);
+      font-size:.92rem;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns: var(--toc-w) minmax(0, 1fr);
+      gap: 18px;
+      align-items:start;
+    }
+
+    .toc{
+      position: sticky;
+      top: var(--sticky-top);
+      align-self:start;
+      border:1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.76);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      overflow:hidden;
+    }
+    .toc header{
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,118,110,.05), transparent);
+    }
+    .toc h2{
+      margin:0;
+      font-size: .98rem;
+      letter-spacing: -.01em;
+    }
+    .toc .toc-sub{
+      color: var(--muted);
+      font-size: .84rem;
+      margin-top: 4px;
+    }
+    .toc nav{
+      padding: 10px;
+      display:grid;
+      gap:6px;
+    }
+    .toc a{
+      padding: .62rem .76rem;
+      border-radius: 12px;
+      color: var(--muted);
+      transition: background .16s ease, color .16s ease, transform .16s ease;
+      border:1px solid transparent;
+      font-size:.93rem;
+    }
+    .toc a:hover, .toc a:focus-visible{
+      outline:none;
+      background: rgba(15,118,110,.08);
+      color: var(--text);
+      border-color: rgba(15,118,110,.16);
+      transform: translateX(2px);
+    }
+
+    .content{
+      display:grid;
+      gap: 18px;
+      min-width:0;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-xl);
+      overflow:hidden;
+    }
+
+    .card-hd{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(15,118,110,.04), transparent),
+        linear-gradient(120deg, rgba(29,78,216,.03), transparent);
+    }
+
+    .card-hd h2, .card-hd h3{
+      margin:0;
+      line-height:1.15;
+      letter-spacing: -.02em;
+    }
+    .card-hd p{
+      margin:6px 0 0 0;
+      color:var(--muted);
+      font-size:.93rem;
+    }
+    .card-bd{
+      padding: 18px 20px 20px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card{
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      background: linear-gradient(180deg, #ffffff, #f8fbfd);
+      border:1px solid var(--line);
+    }
+    .stat-card .label{
+      color:var(--soft);
+      font-size:.86rem;
+      margin-bottom: 8px;
+    }
+    .stat-card .value{
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+    .stat-card .desc{
+      margin-top: 8px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .summary{
+      display:grid;
+      gap: 16px;
+    }
+
+    .callout{
+      border-radius: var(--radius-lg);
+      border:1px solid rgba(15,118,110,.18);
+      background: linear-gradient(180deg, rgba(15,118,110,.08), rgba(15,118,110,.03));
+      padding: 16px 18px;
+    }
+    .callout.warn{
+      border-color: rgba(161,98,7,.22);
+      background: linear-gradient(180deg, rgba(161,98,7,.09), rgba(161,98,7,.03));
+    }
+    .callout.danger{
+      border-color: rgba(180,35,24,.22);
+      background: linear-gradient(180deg, rgba(180,35,24,.08), rgba(180,35,24,.03));
+    }
+    .callout strong{
+      display:block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+    .callout p{
+      margin:0;
+      color: var(--text);
+    }
+
+    .section-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .section-head .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      padding:.36rem .68rem;
+      border-radius:999px;
+      background: rgba(29,78,216,.08);
+      color: var(--accent-2);
+      font-size:.8rem;
+      font-weight:700;
+    }
+    .section-head h3{
+      margin: 6px 0 2px;
+      font-size: 1.24rem;
+    }
+    .section-head .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:.94rem;
+      max-width: 72ch;
+    }
+
+    table{
+      width:100%;
+      border-collapse: collapse;
+      overflow:hidden;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+    }
+    th, td{
+      padding: 12px 12px;
+      vertical-align: top;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+    }
+    th{
+      background: rgba(15,118,110,.05);
+      color:#17324d;
+      font-size:.88rem;
+      letter-spacing: .01em;
+      white-space: nowrap;
+    }
+    tr:last-child td{ border-bottom: none; }
+
+    .compact td, .compact th{ padding: 10px 11px; }
+
+    .two-col{
+      display:grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+      gap:16px;
+    }
+
+    .mini-list{
+      display:grid;
+      gap: 10px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .mini-list li{
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--line);
+    }
+    .mini-list .title{
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+    .mini-list .body{
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .image-frame{
+      border-radius: var(--radius-xl);
+      border:1px solid var(--line);
+      overflow:hidden;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .image-frame img{
+      width:100%;
+      height:auto;
+      object-fit:cover;
+    }
+    .image-caption{
+      padding: 12px 16px;
+      border-top: 1px solid var(--line);
+      color:var(--muted);
+      font-size:.9rem;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      background: linear-gradient(180deg, rgba(15,118,110,.04), transparent);
+    }
+
+    details{
+      border:1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.8);
+      overflow:hidden;
+    }
+    details + details{ margin-top: 10px; }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 14px 16px;
+      font-weight: 800;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    summary:focus-visible{
+      outline:none;
+      box-shadow: var(--focus);
+    }
+    .details-body{
+      padding: 0 16px 16px;
+      color: var(--text);
+    }
+    .details-body p{ margin: 0 0 10px; }
+    .details-body ul{ margin: 0; padding-left: 18px; }
+    .details-body li{ margin: 4px 0; }
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top: 10px;
+    }
+    .pill{
+      padding: .38rem .62rem;
+      border-radius:999px;
+      background: rgba(15,118,110,.08);
+      color: var(--accent);
+      font-size:.82rem;
+      font-weight:700;
+      border:1px solid rgba(15,118,110,.14);
+    }
+    .pill.gray{
+      background: rgba(99,102,241,.06);
+      color:#334155;
+      border-color: rgba(100,116,139,.14);
+    }
+    .pill.warn{
+      background: rgba(161,98,7,.08);
+      color: var(--warn);
+      border-color: rgba(161,98,7,.14);
+    }
+    .pill.red{
+      background: rgba(180,35,24,.08);
+      color: var(--danger);
+      border-color: rgba(180,35,24,.16);
+    }
+
+    .toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
+    .btn{
+      appearance:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.9);
+      color: var(--text);
+      border-radius: 12px;
+      padding: .72rem .88rem;
+      cursor:pointer;
+      box-shadow: var(--shadow-sm);
+      transition: transform .14s ease, border-color .14s ease, background .14s ease, box-shadow .14s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      font-weight:700;
+      font-size:.92rem;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn:focus-visible{ outline:none; box-shadow: var(--focus); }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(15,118,110,.11), rgba(15,118,110,.06));
+      border-color: rgba(15,118,110,.22);
+      color:#0f4f4a;
+    }
+
+    .note{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .checklist{
+      display:grid;
+      gap:10px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .checklist li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.92);
+      border:1px solid var(--line);
+    }
+    .checklist input{
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+    }
+    .checklist .text{
+      flex:1;
+    }
+    .checklist .text strong{
+      display:block;
+      margin-bottom: 2px;
+    }
+    .checklist .text span{
+      display:block;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .feedback-box{
+      display:grid;
+      gap: 14px;
+    }
+    .feedback-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .feedback-copy{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    textarea{
+      width:100%;
+      min-height: 180px;
+      resize: vertical;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.94);
+      padding: 14px 15px;
+      color: var(--text);
+      font: inherit;
+      box-shadow: var(--shadow-sm);
+    }
+    textarea:focus{
+      outline:none;
+      box-shadow: var(--focus);
+      border-color: rgba(29,78,216,.28);
+    }
+
+    .footer{
+      margin: 16px 0 8px;
+      color: var(--muted);
+      font-size: .88rem;
+      text-align:center;
+    }
+
+    .sticky-action{
+      position: sticky;
+      bottom: 16px;
+      display:flex;
+      justify-content:flex-end;
+      pointer-events:none;
+      margin-top: 12px;
+    }
+    .sticky-action .btn{
+      pointer-events:auto;
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    .hide-unresolved .unresolved,
+    .hide-assumptions .assumption{
+      display:none !important;
+    }
+
+    .anchor{
+      scroll-margin-top: 18px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:.35rem;
+      border-radius:999px;
+      padding:.3rem .56rem;
+      font-size:.78rem;
+      font-weight:800;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.9);
+    }
+
+    .badge.red{ color:var(--danger); background: rgba(180,35,24,.06); border-color: rgba(180,35,24,.14); }
+    .badge.amber{ color:var(--warn); background: rgba(161,98,7,.06); border-color: rgba(161,98,7,.14); }
+    .badge.blue{ color:var(--accent-2); background: rgba(29,78,216,.06); border-color: rgba(29,78,216,.14); }
+    .badge.green{ color:var(--success); background: rgba(4,120,87,.06); border-color: rgba(4,120,87,.14); }
+
+    @media (max-width: 1100px){
+      .layout{ grid-template-columns: 1fr; }
+      .toc{
+        position:relative;
+        top:auto;
+      }
+      .title-row{ grid-template-columns: 1fr; }
+      .hero-metrics{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .two-col, .grid-3, .feedback-grid{ grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px){
+      .shell{ padding: 14px; }
+      .hero{ padding: 18px; border-radius: 22px; }
+      .card-hd, .card-bd{ padding-left: 14px; padding-right: 14px; }
+      .hero-metrics{ grid-template-columns: 1fr; }
+      .topbar{ margin-top: 14px; }
+      th, td{ white-space: normal; }
+      .sticky-action{ justify-content:stretch; }
+      .sticky-action .btn{ width:100%; justify-content:center; }
+    }
+
+    @media print{
+      body{ background:#fff; }
+      .toc, .toolbar, .sticky-action, .footer{ display:none !important; }
+      .hero, .card, details, table, .image-frame{ box-shadow:none !important; }
+      .shell{ max-width:none; padding:0; }
+      a{ text-decoration:none; }
+      details{ break-inside: avoid; }
+      .card, .hero{ break-inside: avoid; }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="신비엔텍 제작사(중국) 협업 설비 2D·3D 설계 검토 회의록">
+<meta property="og:description" content=" 회의 핵심 요약 중국 현지 제작사와 협업 중인 선별·이송·패킹 설비의 2D/3D 설계, 제작 가능성, 현장 설치 제약, 집진·인허가 요건을 검토한 회의이다. 핵심 결론은 3D 도면을 다음 주 월요일 우선 전달, 9월 말 프로젝트 마감 준수, 시간당 20톤 처리능력 기준 유지, 5m 이내 저고도 레이아웃">
+<meta property="og:url" content="https://flytothesky23.github.io/marktl-shares/marktl/s/1ttdtqt/">
+<meta property="og:image" content="https://flytothesky23.github.io/marktl-shares/marktl/s/1ttdtqt/assets/2026-07-03-신비엔텍-설비-3d설계-검토-회의록-product-1783141660485.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="신비엔텍 제작사(중국) 협업 설비 2D·3D 설계 검토 회의록">
+<meta name="twitter:description" content=" 회의 핵심 요약 중국 현지 제작사와 협업 중인 선별·이송·패킹 설비의 2D/3D 설계, 제작 가능성, 현장 설치 제약, 집진·인허가 요건을 검토한 회의이다. 핵심 결론은 3D 도면을 다음 주 월요일 우선 전달, 9월 말 프로젝트 마감 준수, 시간당 20톤 처리능력 기준 유지, 5m 이내 저고도 레이아웃">
+<meta name="twitter:image" content="https://flytothesky23.github.io/marktl-shares/marktl/s/1ttdtqt/assets/2026-07-03-신비엔텍-설비-3d설계-검토-회의록-product-1783141660485.png">
+<link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/marktl/s/1ttdtqt/">
+
+<style data-marktl-share-home-style>
+  .marktl-share-home-button,
+  .marktl-share-home-inline {
+    z-index: 2147483000;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 36px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, .42);
+    background: rgba(255, 255, 255, .88);
+    color: #0f172a;
+    box-shadow: 0 12px 34px rgba(15, 23, 42, .16);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    font: 700 13px/1.1 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .marktl-share-home-button {
+    position: fixed;
+    top: max(14px, env(safe-area-inset-top));
+    right: max(14px, env(safe-area-inset-right));
+  }
+  .marktl-share-home-inline {
+    position: relative;
+  }
+  .marktl-share-home-button:hover,
+  .marktl-share-home-inline:hover { transform: translateY(-1px); box-shadow: 0 16px 38px rgba(15, 23, 42, .2); }
+  .marktl-share-home-button:focus-visible,
+  .marktl-share-home-inline:focus-visible { outline: 3px solid rgba(59, 130, 246, .45); outline-offset: 3px; }
+  @media (prefers-color-scheme: dark) {
+    .marktl-share-home-button {
+      background: rgba(15, 23, 42, .86);
+      color: #f8fafc;
+      border-color: rgba(148, 163, 184, .36);
+    }
+  }
+  @media print { .marktl-share-home-button, .marktl-share-home-inline { display: none !important; } }
+</style>
+</head>
+<body>
+<a class="marktl-share-home-button" data-marktl-share-home href="https://flytothesky23.github.io/marktl-shares/marktl/" rel="home">공유 홈</a>
+  <div class="shell" id="top">
+    <header class="hero">
+      <span class="eyebrow">회의록 · 외부 보고용 · 시각화 중심</span>
+      <div class="title-row">
+        <div>
+          <h1>신비엔텍 제작사(중국) 협업 설비 2D·3D 설계 검토 회의록</h1>
+          <p class="subtitle">
+            중국 현지 제작사와 협업 중인 선별·이송·패킹 설비의 2D/3D 설계, 현장 설치 제약, 집진·인허가 요건을 검토한 회의 정리본입니다.
+            확정된 사실과 해석을 분리해 외부 이해관계자가 빠르게 판단할 수 있도록 구성했습니다.
+          </p>
+        </div>
+        <div class="hero-metrics" aria-label="회의 핵심 지표">
+          <div class="metric">
+            <span class="k">작성일</span>
+            <span class="v">2026-07-03</span>
+          </div>
+          <div class="metric">
+            <span class="k">회의일</span>
+            <span class="v">미확인</span>
+          </div>
+          <div class="metric">
+            <span class="k">프로젝트</span>
+            <span class="v">중국 제작사 협업 설비 2D·3D 설계 검토</span>
+          </div>
+          <div class="metric">
+            <span class="k">핵심 일정</span>
+            <span class="v">다음 주 월요일 3D 도면 우선 전달</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="topbar">
+      <div class="meta-chips" aria-label="태그">
+        <span class="chip">#회의록</span>
+        <span class="chip">#설비설계</span>
+        <span class="chip">#3D도면</span>
+        <span class="chip">#중국제작</span>
+        <span class="chip">#선별설비</span>
+        <span class="chip">#집진설비</span>
+        <span class="chip">#인허가</span>
+      </div>
+      <div class="toolbar">
+        <button class="btn primary" type="button" data-copy-target="#executive-summary">요약 복사</button>
+        <button class="btn" type="button" data-copy-target="#agenda-list">아젠다 복사</button>
+        <button class="btn" type="button" id="toggleUnresolved">미해결만 보기</button>
+        <button class="btn" type="button" id="toggleAssumption">가정 숨기기</button>
+      </div>
+    </div>
+
+    <div class="layout">
+      <aside class="toc" aria-label="목차">
+        <header>
+          <h2>목차</h2>
+          <div class="toc-sub">섹션별로 바로 이동할 수 있습니다.</div>
+        </header>
+        <nav id="tocNav"></nav>
+      </aside>
+
+      <main class="content">
+        <section class="card anchor" id="image">
+          <div class="card-hd">
+            <div>
+              <h3>회의 이미지</h3>
+              <p>첨부 이미지는 원문 회의 맥락을 보완하는 참고 자료입니다.</p>
+            </div>
+            <span class="badge blue">로컬 이미지</span>
+          </div>
+          <div class="card-bd">
+            <div class="image-frame">
+              <img src="assets/2026-07-03-%EC%8B%A0%EB%B9%84%EC%97%94%ED%85%8D-%EC%84%A4%EB%B9%84-3d%EC%84%A4%EA%B3%84-%EA%B2%80%ED%86%A0-%ED%9A%8C%EC%9D%98%EB%A1%9D-product-1783141660485.png" alt="회의록 첨부 이미지" />
+              <div class="image-caption">
+                <span>이미지 설명: 설비 3D 설계 검토 회의록 첨부본</span>
+                <span>표시 불가 시에도 본문으로 의미를 이해할 수 있도록 구성</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card anchor" id="overview">
+          <div class="card-hd">
+            <div>
+              <h3>회의 개요</h3>
+              <p>외부 보고용으로 핵심 결론과 판단 기준만 먼저 확인할 수 있게 정리했습니다.</p>
+            </div>
+            <span class="badge green">확정 사실 중심</span>
+          </div>
+          <div class="card-bd summary" id="executive-summary">
+            <div class="callout">
+              <strong>핵심 결론</strong>
+              <p>
+                현재 설계는 제작 가능성은 있으나, 높이·각도·직선 길이·상부 간섭·패킹/계량 방식·집진 인허가가 아직 확정되지 않았습니다.
+                다음 3D 도면은 단순 시각화가 아니라 현장 설치 가능성, 유지보수성, 안전성, 인허가 대응성까지 반영한 검토용 도면이어야 합니다.
+              </p>
+            </div>
+            <div class="grid-3">
+              <div class="stat-card">
+                <div class="label">최우선 일정</div>
+                <div class="value">다음 주 월요일</div>
+                <div class="desc">수정 3D 도면 우선 전달</div>
+              </div>
+              <div class="stat-card">
+                <div class="label">프로젝트 마감</div>
+                <div class="value">9월 말</div>
+                <div class="desc">납기 리스크 관리 필요</div>
+              </div>
+              <div class="stat-card">
+                <div class="label">처리 기준</div>
+                <div class="value">시간당 20톤</div>
+                <div class="desc">장비 용량 검증의 기준값</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card anchor" id="agenda">
+          <div class="card-hd">
+            <div>
+              <h3>아젠다</h3>
+              <p>회의 목적과 논의 범위를 한눈에 볼 수 있도록 요약한 구조입니다.</p>
+            </div>
+            <div class="toolbar">
+              <button class="btn" type="button" data-copy-target="#agenda-list">아젠다 복사</button>
+            </div>
+          </div>
+          <div class="card-bd">
+            <ol id="agenda-list" class="mini-list">
+              <li>
+                <div class="title">2D 설계안 공정 흐름 검토</div>
+                <div class="body">선별, 이송, 패킹, 배출 흐름과 주요 장비 배치를 확인했습니다.</div>
+              </li>
+              <li>
+                <div class="title">3D 도면 작성 전 기술 사양 재검토</div>
+                <div class="body">치수, 각도, 높이, 직선 길이, 작업자 접근성, 유지보수성을 확인해야 했습니다.</div>
+              </li>
+              <li>
+                <div class="title">제작 가능성 및 납기 확인</div>
+                <div class="body">중국 제작사의 조달·제작 가능 범위와 예상 제작 기간을 논의했습니다.</div>
+              </li>
+              <li>
+                <div class="title">집진·인허가·전력 검토</div>
+                <div class="body">집진 포인트, 스크러버, 380V 전력, 경남 지역 인허가 대응 범위를 점검했습니다.</div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="card anchor" id="discussion">
+          <div class="card-hd">
+            <div>
+              <h3>주요 논의</h3>
+              <p>원문 회의 내용을 주제별로 재구성했습니다. 각 항목은 외부 검토 관점에서 읽히도록 간결하게 정리했습니다.</p>
+            </div>
+            <span class="badge amber">진행 중 검토사항 포함</span>
+          </div>
+          <div class="card-bd">
+            <div class="two-col">
+              <div>
+                <details open>
+                  <summary>설계·공정 흐름 <span class="badge blue">확정 전</span></summary>
+                  <div class="details-body">
+                    <p>현재는 2D 상태이며, 3D 설계 전 장비별 외형 치수와 공정 흐름을 다시 확인해야 합니다.</p>
+                    <ul>
+                      <li>투입, 선별, 이송, 배출 흐름 정합성 확인</li>
+                      <li>트롬멜, 그리즐리 스크린, 진동선별기 위치 조정</li>
+                      <li>버퍼탱크 및 패킹 라인 배치 검토</li>
+                      <li>작업자 접근 플랫폼과 계단 구성 반영</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>버켓엘리베이터·컨베이어 각도 <span class="badge red">리스크</span></summary>
+                  <div class="details-body">
+                    <p>경사각이 과도하면 흐름 안정성 저하, 제품 손상, 막힘, 처리량 저하가 발생할 수 있습니다.</p>
+                    <ul>
+                      <li>25도 이하 안정각 언급</li>
+                      <li>45도 적용안과 20~25도 컨셉이 혼재</li>
+                      <li>컨베이어 전환 시 설비 높이를 낮출 가능성 있음</li>
+                      <li>버켓엘리베이터와 컨베이어 대체안 비교가 필요</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>배치·길이·높이 제약 <span class="badge amber">현장 제약</span></summary>
+                  <div class="details-body">
+                    <p>현장 평면 길이와 설계 총 길이의 차이가 크지 않아, 일자형 배치만으로는 여유가 부족할 수 있습니다.</p>
+                    <ul>
+                      <li>현장 길이 약 51m, 설계 총 길이 약 47m로 언급</li>
+                      <li>두 번째 긴 구간을 9m에서 5m로 줄이는 검토 필요</li>
+                      <li>설비 전체 높이를 5m 이내로 낮추는 방향 제안</li>
+                      <li>지게차 동선과 유지보수 공간 확보가 중요</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <div>
+                <details open>
+                  <summary>버퍼탱크·패킹·계량 <span class="badge blue">운영 방식</span></summary>
+                  <div class="details-body">
+                    <p>버퍼탱크 유지 여부와 패킹·계량 자동화 수준이 아직 확정되지 않았습니다.</p>
+                    <ul>
+                      <li>버퍼탱크 외형 치수는 1.3m × 1.4m × 1.3m 기준 언급</li>
+                      <li>PSBall 비중 기준 약 5톤 보관 의미</li>
+                      <li>중량센서 기반 자동 차단 방식 논의</li>
+                      <li>측면 배출로 대차 이동을 줄이는 방향 선호</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>집진·인허가·전력 <span class="badge red">외부 대응</span></summary>
+                  <div class="details-body">
+                    <p>집진은 장비 제작만이 아니라 인허가와 전력 산정까지 함께 검토해야 하는 항목입니다.</p>
+                    <ul>
+                      <li>집진 포인트, 후드, 덕트, 스크러버 구성 필요</li>
+                      <li>제작과 인허가를 통합 대응할 수 있는 업체가 선호됨</li>
+                      <li>제작사와 인허가 업체 분리 시 책임 범위가 불명확해질 수 있음</li>
+                      <li>전력은 380V 기준으로 재산정 필요</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>플랫폼·운전실·모니터링 <span class="badge green">운영성</span></summary>
+                  <div class="details-body">
+                    <p>장비 접근성, 안전성, 유지보수성을 확보하는 구성이 필요합니다.</p>
+                    <ul>
+                      <li>모든 설비 접근 가능한 플랫폼과 계단 필요</li>
+                      <li>1층 전기·정비, 2층 모니터링·사무 배치안 제시</li>
+                      <li>터치식 공정 제어와 수동 긴급 조작 필요</li>
+                      <li>센서 모니터링과 유지보수 용이성 확보 필요</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card anchor" id="decisions">
+          <div class="card-hd">
+            <div>
+              <h3>결정사항</h3>
+              <p>회의에서 합의되었거나 우선순위가 정리된 항목입니다.</p>
+            </div>
+            <span class="badge green">합의됨</span>
+          </div>
+          <div class="card-bd">
+            <table class="compact" aria-label="결정사항 표">
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th>결정/합의 내용</th>
+                  <th>비고</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>3D 도면</td>
+                  <td>사양 확인 후 주말 작업을 거쳐 다음 주 월요일 우선 전달</td>
+                  <td>회의 기준 “다음 주 월요일”</td>
+                </tr>
+                <tr>
+                  <td>전체 일정</td>
+                  <td>9월 말 마감 준수 최우선</td>
+                  <td>납기 리스크 관리 필요</td>
+                </tr>
+                <tr>
+                  <td>처리능력</td>
+                  <td>시간당 20톤 기준 유지</td>
+                  <td>장비·컨베이어·패킹 기준</td>
+                </tr>
+                <tr>
+                  <td>공장 방문</td>
+                  <td>칭다오 공장 방문 가능성 논의</td>
+                  <td>7월 15일 전후 일정 조율</td>
+                </tr>
+                <tr>
+                  <td>높이 방향</td>
+                  <td>가능한 한 5m 이내 저고도 레이아웃 검토</td>
+                  <td>안전·유지보수 고려</td>
+                </tr>
+                <tr>
+                  <td>집진/인허가</td>
+                  <td>통합 대응 업체 확인 필요</td>
+                  <td>책임 범위 명확화 필요</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card anchor unresolved" id="issues">
+          <div class="card-hd">
+            <div>
+              <h3>미해결 이슈와 리스크</h3>
+              <p>외부 보고 시 현재 상태를 오해하지 않도록, 확정되지 않은 항목을 명확히 분리했습니다.</p>
+            </div>
+            <span class="badge red">미확정</span>
+          </div>
+          <div class="card-bd">
+            <table class="compact" aria-label="리스크 표">
+              <thead>
+                <tr>
+                  <th>이슈</th>
+                  <th>영향</th>
+                  <th>다음 조치</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>버켓엘리베이터 사용 여부 미확정</td>
+                  <td>높이, 유지보수, 처리량, 막힘 리스크에 영향</td>
+                  <td>버켓엘리베이터 vs 컨베이어 비교안 작성</td>
+                </tr>
+                <tr>
+                  <td>20~25도와 45도 설계안 불일치</td>
+                  <td>안정성, 높이, 배치 길이에 영향</td>
+                  <td>각도별 처리 안정성 검토</td>
+                </tr>
+                <tr>
+                  <td>총 길이 47m vs 현장 51m</td>
+                  <td>차량 동선과 유지보수 공간 부족 가능성</td>
+                  <td>3D 배치에서 간섭 검토</td>
+                </tr>
+                <tr>
+                  <td>외부 배출 컨베이어 미완성</td>
+                  <td>오버사이즈 배출 및 동선 간섭 가능성</td>
+                  <td>배출 방향·박스·슈트 구조 확정</td>
+                </tr>
+                <tr>
+                  <td>버퍼탱크 유지 여부</td>
+                  <td>비용, 높이, 운영 안정성에 영향</td>
+                  <td>유지안/삭제안 비교</td>
+                </tr>
+                <tr>
+                  <td>집진 인허가 업체 미확정</td>
+                  <td>인허가 지연 및 책임 범위 불명확</td>
+                  <td>통합 수행 가능 업체 확인</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card anchor" id="actions">
+          <div class="card-hd">
+            <div>
+              <h3>액션 아이템</h3>
+              <p>회의 직후 바로 실행해야 하는 작업을 우선순위와 기한 중심으로 정리했습니다.</p>
+            </div>
+            <span class="badge amber">후속 조치</span>
+          </div>
+          <div class="card-bd">
+            <div class="grid-2">
+              <div>
+                <h4 style="margin:0 0 10px; font-size:1.02rem;">최우선 액션</h4>
+                <table class="compact" aria-label="최우선 액션 표">
+                  <thead>
+                    <tr>
+                      <th>우선순위</th>
+                      <th>담당</th>
+                      <th>할 일</th>
+                      <th>기한/기준</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>높음</td>
+                      <td>참석자 1</td>
+                      <td>중국 설계 엔지니어 연결 및 설계 의도 확인</td>
+                      <td>즉시</td>
+                    </tr>
+                    <tr>
+                      <td>높음</td>
+                      <td>참석자 1</td>
+                      <td>내부 사양 확인</td>
+                      <td>내일 오전까지</td>
+                    </tr>
+                    <tr>
+                      <td>높음</td>
+                      <td>참석자 1</td>
+                      <td>수정 3D 도면 우선 전달</td>
+                      <td>다음 주 월요일</td>
+                    </tr>
+                    <tr>
+                      <td>높음</td>
+                      <td>Participant 2</td>
+                      <td>집진 포인트 위치 및 설정 가능 여부 확인</td>
+                      <td>집진 설계 전</td>
+                    </tr>
+                    <tr>
+                      <td>높음</td>
+                      <td>Participant 2</td>
+                      <td>경남 지역 인허가 및 통합 수행 가능 업체 확인</td>
+                      <td>발주 전</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h4 style="margin:0 0 10px; font-size:1.02rem;">일반 액션</h4>
+                <ul class="checklist">
+                  <li>
+                    <input type="checkbox" />
+                    <div class="text">
+                      <strong>설계·자재 관련 위클리 레포트 발송</strong>
+                      <span>주간 진행률, 이슈, 자재 현황 포함</span>
+                    </div>
+                  </li>
+                  <li>
+                    <input type="checkbox" />
+                    <div class="text">
+                      <strong>칭다오 공장 방문 가능 여부 확정</strong>
+                      <span>7월 15일 전후 일정 조율 필요</span>
+                    </div>
+                  </li>
+                  <li>
+                    <input type="checkbox" />
+                    <div class="text">
+                      <strong>버퍼탱크 없이 컨베이어 방식으로 변경 가능성 검토</strong>
+                      <span>운영 단순화와 높이 절감 효과를 함께 확인</span>
+                    </div>
+                  </li>
+                  <li>
+                    <input type="checkbox" />
+                    <div class="text">
+                      <strong>집진 포인트 세팅 및 주문 절차 검토</strong>
+                      <span>후드, 덕트, 스크러버 포함 범위 확인</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card anchor unresolved" id="questions">
+          <div class="card-hd">
+            <div>
+              <h3>확인해야 할 핵심 질문</h3>
+              <p>검토가 끝나지 않은 항목을 설계, 운영, 인허가, 일정으로 나누어 정리했습니다.</p>
+            </div>
+            <span class="badge red">검토 필요</span>
+          </div>
+          <div class="card-bd">
+            <div class="grid-2">
+              <div>
+                <details open>
+                  <summary>설계 관련 질문</summary>
+                  <div class="details-body">
+                    <ul>
+                      <li>현재 2D 설계의 장비별 치수와 공정 흐름은 정확한가?</li>
+                      <li>버켓엘리베이터를 유지할 것인가, 컨베이어 방식으로 대체할 것인가?</li>
+                      <li>PSBall 안정각 25도 이하 기준을 설계에 어떻게 반영할 것인가?</li>
+                      <li>45도 설계안과 20~25도 설계안 중 최종 기준은 무엇인가?</li>
+                      <li>설비 전체 높이를 5m 이내로 낮추는 대안이 가능한가?</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>운영 관련 질문</summary>
+                  <div class="details-body">
+                    <ul>
+                      <li>시간당 20톤 처리능력을 실제로 보장할 수 있는가?</li>
+                      <li>오버사이즈 배출 경로는 어떻게 구성할 것인가?</li>
+                      <li>버퍼탱크는 반드시 필요한가?</li>
+                      <li>패킹과 계량은 자동 방식인가, 반자동 방식인가?</li>
+                      <li>지게차 동선과 대차 이동은 충분히 확보되는가?</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+              <div>
+                <details open>
+                  <summary>인허가·집진 관련 질문</summary>
+                  <div class="details-body">
+                    <ul>
+                      <li>기존 도면의 집진 포인트는 실제 인허가 기준에 맞는가?</li>
+                      <li>집진기, 후드, 덕트, 스크러버를 한 업체가 통합 수행할 수 있는가?</li>
+                      <li>경남 지역 인허가 업체 후보는 누구인가?</li>
+                      <li>380V 기준 전체 전력량은 얼마인가?</li>
+                      <li>전기·에어 위치 정보는 언제 제공되는가?</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>일정 관련 질문</summary>
+                  <div class="details-body">
+                    <ul>
+                      <li>7월 15일 전후 칭다오 공장 방문은 가능한가?</li>
+                      <li>방문 인원은 2명으로 충분한가?</li>
+                      <li>3D 모델링 완료 기준은 월요일 우선본인지, 7월 15일 최종본인지 구분해야 하는가?</li>
+                      <li>9월 말 전체 마감 기준에서 제작, 운송, 설치, 시운전 일정은 역산되었는가?</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card anchor" id="agenda-next">
+          <div class="card-hd">
+            <div>
+              <h3>다음 회의 아젠다</h3>
+              <p>다음 논의 때 바로 이어갈 수 있도록 순서를 정리했습니다.</p>
+            </div>
+            <span class="badge blue">제안안</span>
+          </div>
+          <div class="card-bd">
+            <ol class="mini-list">
+              <li><div class="title">수정 3D 도면 리뷰</div><div class="body">사양 반영 여부와 현장 간섭을 먼저 확인합니다.</div></li>
+              <li><div class="title">장비별 치수·높이·각도 확정</div><div class="body">저고도 배치와 처리 안정성 기준을 결정합니다.</div></li>
+              <li><div class="title">버켓엘리베이터 vs 컨베이어 비교</div><div class="body">높이, 유지보수, 막힘 리스크를 비교합니다.</div></li>
+              <li><div class="title">버퍼탱크 유지/삭제 여부 결정</div><div class="body">운영 안정성과 비용 구조를 함께 검토합니다.</div></li>
+              <li><div class="title">집진·인허가 대응 범위 확인</div><div class="body">통합 수행 가능 업체와 책임 범위를 확정합니다.</div></li>
+              <li><div class="title">9월 말 납기 역산 일정 검토</div><div class="body">제작, 운송, 설치, 시운전을 기준으로 일정표를 재정렬합니다.</div></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="card anchor" id="review">
+          <div class="card-hd">
+            <div>
+              <h3>검토용 프롬프트</h3>
+              <p>리뷰룸 형태로 마무리할 수 있도록 독자 피드백과 AI 전송용 문구를 함께 제공합니다.</p>
+            </div>
+            <span class="badge green">리뷰 단계</span>
+          </div>
+          <div class="card-bd feedback-box">
+            <div class="feedback-grid">
+              <div class="callout">
+                <strong>리뷰 포인트</strong>
+                <p>다음 3D 도면이 실제 설치 가능성과 유지보수성을 충분히 반영했는지 확인해 주세요.</p>
+                <div class="pill-row">
+                  <span class="pill">높이</span>
+                  <span class="pill">각도</span>
+                  <span class="pill">동선</span>
+                  <span class="pill">집진</span>
+                  <span class="pill">전력</span>
+                </div>
+              </div>
+              <div class="callout warn">
+                <strong>판단 기준</strong>
+                <p>확정 사실과 가정을 분리해 읽어야 하며, 미확정 항목은 설계 전제 조건으로만 사용해야 합니다.</p>
+                <div class="pill-row">
+                  <span class="pill warn">확정</span>
+                  <span class="pill warn">가정</span>
+                  <span class="pill warn">검증 필요</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 style="margin:0 0 10px; font-size:1.02rem;">피드백 체크리스트</h4>
+              <ul class="checklist">
+                <li>
+                  <input type="checkbox" />
+                  <div class="text">
+                    <strong>확정 사실과 추정이 분리되어 있는가</strong>
+                    <span>외부 보고용 문서로서 혼동을 줄이는 핵심 기준입니다.</span>
+                  </div>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <div class="text">
+                    <strong>3D 도면이 설치성, 유지보수성, 안전성을 드러내는가</strong>
+                    <span>시각화만 있고 검토 포인트가 없는 상태는 피해야 합니다.</span>
+                  </div>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <div class="text">
+                    <strong>집진·인허가·전력 정보가 도면과 연결되는가</strong>
+                    <span>외부 업체와의 협업에서는 책임 범위가 명확해야 합니다.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="feedback-copy" style="margin-bottom:10px;">
+                <button class="btn primary" type="button" data-copy-target="#aiPrompt">복사해 AI에 전달</button>
+                <button class="btn" type="button" data-copy-target="#readerNote">독자 메모 복사</button>
+              </div>
+              <label for="aiPrompt" class="note">copy-feedback-to-AI 영역</label>
+              <textarea id="aiPrompt" readonly>다음 회의록을 기준으로 외부 보고용 검토 관점을 유지한 채, 확정 사실과 미확정 사항을 분리해 요약해 주세요.
+특히 다음 항목을 우선 검토해 주세요:
+- 3D 도면의 설치 가능성
+- 높이 5m 이내 저고도 레이아웃 가능성
+- 버켓엘리베이터 vs 컨베이어 대체안
+- 집진 포인트, 스크러버, 인허가 대응 범위
+- 9월 말 마감 기준의 일정 리스크
+
+원문에 없는 정보는 추정이라고 명시하고, 불확실한 항목은 질문 형태로 정리해 주세요.</textarea>
+            </div>
+
+            <div>
+              <label for="readerNote" class="note">독자 메모</label>
+              <textarea id="readerNote" readonly>이 회의록은 제작 가능성만이 아니라 현장 설치, 유지보수, 집진 인허가까지 함께 판단해야 한다는 점을 강조합니다.
+다음 판독 시에는 1) 확정 사실 2) 설계 가정 3) 미해결 리스크를 분리해서 읽는 것이 적절합니다.</textarea>
+            </div>
+          </div>
+        </section>
+
+        <section class="card anchor" id="references">
+          <div class="card-hd">
+            <div>
+              <h3>Obsidian 연결용 링크</h3>
+              <p>원문에 포함된 참조 링크를 그대로 정리했습니다.</p>
+            </div>
+            <span class="badge blue">참조</span>
+          </div>
+          <div class="card-bd">
+            <div class="pill-row" aria-label="관련 링크">
+              <span class="pill gray">3D 도면 검토</span>
+              <span class="pill gray">중국 칭다오 공장 방문 계획</span>
+              <span class="pill gray">선별설비 레이아웃 검토</span>
+              <span class="pill gray">집진설비 인허가</span>
+              <span class="pill gray">버켓엘리베이터 검토</span>
+              <span class="pill gray">컨베이어 설계 검토</span>
+              <span class="pill gray">버퍼탱크 및 패킹라인</span>
+              <span class="pill gray">9월 말 프로젝트 납기관리</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card anchor" id="postnote">
+          <div class="card-hd">
+            <div>
+              <h3>회의 후 판단 메모</h3>
+              <p>정리자의 시각이 아니라, 외부 검토자가 읽어도 이해 가능한 수준으로 정제했습니다.</p>
+            </div>
+            <span class="badge green">판단 메모</span>
+          </div>
+          <div class="card-bd">
+            <div class="callout">
+              <strong>정리자 의견</strong>
+              <p>
+                이번 회의의 본질은 단순 제작 가능성 확인이 아니라, 현장에 실제로 들어갈 수 있는 설비인가를 검증하는 단계입니다.
+                다음 3D 도면은 보기 좋은 모델보다 간섭, 높이, 동선, 집진, 패킹, 전력까지 검증 가능한 실무형 도면이어야 합니다.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="sticky-action">
+          <button class="btn primary" type="button" id="backToTop">상단으로 이동</button>
+        </div>
+
+        <div class="footer">
+          이 문서는 로컬 HTML로 동작하며 외부 스크립트나 리소스를 사용하지 않습니다. 문서 내 상호작용은 목차, 접기/펼치기, 복사 버튼, 보기 필터로 제한됩니다.
+        </div>
+      <section class="marktl-reader-feedback" aria-label="Reader feedback">
+<style>
+.marktl-reader-feedback { margin: 40px auto 0; padding: 0; }
+.marktl-reader-feedback h2 { margin: 0 0 8px; font: 800 22px/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback p { margin: 0 0 14px; color: #526173; font: 500 14px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback .giscus, .marktl-reader-feedback .giscus-frame { width: 100%; }
+</style>
+<h2>Reader feedback</h2>
+<p>Leave a public GitHub comment or reaction below.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="flytothesky23/marktl-shares"
+        data-repo-id="R_kgDOSbdK8Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOSbdK8c4C84EC"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ko"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+</main>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tocNav = document.getElementById('tocNav');
+      const sections = Array.from(document.querySelectorAll('main .anchor'));
+      const filterUnresolvedBtn = document.getElementById('toggleUnresolved');
+      const toggleAssumptionBtn = document.getElementById('toggleAssumption');
+      const backToTop = document.getElementById('backToTop');
+      const copyButtons = document.querySelectorAll('[data-copy-target]');
+      const body = document.body;
+
+      const tocLabels = {
+        image: '회의 이미지',
+        overview: '회의 개요',
+        agenda: '아젠다',
+        discussion: '주요 논의',
+        decisions: '결정사항',
+        issues: '미해결 이슈와 리스크',
+        actions: '액션 아이템',
+        questions: '확인해야 할 핵심 질문',
+        'agenda-next': '다음 회의 아젠다',
+        review: '검토용 프롬프트',
+        references: 'Obsidian 연결용 링크',
+        postnote: '회의 후 판단 메모'
+      };
+
+      tocNav.innerHTML = sections.map(section => {
+        const id = section.id;
+        const label = tocLabels[id] || section.querySelector('h3')?.textContent || id;
+        return `<a href="#${id}">${label}</a>`;
+      }).join('');
+
+      async function copyTextFromTarget(selector) {
+        const el = document.querySelector(selector);
+        if (!el) return;
+        const text = (el.value !== undefined ? el.value : el.innerText).trim();
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (e) {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', 'true');
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+      }
+
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-copy-target');
+          if (!target) return;
+          copyTextFromTarget(target).then(() => {
+            const prev = btn.textContent;
+            btn.textContent = '복사 완료';
+            setTimeout(() => btn.textContent = prev, 1200);
+          });
+        });
+      });
+
+      let unresolvedVisible = true;
+      filterUnresolvedBtn.addEventListener('click', () => {
+        unresolvedVisible = !unresolvedVisible;
+        body.classList.toggle('hide-unresolved', !unresolvedVisible);
+        filterUnresolvedBtn.textContent = unresolvedVisible ? '미해결만 보기' : '전체 보기';
+      });
+
+      let assumptionsHidden = false;
+      toggleAssumptionBtn.addEventListener('click', () => {
+        assumptionsHidden = !assumptionsHidden;
+        body.classList.toggle('hide-assumptions', assumptionsHidden);
+        toggleAssumptionBtn.textContent = assumptionsHidden ? '가정 보이기' : '가정 숨기기';
+      });
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const active = tocNav.querySelector(`a[href="#${entry.target.id}"]`);
+            tocNav.querySelectorAll('a').forEach(a => a.removeAttribute('aria-current'));
+            if (active) active.setAttribute('aria-current', 'location');
+          }
+        });
+      }, { rootMargin: '-18% 0px -72% 0px', threshold: 0.08 });
+
+      sections.forEach(section => observer.observe(section));
+    })();
+  </script>
+</body>
+</html>
