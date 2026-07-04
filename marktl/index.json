@@ -1,7 +1,32 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-03T08:24:04.396Z",
+  "updatedAt": "2026-07-04T05:18:04.691Z",
   "items": [
+    {
+      "schemaVersion": 2,
+      "slug": "2026-07-03-신비엔텍-설비-3d설계-검토-회의록",
+      "shortId": "1ttdtqt",
+      "title": "신비엔텍 제작사(중국) 협업 설비 2D·3D 설계 검토 회의록",
+      "date": "2026-07-03",
+      "url": "https://flytothesky23.github.io/marktl-shares/marktl/s/1ttdtqt/",
+      "canonicalUrl": "https://flytothesky23.github.io/marktl-shares/marktl/2026-07-03-신비엔텍-설비-3d설계-검토-회의록/",
+      "sourcePath": "20_실행/프로젝트/2026년/지수 통합선별공장/00_타임라인/통합노트/2026-07-03_신비엔텍_설비_3D설계_검토_회의록.md",
+      "sourcePathKey": "20_실행/프로젝트/2026년/지수 통합선별공장/00_타임라인/통합노트/2026-07-03_신비엔텍_설비_3d설계_검토_회의록.md",
+      "artifactType": "interactive-explainer",
+      "excerpt": "회의 핵심 요약 중국 현지 제작사와 협업 중인 선별·이송·패킹 설비의 2D/3D 설계, 제작 가능성, 현장 설치 제약, 집진·인허가 요건을 검토한 회의이다. 핵심 결론은 3D 도면을 다음 주 월요일 우선 전달, 9월 말 프로젝트 마감 준수, 시간당 20톤 처리능력 기준 유지, 5m 이내 저고도 레이아웃",
+      "tags": [
+        "회의록",
+        "설비설계",
+        "3D도면",
+        "중국제작",
+        "선별설비",
+        "컨베이어",
+        "집진설비",
+        "인허가"
+      ],
+      "thumbnailUrl": "https://flytothesky23.github.io/marktl-shares/marktl/s/1ttdtqt/assets/2026-07-03-신비엔텍-설비-3d설계-검토-회의록-product-1783141660485.png",
+      "updatedAt": "2026-07-04T05:18:04.691Z"
+    },
     {
       "schemaVersion": 2,
       "slug": "2026-07-03-지수면-지수로708-공장증축공사-공사일보",
