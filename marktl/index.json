@@ -1,7 +1,32 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-08T08:45:43.839Z",
+  "updatedAt": "2026-07-08T12:05:16.693Z",
   "items": [
+    {
+      "schemaVersion": 2,
+      "slug": "2026-07-08-1400-psball-설비도면검토-회의록-obsidian",
+      "shortId": "1gixtn2",
+      "title": "2026-07-08 14:00 PSBall 선별·포장 설비 도면 검토 회의록",
+      "date": "2026-07-08",
+      "url": "https://flytothesky23.github.io/marktl-shares/marktl/s/1gixtn2/",
+      "canonicalUrl": "https://flytothesky23.github.io/marktl-shares/marktl/2026-07-08-1400-psball-설비도면검토-회의록-obsidian/",
+      "sourcePath": "20_실행/프로젝트/2026년/지수 통합선별공장/00_타임라인/통합노트/2026-07-08_1400_PSBall_설비도면검토_회의록_Obsidian.md",
+      "sourcePathKey": "20_실행/프로젝트/2026년/지수 통합선별공장/00_타임라인/통합노트/2026-07-08_1400_psball_설비도면검토_회의록_obsidian.md",
+      "artifactType": "interactive-explainer",
+      "excerpt": "작성 기준 본 노트는 20260708 오후 2시에 진행된 화상회의 녹취 대본을 기준으로 정리한 옵시디언용 회의록이다. 녹취상 일부 화자명과 단어가 불명확하므로, 확정된 기술 용어와 회의 취지를 기준으로 보정하였다. 특히 트롯벨, 트롯멜, 트롯매 등으로 인식된 단어는 모두 트롬멜로 정리하였다. 1. 회의 개요",
+      "tags": [
+        "회의록",
+        "설비도면",
+        "트롬멜",
+        "진동스크린",
+        "컨베이어",
+        "패킹라인",
+        "버퍼탱크",
+        "중국제작사"
+      ],
+      "thumbnailUrl": "https://flytothesky23.github.io/marktl-shares/marktl/s/1gixtn2/assets/2026-07-08-1400-psball-설비도면검토-회의록-obsidian-infographic-1783509967169.png",
+      "updatedAt": "2026-07-08T12:05:16.693Z"
+    },
     {
       "schemaVersion": 2,
       "slug": "2026-07-08-지수면-지수로708-공장증축공사-공사일보",
