@@ -1,0 +1,1112 @@
+<!doctype html>
+<html data-theme="light" lang="ko">
+<head>
+<link rel="icon" href="data:,">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-08 14:00 PSBall 선별·포장 설비 도면 검토 회의록</title>
+  <style>
+    :root {
+      --bg: #f6f5f1;
+      --paper: #fffdfa;
+      --ink: #1f2528;
+      --muted: #687174;
+      --line: #d9d6cc;
+      --line-strong: #bbb5a7;
+      --brand: #0e6b73;
+      --brand-2: #b84f2a;
+      --accent: #e0a323;
+      --ok: #2d7a47;
+      --warn: #ad6b00;
+      --danger: #a33b36;
+      --soft-brand: #e4f1f1;
+      --soft-warn: #fff0d1;
+      --soft-danger: #f8e2df;
+      --soft-ok: #e3f1e8;
+      --shadow: 0 18px 50px rgba(35, 38, 38, .10);
+      --shadow-sm: 0 8px 24px rgba(35, 38, 38, .08);
+      --radius: 8px;
+      --max: 1180px;
+      --nav: 280px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(14,107,115,.08), transparent 28rem),
+        radial-gradient(circle at 86% 12%, rgba(224,163,35,.12), transparent 22rem),
+        var(--bg);
+      line-height: 1.62;
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; }
+    button, textarea { font: inherit; }
+    button {
+      border: 1px solid var(--line-strong);
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: .58rem .78rem;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--brand); color: var(--brand); }
+    button:focus-visible, a:focus-visible, summary:focus-visible, textarea:focus-visible {
+      outline: 3px solid rgba(14,107,115,.28);
+      outline-offset: 3px;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      padding: 2rem;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(31,37,40,.04), rgba(31,37,40,.55)),
+        url("assets/2026-07-08-1400-psball-%EC%84%A4%EB%B9%84%EB%8F%84%EB%A9%B4%EA%B2%80%ED%86%A0-%ED%9A%8C%EC%9D%98%EB%A1%9D-obsidian-infographic-1783509967169.png") center / cover no-repeat;
+    }
+    .hero-inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto 3.5rem;
+      color: white;
+      text-shadow: 0 2px 18px rgba(0,0,0,.36);
+    }
+    .kicker {
+      display: inline-flex;
+      gap: .5rem;
+      align-items: center;
+      padding: .35rem .65rem;
+      border: 1px solid rgba(255,255,255,.42);
+      border-radius: 999px;
+      background: rgba(31,37,40,.28);
+      backdrop-filter: blur(10px);
+      font-size: .88rem;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 1.15rem 0 1rem;
+      max-width: 980px;
+      font-size: clamp(2.25rem, 6vw, 5.2rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+    .hero p {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(1.02rem, 2vw, 1.35rem);
+      color: rgba(255,255,255,.92);
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: var(--nav) minmax(0, 1fr);
+      gap: 1.25rem;
+      padding: 1.25rem 0 4rem;
+    }
+
+    .toc {
+      position: sticky;
+      top: 1rem;
+      align-self: start;
+      max-height: calc(100vh - 2rem);
+      overflow: auto;
+      background: rgba(255,253,250,.86);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: .9rem;
+    }
+    .toc h2 {
+      margin: 0 0 .6rem;
+      font-size: .95rem;
+    }
+    .toc a {
+      display: block;
+      text-decoration: none;
+      color: var(--muted);
+      padding: .42rem .5rem;
+      border-radius: 6px;
+      font-size: .9rem;
+      line-height: 1.35;
+    }
+    .toc a:hover, .toc a.active {
+      color: var(--brand);
+      background: var(--soft-brand);
+    }
+    .toc-tools {
+      display: grid;
+      gap: .45rem;
+      margin-top: .8rem;
+    }
+    .toc-tools button { width: 100%; font-size: .86rem; }
+
+    main { min-width: 0; }
+    section.card, .section-card {
+      background: rgba(255,253,250,.94);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1rem;
+      overflow: clip;
+    }
+    .section-head {
+      padding: 1.15rem 1.25rem;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 1rem;
+      background: linear-gradient(90deg, rgba(14,107,115,.08), rgba(224,163,35,.06));
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.8vw, 2.05rem);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+    .section-head p {
+      margin: .35rem 0 0;
+      color: var(--muted);
+      max-width: 720px;
+    }
+    .section-body { padding: 1.25rem; }
+    .collapse-btn {
+      flex: 0 0 auto;
+      white-space: nowrap;
+      font-size: .88rem;
+      background: rgba(255,255,255,.7);
+    }
+    .collapsed .section-body { display: none; }
+
+    .grid { display: grid; gap: .9rem; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .metric {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+    .metric b {
+      display: block;
+      color: var(--brand);
+      font-size: 1.6rem;
+      line-height: 1.1;
+      margin-bottom: .35rem;
+    }
+    .metric span { color: var(--muted); font-size: .92rem; }
+
+    .callout {
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--brand);
+      border-radius: var(--radius);
+      padding: .95rem 1rem;
+      background: var(--soft-brand);
+      margin: 1rem 0;
+    }
+    .callout.warn { border-left-color: var(--warn); background: var(--soft-warn); }
+    .callout.danger { border-left-color: var(--danger); background: var(--soft-danger); }
+    .callout.ok { border-left-color: var(--ok); background: var(--soft-ok); }
+    .callout strong { display: block; margin-bottom: .2rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .92rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    th, td {
+      padding: .68rem .72rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: #efede6; color: #343b3e; font-weight: 800; }
+    tr:last-child td { border-bottom: 0; }
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .25rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      padding: .18rem .48rem;
+      font-size: .78rem;
+      color: var(--muted);
+      background: rgba(255,255,255,.65);
+      white-space: nowrap;
+    }
+    .decision-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .7rem;
+      counter-reset: decision;
+    }
+    .decision {
+      counter-increment: decision;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: .9rem;
+      background: var(--paper);
+      display: grid;
+      gap: .35rem;
+    }
+    .decision::before {
+      content: "D-" counter(decision, decimal-leading-zero);
+      color: var(--brand);
+      font-weight: 900;
+      font-size: .83rem;
+    }
+    .decision strong { font-size: 1.02rem; }
+
+    details.issue {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      margin-bottom: .65rem;
+      overflow: clip;
+    }
+    details.issue summary {
+      cursor: pointer;
+      padding: .85rem 1rem;
+      font-weight: 850;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    details.issue summary::after { content: "펼치기"; color: var(--brand); font-size: .84rem; }
+    details.issue[open] summary::after { content: "접기"; }
+    details.issue .inside { padding: 0 1rem 1rem; color: var(--muted); }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(120px, 1fr));
+      gap: .55rem;
+      align-items: center;
+      overflow-x: auto;
+      padding: .2rem 0;
+    }
+    .flow-node {
+      min-height: 82px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: .75rem;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-weight: 800;
+      position: relative;
+    }
+    .flow-node:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -.48rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--brand);
+      font-weight: 900;
+      z-index: 2;
+    }
+    .flow-node.branch { background: var(--soft-warn); border-color: #e1bb70; }
+    .flow-note { color: var(--muted); font-size: .9rem; margin-top: .55rem; }
+
+    .timeline {
+      display: grid;
+      gap: .65rem;
+      border-left: 3px solid var(--line-strong);
+      margin-left: .6rem;
+      padding-left: 1rem;
+    }
+    .time-item {
+      position: relative;
+      padding: .75rem .85rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .time-item::before {
+      content: "";
+      position: absolute;
+      left: -1.42rem;
+      top: 1.05rem;
+      width: .65rem;
+      height: .65rem;
+      border-radius: 50%;
+      background: var(--brand);
+      border: 2px solid var(--bg);
+    }
+    .time-item b { color: var(--brand); display: block; }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .85rem;
+    }
+    .check-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: .9rem;
+    }
+    .check-card h3 { margin: 0 0 .6rem; font-size: 1rem; }
+    .check-card label {
+      display: flex;
+      gap: .45rem;
+      align-items: flex-start;
+      padding: .28rem 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .review-box {
+      border-top: 1px dashed var(--line-strong);
+      margin-top: 1rem;
+      padding-top: .85rem;
+      display: grid;
+      gap: .65rem;
+    }
+    .review-box h3 {
+      margin: 0;
+      font-size: .98rem;
+      color: var(--brand);
+    }
+    .prompt-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      align-items: center;
+    }
+    .prompt {
+      flex: 1 1 260px;
+      color: var(--muted);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: .6rem .7rem;
+      font-size: .9rem;
+    }
+    .copy-btn { font-size: .85rem; }
+
+    .feedback-panel {
+      background: #1f2528;
+      color: #f8f6ef;
+      border-radius: var(--radius);
+      padding: 1.2rem;
+    }
+    .feedback-panel h2 { margin: 0 0 .35rem; }
+    .feedback-panel p { color: rgba(248,246,239,.75); margin-top: 0; }
+    textarea {
+      width: 100%;
+      min-height: 180px;
+      resize: vertical;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.28);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      padding: .9rem;
+      line-height: 1.55;
+    }
+    .feedback-actions { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .75rem; }
+    .feedback-actions button { background: #fffdfa; }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 1.25rem;
+      transform: translateX(-50%) translateY(120%);
+      background: #1f2528;
+      color: white;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      padding: .7rem 1rem;
+      box-shadow: var(--shadow);
+      transition: transform .22s ease;
+      z-index: 20;
+      font-size: .92rem;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 980px) {
+      .shell { grid-template-columns: 1fr; }
+      .toc { position: relative; top: auto; max-height: none; }
+      .grid.two, .grid.three, .decision-list, .check-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 76vh; padding: 1rem; }
+      .hero-inner { margin-bottom: 2rem; }
+    }
+
+    @media (max-width: 640px) {
+      .section-head { flex-direction: column; }
+      .collapse-btn { width: 100%; }
+      th, td { padding: .6rem; }
+    }
+
+    @media print {
+      body { background: white; }
+      .toc, .collapse-btn, .review-box button, .feedback-actions, .toast { display: none !important; }
+      .shell { display: block; width: 100%; }
+      section.card { break-inside: avoid; box-shadow: none; }
+      .hero { min-height: auto; color: black; background: white; border: 0; }
+      .hero-inner { color: black; text-shadow: none; }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026-07-08 14:00 PSBall 선별·포장 설비 도면 검토 회의록">
+<meta property="og:description" content=" 작성 기준 본 노트는 20260708 오후 2시에 진행된 화상회의 녹취 대본을 기준으로 정리한 옵시디언용 회의록이다. 녹취상 일부 화자명과 단어가 불명확하므로, 확정된 기술 용어와 회의 취지를 기준으로 보정하였다. 특히 트롯벨, 트롯멜, 트롯매 등으로 인식된 단어는 모두 트롬멜로 정리하였다. 1. 회의 개요">
+<meta property="og:url" content="https://flytothesky23.github.io/marktl-shares/marktl/s/1gixtn2/">
+<meta property="og:image" content="https://flytothesky23.github.io/marktl-shares/marktl/s/1gixtn2/assets/2026-07-08-1400-psball-설비도면검토-회의록-obsidian-infographic-1783509967169.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026-07-08 14:00 PSBall 선별·포장 설비 도면 검토 회의록">
+<meta name="twitter:description" content=" 작성 기준 본 노트는 20260708 오후 2시에 진행된 화상회의 녹취 대본을 기준으로 정리한 옵시디언용 회의록이다. 녹취상 일부 화자명과 단어가 불명확하므로, 확정된 기술 용어와 회의 취지를 기준으로 보정하였다. 특히 트롯벨, 트롯멜, 트롯매 등으로 인식된 단어는 모두 트롬멜로 정리하였다. 1. 회의 개요">
+<meta name="twitter:image" content="https://flytothesky23.github.io/marktl-shares/marktl/s/1gixtn2/assets/2026-07-08-1400-psball-설비도면검토-회의록-obsidian-infographic-1783509967169.png">
+<link rel="canonical" href="https://flytothesky23.github.io/marktl-shares/marktl/s/1gixtn2/">
+
+<style data-marktl-share-home-style>
+  .marktl-share-home-button,
+  .marktl-share-home-inline {
+    z-index: 2147483000;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 36px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, .42);
+    background: rgba(255, 255, 255, .88);
+    color: #0f172a;
+    box-shadow: 0 12px 34px rgba(15, 23, 42, .16);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    font: 700 13px/1.1 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .marktl-share-home-button {
+    position: fixed;
+    top: max(14px, env(safe-area-inset-top));
+    right: max(14px, env(safe-area-inset-right));
+  }
+  .marktl-share-home-inline {
+    position: relative;
+  }
+  .marktl-share-home-button:hover,
+  .marktl-share-home-inline:hover { transform: translateY(-1px); box-shadow: 0 16px 38px rgba(15, 23, 42, .2); }
+  .marktl-share-home-button:focus-visible,
+  .marktl-share-home-inline:focus-visible { outline: 3px solid rgba(59, 130, 246, .45); outline-offset: 3px; }
+  @media (prefers-color-scheme: dark) {
+    .marktl-share-home-button {
+      background: rgba(15, 23, 42, .86);
+      color: #f8fafc;
+      border-color: rgba(148, 163, 184, .36);
+    }
+  }
+  @media print { .marktl-share-home-button, .marktl-share-home-inline { display: none !important; } }
+</style>
+</head>
+<body>
+<a class="marktl-share-home-button" data-marktl-share-home href="https://flytothesky23.github.io/marktl-shares/marktl/" rel="home">공유 홈</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="kicker">회의록 · 내부 공유 · 도면 검토</div>
+      <h1>PSBall 선별·포장 설비 도면 검토 회의록</h1>
+      <p>2026-07-08 14:00 화상회의. 최종 승인 회의가 아니라, 최종 도면 반영 전 수정 요구사항을 확정하기 위한 검토 회의다.</p>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="toc" aria-label="문서 목차">
+      <h2>검토 목차</h2>
+      <nav id="tocLinks"></nav>
+      <div class="toc-tools">
+        <button type="button" data-copy-target="execSummary">핵심 요약 복사</button>
+        <button type="button" data-copy-target="actionSummary">액션만 복사</button>
+        <button type="button" id="expandAll">전체 펼치기</button>
+        <button type="button" id="collapseAll">전체 접기</button>
+      </div>
+    </aside>
+
+    <main id="content">
+      <section class="card" id="overview" data-title="회의 개요">
+        <div class="section-head">
+          <div>
+            <h2>1. 회의 개요</h2>
+            <p>녹취 대본을 기준으로 정리했으며, 일부 불명확한 화자명과 단어는 확정된 기술 용어와 회의 취지를 기준으로 보정했다.</p>
+          </div>
+          <button class="collapse-btn" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="grid three">
+            <div class="metric"><b>2026-07-08</b><span>수요일 14:00부터 진행</span></div>
+            <div class="metric"><b>20톤/h</b><span>배치와 높이 조정 중에도 유지해야 할 처리능력</span></div>
+            <div class="metric"><b>2026-07-09 오후</b><span>중국 설계·제작 측 수정 도면 제출 예정</span></div>
+          </div>
+
+          <div class="table-wrap" style="margin-top:1rem">
+            <table>
+              <tbody>
+                <tr><th>회의방식</th><td>화상회의</td></tr>
+                <tr><th>회의주제</th><td>PSBall 선별·포장 설비 2D/3D 도면 검토 및 최종 수정 방향 협의</td></tr>
+                <tr><th>주요 참석</th><td>기술연구소 유네코, 이성림, Conference Room(smk) 참석자, 중국 설계·제작 측, 기타 참석자</td></tr>
+                <tr><th>회의 성격</th><td>최종 승인 회의가 아니라, 최종 도면 반영 전 수정 요구사항 확정 회의</td></tr>
+                <tr><th>핵심 기준</th><td>처리능력 20톤/h 유지, 설치 상한 높이 6m 이하 요청, 제품 보관공간 확보, 유지보수 접근성 확보</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout">
+            <strong>사실</strong>
+            회의록은 2026-07-08 오후 2시 화상회의 녹취 대본을 기준으로 작성되었다. “트롯벨”, “트롯멜”, “트롯매” 등으로 인식된 표현은 모두 트롬멜로 정리했다.
+          </div>
+
+          <div class="review-box">
+            <h3>검토 프롬프트</h3>
+            <div class="prompt-row">
+              <div class="prompt">회의 성격이 “승인”이 아니라 “수정 요구사항 확정”으로 충분히 명확한가?</div>
+              <button class="copy-btn" type="button" data-copy-text="회의 성격이 최종 승인인지, 수정 요구사항 확정인지 문서에서 더 명확히 구분해 주세요.">AI에 보낼 의견 복사</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="summary" data-title="핵심 결론">
+        <div class="section-head">
+          <div>
+            <h2>2. 핵심 결론</h2>
+            <p>이번 회의의 중심은 높이 과다, 패킹 라인 면적 과다, 선별 공정 분기 오류, 트롬멜 라인 배치 오류, 플랫폼 누락을 최종 도면에 반영하도록 정리하는 것이다.</p>
+          </div>
+          <button class="collapse-btn" type="button">접기</button>
+        </div>
+        <div class="section-body" id="execSummary">
+          <div class="decision-list">
+            <div class="decision"><strong>버킷 엘리베이터 제외</strong><span>향후 설계는 컨베이어 및 슈트 중심으로 재검토한다.</span></div>
+            <div class="decision"><strong>설치 상한 6m 이하 요청</strong><span>법적 제한이 아니라 유지보수성과 작업 안전성을 고려한 발주자 요청이다.</span></div>
+            <div class="decision"><strong>패킹 라인 압축</strong><span>긴 컨베이어가 제품 보관공간을 침범하지 않도록 구성한다.</span></div>
+            <div class="decision"><strong>트롬멜 라인 직선형 우선</strong><span>대각선 배치는 불가피한 경우에만 적용하고 사유를 도면에 명시한다.</span></div>
+            <div class="decision"><strong>0.6mm 이후 흐름 수정</strong><span>0.6mm 이하와 0.6~2mm 라인을 분리하고, 0.6~2mm는 1mm 선별 단계로 연결한다.</span></div>
+            <div class="decision"><strong>그리즐리 기준 30mm</strong><span>1차 그리즐리는 30mm 이상 오버사이즈 배출 기준으로 설계한다.</span></div>
+            <div class="decision"><strong>5톤 버퍼탱크 반영</strong><span>실제 5톤 저장 가능 용량과 톤백 포장 방식이 반영된 배치도가 필요하다.</span></div>
+            <div class="decision"><strong>플랫폼 전면 반영</strong><span>트롬멜, 진동스크린, 컨베이어, 패킹 설비 주변에 접근 가능한 점검 구조가 필요하다.</span></div>
+          </div>
+
+          <div class="callout ok">
+            <strong>해석</strong>
+            도면 검토의 판단 기준은 “설비가 들어가는가”보다 “운영 가능한가”에 가깝다. 높이, 보관공간, 지게차 동선, 점검 접근성, 공정 분기 정확도가 모두 최종 도면의 승인 조건으로 작동한다.
+          </div>
+
+          <div class="review-box">
+            <h3>검토 프롬프트</h3>
+            <div class="prompt-row">
+              <div class="prompt">핵심 결론 8개 중 실제 승인 조건으로 반드시 문구를 강화해야 할 항목이 있는가?</div>
+              <button class="copy-btn" type="button" data-copy-text="핵심 결론 중 승인 조건으로 강화해야 할 항목을 구분해 주세요. 특히 높이, 처리능력, 플랫폼, 0.6mm 분기 조건의 표현을 검토해 주세요.">AI에 보낼 의견 복사</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="decisions" data-title="주요 결정사항">
+        <div class="section-head">
+          <div>
+            <h2>3. 주요 결정사항</h2>
+            <p>최종 도면 반영 전 중국 설계·제작 측이 기준으로 삼아야 할 확정 또는 준확정 항목이다.</p>
+          </div>
+          <button class="collapse-btn" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>No.</th><th>결정사항</th><th>세부 내용</th></tr></thead>
+              <tbody>
+                <tr><td>D-01</td><td>버킷 엘리베이터 제외</td><td>버킷 엘리베이터는 사용하지 않고, 컨베이어·슈트 중심으로 재설계</td></tr>
+                <tr><td>D-02</td><td>설치 상한 높이 6m 이하 요청</td><td>유지보수·안전·관리 편의를 위해 발주자가 6m 이하 설치 상한을 요청</td></tr>
+                <tr><td>D-03</td><td>처리능력 20톤/h 유지</td><td>설비 높이와 배치를 줄이더라도 시간당 20톤 처리능력은 유지</td></tr>
+                <tr><td>D-04</td><td>패킹 라인 면적 최소화</td><td>긴 패킹 컨베이어로 제품 보관공간을 침범하지 않도록 재설계</td></tr>
+                <tr><td>D-05</td><td>트롬멜 라인 직선형 우선</td><td>대각선 컨베이어라인은 불가피한 경우만 적용하고, 기본은 직선형 컨베이어라인</td></tr>
+                <tr><td>D-06</td><td>0.6mm 이후 공정 흐름 수정</td><td>0.6mm 이하와 0.6~2mm 라인을 분리하고, 0.6~2mm는 1mm 선별 단계로 연결</td></tr>
+                <tr><td>D-07</td><td>그리즐리 기준 30mm</td><td>1차 그리즐리 호퍼는 30mm 이상 오버사이즈 배출 기준으로 설계</td></tr>
+                <tr><td>D-08</td><td>5톤 버퍼탱크 반영</td><td>실제 5톤 저장 가능 용량과 이에 따른 높이·폭·슈트 위치 반영</td></tr>
+                <tr><td>D-09</td><td>플랫폼 전면 반영</td><td>모든 주요 설비에 점검 플랫폼, 계단, 안전난간 반영</td></tr>
+                <tr><td>D-10</td><td>도면 2개 안 제출</td><td>패킹·배출 방식에 대해 비교 가능한 2개 대안 도면 제출</td></tr>
+                <tr><td>D-11</td><td>최종 도면 제출 예정</td><td>2026-07-09 오후 수정 도면 제출 예정</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="issues" data-title="기술 쟁점">
+        <div class="section-head">
+          <div>
+            <h2>4. 핵심 기술 쟁점</h2>
+            <p>각 쟁점은 사실, 해석, 도면 반영 요구사항을 분리해 검토한다. 필요한 항목만 펼쳐 빠르게 리뷰할 수 있다.</p>
+          </div>
+          <button class="collapse-btn" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <details class="issue" open>
+            <summary>2단 선별기 및 전체 높이</summary>
+            <div class="inside">
+              <p><b>사실:</b> 도면상 7.36m, 8.9m 수준의 높이가 언급되었고, 공장 내부 크레인 및 상부 구조물과의 간섭 가능성이 우려되었다.</p>
+              <p><b>해석:</b> 6m 이하는 법적 제한으로 확정된 값이 아니라 유지보수·안전성 기준에 따른 설치 상한 요청이다.</p>
+              <p><b>도면 요구:</b> 주요 설비 높이, 최고점, 점검 플랫폼 높이, 커버 포함 높이, 컨베이어 최고점을 구분 표시해야 한다.</p>
+            </div>
+          </details>
+
+          <details class="issue" open>
+            <summary>버킷 엘리베이터 제외</summary>
+            <div class="inside">
+              <p><b>사실:</b> 발주자 측은 버킷 엘리베이터를 사용하지 않는다고 명확히 정리했다.</p>
+              <p><b>영향:</b> 설계는 컨베이어, 슈트, 완만한 이송 라인 조합으로 재구성해야 한다.</p>
+            </div>
+          </details>
+
+          <details class="issue">
+            <summary>패킹 라인 면적 및 제품 보관공간</summary>
+            <div class="inside">
+              <p><b>사실:</b> 기존 평면도에서는 패킹 라인까지 이어지는 긴 컨베이어가 내부 면적을 크게 차지했다.</p>
+              <p><b>리스크:</b> 설비가 면적을 과도하게 점유하면 실제 공장 운영 시 제품 보관 장소가 부족해진다.</p>
+              <p><b>방향:</b> 진동스크린과 패킹 라인은 최대한 짧고 압축적으로 구성하되, 5톤 버퍼탱크와 톤백 포장 작업성은 유지한다.</p>
+            </div>
+          </details>
+
+          <details class="issue">
+            <summary>5톤 버퍼탱크 및 톤백 포장 방식</summary>
+            <div class="inside">
+              <p><b>사실:</b> 현재 도면의 버퍼탱크는 5톤 용량으로 보기 어렵다는 의견이 있었다.</p>
+              <p><b>선호:</b> 발주자 측은 수직 배출 대차 방식보다 슈트 하부에서 지게차가 자연스럽게 접근해 톤백을 인양할 수 있는 구조를 선호했다.</p>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>안</th><th>개념</th><th>장점</th><th>검토 필요</th></tr></thead>
+                  <tbody>
+                    <tr><td>A안</td><td>내부 포장 / 기존 방향 개선</td><td>기존 구조와 연계 용이</td><td>높이·작업 동선·공간 점유</td></tr>
+                    <tr><td>B안</td><td>외부 또는 전면 배출 포장</td><td>내부 공간 절감, 지게차 접근성 개선</td><td>슈트 경사, 높이 증가, 외부 작업 조건</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+
+          <details class="issue" open>
+            <summary>0.6mm 이후 선별 공정 오류</summary>
+            <div class="inside">
+              <p><b>사실:</b> 현재 도면은 0.6mm 진동스크린 이후 라인이 하나로만 표현되어 있어 공정상 오류로 지적되었다.</p>
+              <div class="flow" aria-label="0.6mm 이후 선별 흐름">
+                <div class="flow-node">2mm 트롬멜 이후 물류</div>
+                <div class="flow-node">0.6mm 진동스크린</div>
+                <div class="flow-node branch">0.6mm 이하 라인</div>
+                <div class="flow-node branch">0.6~2mm 라인</div>
+                <div class="flow-node">1mm 진동스크린</div>
+                <div class="flow-node">후속 0.2mm 또는 패킹 라인</div>
+              </div>
+              <p class="flow-note">도식은 회의록의 수정 방향을 HTML로 재구성한 것이다. 0.6mm 이하와 0.6~2mm가 분리되어야 하며, 0.6~2mm 라인은 1mm 선별 단계로 연결되어야 한다.</p>
+            </div>
+          </details>
+
+          <details class="issue">
+            <summary>트롬멜 라인 배치</summary>
+            <div class="inside">
+              <p><b>사실:</b> 중국 측은 대각선 배치가 기술적으로 반드시 필요한 구조는 아니며, 기존 평면도를 그대로 반영하면서 생긴 부분이라고 설명했다.</p>
+              <p><b>방향:</b> 기본은 직선형 컨베이어라인이다. 대각선 구조가 필요하다면 이유, 배출 높이, 공간 간섭 여부를 도면에 명시한다.</p>
+            </div>
+          </details>
+
+          <details class="issue">
+            <summary>그리즐리 호퍼 및 30mm 오버사이즈 배출</summary>
+            <div class="inside">
+              <p><b>사실:</b> 1차 그리즐리 기준은 30mm로 정리되었다. 5mm를 그리즐리 단계에서 처리하는 것은 현실적으로 어렵다는 의견이 있었다.</p>
+              <p><b>도면 요청:</b> 그리즐리 호퍼 측면도, 30mm 이상 오버사이즈 배출구 위치, 바닥 기준 높이, 벽체 관통 또는 개구부 위치, 외부 배출 컨베이어 방향.</p>
+            </div>
+          </details>
+
+          <details class="issue">
+            <summary>플랫폼·점검로·안전난간 누락</summary>
+            <div class="inside">
+              <p><b>사실:</b> 기존 도면에는 설비만 단순 배치되어 있고 플랫폼이 빠져 있어 실제 배치도로 보기 어렵다는 지적이 있었다.</p>
+              <p><b>반영 필요:</b> 트롬멜 점검 플랫폼, 진동스크린 점검 플랫폼, 컨베이어 점검로, 계단, 안전난간, 모터·베어링·커버 점검 위치, 집진 후드 점검 공간, 톤백 포장 작업자 동선, 지게차 이동 동선.</p>
+            </div>
+          </details>
+
+          <details class="issue">
+            <summary>전기 패널·운전실·유틸리티</summary>
+            <div class="inside">
+              <p><b>사실:</b> 전기 패널 수량, 필요 면적, 오퍼레이터 공간, 로컬 패널 위치, 유틸리티 조건 산정이 필요하다.</p>
+              <p><b>도면 반영:</b> 메인 전기 패널, 설비별 로컬 패널, 운전실 또는 모니터링 공간, 필요 전력량, 필요 공기량, 케이블·배관 경로, 비상정지 및 수동 조작 위치.</p>
+            </div>
+          </details>
+
+          <details class="issue">
+            <summary>트롬멜 커버 및 집진 연계</summary>
+            <div class="inside">
+              <p><b>사실:</b> 회의 말미에 트롬멜 스크린 위 커버가 있는 것으로 확인되었다.</p>
+              <p><b>확인 필요:</b> 트롬멜 커버, 진동스크린 커버, 집진 후드, 플랫폼, 커버 개폐 동선 간섭 여부를 함께 확인해야 한다.</p>
+            </div>
+          </details>
+
+          <div class="review-box">
+            <h3>검토 프롬프트</h3>
+            <div class="prompt-row">
+              <div class="prompt">각 쟁점에서 “도면에 반드시 표기되어야 할 값”이 빠지지 않았는가?</div>
+              <button class="copy-btn" type="button" data-copy-text="기술 쟁점별로 도면에 반드시 표기되어야 할 값이 누락되었는지 검토해 주세요. 높이, 배출구 위치, 플랫폼, 유틸리티, 공정 분기 값을 중심으로 봐 주세요.">AI에 보낼 의견 복사</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="timeline" data-title="회의 타임라인">
+        <div class="section-head">
+          <div>
+            <h2>5. 회의 타임라인</h2>
+            <p>녹취 흐름 기준의 주요 논의 전개다. 상세 재검토 시 해당 시간대를 기준으로 원문을 대조한다.</p>
+          </div>
+          <button class="collapse-btn" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="timeline">
+            <div class="time-item"><b>00:00~04:50</b> 화상회의 연결, 도면 화면 공유, 대각선/직선형 컨베이어라인 차이 질문, 0.6mm 이후 흐름 오류 최초 지적</div>
+            <div class="time-item"><b>04:55~13:59</b> 2단 선별기 구성, 패킹 라인 제외 시 높이 절감 가능성, 기존 2단 설계 의도 설명</div>
+            <div class="time-item"><b>14:13~21:09</b> 첫 번째 진동스크린 높이, 패킹 라인 하부 배치 가능성, 제품 보관공간 부족 우려 논의</div>
+            <div class="time-item"><b>21:09~35:01</b> 6m 수준 배치 가능성, 수평 컨베이어 vs 슈트 방식, 버킷 엘리베이터 제외, 20톤/h 처리능력 유지 조건 확인</div>
+            <div class="time-item"><b>35:01~43:18</b> 대각선 배치 원인, 패킹부 수직 배출 방식 수정 요구, 5톤 버퍼탱크, 외부/전면 포장 방식 논의</div>
+            <div class="time-item"><b>43:18~55:54</b> 0.6mm 이후 선별 분기 오류 확인, 0.6~2mm 라인의 1mm 스크린 연결 필요성 확정, 플랫폼 누락 지적</div>
+            <div class="time-item"><b>56:01~1:09:23</b> 트롬멜 라인 직선형 배치, 그리즐리 30mm 기준, 오버사이즈 배출구 높이, 전기 패널과 유틸리티 산정 요청</div>
+            <div class="time-item"><b>1:09:23~종료</b> 최종 리마인드, 5톤 버퍼탱크 사진 참고, 트롬멜 커버 확인, 두 가지 제안 도면 제출 예정, 회의 종료</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="actions" data-title="액션 아이템">
+        <div class="section-head">
+          <div>
+            <h2>6. 액션 아이템</h2>
+            <p>내부 공유 목적상 담당, 산출물, 기한을 중심으로 바로 추적 가능하게 정리했다.</p>
+          </div>
+          <button class="collapse-btn" type="button">접기</button>
+        </div>
+        <div class="section-body" id="actionSummary">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>No.</th><th>담당</th><th>액션 아이템</th><th>산출물</th><th>기한/시점</th><th>우선도</th></tr></thead>
+              <tbody>
+                <tr><td>A-01</td><td>중국 설계·제작 측</td><td>버킷 엘리베이터를 제외한 설비 배치로 수정</td><td>수정 평면도·측면도</td><td>2026-07-09 오후</td><td>높음</td></tr>
+                <tr><td>A-02</td><td>중국 설계·제작 측</td><td>설치 상한 6m 이하 요청을 기준으로 높이 재검토</td><td>장비별 높이표, 최고점 표시</td><td>2026-07-09 오후</td><td>높음</td></tr>
+                <tr><td>A-03</td><td>중국 설계·제작 측</td><td>패킹 라인 면적을 줄인 2개 대안 도면 작성</td><td>A/B 대안 비교 도면</td><td>2026-07-09 오후</td><td>높음</td></tr>
+                <tr><td>A-04</td><td>중국 설계·제작 측</td><td>5톤 버퍼탱크 실제 용량 반영</td><td>버퍼탱크 치수, 용량 계산</td><td>2026-07-09 오후</td><td>높음</td></tr>
+                <tr><td>A-05</td><td>중국 설계·제작 측</td><td>0.6mm 이후 선별 흐름 오류 수정</td><td>수정 공정도, 배출 라인도</td><td>2026-07-09 오후</td><td>높음</td></tr>
+                <tr><td>A-06</td><td>중국 설계·제작 측</td><td>트롬멜 라인을 직선형 컨베이어라인 기준으로 재검토</td><td>직선형 배치안, 불가피한 대각선 사유</td><td>2026-07-09 오후</td><td>높음</td></tr>
+                <tr><td>A-07</td><td>중국 설계·제작 측</td><td>그리즐리 30mm 오버사이즈 배출구 높이 표시</td><td>그리즐리 측면도, 배출구 높이</td><td>2026-07-09 오후</td><td>높음</td></tr>
+                <tr><td>A-08</td><td>중국 설계·제작 측</td><td>모든 설비에 플랫폼·계단·안전난간 반영</td><td>유지보수 플랫폼 포함 배치도</td><td>2026-07-09 오후</td><td>높음</td></tr>
+                <tr><td>A-09</td><td>중국 설계·제작 측</td><td>전기 패널, 로컬 패널, 운전실 위치 및 면적 산정</td><td>전기·제어 배치도</td><td>후속 도면</td><td>중간</td></tr>
+                <tr><td>A-10</td><td>중국 설계·제작 측</td><td>필요 유틸리티 산정</td><td>전기, 공기 등 유틸리티 리스트</td><td>후속 도면</td><td>중간</td></tr>
+                <tr><td>A-11</td><td>발주자/기술연구소</td><td>수정 도면 수령 후 2개 대안 비교 검토</td><td>선택안 및 코멘트</td><td>도면 수령 후</td><td>높음</td></tr>
+                <tr><td>A-12</td><td>발주자/현장 측</td><td>벽체 개구부, 외부 배출 컨베이어 위치 검토</td><td>현장 반영 가능 위치</td><td>도면 수령 후</td><td>중간</td></tr>
+                <tr><td>A-13</td><td>발주자/운영 검토팀</td><td>제품 보관공간 확보 여부 검토</td><td>배치 적정성 검토 의견</td><td>도면 수령 후</td><td>높음</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="risks" data-title="미해결 이슈와 리스크">
+        <div class="section-head">
+          <div>
+            <h2>7. 미해결 이슈 및 리스크</h2>
+            <p>아래 항목은 최종 도면 수령 후 반드시 재검토해야 한다. 현재 문서의 해석은 도면 확정 전 검토 기준이다.</p>
+          </div>
+          <button class="collapse-btn" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>이슈</th><th>현재 상태</th><th>리스크</th><th>확인 방법</th></tr></thead>
+              <tbody>
+                <tr><td>전체 최고 높이</td><td>6m 이하 요청, 실제 구현 가능성 미확정</td><td>크레인·상부 구조물 간섭, 유지보수 곤란</td><td>장비별 최고점 표기</td></tr>
+                <tr><td>패킹 라인 방식</td><td>2개 안 제출 예정</td><td>내부 면적 부족 또는 높이 증가</td><td>A/B 대안 비교</td></tr>
+                <tr><td>5톤 버퍼탱크</td><td>기존 도면 미반영 가능성</td><td>실제 저장량 부족, 높이 증가</td><td>용량 계산서 확인</td></tr>
+                <tr><td>0.6mm 이후 공정</td><td>현재 도면 오류 확인</td><td>선별 공정 불량, 제품 규격 오류</td><td>수정 공정도 확인</td></tr>
+                <tr><td>트롬멜 라인 배치</td><td>직선형 우선 검토</td><td>대각선 배치 시 면적 낭비</td><td>평면도 비교</td></tr>
+                <tr><td>그리즐리 배출구 높이</td><td>별도 표시 필요</td><td>벽체 개구부 위치 오류</td><td>측면도 확인</td></tr>
+                <tr><td>플랫폼 누락</td><td>현재 도면 미흡</td><td>점검·정비 불가, 안전 리스크</td><td>플랫폼 포함 도면 확인</td></tr>
+                <tr><td>전기·제어 공간</td><td>산정 필요</td><td>패널 설치 공간 부족</td><td>전기 패널 배치도 확인</td></tr>
+                <tr><td>유틸리티 조건</td><td>산정 필요</td><td>설치 후 전기·공기 부족</td><td>유틸리티 리스트 확인</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="review-box">
+            <h3>검토 프롬프트</h3>
+            <div class="prompt-row">
+              <div class="prompt">리스크별 확인 방법이 도면 리뷰 회의에서 바로 질문 가능한 형태인가?</div>
+              <button class="copy-btn" type="button" data-copy-text="미해결 이슈와 리스크 표를 다음 도면 리뷰 회의에서 바로 질문할 수 있는 체크 질문 형태로 바꿔 주세요.">AI에 보낼 의견 복사</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="checklist" data-title="최종 도면 체크리스트">
+        <div class="section-head">
+          <div>
+            <h2>8. 최종 도면 제출 전 체크리스트</h2>
+            <p>도면 구성, 공정 검증, 운영성 검증으로 나눠 수령 즉시 확인한다. 체크 상태는 브라우저 화면에서만 유지된다.</p>
+          </div>
+          <button class="collapse-btn" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="check-grid">
+            <div class="check-card">
+              <h3>도면 구성</h3>
+              <label><input type="checkbox"> 전체 평면도</label>
+              <label><input type="checkbox"> 주요 장비 측면도</label>
+              <label><input type="checkbox"> 장비별 높이표와 최고점 표시</label>
+              <label><input type="checkbox"> 트롬멜 커버 포함 표시</label>
+              <label><input type="checkbox"> 플랫폼·계단·안전난간 표시</label>
+              <label><input type="checkbox"> 패킹 라인 A/B 대안 도면</label>
+              <label><input type="checkbox"> 그리즐리 오버사이즈 배출구 측면도</label>
+              <label><input type="checkbox"> 전기 패널 및 유틸리티 목록</label>
+            </div>
+            <div class="check-card">
+              <h3>공정 검증</h3>
+              <label><input type="checkbox"> 1차 그리즐리 30mm 기준 반영</label>
+              <label><input type="checkbox"> 트롬멜 1차·2차 흐름 반영</label>
+              <label><input type="checkbox"> 0.6mm 진동스크린 이후 라인 분리</label>
+              <label><input type="checkbox"> 0.6mm 이하 배출 라인 반영</label>
+              <label><input type="checkbox"> 0.6~2mm 라인의 1mm 스크린 연결</label>
+              <label><input type="checkbox"> 0.2mm 스크린의 실제 역할 확인</label>
+              <label><input type="checkbox"> 패킹 라인별 톤백 포장 위치 확인</label>
+              <label><input type="checkbox"> 버퍼탱크 5톤 용량 반영</label>
+            </div>
+            <div class="check-card">
+              <h3>운영성 검증</h3>
+              <label><input type="checkbox"> 제품 보관공간 침범 여부 확인</label>
+              <label><input type="checkbox"> 지게차 접근 가능 여부 확인</label>
+              <label><input type="checkbox"> 톤백 인양 동선 확인</label>
+              <label><input type="checkbox"> 작업자 점검 동선 확인</label>
+              <label><input type="checkbox"> 플랫폼 접근성 확인</label>
+              <label><input type="checkbox"> 모터·베어링·커버 유지보수 가능 여부</label>
+              <label><input type="checkbox"> 집진 후드·덕트 점검 가능 여부</label>
+              <label><input type="checkbox"> 크레인·상부 구조물 간섭 여부</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="next" data-title="다음 회의 아젠다">
+        <div class="section-head">
+          <div>
+            <h2>9. 다음 회의 아젠다</h2>
+            <p>수정 도면 수령 후에는 비교·확정 중심으로 회의를 운영한다.</p>
+          </div>
+          <button class="collapse-btn" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="grid two">
+            <div class="callout"><strong>도면 선택</strong>중국 측 수정 도면 2개 안 비교, 패킹 라인 A/B안 중 최종안 선택, 트롬멜 라인 직선형 배치 가능 여부 확인</div>
+            <div class="callout warn"><strong>설치 조건</strong>설치 상한 6m 이하 요청 반영 여부, 각 설비별 최고점 및 크레인 간섭 여부, 벽체 개구부 및 외부 배출 컨베이어 위치 확정</div>
+            <div class="callout ok"><strong>공정 확인</strong>5톤 버퍼탱크 용량 및 톤백 작업성, 0.6mm 이후 선별 흐름 수정 여부, 그리즐리 30mm 오버사이즈 배출구 높이 확정</div>
+            <div class="callout"><strong>운영 확인</strong>플랫폼·계단·안전난간 포함 여부, 전기 패널, 로컬 패널, 운전실, 유틸리티 조건 확인</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="terms" data-title="용어 정리">
+        <div class="section-head">
+          <div>
+            <h2>10. 용어 정리 및 녹취 보정 기준</h2>
+            <p>원문 녹취의 오인식 표현을 회의록에서 사용하는 표준 표현으로 통일했다.</p>
+          </div>
+          <button class="collapse-btn" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>녹취 인식 표현</th><th>회의록 정리 표현</th><th>비고</th></tr></thead>
+              <tbody>
+                <tr><td>트롯벨, 트롯멜, 트롯매, 트롯맨</td><td>트롬멜</td><td>전체 통일</td></tr>
+                <tr><td>폐쇄기, 전송대, 컴비어, 컴퓨터</td><td>컨베이어 또는 컨베이어라인</td><td>문맥상 이송 설비</td></tr>
+                <tr><td>대각선 폐쇄기</td><td>대각선 컨베이어라인</td><td>사용자 정정 기준 반영</td></tr>
+                <tr><td>직선 폐쇄기</td><td>직선형 컨베이어라인</td><td>사용자 정정 기준 반영</td></tr>
+                <tr><td>톰백</td><td>톤백</td><td>포장 단위</td></tr>
+                <tr><td>그리즐린, 그릴스테리</td><td>그리즐리</td><td>1차 선별 호퍼</td></tr>
+                <tr><td>0DOT6</td><td>0.6mm</td><td>수치 표기 보정</td></tr>
+                <tr><td>7DOT36</td><td>7.36m</td><td>수치 표기 보정</td></tr>
+                <tr><td>8DOT9</td><td>8.9m</td><td>수치 표기 보정</td></tr>
+                <tr><td>버켓, 버큐</td><td>버킷 엘리베이터</td><td>본 회의에서 사용 제외</td></tr>
+                <tr><td>진동쇠</td><td>진동스크린</td><td>선별 설비</td></tr>
+                <tr><td>포밍</td><td>포장 또는 패킹</td><td>문맥에 따라 정리</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="conclusion" data-title="한 줄 결론">
+        <div class="section-head">
+          <div>
+            <h2>11. 결정 준비용 결론</h2>
+            <p>다음 도면 리뷰에서 바로 판단해야 할 최종 기준이다.</p>
+          </div>
+          <button class="collapse-btn" type="button">접기</button>
+        </div>
+        <div class="section-body">
+          <div class="callout ok">
+            <strong>한 줄 결론</strong>
+            버킷 엘리베이터를 제외하고, 설치 상한 6m 이하 요청과 20톤/h 처리능력을 동시에 만족하도록 트롬멜·진동스크린·패킹 라인을 압축 재설계하며, 중국 측은 2026-07-09 오후까지 수정 도면을 제출한다.
+          </div>
+          <div class="callout danger">
+            <strong>결정 전 필수 확인</strong>
+            최종 도면은 높이표, 0.6mm 이후 분기, 5톤 버퍼탱크 용량, 그리즐리 30mm 배출구 높이, 플랫폼·계단·난간, 지게차 및 제품 보관공간을 함께 충족해야 한다.
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="feedback" data-title="검토 의견 작성">
+        <div class="feedback-panel">
+          <h2>검토 의견 작성</h2>
+          <p>내부 리뷰 후 AI에 다시 전달할 의견을 여기에 모아 복사한다. 내용은 이 브라우저 안에서만 작성된다.</p>
+          <textarea id="feedbackText">검토 의견:
+- 사실과 해석이 더 분리되어야 할 부분:
+- 다음 도면에서 반드시 확인할 항목:
+- 빠진 담당자/기한/산출물:
+- 회의록 표현을 수정할 문장:
+- 추가로 만들면 좋은 비교표 또는 체크리스트:</textarea>
+          <div class="feedback-actions">
+            <button type="button" id="copyFeedback">검토 의견 복사</button>
+            <button type="button" id="insertPrompt">검토 프롬프트 삽입</button>
+            <button type="button" id="clearFeedback">초기화</button>
+          </div>
+        </div>
+      </section>
+    <section class="marktl-reader-feedback" aria-label="Reader feedback">
+<style>
+.marktl-reader-feedback { margin: 40px auto 0; padding: 0; }
+.marktl-reader-feedback h2 { margin: 0 0 8px; font: 800 22px/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback p { margin: 0 0 14px; color: #526173; font: 500 14px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marktl-reader-feedback .giscus, .marktl-reader-feedback .giscus-frame { width: 100%; }
+</style>
+<h2>Reader feedback</h2>
+<p>Leave a public GitHub comment or reaction below.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="flytothesky23/marktl-shares"
+        data-repo-id="R_kgDOSbdK8Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOSbdK8c4C84EC"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ko"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+</main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">복사했습니다</div>
+
+  <script>
+    const sections = [...document.querySelectorAll("main [data-title]")];
+    const toc = document.getElementById("tocLinks");
+    const toast = document.getElementById("toast");
+
+    sections.forEach((section) => {
+      const a = document.createElement("a");
+      a.href = "#" + section.id;
+      a.textContent = section.dataset.title;
+      toc.appendChild(a);
+    });
+
+    const links = [...toc.querySelectorAll("a")];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id));
+      });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
+    sections.forEach((section) => observer.observe(section));
+
+    document.querySelectorAll(".collapse-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".card");
+        card.classList.toggle("collapsed");
+        button.textContent = card.classList.contains("collapsed") ? "펼치기" : "접기";
+      });
+    });
+
+    document.getElementById("expandAll").addEventListener("click", () => {
+      document.querySelectorAll(".card").forEach((card) => {
+        card.classList.remove("collapsed");
+        const btn = card.querySelector(".collapse-btn");
+        if (btn) btn.textContent = "접기";
+      });
+    });
+
+    document.getElementById("collapseAll").addEventListener("click", () => {
+      document.querySelectorAll(".card").forEach((card) => {
+        card.classList.add("collapsed");
+        const btn = card.querySelector(".collapse-btn");
+        if (btn) btn.textContent = "펼치기";
+      });
+    });
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.setTimeout(() => toast.classList.remove("show"), 1600);
+    }
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text.trim());
+        showToast("복사했습니다");
+      } catch {
+        const area = document.createElement("textarea");
+        area.value = text.trim();
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+        showToast("복사했습니다");
+      }
+    }
+
+    document.querySelectorAll("[data-copy-target]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        copyText(target ? target.innerText : "");
+      });
+    });
+
+    document.querySelectorAll("[data-copy-text]").forEach((button) => {
+      button.addEventListener("click", () => copyText(button.dataset.copyText));
+    });
+
+    document.getElementById("copyFeedback").addEventListener("click", () => {
+      copyText(document.getElementById("feedbackText").value);
+    });
+
+    document.getElementById("insertPrompt").addEventListener("click", () => {
+      const feedback = document.getElementById("feedbackText");
+      const prompt = "\n\nAI 요청:\n이 회의록을 내부 공유용 리뷰 문서로 다시 다듬어 주세요. 사실과 해석을 분리하고, 다음 도면 검토에서 바로 사용할 질문과 액션 아이템을 더 명확히 정리해 주세요.";
+      feedback.value = feedback.value.trim() + prompt;
+      feedback.focus();
+    });
+
+    document.getElementById("clearFeedback").addEventListener("click", () => {
+      document.getElementById("feedbackText").value = "검토 의견:\n- 사실과 해석이 더 분리되어야 할 부분:\n- 다음 도면에서 반드시 확인할 항목:\n- 빠진 담당자/기한/산출물:\n- 회의록 표현을 수정할 문장:\n- 추가로 만들면 좋은 비교표 또는 체크리스트:";
+    });
+  </script>
+</body>
+</html>
